@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Categories - 分类 - Fermi</title>
+    <link>https://jiangbo.github.io/fermi/categories/</link>
+    <description>Categories - 分类 - Fermi</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>3044483214@qq.com (jiangbo)</managingEditor>
+      <webMaster>3044483214@qq.com (jiangbo)</webMaster><lastBuildDate>Fri, 15 Sep 2023 11:51:41 &#43;0800</lastBuildDate><atom:link href="https://jiangbo.github.io/fermi/categories/" rel="self" type="application/rss+xml" /><item>
+  <title>Boke</title>
+  <link>https://jiangbo.github.io/fermi/categories/boke/</link>
+  <pubDate>Fri, 15 Sep 2023 11:51:41 &#43;0800</pubDate>
+  <author>jiangbo</author>
+  <guid>https://jiangbo.github.io/fermi/categories/boke/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Documentation</title>
+  <link>https://jiangbo.github.io/fermi/categories/documentation/</link>
+  <pubDate>Sat, 28 May 2022 11:51:41 &#43;0800</pubDate>
+  <author>jiangbo</author>
+  <guid>https://jiangbo.github.io/fermi/categories/documentation/</guid>
+  <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

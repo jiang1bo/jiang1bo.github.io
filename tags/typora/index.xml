@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Typora - 标签 - Fermi</title>
+    <link>https://jiangbo.github.io/fermi/tags/typora/</link>
+    <description>Typora - 标签 - Fermi</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>3044483214@qq.com (jiangbo)</managingEditor>
+      <webMaster>3044483214@qq.com (jiangbo)</webMaster><lastBuildDate>Fri, 15 Sep 2023 11:51:41 &#43;0800</lastBuildDate><atom:link href="https://jiangbo.github.io/fermi/tags/typora/" rel="self" type="application/rss+xml" /><item>
+  <title>Typora Gitee图片上传</title>
+  <link>https://jiangbo.github.io/fermi/posts/typora-gitee%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/</link>
+  <pubDate>Fri, 15 Sep 2023 11:51:41 &#43;0800</pubDate>
+  <author>jiangbo</author>
+  <guid>https://jiangbo.github.io/fermi/posts/typora-gitee%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/</guid>
+  <description><![CDATA[Typora Gitee图片上传]]></description>
+</item>
+</channel>
+</rss>

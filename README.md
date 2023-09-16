@@ -1,2 +1,2 @@
-# jiang1bo.github.io
-个人博客
+# fermi
+一个简洁高效的个人博客。
