@@ -11,5 +11,5 @@
 ---
 
 > 作者: [jiangbo](https://gitee.com/jiang-zhao-153)  
-> URL: https://jiangbo.github.io/fermi/posts/first/  
+> URL: https://jiang-zhao-153.gitee.io/fermi/posts/first/  
 

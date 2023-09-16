@@ -41,5 +41,5 @@ https://github.com/Molunerfinn/picgo/releases
 ---
 
 > 作者: [jiangbo](https://gitee.com/jiang-zhao-153)  
-> URL: https://jiangbo.github.io/fermi/posts/typora-gitee%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/  
+> URL: https://jiang-zhao-153.gitee.io/fermi/posts/typora-gitee%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/  
 

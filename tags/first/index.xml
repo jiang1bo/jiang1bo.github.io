@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>first - 标签 - Fermi</title>
-    <link>https://jiangbo.github.io/fermi/tags/first/</link>
+    <link>https://jiang-zhao-153.gitee.io/fermi/tags/first/</link>
     <description>first - 标签 - Fermi</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>3044483214@qq.com (jiangbo)</managingEditor>
-      <webMaster>3044483214@qq.com (jiangbo)</webMaster><lastBuildDate>Sat, 28 May 2022 11:51:41 &#43;0800</lastBuildDate><atom:link href="https://jiangbo.github.io/fermi/tags/first/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>3044483214@qq.com (jiangbo)</webMaster><lastBuildDate>Sat, 28 May 2022 11:51:41 &#43;0800</lastBuildDate><atom:link href="https://jiang-zhao-153.gitee.io/fermi/tags/first/" rel="self" type="application/rss+xml" /><item>
   <title>第一篇博客</title>
-  <link>https://jiangbo.github.io/fermi/posts/first/</link>
+  <link>https://jiang-zhao-153.gitee.io/fermi/posts/first/</link>
   <pubDate>Sat, 28 May 2022 11:51:41 &#43;0800</pubDate>
   <author>jiangbo</author>
-  <guid>https://jiangbo.github.io/fermi/posts/first/</guid>
+  <guid>https://jiang-zhao-153.gitee.io/fermi/posts/first/</guid>
   <description><![CDATA[第一篇博客。]]></description>
 </item>
 </channel>
