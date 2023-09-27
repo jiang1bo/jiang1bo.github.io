@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结 - Fermi</title><meta name="author" content="jiangbo">
+<meta name="author-link" content="">
+<meta name="description" content="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结。" />
+
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/fermi/static/browserconfig.xml">
+<meta name="theme-color" content="#ffffff"><meta name="keywords" content='Fixit，Giteepage' /><meta itemprop="name" content="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结">
+<meta itemprop="description" content="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结。"><meta itemprop="datePublished" content="2022-05-05T11:51:41+08:00" />
+<meta itemprop="dateModified" content="2022-05-05T11:51:41+08:00" />
+<meta itemprop="wordCount" content="1041">
+<meta itemprop="keywords" content="Fixit，Giteepage," /><meta property="og:title" content="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结" />
+<meta property="og:description" content="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jiang-zhao-153.gitee.io/fermi/posts/%E5%9F%BA%E4%BA%8Ehugo&#43;fixit&#43;giteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-05T11:51:41+08:00" />
+<meta property="article:modified_time" content="2022-05-05T11:51:41+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结"/>
+<meta name="twitter:description" content="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结。"/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="apple-touch-icon" sizes="180x180" href="/fermi/static/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/fermi/static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/fermi/static/favicon-16x16.png">
+<link rel="manifest" href="/fermi/static/site.webmanifest">
+<link rel="mask-icon" href="/fermi/static/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/fermi/static/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://jiang-zhao-153.gitee.io/fermi/posts/%E5%9F%BA%E4%BA%8Ehugo&#43;fixit&#43;giteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/" /><link rel="prev" href="https://jiang-zhao-153.gitee.io/fermi/posts/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99%E6%80%BB%E7%BB%93/" /><link rel="next" href="https://jiang-zhao-153.gitee.io/fermi/posts/%E4%B8%80%E4%BA%9B%E6%9C%89%E8%B6%A3%E7%9A%84%E6%96%87%E5%AD%97/" /><link rel="stylesheet" href="/fermi/css/style.min.css"><link rel="stylesheet" href="/fermi/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/fermi/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "基于hugo+Fixit+Giteepage搭建个人博客总结",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/jiang-zhao-153.gitee.io\/fermi\/posts\/%E5%9F%BA%E4%BA%8Ehugo\u002bfixit\u002bgiteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93\/"
+    },"genre": "posts","keywords": "Fixit，Giteepage","wordcount":  1041 ,
+    "url": "https:\/\/jiang-zhao-153.gitee.io\/fermi\/posts\/%E5%9F%BA%E4%BA%8Ehugo\u002bfixit\u002bgiteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93\/","datePublished": "2022-05-05T11:51:41+08:00","dateModified": "2022-05-05T11:51:41+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "jiangbo"
+      },"description": "基于hugo+Fixit+Giteepage搭建个人博客总结。"
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/fermi/" title="Fermi"><img loading="lazy" src="/fermi/static/android-chrome-512x512.png" srcset="/fermi/static/android-chrome-512x512.png, /fermi/static/android-chrome-512x512.png 1.5x, /fermi/static/android-chrome-512x512.png 2x" sizes="auto" data-title="Fermi" data-alt="Fermi" class="logo" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span class="header-title-text">Fermi的博客</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/fermi/posts/"
+                
+                
+              >文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/fermi/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/fermi/tags/"
+                
+                
+              >标签</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/fermi/" title="Fermi"><img loading="lazy" src="/fermi/static/android-chrome-512x512.png" srcset="/fermi/static/android-chrome-512x512.png, /fermi/static/android-chrome-512x512.png 1.5x, /fermi/static/android-chrome-512x512.png 2x" sizes="auto" data-title="/fermi/static/android-chrome-512x512.png" data-alt="/fermi/static/android-chrome-512x512.png" class="logo" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span class="header-title-text">Fermi的博客</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/fermi/posts/"
+                  
+                  
+                >文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/fermi/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/fermi/tags/"
+                  
+                  
+                >标签</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://gitee.com/jiang-zhao-153" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/fermi/static/favicon-16x16.png" srcset="/fermi/static/favicon-16x16.png, /fermi/static/favicon-16x16.png 1.5x, /fermi/static/favicon-16x16.png 2x" sizes="auto" data-title="jiangbo" data-alt="jiangbo" class="avatar" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;jiangbo</a></span>
+          <span class="post-category">收录于 <a href="/fermi/categories/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 个人建站</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2022-05-05 11:51:41"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2022-05-05">2022-05-05</time></span>&nbsp;<span title="更新于 2022-05-05 11:51:41"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2022-05-05">2022-05-05</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1041 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#个人博客地址fermi-giteeiohttpsjiang-zhao-153giteeiofermi">个人博客地址：<a href="https://jiang-zhao-153.gitee.io/fermi/">Fermi (gitee.io)</a></a></li>
+    <li><a href="#环境要求"><strong>环境要求：</strong></a></li>
+    <li><a href="#使用hugo搭建个人网站"><strong>使用hugo搭建个人网站</strong></a></li>
+    <li><a href="#全文加密"><strong>全文加密</strong></a></li>
+    <li><a href="#md模板"><strong>md模板</strong></a></li>
+    <li><a href="#gitee-page-部署"><strong>Gitee page</strong> <strong>部署</strong></a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="ending"><h2 id="个人博客地址fermi-giteeiohttpsjiang-zhao-153giteeiofermi">个人博客地址：<a href="https://jiang-zhao-153.gitee.io/fermi/"target="_blank" rel="external nofollow noopener noreferrer">Fermi (gitee.io)</a></h2>
+<p><img loading="lazy" src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205155303.png" srcset="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205155303.png, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205155303.png 1.5x, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205155303.png 2x" sizes="auto" data-title="image-20230926205155303" data-alt="image-20230926205155303" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="环境要求"><strong>环境要求：</strong></h2>
+<p><strong>go语言环境</strong></p>
+<p><a href="https://golang.google.cn/dl/"target="_blank" rel="external nofollow noopener noreferrer">All releases - The Go Programming Language (google.cn)</a></p>
+<p><img loading="lazy" src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205433450.png" srcset="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205433450.png, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205433450.png 1.5x, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205433450.png 2x" sizes="auto" data-title="image-20230926205433450" data-alt="image-20230926205433450" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><strong>hugo框架</strong></p>
+<p><a href="https://github.com/gohugoio/hugo/releases/tag/v0.118.2"target="_blank" rel="external nofollow noopener noreferrer">gohugoio/hugo: The world’s fastest framework for building websites. (github.com)</a></p>
+<p><img loading="lazy" src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205504460.png" srcset="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205504460.png, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205504460.png 1.5x, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205504460.png 2x" sizes="auto" data-title="image-20230926205504460" data-alt="image-20230926205504460" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><strong>为hugo添加环境变量，查看hugo版本</strong></p>
+<p><img loading="lazy" src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926210851119.png" srcset="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926210851119.png, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926210851119.png 1.5x, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926210851119.png 2x" sizes="auto" data-title="image-20230926210851119" data-alt="image-20230926210851119" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205554033.png" srcset="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205554033.png, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205554033.png 1.5x, https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230926205554033.png 2x" sizes="auto" data-title="image-20230926205554033" data-alt="image-20230926205554033" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="使用hugo搭建个人网站"><strong>使用hugo搭建个人网站</strong></h2>
+<p>建站步骤：<a href="https://fixit.lruihao.cn/zh-cn/"target="_blank" rel="external nofollow noopener noreferrer">FixIt (lruihao.cn)</a></p>
+<p>Fixit_gitee主题：<a href="https://gitee.com/lruihao/FixIt"target="_blank" rel="external nofollow noopener noreferrer">FixIt: 🔧 A clean, elegant but advanced blog theme for Hugo 一个简洁、优雅且高效的 Hugo 主题 (gitee.com)</a></p>
+<p><strong>创建网站</strong></p>
+<p><strong>1.Hugo 提供了一个 new命令来创建一个新的网站：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">1</th>
+<th style="text-align:left">hugo new site  my_website</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>2</strong></td>
+<td style="text-align:left"><strong>cd my_website</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2.将</strong> <a href="https://github.com/hugo-fixit/FixIt"target="_blank" rel="external nofollow noopener noreferrer"><strong>FixIt</strong></a> <strong>主题克隆到</strong> <strong>themes</strong> <strong>目录中，将其作为</strong> <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules"target="_blank" rel="external nofollow noopener noreferrer"><strong>Git 子模块</strong></a> <strong>添加到您的项目中。</strong></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th style="text-align:left">git init</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2</strong></td>
+<td style="text-align:left"><strong>git submodule add <a href="https://github.com/hugo-fixit/FixIt.git"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/hugo-fixit/FixIt.git</a> themes/FixIt</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>3.以下是创建第一篇文章的方法：</strong></p>
+<table>
+<thead>
+<tr>
+<th>hugo new posts/first_post.md</th>
+</tr>
+</thead>
+</table>
+<p><strong>默认情况下，所有文章和页面均作为草稿创建。如果想要渲染这些页面，请从元数据中删除属性 draft: true设置属性 draft: false 或者在以下步骤中为hugo命令添加    -D   &ndash;buildDrafts参数。</strong>**</p>
+<p><strong>4.启动网站保存文件后，使用以下命令在本地启动网站：</strong></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>hugo server</th>
+</tr>
+</thead>
+</table>
+<p>当你运行 hugo server 时，当文件内容更改时，页面会随着更改自动刷新。</p>
+<p><strong>5.去查看 http://localhost:1313</strong></p>
+<p><strong>6.当你准备好部署你的网站时，运行以下命令：</strong></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>hugo</th>
+</tr>
+</thead>
+</table>
+<p>会生成一个 public 目录，其中包含你网站的所有静态内容和资源。现在可以将其部署在任何 Web 服务器上。</p>
+<p>我们的大多数用户使用 CI/CD 工作流程部署他们的网站，通过推送 <a href="https://fixit.lruihao.cn/zh-cn/documentation/getting-started/#fn:1"target="_blank" rel="external nofollow noopener noreferrer">1</a> 到他们的 GitHub 或 GitLab 存储库会触发构建和部署。流行的提供商包括 <a href="https://vercel.com/"target="_blank" rel="external nofollow noopener noreferrer">Vercel</a><a href="https://fixit.lruihao.cn/zh-cn/documentation/getting-started/#fn:2"target="_blank" rel="external nofollow noopener noreferrer">2</a>、<a href="https://www.netlify.com/"target="_blank" rel="external nofollow noopener noreferrer">Netlify</a><a href="https://fixit.lruihao.cn/zh-cn/documentation/getting-started/#fn:3"target="_blank" rel="external nofollow noopener noreferrer">3</a>、<a href="https://aws.amazon.com/cn/amplify/"target="_blank" rel="external nofollow noopener noreferrer">AWS Amplify</a>、<a href="https://cloudcannon.com/"target="_blank" rel="external nofollow noopener noreferrer">CloudCannon</a>、<a href="https://pages.cloudflare.com/"target="_blank" rel="external nofollow noopener noreferrer">Cloudflare Pages</a>、 <a href="https://pages.github.com/"target="_blank" rel="external nofollow noopener noreferrer">GitHub pages</a> 和 <a href="https://docs.gitlab.com/ee/user/project/pages/"target="_blank" rel="external nofollow noopener noreferrer">GitLab pages</a>。</p>
+<h2 id="全文加密"><strong>全文加密</strong></h2>
+<p><strong>前置参数</strong></p>
+<p>FixIt 主题提供了两个前置参数用于全文加密。</p>
+<ul>
+<li><strong>password</strong>: <em>[必需]</em> 加密页面内容的密码</li>
+<li><strong>message</strong>: <em>[可选]</em> 加密提示信息</li>
+</ul>
+<p>例如，本文的前置参数如下：</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"> <span class="nx">title</span><span class="err">:</span> <span class="err">主题文档</span> <span class="nx">-</span> <span class="err">内容加密</span>
+</span></span><span class="line"><span class="cl"><span class="nx">date</span><span class="err">:</span> <span class="ld">2022-05-28T11:51:41+08:00</span>
+</span></span><span class="line"><span class="cl"><span class="nx">author</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="err">:</span> <span class="nx">jiangbo</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">link</span><span class="err">:</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">description</span><span class="err">:</span> <span class="err">了解如何在</span> <span class="nx">FixIt</span> <span class="err">主题中加密内容。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">password</span><span class="err">:</span> <span class="mi">1212</span>
+</span></span><span class="line"><span class="cl"><span class="nx">message</span><span class="err">:</span> <span class="err">密码是</span> <span class="mi">1212</span>
+</span></span><span class="line"><span class="cl"><span class="nx">resources</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-</span> <span class="nx">name</span><span class="err">:</span> <span class="nx">featured-image</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">src</span><span class="err">:</span> <span class="nx">featured-image</span><span class="p">.</span><span class="nx">png</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tags</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-</span> <span class="nx">Encryption</span>
+</span></span><span class="line"><span class="cl"><span class="nx">categories</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-</span> <span class="nx">Documentation</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>信息</strong></p>
+<ol>
+<li>每次输入正确密码后，会在用户本地缓存密码     hash 值，一天之内再次访问时，将自动解锁文章</li>
+<li>文章最后提供有一个 “重新加密”     的按钮，点击即可立即忘记密码，并重新加密内容</li>
+<li>加密文章已从搜索中隐藏</li>
+<li>加密文章的 Markdown     输出已禁用，为了防止密码泄漏，<strong>请勿将加密文章以任何形式公开</strong></li>
+</ol>
+<h2 id="md模板"><strong>md模板</strong></h2>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title: 内容加密
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">date: 2022-05-28T11:51:41+08:00
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">author:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> name: jiangbo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> link: https://gitee.com/jiang-zhao-153
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">description: 了解如何在 FixIt 主题中加密内容。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">password: 1234
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">message: 密码是 1234       //可填可不填
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">resources:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> -name: featured-image
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> -src: featured-image.png
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tags:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> - Encryption              //标签
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">categories:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> - Documentation         //分类
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;!--more--&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="gitee-page-部署"><strong>Gitee page</strong> <strong>部署</strong></h2>
+<p>新建仓库，上传public内的代码，启动部署</p>
+<p><strong>当仓库名为gitee账户名时，会以“gitee.io”结尾，不会带“/”</strong></p>
+<p>Github 也可以为其配置域名</p>
+<p><a href="https://zhuanlan.zhihu.com/p/142185293"target="_blank" rel="external nofollow noopener noreferrer">部署到Github Pages上的博客，自定义域名，和免费域名如何申请 - 知乎 (zhihu.com)</a></p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2022-05-05 11:51:41">更新于 2022-05-05&nbsp;</span>
+      </div><div class="post-info-license">
+          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+        </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a href="/fermi/posts/%E5%9F%BA%E4%BA%8Ehugo&#43;fixit&#43;giteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/index.md" class="link-to-markdown"></a></span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://jiang-zhao-153.gitee.io/fermi/posts/%E5%9F%BA%E4%BA%8Ehugo&#43;fixit&#43;giteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/" data-title="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结" data-hashtags="Fixit，Giteepage"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://jiang-zhao-153.gitee.io/fermi/posts/%E5%9F%BA%E4%BA%8Ehugo&#43;fixit&#43;giteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/" data-hashtag="Fixit，Giteepage"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://jiang-zhao-153.gitee.io/fermi/posts/%E5%9F%BA%E4%BA%8Ehugo&#43;fixit&#43;giteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/" data-title="基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/fermi/tags/fixitgiteepage/' class="post-tag">Fixit，Giteepage</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/fermi/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/fermi/posts/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99%E6%80%BB%E7%BB%93/" class="post-nav-item" rel="prev" title="个人建站总结"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>个人建站总结</a>
+      <a href="/fermi/posts/%E4%B8%80%E4%BA%9B%E6%9C%89%E8%B6%A3%E7%9A%84%E6%96%87%E5%AD%97/" class="post-nav-item" rel="next" title="一些有趣的文字">一些有趣的文字<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment"></div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward">赞赏</label>
+    <div class="reward-ways" data-mode="static"><div><img loading="lazy" src="/fermi/static/apple-touch-icon.png" srcset="/fermi/static/apple-touch-icon.png, /fermi/static/apple-touch-icon.png 1.5x, /fermi/static/apple-touch-icon.png 2x" sizes="auto" data-title="jiangbo 微信" data-alt="jiangbo 微信" style="background: url(/fermi/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span data-animation>微信</span>
+          </div></div>
+  </div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.118.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fermi/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="/fermi/">jiangbo</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div><div class="footer-line beian"><span class="gov">公安备案号11010502030142</span><span class="icp footer-divider">京ICP备20004658号</span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/fermi/lib/katex/katex.min.css"><link rel="stylesheet" href="/fermi/lib/cookieconsent/cookieconsent.min.css"><script src="/fermi/lib/autocomplete/autocomplete.min.js" defer></script><script src="/fermi/lib/lunr/lunr.min.js" defer></script><script src="/fermi/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/fermi/lib/lunr/lunr.zh.min.js" defer></script><script src="/fermi/lib/sharer/sharer.min.js" async defer></script><script src="/fermi/lib/katex/katex.min.js" defer></script><script src="/fermi/lib/katex/auto-render.min.js" defer></script><script src="/fermi/lib/katex/copy-tex.min.js" defer></script><script src="/fermi/lib/katex/mhchem.min.js" defer></script><script src="/fermi/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/fermi/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/fermi/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script src="/fermi/js/theme.min.js" defer></script></body>
+</html>

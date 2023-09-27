@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>个人建站 - 分类 - Fermi</title>
+    <link>https://jiang-zhao-153.gitee.io/fermi/categories/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99/</link>
+    <description>个人建站 - 分类 - Fermi</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>3044483214@qq.com (jiangbo)</managingEditor>
+      <webMaster>3044483214@qq.com (jiangbo)</webMaster><lastBuildDate>Thu, 05 May 2022 11:51:41 &#43;0800</lastBuildDate><atom:link href="https://jiang-zhao-153.gitee.io/fermi/categories/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99/" rel="self" type="application/rss+xml" /><item>
+  <title>基于hugo&#43;Fixit&#43;Giteepage搭建个人博客总结</title>
+  <link>https://jiang-zhao-153.gitee.io/fermi/posts/%E5%9F%BA%E4%BA%8Ehugo&#43;fixit&#43;giteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/</link>
+  <pubDate>Thu, 05 May 2022 11:51:41 &#43;0800</pubDate>
+  <author>jiangbo</author>
+  <guid>https://jiang-zhao-153.gitee.io/fermi/posts/%E5%9F%BA%E4%BA%8Ehugo&#43;fixit&#43;giteepage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/</guid>
+  <description><![CDATA[基于hugo+Fixit+Giteepage搭建个人博客总结。]]></description>
+</item>
+<item>
+  <title>个人建站总结</title>
+  <link>https://jiang-zhao-153.gitee.io/fermi/posts/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99%E6%80%BB%E7%BB%93/</link>
+  <pubDate>Tue, 03 May 2022 11:51:41 &#43;0800</pubDate>
+  <author>jiangbo</author>
+  <guid>https://jiang-zhao-153.gitee.io/fermi/posts/%E4%B8%AA%E4%BA%BA%E5%BB%BA%E7%AB%99%E6%80%BB%E7%BB%93/</guid>
+  <description><![CDATA[个人建站总结]]></description>
+</item>
+</channel>
+</rss>

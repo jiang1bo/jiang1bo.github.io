@@ -3,39 +3,35 @@
 
 <!--more-->
 
-**typora-gitee** **图片上传**
+# **typora-gitee** **图片上传**
 
-**下载topic**
+## **下载topic**
 
 https://github.com/Molunerfinn/picgo/releases
 
-![img](https://gitee.com/jiang-zhao-153/typora-images/raw/master/images/image-20230902111322110.png)
+<img src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230916165530764.png" alt="image-20230916165530764" style="zoom:150%;" />
 
-**新建gitee仓库，设置开源，私人密钥**
+## **新建gitee仓库，设置开源，私人密钥**
 
-![img](https://gitee.com/jiang-zhao-153/typora-images/raw/master/images/image-20230902111728438.png)
+<img src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230916165627065.png" alt="image-20230916165627065" style="zoom:150%;" />
 
-![img](https://gitee.com/jiang-zhao-153/typora-images/raw/master/images/image-20230902111651826.png)
+<img src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230916165650577.png" alt="image-20230916165650577" style="zoom:150%;" />
 
-**配置topic**
+## **配置topic**
 
-![img](https://gitee.com/jiang-zhao-153/typora-images/raw/master/images/image-20230902111450849.png)
+<img src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230916165717470.png" alt="image-20230916165717470" style="zoom:150%;" />
 
-![img](https://gitee.com/jiang-zhao-153/typora-images/raw/master/images/image-20230902112724764.png)
-
-
+<img src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230916165752269.png" alt="image-20230916165752269" style="zoom:150%;" />
 
 
 
-**配置typora**
+## **配置typora**
 
-![img](https://gitee.com/jiang-zhao-153/typora-images/raw/master/images/image-20230902112942308.png)
+<img src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230916165835653.png" alt="image-20230916165835653" style="zoom:150%;" />
 
+## **测试**
 
-
-**测试**
-
-![img](https://gitee.com/jiang-zhao-153/typora-images/raw/master/images/image-20230902113125119.png)
+<img src="https://gitee.com/jiang-zhao-153/typora_images/raw/master/images/image-20230916165905727.png" alt="image-20230916165905727" style="zoom:150%;" />
 
 
 ---
