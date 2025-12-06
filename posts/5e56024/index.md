@@ -13,7 +13,7 @@
 
 ### 关键参数分析
 
-```toml
+```
 # 基础配置
 enable = false                # 是否启用 Giscus，当前为关闭状态
 repo = "jiang1bo/jiang1bo"   # GitHub 仓库：用户 jiang1bo 下的 jiang1bo 仓库
@@ -61,7 +61,8 @@ https://giscus.app/
 输入仓库 URL 后会自动生成配置
 
 **方法二：通过 GitHub API**
-```bash
+
+```
 # 获取 repoId
 curl -H "Authorization: token YOUR_TOKEN" \
   https://api.github.com/repos/jiang1bo/jiang1bo
@@ -74,34 +75,34 @@ curl -H "Authorization: token YOUR_TOKEN" \
 ## 优化建议
 
 ### 1. **启用配置**
-```toml
+```
 enable = true  # 改为 true 以启用评论系统
 ```
 
 ### 2. **添加语言配置**
-```toml
+```
 lang = "zh-CN"  # 设置评论界面语言
 ```
 
 ### 3. **优化加载策略**
-```toml
+```
 lazyLoad = true  # 已启用，减少首屏加载时间
 ```
 
 ### 4. **安全配置建议**
-```toml
+```
 # 如果你有自部署的 Giscus，可以修改 origin
 origin = "https://giscus.yourdomain.com"  # 自托管地址
 ```
 
 ### 5. **完整的优化配置示例**
-```toml
+```
 [params.page.comment.giscus]
   enable = true
   repo = "jiang1bo/jiang1bo"
-  repoId = "R_kgDOQgMS0A"
+  repoId = "xxxxDOQgMS0A"
   category = "Announcements"  # 可以创建专用分类
-  categoryId = "DIC_kwDOQgMS0M4CzSCX"
+  categoryId = "DIC_xxxxgMS0M4CzSCX"
   mapping = "pathname"
   origin = "https://giscus.app"
   strict = "0"
@@ -148,5 +149,5 @@ origin = "https://giscus.yourdomain.com"  # 自托管地址
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/5e56024/  
+> URL: https://jiang1bo.github.io/posts/5e56024/  
 

@@ -203,7 +203,7 @@ Hugo 使用 [Goldmark](https://github.com/yuin/goldmark) 进行 Markdown 解析�
 
 hugo.yaml
 
-```yaml
+```
 markup:
   goldmark:
     renderer:
@@ -225,5 +225,5 @@ markup:
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/7090144/  
+> URL: https://jiang1bo.github.io/posts/7090144/  
 

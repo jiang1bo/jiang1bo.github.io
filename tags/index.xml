@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Femri</title>
+    <link>http://localhost:1313/jiang1bo/tags/</link>
+    <description>Recent content in Tags on Femri</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <managingEditor>3044483124@qq.com (fermi)</managingEditor>
+    <webMaster>3044483124@qq.com (fermi)</webMaster>
+    <lastBuildDate>Tue, 02 Dec 2025 13:32:55 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/jiang1bo/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Draft</title>
+      <link>http://localhost:1313/jiang1bo/tags/draft/</link>
+      <pubDate>Tue, 02 Dec 2025 13:32:55 +0800</pubDate><author>3044483124@qq.com (fermi)</author>
+      <guid>http://localhost:1313/jiang1bo/tags/draft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:1313/jiang1bo/tags/markdown/</link>
+      <pubDate>Sat, 29 Nov 2025 12:56:18 +0800</pubDate><author>3044483124@qq.com (fermi)</author>
+      <guid>http://localhost:1313/jiang1bo/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Golang</title>
+      <link>http://localhost:1313/jiang1bo/tags/golang/</link>
+      <pubDate>Sat, 29 Nov 2025 08:48:30 +0800</pubDate><author>3044483124@qq.com (fermi)</author>
+      <guid>http://localhost:1313/jiang1bo/tags/golang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>http://localhost:1313/jiang1bo/tags/blog/</link>
+      <pubDate>Sat, 29 Nov 2025 08:25:40 +0800</pubDate><author>3044483124@qq.com (fermi)</author>
+      <guid>http://localhost:1313/jiang1bo/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>http://localhost:1313/jiang1bo/tags/resume/</link>
+      <pubDate>Sat, 29 Nov 2025 08:25:40 +0800</pubDate><author>3044483124@qq.com (fermi)</author>
+      <guid>http://localhost:1313/jiang1bo/tags/resume/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -13,5 +13,5 @@
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/6764dc1/  
+> URL: http://localhost:1313/jiang1bo/posts/6764dc1/  
 

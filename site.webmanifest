@@ -1,6 +1,6 @@
 {
-  "name": "Fermi",
-  "short_name": "F",
+  "name": "fermi",
+  "short_name": "fermi",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
