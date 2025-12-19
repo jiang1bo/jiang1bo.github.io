@@ -5,16 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Linuxpathtoenv - Fermi</title><meta name="author" content="">
-<meta name="description" content="welcome to femris的博客网站!"><meta name="keywords" content='draft'>
-  <meta itemprop="name" content="Linuxpathtoenv">
-  <meta itemprop="description" content="welcome to femris的博客网站!">
+    <title>Linux可执行文件添加到PATH环境变量的方法 - Fermi</title><meta name="author" content="">
+<meta name="description" content="输入命令的时候提示：command not found linux命令行下面执行某个命令的时候，首先保证该命令是否存在，若存在，但输入命令的时候若仍提示：command not found
+这个时候就的查看PATH环境变量的设置了，当前命令是否存在于PATH环境变量中
+"><meta name="keywords" content='draft'>
+  <meta itemprop="name" content="linux可执行文件添加到PATH环境变量的方法">
+  <meta itemprop="description" content="输入命令的时候提示：command not found linux命令行下面执行某个命令的时候，首先保证该命令是否存在，若存在，但输入命令的时候若仍提示：command not found
+这个时候就的查看PATH环境变量的设置了，当前命令是否存在于PATH环境变量中">
   <meta itemprop="datePublished" content="2025-12-17T12:33:01+08:00">
   <meta itemprop="dateModified" content="2025-12-17T12:33:01+08:00">
+  <meta itemprop="wordCount" content="109">
   <meta itemprop="keywords" content="Draft"><meta property="og:url" content="http://localhost:1313/posts/d681069/">
   <meta property="og:site_name" content="Fermi">
-  <meta property="og:title" content="Linuxpathtoenv">
-  <meta property="og:description" content="welcome to femris的博客网站!">
+  <meta property="og:title" content="linux可执行文件添加到PATH环境变量的方法">
+  <meta property="og:description" content="输入命令的时候提示：command not found linux命令行下面执行某个命令的时候，首先保证该命令是否存在，若存在，但输入命令的时候若仍提示：command not found
+这个时候就的查看PATH环境变量的设置了，当前命令是否存在于PATH环境变量中">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -23,21 +28,22 @@
     <meta property="article:tag" content="Draft">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Linuxpathtoenv">
-  <meta name="twitter:description" content="welcome to femris的博客网站!">
+  <meta name="twitter:title" content="linux可执行文件添加到PATH环境变量的方法">
+  <meta name="twitter:description" content="输入命令的时候提示：command not found linux命令行下面执行某个命令的时候，首先保证该命令是否存在，若存在，但输入命令的时候若仍提示：command not found
+这个时候就的查看PATH环境变量的设置了，当前命令是否存在于PATH环境变量中">
 <meta name="application-name" content="Fermi&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/d681069/" title="Linuxpathtoenv - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/e7e6a08/" title="Linuxopensslupdate" /><link rel="next" type="text/html" href="http://localhost:1313/posts/7258f78/" title="Linuxopensslupdatebugerror" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/d681069/index.md" title="Linuxpathtoenv - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/d681069/" title="linux可执行文件添加到PATH环境变量的方法 - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/e7e6a08/" title="Linux手动升级OpenSSH版本(rocky9.4环境)" /><link rel="next" type="text/html" href="http://localhost:1313/posts/7258f78/" title="linux升级openssl到最新版，yumdnf运行报错，重启系统后网络无法连接" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/d681069/index.md" title="linux可执行文件添加到PATH环境变量的方法 - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Linuxpathtoenv",
+    "headline": "linux可执行文件添加到PATH环境变量的方法",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/d681069\/"
-    },"genre": "posts","keywords": "draft","wordcount":  0 ,
+    },"genre": "posts","keywords": "draft","wordcount":  109 ,
     "url": "http:\/\/localhost:1313\/posts\/d681069\/","datePublished": "2025-12-17T12:33:01+08:00","dateModified": "2025-12-17T12:33:01+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -106,21 +112,146 @@
   </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linuxpathtoenv</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linux可执行文件添加到PATH环境变量的方法</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:33:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="0 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 0 分钟</span>&nbsp;</div>
-    </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:33:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="109 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#输入命令的时候提示command-not-found">输入命令的时候提示：command not found</a></li>
+    <li><a href="#修改path环境变量">修改PATH环境变量</a></li>
+    <li><a href="#注意事项">注意事项</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 class="heading-element" id="输入命令的时候提示command-not-found"><span>输入命令的时候提示：command not found</span>
+  <a href="#%e8%be%93%e5%85%a5%e5%91%bd%e4%bb%a4%e7%9a%84%e6%97%b6%e5%80%99%e6%8f%90%e7%a4%bacommand-not-found" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>linux命令行下面执行某个命令的时候，首先保证该命令是否存在，若存在，但输入命令的时候若仍提示：command not found</strong></p>
+<p><strong>这个时候就的查看PATH环境变量的设置了，当前命令是否存在于PATH环境变量中</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#查看PATH：</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#举例说，命令 composr 在/usr/loca/bin</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>但执行的时候提示：</strong></p>
+<p><strong>-bash: composr: command not found</strong>
+<strong>这个时候，通过echo $PATH，，发现composer并未在PATH环境变量中有设置，这个时候就需要把composer所在路径添加到PATH中</strong></p>
+<h2 class="heading-element" id="修改path环境变量"><span>修改PATH环境变量</span>
+  <a href="#%e4%bf%ae%e6%94%b9path%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>所以需要修改PATH环境变量，具体如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#方法一：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#配置完后可以通过echo $PATH查看配置结果。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#生效方法：立即生效</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢#复原有的path配置</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#用户局限：仅对当前用户</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#方法二：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#通过修改.bashrc文件:</span>
+</span></span><span class="line"><span class="cl">vim ~/.bashrc 
+</span></span><span class="line"><span class="cl"><span class="c1">#在最后一行添上：</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#生效方法：（有以下两种）</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#1、关闭当前终端窗口，重新打开一个新终端窗口就能生效</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#2、输入“source ~/.bashrc”命令，立即生效</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#有效期限：永久有效</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#用户局限：仅对当前用户</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#方法三：</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">#通过修改profile文件:</span>
+</span></span><span class="line"><span class="cl">vim /etc/profile
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#生效方法：系统重启</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#有效期限：永久有效</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#用户局限：对所有用户</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#方法四：</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">#通过修改environment文件:</span>
+</span></span><span class="line"><span class="cl">vim /etc/environment
+</span></span><span class="line"><span class="cl"><span class="nv">在PATH</span><span class="o">=</span><span class="s2">&#34;/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin&#34;</span>中加入 
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;:/usr/local/bin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#生效方法：系统重启</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#有效期限：永久有效</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#用户局限：对所有用户</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="注意事项"><span>注意事项</span>
+  <a href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>系统在环境变量中寻找程序路径时，是由前往后，由上往下的方式寻找的，找到第一个后九会直接使用它而不会再往后往下寻找了。
+所以在将程序路径复制进入到path或者其他环境变量名中时，需要如果原先已经配置过这个程序的路径，那么系统会使用先找到的那个路径，所有为了保证系统使用的是我们最新配置的路径，一般我们直接把新配置的路径写在最上面或者最前面。</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
         <span title="更新于 2025-12-17 12:33:01">更新于 2025-12-17&nbsp;</span>
       </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/d681069/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5clinuxpathtoenv.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/d681069/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5clinux%e5%8f%af%e6%89%a7%e8%a1%8c%e6%96%87%e4%bb%b6%e6%b7%bb%e5%8a%a0%e5%88%b0PATH%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e7%9a%84%e6%96%b9%e6%b3%95.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/d681069/" data-title="Linuxpathtoenv" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/d681069/" data-title="Linux可执行文件添加到PATH环境变量的方法" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/d681069/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/d681069/" data-title="Linuxpathtoenv"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/d681069/" data-title="Linux可执行文件添加到PATH环境变量的方法"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -130,7 +261,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/e7e6a08/" class="post-nav-item" rel="prev" title="Linuxopensslupdate"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Linuxopensslupdate</a><a href="/posts/7258f78/" class="post-nav-item" rel="next" title="Linuxopensslupdatebugerror">Linuxopensslupdatebugerror<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/e7e6a08/" class="post-nav-item" rel="prev" title="Linux手动升级OpenSSH版本(rocky9.4环境)"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Linux手动升级OpenSSH版本(rocky9.4环境)</a><a href="/posts/7258f78/" class="post-nav-item" rel="next" title="Linux升级openssl到最新版，yumdnf运行报错，重启系统后网络无法连接">Linux升级openssl到最新版，yumdnf运行报错，重启系统后网络无法连接<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Buy me a coffee</div>
@@ -140,7 +271,8 @@
           </div></div>
   </div></article>
 
-  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.20"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">

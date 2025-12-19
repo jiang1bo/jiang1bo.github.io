@@ -5,16 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Linuxfirewalld - Fermi</title><meta name="author" content="">
-<meta name="description" content="welcome to femris的博客网站!"><meta name="keywords" content='draft'>
-  <meta itemprop="name" content="Linuxfirewalld">
-  <meta itemprop="description" content="welcome to femris的博客网站!">
+    <title>Linux防火墙命令 开启、关闭、放行端口、检测远程端口 - Fermi</title><meta name="author" content="">
+<meta name="description" content="查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开
+"><meta name="keywords" content='draft'>
+  <meta itemprop="name" content="Linux防火墙命令 开启、关闭、放行端口、检测远程端口">
+  <meta itemprop="description" content="查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开">
   <meta itemprop="datePublished" content="2025-12-17T12:31:31+08:00">
   <meta itemprop="dateModified" content="2025-12-17T12:31:31+08:00">
+  <meta itemprop="wordCount" content="218">
   <meta itemprop="keywords" content="Draft"><meta property="og:url" content="http://localhost:1313/posts/786c644/">
   <meta property="og:site_name" content="Fermi">
-  <meta property="og:title" content="Linuxfirewalld">
-  <meta property="og:description" content="welcome to femris的博客网站!">
+  <meta property="og:title" content="Linux防火墙命令 开启、关闭、放行端口、检测远程端口">
+  <meta property="og:description" content="查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -23,21 +25,21 @@
     <meta property="article:tag" content="Draft">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Linuxfirewalld">
-  <meta name="twitter:description" content="welcome to femris的博客网站!">
+  <meta name="twitter:title" content="Linux防火墙命令 开启、关闭、放行端口、检测远程端口">
+  <meta name="twitter:description" content="查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开">
 <meta name="application-name" content="Fermi&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/786c644/" title="Linuxfirewalld - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/30d96c1/" title="Linux&#43;windows" /><link rel="next" type="text/html" href="http://localhost:1313/posts/e7e6a08/" title="Linuxopensslupdate" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/786c644/index.md" title="Linuxfirewalld - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/786c644/" title="Linux防火墙命令 开启、关闭、放行端口、检测远程端口 - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/30d96c1/" title="windows&#43;linux常用操作命令" /><link rel="next" type="text/html" href="http://localhost:1313/posts/e7e6a08/" title="Linux手动升级OpenSSH版本(rocky9.4环境)" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/786c644/index.md" title="Linux防火墙命令 开启、关闭、放行端口、检测远程端口 - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Linuxfirewalld",
+    "headline": "Linux防火墙命令 开启、关闭、放行端口、检测远程端口",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/786c644\/"
-    },"genre": "posts","keywords": "draft","wordcount":  0 ,
+    },"genre": "posts","keywords": "draft","wordcount":  218 ,
     "url": "http:\/\/localhost:1313\/posts\/786c644\/","datePublished": "2025-12-17T12:31:31+08:00","dateModified": "2025-12-17T12:31:31+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -106,21 +108,213 @@
   </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linuxfirewalld</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linux防火墙命令 开启、关闭、放行端口、检测远程端口</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:31:31"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="0 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 0 分钟</span>&nbsp;</div>
-    </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:31:31"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="218 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一查看系统防火墙状态如果返回-running-代表防火墙启动正常"><strong>一、查看系统防火墙状态（如果返回 running 代表防火墙启动正常）</strong></a></li>
+    <li><a href="#二放行端口"><strong>二、放行端口</strong></a></li>
+    <li><a href="#三关闭端口"><strong>三、关闭端口</strong></a></li>
+    <li><a href="#四基本操作"><strong>四、基本操作</strong></a></li>
+    <li><a href="#五linux检测远程端口是否打开"><strong>五、linux检测远程端口是否打开</strong></a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开</p>
+<h2 class="heading-element" id="一查看系统防火墙状态如果返回-running-代表防火墙启动正常"><span><strong>一、查看系统防火墙状态（如果返回 running 代表防火墙启动正常）</strong></span>
+  <a href="#%e4%b8%80%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%bb%9f%e9%98%b2%e7%81%ab%e5%a2%99%e7%8a%b6%e6%80%81%e5%a6%82%e6%9e%9c%e8%bf%94%e5%9b%9e-running-%e4%bb%a3%e8%a1%a8%e9%98%b2%e7%81%ab%e5%a2%99%e5%90%af%e5%8a%a8%e6%ad%a3%e5%b8%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl status firewalld</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="二放行端口"><span><strong>二、放行端口</strong></span>
+  <a href="#%e4%ba%8c%e6%94%be%e8%a1%8c%e7%ab%af%e5%8f%a3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">##添加端口 返回 success 代表成功（–permanent永久生效，没有此参数重启后失效）</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#放行80端口 </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span>80/tcp --permanent 
+</span></span><span class="line"><span class="cl"><span class="c1">#放行443端口</span>
+</span></span><span class="line"><span class="cl">firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span>443/tcp --permanent 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">##开放多个端口</span>
+</span></span><span class="line"><span class="cl">firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span>80-85/tcp --permanent
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#重新载入 返回 success 代表成功</span>
+</span></span><span class="line"><span class="cl">firewall-cmd --reload 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">##查看 返回 yes 代表开启成功</span>
+</span></span><span class="line"><span class="cl">firewall-cmd --zone<span class="o">=</span>public --query-port<span class="o">=</span>80/tcp</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="三关闭端口"><span><strong>三、关闭端口</strong></span>
+  <a href="#%e4%b8%89%e5%85%b3%e9%97%ad%e7%ab%af%e5%8f%a3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">##删除端口 返回 success 代表成功</span>
+</span></span><span class="line"><span class="cl">firewall-cmd --zone<span class="o">=</span>public --remove-port<span class="o">=</span>80/tcp --permanent <span class="c1">#关闭80端口</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">##重新载入 返回 success 代表成功</span>
+</span></span><span class="line"><span class="cl">firewall-cmd --reload</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="四基本操作"><span><strong>四、基本操作</strong></span>
+  <a href="#%e5%9b%9b%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#1、启动服务：</span>
+</span></span><span class="line"><span class="cl">systemctl start firewalld.service
+</span></span><span class="line"><span class="cl"><span class="c1">#2、关闭服务：</span>
+</span></span><span class="line"><span class="cl">systemctl stop firewalld.service
+</span></span><span class="line"><span class="cl"><span class="c1">#3、重启服务：</span>
+</span></span><span class="line"><span class="cl">systemctl restart firewalld.service
+</span></span><span class="line"><span class="cl"><span class="c1">#4、显示服务的状态：</span>
+</span></span><span class="line"><span class="cl">systemctl status firewalld.service
+</span></span><span class="line"><span class="cl"><span class="c1">#5、开机自动启动：</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> firewalld.service
+</span></span><span class="line"><span class="cl"><span class="c1">#6、禁用开机自动启动：</span>
+</span></span><span class="line"><span class="cl">systemctl disable firewalld.service
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#7、查看版本： </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --version
+</span></span><span class="line"><span class="cl"><span class="c1">#8、查看帮助： </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --help
+</span></span><span class="line"><span class="cl"><span class="c1">#9、显示状态： </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --state
+</span></span><span class="line"><span class="cl"><span class="c1">#10、查看所有打开的端口： </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --zone<span class="o">=</span>public --list-ports
+</span></span><span class="line"><span class="cl"><span class="c1">#11、更新防火墙规则： </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --reload
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#12、查看区域信息: </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --get-active-zones
+</span></span><span class="line"><span class="cl"><span class="c1">#13、查看指定接口所属区域： </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --get-zone-of-interface<span class="o">=</span>eth0
+</span></span><span class="line"><span class="cl"><span class="c1">#14、拒绝所有包：</span>
+</span></span><span class="line"><span class="cl">firewall-cmd --panic-on
+</span></span><span class="line"><span class="cl"><span class="c1">#15、取消拒绝状态： </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --panic-off
+</span></span><span class="line"><span class="cl"><span class="c1">#16、查看是否拒绝： </span>
+</span></span><span class="line"><span class="cl">firewall-cmd --query-panic</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="五linux检测远程端口是否打开"><span><strong>五、linux检测远程端口是否打开</strong></span>
+  <a href="#%e4%ba%94linux%e6%a3%80%e6%b5%8b%e8%bf%9c%e7%a8%8b%e7%ab%af%e5%8f%a3%e6%98%af%e5%90%a6%e6%89%93%e5%bc%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#方法1：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">root@ubuntu:/config# telnet 192.168.10.19 <span class="m">2375</span> <span class="c1">#telnet +对方ip +端口号</span>
+</span></span><span class="line"><span class="cl">Trying 192.168.10.19...
+</span></span><span class="line"><span class="cl">Connected to 192.168.10.19. <span class="c1">#出现Connected表示连通了，说明192.168.10.19的2375端口开放的</span>
+</span></span><span class="line"><span class="cl">Escape character is <span class="s1">&#39;^]&#39;</span> <span class="c1">#输入 “ctrl+]” 退出， mac系统 输入“control+]”退出</span>
+</span></span><span class="line"><span class="cl">quit <span class="c1">#输入quit命令</span>
+</span></span><span class="line"><span class="cl">HTTP/1.1 <span class="m">400</span> Bad Request
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#方法2：</span>
+</span></span><span class="line"><span class="cl">root@ubuntu:/config# curl 192.168.10.19:2375
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;page not found&#34;</span><span class="o">}</span> <span class="c1">#出现这个说明是通的</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
         <span title="更新于 2025-12-17 12:31:31">更新于 2025-12-17&nbsp;</span>
       </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/786c644/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5clinuxfirewalld.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/786c644/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5cLinux%e9%98%b2%e7%81%ab%e5%a2%99%e5%91%bd%e4%bb%a4%20%e5%bc%80%e5%90%af%e3%80%81%e5%85%b3%e9%97%ad%e3%80%81%e6%94%be%e8%a1%8c%e7%ab%af%e5%8f%a3%e3%80%81%e6%a3%80%e6%b5%8b%e8%bf%9c%e7%a8%8b%e7%ab%af%e5%8f%a3.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/786c644/" data-title="Linuxfirewalld" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/786c644/" data-title="Linux防火墙命令 开启、关闭、放行端口、检测远程端口" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/786c644/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/786c644/" data-title="Linuxfirewalld"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/786c644/" data-title="Linux防火墙命令 开启、关闭、放行端口、检测远程端口"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -130,7 +324,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/30d96c1/" class="post-nav-item" rel="prev" title="Linux&#43;windows"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Linux&#43;windows</a><a href="/posts/e7e6a08/" class="post-nav-item" rel="next" title="Linuxopensslupdate">Linuxopensslupdate<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/30d96c1/" class="post-nav-item" rel="prev" title="Windows&#43;linux常用操作命令"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Windows&#43;linux常用操作命令</a><a href="/posts/e7e6a08/" class="post-nav-item" rel="next" title="Linux手动升级OpenSSH版本(rocky9.4环境)">Linux手动升级OpenSSH版本(rocky9.4环境)<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Buy me a coffee</div>
@@ -140,7 +334,8 @@
           </div></div>
   </div></article>
 
-  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.20"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">

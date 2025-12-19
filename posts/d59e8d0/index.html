@@ -5,16 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Nmap - Fermi</title><meta name="author" content="">
-<meta name="description" content="welcome to femris的博客网站!"><meta name="keywords" content='draft'>
-  <meta itemprop="name" content="Nmap">
-  <meta itemprop="description" content="welcome to femris的博客网站!">
+    <title>Nmap常用操作 - Fermi</title><meta name="author" content="">
+<meta name="description" content="Nmap常用操作及参数 "><meta name="keywords" content='draft'>
+  <meta itemprop="name" content="Nmap常用操作">
+  <meta itemprop="description" content="Nmap常用操作及参数">
   <meta itemprop="datePublished" content="2025-12-17T12:38:13+08:00">
   <meta itemprop="dateModified" content="2025-12-17T12:38:13+08:00">
+  <meta itemprop="wordCount" content="187">
   <meta itemprop="keywords" content="Draft"><meta property="og:url" content="http://localhost:1313/posts/d59e8d0/">
   <meta property="og:site_name" content="Fermi">
-  <meta property="og:title" content="Nmap">
-  <meta property="og:description" content="welcome to femris的博客网站!">
+  <meta property="og:title" content="Nmap常用操作">
+  <meta property="og:description" content="Nmap常用操作及参数">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -23,21 +24,21 @@
     <meta property="article:tag" content="Draft">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Nmap">
-  <meta name="twitter:description" content="welcome to femris的博客网站!">
+  <meta name="twitter:title" content="Nmap常用操作">
+  <meta name="twitter:description" content="Nmap常用操作及参数">
 <meta name="application-name" content="Fermi&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/d59e8d0/" title="Nmap - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/bb6cad8/" title="Wifipasswdcrack" /><link rel="next" type="text/html" href="http://localhost:1313/posts/51fa418/" title="Linux&#43;windowsattckprotect" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/d59e8d0/index.md" title="Nmap - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/d59e8d0/" title="Nmap常用操作 - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/bb6cad8/" title="wifi密码破解分析的几种常见方式" /><link rel="next" type="text/html" href="http://localhost:1313/posts/51fa418/" title="Windows与Linux入侵排查" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/d59e8d0/index.md" title="Nmap常用操作 - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Nmap",
+    "headline": "Nmap常用操作",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/d59e8d0\/"
-    },"genre": "posts","keywords": "draft","wordcount":  0 ,
+    },"genre": "posts","keywords": "draft","wordcount":  187 ,
     "url": "http:\/\/localhost:1313\/posts\/d59e8d0\/","datePublished": "2025-12-17T12:38:13+08:00","dateModified": "2025-12-17T12:38:13+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -106,21 +107,254 @@
   </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Nmap</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Nmap常用操作</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:38:13"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="0 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 0 分钟</span>&nbsp;</div>
-    </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:38:13"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="187 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#nmap实战">Nmap实战</a>
+      <ul>
+        <li><a href="#1扫描局域网中存活的主机">1.扫描局域网中存活的主机</a></li>
+        <li><a href="#2怎么看我的网段">2.怎么看我的网段</a></li>
+        <li><a href="#3nmap扫描目标开放的端口和识别服务版本">3.Nmap扫描目标开放的端口和识别服务版本</a></li>
+      </ul>
+    </li>
+    <li><a href="#nmap高级篇">Nmap高级篇</a>
+      <ul>
+        <li><a href="#1探查目标服务详细信息并使用相关脚本进行扫描展示更多的信息">1.探查目标服务详细信息并使用相关脚本进行扫描，展示更多的信息。</a></li>
+        <li><a href="#2nmap脚本引擎">2.nmap脚本引擎</a></li>
+        <li><a href="#3防火墙逃逸绕过防火墙扫描">3.防火墙逃逸，绕过防火墙扫描。</a></li>
+        <li><a href="#4探测目标防火墙规则">4.探测目标防火墙规则</a></li>
+        <li><a href="#5vmware认证破解">5.VMWare认证破解</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 class="heading-element" id="nmap常用操作及参数"><span>Nmap常用操作及参数</span>
+  <a href="#nmap%e5%b8%b8%e7%94%a8%e6%93%8d%e4%bd%9c%e5%8f%8a%e5%8f%82%e6%95%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -O -sV 192.168.1.1
+</span></span><span class="line"><span class="cl"><span class="c1">#扫描系统版本信息和服务版本信息，</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#要扫描单个服务信息（如web）使用nmap -sV -p 80 192.168.1.1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#扩展 以下是常用参数：</span>
+</span></span><span class="line"><span class="cl">-O：激活操作探测；
+</span></span><span class="line"><span class="cl">-P0：只进行扫描，不ping主机；
+</span></span><span class="line"><span class="cl">-PT：同TCP的ping；
+</span></span><span class="line"><span class="cl">-sV：探测服务版本信息；
+</span></span><span class="line"><span class="cl">-sP：ping扫描，仅发现目标主机是否存活；
+</span></span><span class="line"><span class="cl">-ps：发送同步（SYN）报文；
+</span></span><span class="line"><span class="cl">-PU：发送udp ping；
+</span></span><span class="line"><span class="cl">-PE：强制执行直接的ICMPping；
+</span></span><span class="line"><span class="cl">-PB：默认模式，可以使用ICMPping和TCPping；
+</span></span><span class="line"><span class="cl">-6：使用IPv6地址；
+</span></span><span class="line"><span class="cl">-v：得到更多选项信息；
+</span></span><span class="line"><span class="cl">-d：增加调试信息的输出；
+</span></span><span class="line"><span class="cl">-oN：以人们可阅读的格式输出；
+</span></span><span class="line"><span class="cl">-oX：以xml格式向指定文件输出信息；
+</span></span><span class="line"><span class="cl">-oM：以机器可阅读的格式输出；
+</span></span><span class="line"><span class="cl">-A：使用所有高级扫描选项；
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">-P：指定要扫描的端口，可以是一个单独的端口，用逗号隔开多个端口，使用“-”表示端口范围；
+</span></span><span class="line"><span class="cl">-e：在多网络接口Linux系统中，指定扫描使用的网络接口；
+</span></span><span class="line"><span class="cl">-g：将指定的端口作为源端口进行扫描；
+</span></span><span class="line"><span class="cl"> </span></span></code></pre></td></tr></table>
+</div>
+</div><p>–resume：继续上次执行完的扫描；</p>
+<p>–ttl：指定发送的扫描报文的生存期；</p>
+<p>–packet-trace：显示扫描过程中收发报文统计；</p>
+<p>–scanflags：设置在扫描报文中的TCP标志。</p>
+<h2 class="heading-element" id="nmap实战"><span>Nmap实战</span>
+  <a href="#nmap%e5%ae%9e%e6%88%98" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 class="heading-element" id="1扫描局域网中存活的主机"><span>1.扫描局域网中存活的主机</span>
+  <a href="#1%e6%89%ab%e6%8f%8f%e5%b1%80%e5%9f%9f%e7%bd%91%e4%b8%ad%e5%ad%98%e6%b4%bb%e7%9a%84%e4%b8%bb%e6%9c%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>举个栗子假设我自己的网络是在192.168.88.0网段，就可以使用以下命令进行ping探测。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">nmap</span> <span class="n">-sP</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.*</span> 
+</span></span><span class="line"><span class="cl"><span class="c">#或者</span>
+</span></span><span class="line"><span class="cl"><span class="n">nmap</span> <span class="n">-sP</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.</span><span class="mf">0</span><span class="p">/</span><span class="mf">24</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>nmap -sP 192.168.88.* 或者nmap -sP 192.168.88.0/24</p>
+<h3 class="heading-element" id="2怎么看我的网段"><span>2.怎么看我的网段</span>
+  <a href="#2%e6%80%8e%e4%b9%88%e7%9c%8b%e6%88%91%e7%9a%84%e7%bd%91%e6%ae%b5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>按住win键+R键打开运行窗口</p>
+<p>在运行窗口输入cmd回车，打开cmd命令行</p>
+<p>输入ipconfig就可以查看到自己的ip地址了哦</p>
+<h3 class="heading-element" id="3nmap扫描目标开放的端口和识别服务版本"><span>3.Nmap扫描目标开放的端口和识别服务版本</span>
+  <a href="#3nmap%e6%89%ab%e6%8f%8f%e7%9b%ae%e6%a0%87%e5%bc%80%e6%94%be%e7%9a%84%e7%ab%af%e5%8f%a3%e5%92%8c%e8%af%86%e5%88%ab%e6%9c%8d%e5%8a%a1%e7%89%88%e6%9c%ac" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>举个栗子上面扫描时发现好几个ip地址，先扫描个192.168.88.14看看。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">nmap</span> <span class="n">-sV</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.</span><span class="mf">1</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="nmap高级篇"><span>Nmap高级篇</span>
+  <a href="#nmap%e9%ab%98%e7%ba%a7%e7%af%87" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 class="heading-element" id="1探查目标服务详细信息并使用相关脚本进行扫描展示更多的信息"><span>1.探查目标服务详细信息并使用相关脚本进行扫描，展示更多的信息。</span>
+  <a href="#1%e6%8e%a2%e6%9f%a5%e7%9b%ae%e6%a0%87%e6%9c%8d%e5%8a%a1%e8%af%a6%e7%bb%86%e4%bf%a1%e6%81%af%e5%b9%b6%e4%bd%bf%e7%94%a8%e7%9b%b8%e5%85%b3%e8%84%9a%e6%9c%ac%e8%bf%9b%e8%a1%8c%e6%89%ab%e6%8f%8f%e5%b1%95%e7%a4%ba%e6%9b%b4%e5%a4%9a%e7%9a%84%e4%bf%a1%e6%81%af" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nmap -A 192.168.88.14</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="2nmap脚本引擎"><span>2.nmap脚本引擎</span>
+  <a href="#2nmap%e8%84%9a%e6%9c%ac%e5%bc%95%e6%93%8e" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>nmap</strong>的脚本默认目录为：/usr/share/nmap/scripts/
+类别 解释
+<strong>auth</strong> 负责处理鉴权证书（绕开鉴权）的脚本
+<strong>broadcast</strong> 在局域网内探查更多服务开启状况，如dhcp/dns/sqlserver等服务
+<strong>brute</strong> 提供暴力破解方式，针对常见的应用如http/snmp等
+<strong>default</strong> 使用-sC或-A选项扫描时候默认的脚本，提供基本脚本扫描能力
+<strong>discovery</strong> 对网络进行更多的信息，如SMB枚举、SNMP查询等
+<strong>dos</strong> 用于进行拒绝服务攻击
+<strong>exploit</strong> 利用已知的漏洞入侵系统
+<strong>external</strong> 利用第三方的数据库或资源，例如进行whois解析
+<strong>fuzzer</strong> 模糊测试的脚本，发送异常的包到目标机，探测出潜在漏洞 intrusive:入侵性的脚本，此类脚本可能引发对方的IDS/IPS的记录或屏蔽
+<strong>malware</strong> 探测目标机是否感染了病毒、开启了后门等信息
+<strong>safe</strong> 此类与intrusive相反，属于安全性脚本
+<strong>version</strong> 负责增强服务与版本扫描（Version Detection）功能的脚本
+<strong>vuln</strong> 负责检查目标机是否有常见的漏洞（Vulnerability），如是否有MS08_067
+举个栗子使用vuln模块进行常见漏洞检测（会有点慢）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">nmap</span> <span class="err">–</span><span class="n">script</span> <span class="n">vuln</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.</span><span class="mf">14</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="3防火墙逃逸绕过防火墙扫描"><span>3.防火墙逃逸，绕过防火墙扫描。</span>
+  <a href="#3%e9%98%b2%e7%81%ab%e5%a2%99%e9%80%83%e9%80%b8%e7%bb%95%e8%bf%87%e9%98%b2%e7%81%ab%e5%a2%99%e6%89%ab%e6%8f%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>报文分段法：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#报文分段法：</span>
+</span></span><span class="line"><span class="cl"><span class="n">nmap</span> <span class="o">-f</span> <span class="n">-v</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.</span><span class="mf">14</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>在Nmap使用-f选项时会将TCP头分段在几个包中，使得包过滤器、IDS以及其他工具的检测更加困难。Nmap在IP头后会将包分为8个字节或更小。
+一些主机会禁止相应ICMP请求，对于这种情况就可以使用报文分段的方法来逃避目标防火墙的规则。</p>
+<p><strong>指定报文大小：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#指定报文大小</span>
+</span></span><span class="line"><span class="cl"><span class="n">nmap</span> <span class="err">–</span><span class="n">mtu</span> <span class="mf">16</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.</span><span class="mf">14</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>此值设定TCP/IP协议传输数据报时的最大传输单元。使用指定MTU可以达到逃逸防火墙/IDS的目的，需要注意的是偏移量必须是8的倍数。</p>
+<p><strong>指定发包长度:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#指定发包长度</span>
+</span></span><span class="line"><span class="cl"><span class="n">nmap</span> <span class="err">–</span><span class="nb">data-length</span> <span class="mf">30</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.</span><span class="mf">14</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>通常情况下，TCP包是40个字节，ICMP Echo 有28个字节，所以在原来的报文基础上附加随机数据达到规避防火墙的效果。</p>
+<h3 class="heading-element" id="4探测目标防火墙规则"><span>4.探测目标防火墙规则</span>
+  <a href="#4%e6%8e%a2%e6%b5%8b%e7%9b%ae%e6%a0%87%e9%98%b2%e7%81%ab%e5%a2%99%e8%a7%84%e5%88%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">nmap</span> <span class="err">–</span><span class="n">script</span><span class="p">=</span><span class="n">firewalk</span> <span class="err">–</span><span class="n">traceroute</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.</span><span class="mf">14</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>nmap –script=firewalk –traceroute 192.168.88.14
+在Nmap的firewalk脚本通过发送一个请求并分析TTL值，可以探测防火墙的规则。</p>
+<h3 class="heading-element" id="5vmware认证破解"><span>5.VMWare认证破解</span>
+  <a href="#5vmware%e8%ae%a4%e8%af%81%e7%a0%b4%e8%a7%a3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">nmap</span> <span class="n">-p</span> <span class="mf">902</span> <span class="err">–</span><span class="n">script</span> <span class="nb">vmauthd-brute</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">88</span><span class="p">.</span><span class="mf">14</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Nmap中的vmauthd-brute脚本可以破解安装虚拟机系统的用户名与密码。</p>
+<p>转载自：<a href="https://blog.csdn.net/tangshuangsss/article/details/111354476"target="_blank" rel="external nofollow noopener noreferrer">渗透武器库—nmap实战总结-CSDN博客</a></p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
         <span title="更新于 2025-12-17 12:38:13">更新于 2025-12-17&nbsp;</span>
       </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/d59e8d0/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5cNmap.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/d59e8d0/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5cNmap%e5%b8%b8%e7%94%a8%e6%93%8d%e4%bd%9c.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/d59e8d0/" data-title="Nmap" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/d59e8d0/" data-title="Nmap常用操作" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/d59e8d0/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/d59e8d0/" data-title="Nmap"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/d59e8d0/" data-title="Nmap常用操作"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -130,7 +364,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/bb6cad8/" class="post-nav-item" rel="prev" title="Wifipasswdcrack"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Wifipasswdcrack</a><a href="/posts/51fa418/" class="post-nav-item" rel="next" title="Linux&#43;windowsattckprotect">Linux&#43;windowsattckprotect<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/bb6cad8/" class="post-nav-item" rel="prev" title="Wifi密码破解分析的几种常见方式"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Wifi密码破解分析的几种常见方式</a><a href="/posts/51fa418/" class="post-nav-item" rel="next" title="Windows与Linux入侵排查">Windows与Linux入侵排查<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Buy me a coffee</div>
@@ -140,7 +374,8 @@
           </div></div>
   </div></article>
 
-  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.20"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">

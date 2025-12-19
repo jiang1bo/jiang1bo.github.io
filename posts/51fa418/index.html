@@ -5,16 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Linux&#43;windowsattckprotect - Fermi</title><meta name="author" content="">
-<meta name="description" content="welcome to femris的博客网站!"><meta name="keywords" content='draft'>
-  <meta itemprop="name" content="Linux&#43;windowsattckprotect">
-  <meta itemprop="description" content="welcome to femris的博客网站!">
+    <title>Windows与Linux入侵排查 - Fermi</title><meta name="author" content="">
+<meta name="description" content="windows入侵排查，Linux入侵排查流程
+"><meta name="keywords" content='draft'>
+  <meta itemprop="name" content="Windows与Linux入侵排查">
+  <meta itemprop="description" content="windows入侵排查，Linux入侵排查流程">
   <meta itemprop="datePublished" content="2025-12-17T12:39:28+08:00">
   <meta itemprop="dateModified" content="2025-12-17T12:39:28+08:00">
+  <meta itemprop="wordCount" content="392">
   <meta itemprop="keywords" content="Draft"><meta property="og:url" content="http://localhost:1313/posts/51fa418/">
   <meta property="og:site_name" content="Fermi">
-  <meta property="og:title" content="Linux&#43;windowsattckprotect">
-  <meta property="og:description" content="welcome to femris的博客网站!">
+  <meta property="og:title" content="Windows与Linux入侵排查">
+  <meta property="og:description" content="windows入侵排查，Linux入侵排查流程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -23,21 +25,21 @@
     <meta property="article:tag" content="Draft">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Linux&#43;windowsattckprotect">
-  <meta name="twitter:description" content="welcome to femris的博客网站!">
+  <meta name="twitter:title" content="Windows与Linux入侵排查">
+  <meta name="twitter:description" content="windows入侵排查，Linux入侵排查流程">
 <meta name="application-name" content="Fermi&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/51fa418/" title="Linux&#43;windowsattckprotect - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/d59e8d0/" title="Nmap" /><link rel="next" type="text/html" href="http://localhost:1313/posts/70685c3/" title="Index" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/51fa418/index.md" title="Linux+windowsattckprotect - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/51fa418/" title="Windows与Linux入侵排查 - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/d59e8d0/" title="Nmap常用操作" /><link rel="next" type="text/html" href="http://localhost:1313/posts/70685c3/" title="个人建站总结" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/51fa418/index.md" title="Windows与Linux入侵排查 - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Linux+windowsattckprotect",
+    "headline": "Windows与Linux入侵排查",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/51fa418\/"
-    },"genre": "posts","keywords": "draft","wordcount":  0 ,
+    },"genre": "posts","keywords": "draft","wordcount":  392 ,
     "url": "http:\/\/localhost:1313\/posts\/51fa418\/","datePublished": "2025-12-17T12:39:28+08:00","dateModified": "2025-12-17T12:39:28+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -106,21 +108,464 @@
   </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linux&#43;windowsattckprotect</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Windows与Linux入侵排查</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:39:28"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="0 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 0 分钟</span>&nbsp;</div>
-    </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:39:28"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="392 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一检查系统账号安全">一、检查系统账号安全</a></li>
+    <li><a href="#二检查异常端口进程">二、检查异常端口、进程</a>
+      <ul>
+        <li><a href="#一排查可疑端口">（一）排查可疑端口</a></li>
+        <li><a href="#二排查可疑进程">（二）排查可疑进程</a></li>
+      </ul>
+    </li>
+    <li><a href="#三检查启动项计划任务和服务">三、检查启动项、计划任务和服务</a>
+      <ul>
+        <li><a href="#一排查异常启动项">（一）排查异常启动项</a></li>
+        <li><a href="#二排查计划任务">（二）排查计划任务</a></li>
+        <li><a href="#三排查服务自启动">（三）排查服务自启动</a></li>
+      </ul>
+    </li>
+    <li><a href="#四检查系统相关信息">四、检查系统相关信息</a>
+      <ul>
+        <li><a href="#一查看系统版本以及补丁信息">（一）查看系统版本以及补丁信息</a></li>
+        <li><a href="#二查看可疑目录及文件">（二）查看可疑目录及文件</a></li>
+        <li><a href="#三查看隐藏文件">（三）查看隐藏文件</a></li>
+        <li><a href="#四日志分析">（四）日志分析</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#历史命令">历史命令</a></li>
+        <li><a href="#检查异常端口">检查异常端口</a></li>
+        <li><a href="#文件查找">文件查找</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>windows入侵排查，Linux入侵排查流程</p>
+<h2 class="heading-element" id="windows入侵排查"><span>windows入侵排查</span>
+  <a href="#windows%e5%85%a5%e4%be%b5%e6%8e%92%e6%9f%a5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 class="heading-element" id="一检查系统账号安全"><span>一、检查系统账号安全</span>
+  <a href="#%e4%b8%80%e6%a3%80%e6%9f%a5%e7%b3%bb%e7%bb%9f%e8%b4%a6%e5%8f%b7%e5%ae%89%e5%85%a8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>攻击者面对windows系统会先从用户密码入手，首先是通过rdp服务对Administrator、Guest等默认账户的口令爆破，如果爆破没结果的话会固定密码，对用户账号进行爆破，再之后加入还是失败的话就是社工生成账号、密码字典，运气好那么就可以直接登录到管理员账号。在拿到系统权限后，权限维持则是必不可少的一步，创造一个新的管理账号方便后期登录查看就是一个不错的方法，当然为了增加隐蔽性该账号可以是影子账户。根据这几方面，检查看系统账号时可以重点关注弱口令、可疑账号、影子账户。</p>
+<h2 class="heading-element" id="二检查异常端口进程"><span>二、检查异常端口、进程</span>
+  <a href="#%e4%ba%8c%e6%a3%80%e6%9f%a5%e5%bc%82%e5%b8%b8%e7%ab%af%e5%8f%a3%e8%bf%9b%e7%a8%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>端口作为计算机内部与外部数据交互的窗口，在攻击者眼里也是作为香饽饽的存在，在入侵系统后，攻击者可以在计算机上开启专属的端口来访问被害主机或植入病毒用于挖矿等，熟悉计算机的朋友应该都知道常用的端口也就那么几个，所以通过排查可疑端口能确定主机是否存在后门、是否被植入挖矿病毒等，再根据端口的PID对可疑进程对应的程序排查，确定是否为恶意程序。</p>
+<h3 class="heading-element" id="一排查可疑端口"><span>（一）排查可疑端口</span>
+  <a href="#%e4%b8%80%e6%8e%92%e6%9f%a5%e5%8f%af%e7%96%91%e7%ab%af%e5%8f%a3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>检查方法1：</p>
+<p>1、使用netstat命令查看当前网络连接，定位可疑的ESTABLISHED连接</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">netstat -ano</span></span></code></pre></td></tr></table>
+</div>
+</div><p>2、根据PID编号通过tasklist对进程进行定位</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tasklist ｜ findstr “PID”</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://i-blog.csdnimg.cn/blog_migrate/6fb83ac09fbafdaa66a0c8e1c83e3328.png"target="_blank" rel="external nofollow noopener noreferrer">https://i-blog.csdnimg.cn/blog_migrate/6fb83ac09fbafdaa66a0c8e1c83e3328.png</a></p>
+<h3 class="heading-element" id="二排查可疑进程"><span>（二）排查可疑进程</span>
+  <a href="#%e4%ba%8c%e6%8e%92%e6%9f%a5%e5%8f%af%e7%96%91%e8%bf%9b%e7%a8%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>检查方法1：</p>
+<p>1、在桌面打开运行（可使用快捷键 win+R），输入 msinfo32 命令
+2、依次点击 “软件环境 — 正在运行任务” 就可以查看到进程的详细信息，比如进程路径、进程ID、文件创建日期以及启动时间等。</p>
+<h2 class="heading-element" id="三检查启动项计划任务和服务"><span>三、检查启动项、计划任务和服务</span>
+  <a href="#%e4%b8%89%e6%a3%80%e6%9f%a5%e5%90%af%e5%8a%a8%e9%a1%b9%e8%ae%a1%e5%88%92%e4%bb%bb%e5%8a%a1%e5%92%8c%e6%9c%8d%e5%8a%a1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>启动项、计划任务、服务是攻击者维持权限的惯用手段。在入侵windows计算机后，攻击者可以通过修改注册表、替换粘滞键程序在系统启动时就获得权限，也能够在管理员权限下设置计划任务，因为计划任务后门分为管理员权限和普通用户权限两种。管理员权限可以设置更多的计划任务，例如重启后运行等。也可以通过meterpreter创建后门服务。</p>
+<h3 class="heading-element" id="一排查异常启动项"><span>（一）排查异常启动项</span>
+  <a href="#%e4%b8%80%e6%8e%92%e6%9f%a5%e5%bc%82%e5%b8%b8%e5%90%af%e5%8a%a8%e9%a1%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>检查方法1：</p>
+<p>单击【开始】&gt;【所有程序】&gt;【启动】，默认情况下此目录在是一个空目录，确认是否有非业务程序在该目录下。</p>
+<p>检查方法2：</p>
+<p>在桌面打开运行（可使用快捷键 win+R），输入 msconfig，查看是否存在命名异常的启动项目，是则取消勾选命名异常的启动项目，并到命令中显示的路径删除文件。</p>
+<p>检查方法3:</p>
+<p>在桌面打开运行（可使用快捷键 win+R），输入 regedit，打开注册表，查看开机启动项是否正常，特别注意如下三个注册表项：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\run
+</span></span><span class="line"><span class="cl">HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+</span></span><span class="line"><span class="cl">HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Runonce</span></span></code></pre></td></tr></table>
+</div>
+</div><p>检查右侧是否有启动异常的项目，如有请删除，并建议安装杀毒软件进行病毒查杀，清除残留病毒或木马。</p>
+<h3 class="heading-element" id="二排查计划任务"><span>（二）排查计划任务</span>
+  <a href="#%e4%ba%8c%e6%8e%92%e6%9f%a5%e8%ae%a1%e5%88%92%e4%bb%bb%e5%8a%a1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>检查方法1：</p>
+<p>1、在桌面打开运行（可使用快捷键 win+R），输入 control 打开控制面板
+2、在 系统与安全 中查看计划任务属性，便可以发现木马文件的路径。
+检查方法2：</p>
+<p>1、在桌面打开运行（可使用快捷键 win+R），输入 cmd 打开命令行窗口
+2、检查计算机与网络上的其它计算机之间的会话或计划任务，如有，则确认是否为正常连接，其中计划任务在windows7及之前版本的操作系统中使用at命令进行调用，在从windows8版本开始的操作系统中使用schtasks命令调用。</p>
+<p>windows server 2016 下执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">schtasks</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="三排查服务自启动"><span>（三）排查服务自启动</span>
+  <a href="#%e4%b8%89%e6%8e%92%e6%9f%a5%e6%9c%8d%e5%8a%a1%e8%87%aa%e5%90%af%e5%8a%a8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>检查方法：</p>
+<p>1、在桌面打开运行（可使用快捷键 win+R），输入 services.msc
+2、注意服务状态和启动类型，检查是否有异常服务</p>
+<h2 class="heading-element" id="四检查系统相关信息"><span>四、检查系统相关信息</span>
+  <a href="#%e5%9b%9b%e6%a3%80%e6%9f%a5%e7%b3%bb%e7%bb%9f%e7%9b%b8%e5%85%b3%e4%bf%a1%e6%81%af" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>系统本身如果存在漏洞，那么结果往往是致命的，如果计算机存在<strong>永恒之蓝</strong>漏洞且未采取防护措施。那么攻击者就能直接通过MSF的漏洞利用程序获取目标windows系统的system权限。与此同时，攻击者在进入系统后往往也会留一些蛛丝马迹，如未将上传文件清除、浏览器浏览记录未删除、下载的文件未删除等。在检查系统相关信息时就需要重点关注系统本身存在的漏洞以及攻击者使用过的文件。</p>
+<h3 class="heading-element" id="一查看系统版本以及补丁信息"><span>（一）查看系统版本以及补丁信息</span>
+  <a href="#%e4%b8%80%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%bb%9f%e7%89%88%e6%9c%ac%e4%bb%a5%e5%8f%8a%e8%a1%a5%e4%b8%81%e4%bf%a1%e6%81%af" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>检查方法：</p>
+<p>1、在桌面打开运行（可使用快捷键 win+R）输入 systeminfo
+2、查看系统信息和补丁状态</p>
+<h3 class="heading-element" id="二查看可疑目录及文件"><span>（二）查看可疑目录及文件</span>
+  <a href="#%e4%ba%8c%e6%9f%a5%e7%9c%8b%e5%8f%af%e7%96%91%e7%9b%ae%e5%bd%95%e5%8f%8a%e6%96%87%e4%bb%b6" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>检查方法1：</p>
+<p>查看用户目录，是否存在新建用户目录</p>
+<p>Window 2003版本 : C:\Documents and Settings
+Window 2003以后版本 : C:\Users\</p>
+<p>检查方法2：</p>
+<p>1、在桌面打开运行（可使用快捷键 win+R）输入 %UserProfile%\Recent
+2、分析最近打开的可疑文件</p>
+<p>检查方法3：</p>
+<p>1、点击文件资源管理器，查找服务器内中的各个文件夹
+2、将文件夹文件按时间进行排序，查找可疑文件，其中修改时间在创建时间之前的为可疑文件，也可以在搜索中搜索某一时间修改的文件。重点关注windows\system32的sethc.exe是否被替换为cmd程序</p>
+<p>检查方法4：</p>
+<p>针对回收站、浏览器下载目录以及历史记录进行排查</p>
+<h3 class="heading-element" id="三查看隐藏文件"><span>（三）查看隐藏文件</span>
+  <a href="#%e4%b8%89%e6%9f%a5%e7%9c%8b%e9%9a%90%e8%97%8f%e6%96%87%e4%bb%b6" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>检查方法1：</p>
+<p>1、在桌面打开运行（可使用快捷键 win+R），输入 control，进入控制面板
+2、找到文件资源管理器选项，点击 查看 后，取消”隐藏受保护的操作系统文件“勾选，在隐藏文件和文件夹下面的单选选择显示隐藏的文件、文件夹和驱动器</p>
+<h3 class="heading-element" id="四日志分析"><span>（四）日志分析</span>
+  <a href="#%e5%9b%9b%e6%97%a5%e5%bf%97%e5%88%86%e6%9e%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>主要查看系统日志和web日志，通过日志可以帮助我们验证对入侵过程的判断和发现其他入侵行为。但它的前提则是日志记录已开启的情况下才能获取。这块具体会在之后的日志分析篇提到</p>
+<p>（一）系统日志</p>
+<p>分析方法：</p>
+<p>1、在桌面打开运行（可使用快捷键 win+R），输入 eventvwr.msc
+2、找到事件查看器，查看windows日志（包括应用程序、安全、Setup、系统、事件）
+（二）web日志</p>
+<p>分析方法：</p>
+<p>1、找到中间件、应用、WAF的日志（包括但不限于IIS、Nginx、宝塔、网站等）
+2、打包至本地进行分析，在编辑器中对关键字进行搜索</p>
+<p><strong>使用日志分析工具进行分析异常</strong></p>
+<p>总结：</p>
+<p><strong>检查系统账号—-&gt;检查异常端口、进程netstat -ano，tasklist ｜ findstr “PID”， msinfo32系统信息—-&gt;检查启动项、计划任务和服务,msconfig启动项，services.msc服务—-&gt;检查系统相关信息systeminfo系统信息,eventvwr.msc系统日志</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">##检查系统账号，检查异常端口、进程</span>
+</span></span><span class="line"><span class="cl">netstat -ano，tasklist ｜ findstr “PID”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">##系统信息—-&gt;检查启动项、计划任务和服务</span>
+</span></span><span class="line"><span class="cl">msinfo32
+</span></span><span class="line"><span class="cl"><span class="c1">##启动项</span>
+</span></span><span class="line"><span class="cl">msconfig
+</span></span><span class="line"><span class="cl"><span class="c1">##服务</span>
+</span></span><span class="line"><span class="cl">services.msc
+</span></span><span class="line"><span class="cl"><span class="c1">##检查系统相关信息</span>
+</span></span><span class="line"><span class="cl">systeminfo
+</span></span><span class="line"><span class="cl"><span class="c1">##系统日志</span>
+</span></span><span class="line"><span class="cl">eventvwr.msc</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://blog.csdn.net/zzhongcy/article/details/38851271"target="_blank" rel="external nofollow noopener noreferrer">端口状态 LISTENING、ESTABLISHED、TIME_WAIT及CLOSE_WAIT详解，以及三次握手，滑动窗口_established状态-CSDN博客</a></p>
+<p><a href="https://cloud.tencent.com/developer/news/646106"target="_blank" rel="external nofollow noopener noreferrer">终于搞懂了 TCP 的 11 种状态 ，太不容易了… – 腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<h2 class="heading-element" id="linux入侵排查流程"><span>Linux入侵排查流程</span>
+  <a href="#linux%e5%85%a5%e4%be%b5%e6%8e%92%e6%9f%a5%e6%b5%81%e7%a8%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>查看用户信息文件,是否存在新增用户</strong>
+<strong>cat /etc/passwd</strong></p>
+<p><strong>查看 /home目录是否有新目录(如果存在可疑目录,可能被入侵)</strong></p>
+<p><strong>查看是否还有其他特权用户(默认只有一个特权用户 root 即uid=0)</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk -F: <span class="s1">&#39;$3==0{print $1}&#39;</span> /etc/passwd</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看当前登录用户</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">who # tty：本地登录 pts：远程登录</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看系统信息</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">w  #可以知道某一时刻用户的行为</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看的用户的多少，用户上线了多久，以及负载</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">uptime</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>删除用户密码</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">passwd -d username</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看用户上一次密码修改时间</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">stat /etc/passwd    #如果近期修改过，可能存在问题</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看不可登录之外的用户</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat /etc/passwd | grep -v nologin  #有无新增用户，有则可能存在问题</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看具有root权限的用户</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat /etc/passwd | grep x:0  # 有新增的就可能存在问题</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看使用shell的用户</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat /etc/passwd | grep /bin/bash</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看具有sudo权限的用户</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">more /etc/sudoers | grep -v &#34;^#\|^$&#34; | grep &#34;ALL=(ALL)&#34;</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看登录失败的次数</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-perl" data-lang="perl"><span class="line"><span class="cl"><span class="nb">grep</span> <span class="o">-</span><span class="n">o</span> <span class="s">&#34;Failed password&#34;</span> <span class="sr">/var/</span><span class="nb">log</span><span class="o">/</span><span class="n">secure</span><span class="o">|</span><span class="n">uniq</span> <span class="o">-</span><span class="n">c</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看登录失败的用户</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lastb</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看登录使用的用户名 （可以看到出现的次数）</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">grep</span> <span class="s">&#34;Failed password&#34;</span> <span class="o">/</span><span class="kd">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">secure</span><span class="o">|</span><span class="n">perl</span> <span class="o">-</span><span class="n">e</span> <span class="err">&#39;</span><span class="k">while</span><span class="p">(</span><span class="err">$</span><span class="kc">_</span><span class="p">=</span><span class="o">&lt;&gt;</span><span class="p">){</span> <span class="o">/</span><span class="k">for</span><span class="p">(.</span><span class="o">*?</span><span class="p">)</span> <span class="n">from</span><span class="o">/</span><span class="p">;</span> <span class="bp">print</span> <span class="s">&#34;$1</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;}</span><span class="err">&#39;</span><span class="o">|</span><span class="n">uniq</span> <span class="o">-</span><span class="n">c</span><span class="o">|</span><span class="bp">sort</span> <span class="o">-</span><span class="n">nr</span>
+</span></span><span class="line"><span class="cl"> </span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看成功登录的ip</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-perl" data-lang="perl"><span class="line"><span class="cl"><span class="nb">grep</span> <span class="s">&#34;Accepted&#34;</span> <span class="sr">/var/</span><span class="nb">log</span><span class="o">/</span><span class="n">secure</span> <span class="o">|</span> <span class="n">awk</span> <span class="s">&#39;{print $11}&#39;</span> <span class="o">|</span> <span class="nb">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">-</span><span class="n">c</span> <span class="o">|</span><span class="nb">sort</span> <span class="o">-</span><span class="n">nr</span> <span class="o">|</span> <span class="n">more</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>禁用账号</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usermod -L user  <span class="c1">#/etc/shadow 第二栏开头为！则表示以禁用</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="历史命令"><span>历史命令</span>
+  <a href="#%e5%8e%86%e5%8f%b2%e5%91%bd%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>用户执行操作的历史记录存放在文件.bash_history，登录root可查看其他用户的历史记录信息</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /home/XXX/.bash_history  <span class="c1">#XXX是要查看的用户</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看当前用户操作命令历史</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">history</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="检查异常端口"><span>检查异常端口</span>
+  <a href="#%e6%a3%80%e6%9f%a5%e5%bc%82%e5%b8%b8%e7%ab%af%e5%8f%a3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">netstat –antp #显示直接ip所有建立相关链接程序名的tcp的端口情况
+</span></span><span class="line"><span class="cl"><span class="gd">-a：显示所有选项
+</span></span></span><span class="line"><span class="cl"><span class="gd">-t:仅显示tcp相关选项 -u:仅显示udp相关选项 
+</span></span></span><span class="line"><span class="cl"><span class="gd">-n：直接使用ip地址，而不通过域名服务器
+</span></span></span><span class="line"><span class="cl"><span class="gd">-l：仅列出有在 Listen (监听) 的服務状态
+</span></span></span><span class="line"><span class="cl"><span class="gd">-p：显示建立相关链接的程序名
+</span></span></span><span class="line"><span class="cl"><span class="gd">-r：显示路由信息，路由表
+</span></span></span><span class="line"><span class="cl"><span class="gd">-e：显示扩展信息，例如uid等
+</span></span></span><span class="line"><span class="cl"><span class="gd">-s：显示网络工作信息统计表（按各个协议进行统计）
+</span></span></span><span class="line"><span class="cl"><span class="gd">-c：每隔一个固定时间，执行该netstat命令
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="文件查找"><span>文件查找</span>
+  <a href="#%e6%96%87%e4%bb%b6%e6%9f%a5%e6%89%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>查找指定的文件（find）
+查找最近一天修改的文件</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">find / -mtime -1 &gt; /XXX.txt  #将修改过的文件保存到根目录下的XXX.txt中</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查找大文件</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">find / -size +10000k -print  #查找大于10000k的文件</span></span></code></pre></td></tr></table>
+</div>
+</div><p>日志分析
+默认日志位置</p>
+<p>var/log</p>
+<p>定位有多少IP在爆破主机的root帐号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-perl" data-lang="perl"><span class="line"><span class="cl"><span class="nb">grep</span> <span class="err">“</span><span class="n">Failed</span> <span class="n">password</span> <span class="k">for</span> <span class="n">root</span><span class="err">”</span> <span class="sr">/var/</span><span class="nb">log</span><span class="o">/</span><span class="n">secure</span> <span class="o">|</span> <span class="n">awk</span> <span class="err">‘</span><span class="p">{</span><span class="k">print</span> <span class="nv">$11</span><span class="p">}</span><span class="err">’</span> <span class="o">|</span> <span class="nb">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">-</span><span class="n">c</span> <span class="o">|</span> <span class="nb">sort</span> <span class="o">-</span><span class="n">nr</span> <span class="o">|</span> <span class="n">more</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看日志配置情况</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">more /etc/rsyslog.conf</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://blog.csdn.net/weixin_46944519/article/details/121466490"target="_blank" rel="external nofollow noopener noreferrer">应急响应之Windows/Linux(入侵排查篇)_主机入侵排查应急响应-CSDN博客</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/637750067"target="_blank" rel="external nofollow noopener noreferrer">应急响应之windows&amp;linux（基础篇） – 知乎 (zhihu.com)</a></p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
         <span title="更新于 2025-12-17 12:39:28">更新于 2025-12-17&nbsp;</span>
       </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/51fa418/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5clinux&#43;windowsattckprotect.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/51fa418/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5cWindowsLinux%e5%85%a5%e4%be%b5%e6%8e%92%e6%9f%a5.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/51fa418/" data-title="Linux&#43;windowsattckprotect" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/51fa418/" data-title="Windows与Linux入侵排查" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/51fa418/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/51fa418/" data-title="Linux&#43;windowsattckprotect"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/51fa418/" data-title="Windows与Linux入侵排查"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -130,7 +575,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/d59e8d0/" class="post-nav-item" rel="prev" title="Nmap"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Nmap</a><a href="/posts/70685c3/" class="post-nav-item" rel="next" title="Index">Index<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/d59e8d0/" class="post-nav-item" rel="prev" title="Nmap常用操作"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Nmap常用操作</a><a href="/posts/70685c3/" class="post-nav-item" rel="next" title="个人建站总结">个人建站总结<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Buy me a coffee</div>
@@ -140,7 +585,8 @@
           </div></div>
   </div></article>
 
-  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.20"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">

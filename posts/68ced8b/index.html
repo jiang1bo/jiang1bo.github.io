@@ -5,15 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Linux&#39;makeinstall&#39;rpmbuild - Fermi</title><meta name="author" content="">
+    <title>Linux文件进行压缩和解压 - Fermi</title><meta name="author" content="">
 <meta name="description" content="welcome to femris的博客网站!"><meta name="keywords" content='draft'>
-  <meta itemprop="name" content="Linux&#39;makeinstall&#39;rpmbuild">
+  <meta itemprop="name" content="Linux文件进行压缩和解压">
   <meta itemprop="description" content="welcome to femris的博客网站!">
   <meta itemprop="datePublished" content="2025-12-17T12:35:28+08:00">
   <meta itemprop="dateModified" content="2025-12-17T12:35:28+08:00">
+  <meta itemprop="wordCount" content="278">
   <meta itemprop="keywords" content="Draft"><meta property="og:url" content="http://localhost:1313/posts/68ced8b/">
   <meta property="og:site_name" content="Fermi">
-  <meta property="og:title" content="Linux&#39;makeinstall&#39;rpmbuild">
+  <meta property="og:title" content="Linux文件进行压缩和解压">
   <meta property="og:description" content="welcome to femris的博客网站!">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
@@ -23,21 +24,21 @@
     <meta property="article:tag" content="Draft">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Linux&#39;makeinstall&#39;rpmbuild">
+  <meta name="twitter:title" content="Linux文件进行压缩和解压">
   <meta name="twitter:description" content="welcome to femris的博客网站!">
 <meta name="application-name" content="Fermi&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/68ced8b/" title="Linux&#39;makeinstall&#39;rpmbuild - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/28260a2/" title="Linuxwelcome" /><link rel="next" type="text/html" href="http://localhost:1313/posts/3d7214d/" title="LinuxRPMinstall" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/68ced8b/index.md" title="Linux'makeinstall'rpmbuild - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/68ced8b/" title="Linux文件进行压缩和解压 - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/28260a2/" title="linux终端自定义欢迎语，欢迎界面" /><link rel="next" type="text/html" href="http://localhost:1313/posts/3d7214d/" title="编译过程和依赖管理，RPM（Red Hat Package Manager）&amp;&amp; make install常见的使用方式" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/68ced8b/index.md" title="Linux文件进行压缩和解压 - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Linux'makeinstall'rpmbuild",
+    "headline": "Linux文件进行压缩和解压",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/68ced8b\/"
-    },"genre": "posts","keywords": "draft","wordcount":  0 ,
+    },"genre": "posts","keywords": "draft","wordcount":  278 ,
     "url": "http:\/\/localhost:1313\/posts\/68ced8b\/","datePublished": "2025-12-17T12:35:28+08:00","dateModified": "2025-12-17T12:35:28+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -106,21 +107,282 @@
   </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linux&#39;makeinstall&#39;rpmbuild</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linux文件进行压缩和解压</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:35:28"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="0 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 0 分钟</span>&nbsp;</div>
-    </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:35:28"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="278 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1文件下载">1.文件下载</a>
+      <ul>
+        <li><a href="#11-wget命令">1.1 wget命令</a></li>
+        <li><a href="#12curl命令">1.2curl命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#2文件压缩">2.文件压缩</a>
+      <ul>
+        <li><a href="#21-gzip命令">2.1 gzip命令</a></li>
+        <li><a href="#22-bzip2命令">2.2 bzip2命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#3文件解压">3.文件解压</a>
+      <ul>
+        <li><a href="#31-tar命令">3.1 tar命令</a></li>
+        <li><a href="#32-unzip命令">3.2 unzip命令</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p><strong>在Linux系统使用中，我们经常需要下载文件、对文件进行压缩和解压操作。</strong></p>
+<p><strong>本文将介绍一些常用的Linux命令，帮助你轻松完成这些操作。</strong></p>
+<h2 class="heading-element" id="1文件下载"><span>1.文件下载</span>
+  <a href="#1%e6%96%87%e4%bb%b6%e4%b8%8b%e8%bd%bd" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 class="heading-element" id="11-wget命令"><span>1.1 wget命令</span>
+  <a href="#11-wget%e5%91%bd%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>wget命令是Linux中最常用的下载命令之一。它支持HTTP、HTTPS、FTP等多种协议，并可以设置断点续传等功能。</strong></p>
+<p>基本用法:</p>
+<p>wget [选项] URL地址
+常用选项:</p>
+<p><strong>-c: 断点重连，继续下载未完成的文件。</strong>
+<strong>-O: 指定下载文件的保存名称。</strong>
+<strong>-P: 指定下载文件的保存路径。</strong>
+<strong>-q: 静默模式，不显示下载进度。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载文件并保存为默认名称</span>
+</span></span><span class="line"><span class="cl">wget https://www.example.com/file.txt
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载文件并保存为默认名称，-c为断点重连，如果断网后，下次会接续</span>
+</span></span><span class="line"><span class="cl">wget -c https://www.example.com/file.txt
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载文件并指定保存名称</span>
+</span></span><span class="line"><span class="cl">wget -O myfile.txt https://www.example.com/file.txt
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载文件并指定保存路径</span>
+</span></span><span class="line"><span class="cl">wget -P /tmp https://www.example.com/file.txt
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 静默模式下载文件</span>
+</span></span><span class="line"><span class="cl">wget -q https://www.example.com/file.txt
+</span></span><span class="line"><span class="cl">wget还有许多其他的选项，可以通过man wget或wget help查看。</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="12curl命令"><span>1.2curl命令</span>
+  <a href="#12curl%e5%91%bd%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>curl命令也是一个常用的下载命令，它支持的功能与wget类似。</strong></p>
+<p><strong>基本用法:</strong></p>
+<p><strong>curl [选项] URL地址</strong>
+<strong>常用选项:</strong></p>
+<p><strong>-o: 指定下载文件的保存名称。</strong>
+<strong>-L: 跟踪重定向。</strong>
+<strong>-s: 静默模式，不显示下载进度。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 下载文件并保存为默认名称</span>
+</span></span><span class="line"><span class="cl">curl https://www.example.com/file.txt
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载文件并指定保存名称</span>
+</span></span><span class="line"><span class="cl">curl -o myfile.txt https://www.example.com/file.txt
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 跟踪重定向并下载文件</span>
+</span></span><span class="line"><span class="cl">curl -L https://www.example.com/redirect.html
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 静默模式下载文件</span>
+</span></span><span class="line"><span class="cl">curl -s https://www.example.com/file.txt
+</span></span><span class="line"><span class="cl">curl还有许多其他的选项，可以通过man curl 或则 curl help查看</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="2文件压缩"><span>2.文件压缩</span>
+  <a href="#2%e6%96%87%e4%bb%b6%e5%8e%8b%e7%bc%a9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 class="heading-element" id="21-gzip命令"><span>2.1 gzip命令</span>
+  <a href="#21-gzip%e5%91%bd%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>gzip命令是Linux中最常用的压缩命令之一，它可以对文件进行 gzip 压缩格式的压缩。</strong></p>
+<p><strong>基本用法:</strong></p>
+<p><strong>gzip [选项] 文件名</strong>
+<strong>常用选项:</strong></p>
+<p><strong>-c: 压缩后不删除源文件。</strong>
+<strong>-d: 解压缩文件。</strong>
+<strong>-f: 强制压缩文件，即使文件已存在。</strong>
+<strong>-9: 使用最高压缩级别。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 压缩文件</span>
+</span></span><span class="line"><span class="cl">gzip file.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解压缩文件</span>
+</span></span><span class="line"><span class="cl">gzip -d file.txt.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 强制压缩文件</span>
+</span></span><span class="line"><span class="cl">gzip -f file.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用最高压缩级别压缩文件</span>
+</span></span><span class="line"><span class="cl">gzip -9 file.txt</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="22-bzip2命令"><span>2.2 bzip2命令</span>
+  <a href="#22-bzip2%e5%91%bd%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>bzip2命令也是一个常用的压缩命令，它可以对文件进行 bzip2 压缩格式的压缩。</strong></p>
+<p><strong>基本用法:</strong></p>
+<p><strong>bzip2 [选项] 文件名</strong>
+<strong>常用选项:</strong></p>
+<p><strong>-c: 压缩后不删除源文件。</strong>
+<strong>-d: 解压缩文件。</strong>
+<strong>-f: 强制压缩文件，即使文件已存在。</strong>
+<strong>-9: 使用最高压缩级别。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 压缩文件</span>
+</span></span><span class="line"><span class="cl">bzip2 file.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解压缩文件</span>
+</span></span><span class="line"><span class="cl">bzip2 -d file.txt.bz2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 强制压缩文件</span>
+</span></span><span class="line"><span class="cl">bzip2 -f file.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用最高压缩级别压缩文件</span>
+</span></span><span class="line"><span class="cl">bzip2 -9 file.txt</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="3文件解压"><span>3.文件解压</span>
+  <a href="#3%e6%96%87%e4%bb%b6%e8%a7%a3%e5%8e%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 class="heading-element" id="31-tar命令"><span>3.1 tar命令</span>
+  <a href="#31-tar%e5%91%bd%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>tar命令是Linux中常用的解压命令，它可以解压 tar 格式的压缩包。</strong></p>
+<p><strong>基本用法:</strong></p>
+<p><strong>tar [选项] 文件名</strong>
+<strong>常用选项:</strong></p>
+<p><strong>-c: 创建压缩包。</strong>
+<strong>-x: 解压缩文件。</strong>
+<strong>-f: 指定压缩包文件名。</strong>
+<strong>-v: 显示详细信息。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 解压缩文件
+</span></span><span class="line"><span class="cl">tar -xvf file.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 解压缩文件并显示详细信息
+</span></span><span class="line"><span class="cl">tar -xvzf file.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 创建压缩包
+</span></span><span class="line"><span class="cl">tar -cf myfile.tar file1 file2</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="32-unzip命令"><span>3.2 unzip命令</span>
+  <a href="#32-unzip%e5%91%bd%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>unzip命令是Linux中常用的解压命令，它可以解压 zip 格式的压缩包。</strong></p>
+<p><strong>基本用法:</strong></p>
+<p><strong>unzip [选项] 文件名</strong>
+<strong>常用选项:</strong></p>
+<p><strong>-d: 指定解压文件的保存路径。</strong>
+<strong>-l: 查看压缩包内容。</strong>
+<strong>-q: 静默模式，不显示解压进度。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 解压缩文件</span>
+</span></span><span class="line"><span class="cl">unzip file.zip</span></span></code></pre></td></tr></table>
+</div>
+</div><p>本文介绍了Linux中三个常用的命令：wget、gzip和tar，分别用于文件的下载、压缩和解压。这些命令都有很多的选项，可以根据不同的需求进行调整。通过掌握这些命令，我们可以更方便地管理和处理文件。希望本文对你有所帮助。</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
         <span title="更新于 2025-12-17 12:35:28">更新于 2025-12-17&nbsp;</span>
       </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/68ced8b/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5clinux%27makeinstall%27rpmbuild.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/68ced8b/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5cLinux%e6%96%87%e4%bb%b6%e8%bf%9b%e8%a1%8c%e5%8e%8b%e7%bc%a9%e5%92%8c%e8%a7%a3%e5%8e%8b.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/68ced8b/" data-title="Linux&#39;makeinstall&#39;rpmbuild" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/68ced8b/" data-title="Linux文件进行压缩和解压" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/68ced8b/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/68ced8b/" data-title="Linux&#39;makeinstall&#39;rpmbuild"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/68ced8b/" data-title="Linux文件进行压缩和解压"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -130,7 +392,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/28260a2/" class="post-nav-item" rel="prev" title="Linuxwelcome"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Linuxwelcome</a><a href="/posts/3d7214d/" class="post-nav-item" rel="next" title="LinuxRPMinstall">LinuxRPMinstall<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/28260a2/" class="post-nav-item" rel="prev" title="Linux终端自定义欢迎语，欢迎界面"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Linux终端自定义欢迎语，欢迎界面</a><a href="/posts/3d7214d/" class="post-nav-item" rel="next" title="编译过程和依赖管理，RPM（Red Hat Package Manager）&amp;&amp; Make Install常见的使用方式">编译过程和依赖管理，RPM（Red Hat Package Manager）&amp;&amp; Make Install常见的使用方式<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Buy me a coffee</div>
@@ -140,7 +402,8 @@
           </div></div>
   </div></article>
 
-  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.20"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">

@@ -5,16 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Linuxsshstudy - Fermi</title><meta name="author" content="">
-<meta name="description" content="welcome to femris的博客网站!"><meta name="keywords" content='draft'>
-  <meta itemprop="name" content="Linuxsshstudy">
-  <meta itemprop="description" content="welcome to femris的博客网站!">
+    <title>Ssh常见配置和操作命令 - Fermi</title><meta name="author" content="">
+<meta name="description" content="ssh 利用非对称加密实现安全的登录 非对称加密中有两个密钥：公钥和私钥。公钥由私钥产生，但却无法推算出私钥；公钥加密后的密文，只能通过对应的私钥来解密。
+"><meta name="keywords" content='draft'>
+  <meta itemprop="name" content="ssh常见配置和操作命令">
+  <meta itemprop="description" content="ssh 利用非对称加密实现安全的登录 非对称加密中有两个密钥：公钥和私钥。公钥由私钥产生，但却无法推算出私钥；公钥加密后的密文，只能通过对应的私钥来解密。">
   <meta itemprop="datePublished" content="2025-12-17T12:36:21+08:00">
   <meta itemprop="dateModified" content="2025-12-17T12:36:21+08:00">
+  <meta itemprop="wordCount" content="235">
   <meta itemprop="keywords" content="Draft"><meta property="og:url" content="http://localhost:1313/posts/de36ed4/">
   <meta property="og:site_name" content="Fermi">
-  <meta property="og:title" content="Linuxsshstudy">
-  <meta property="og:description" content="welcome to femris的博客网站!">
+  <meta property="og:title" content="ssh常见配置和操作命令">
+  <meta property="og:description" content="ssh 利用非对称加密实现安全的登录 非对称加密中有两个密钥：公钥和私钥。公钥由私钥产生，但却无法推算出私钥；公钥加密后的密文，只能通过对应的私钥来解密。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -23,21 +25,21 @@
     <meta property="article:tag" content="Draft">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Linuxsshstudy">
-  <meta name="twitter:description" content="welcome to femris的博客网站!">
+  <meta name="twitter:title" content="ssh常见配置和操作命令">
+  <meta name="twitter:description" content="ssh 利用非对称加密实现安全的登录 非对称加密中有两个密钥：公钥和私钥。公钥由私钥产生，但却无法推算出私钥；公钥加密后的密文，只能通过对应的私钥来解密。">
 <meta name="application-name" content="Fermi&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/de36ed4/" title="Linuxsshstudy - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/3d7214d/" title="LinuxRPMinstall" /><link rel="next" type="text/html" href="http://localhost:1313/posts/bb6cad8/" title="Wifipasswdcrack" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/de36ed4/index.md" title="Linuxsshstudy - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/de36ed4/" title="ssh常见配置和操作命令 - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/3d7214d/" title="编译过程和依赖管理，RPM（Red Hat Package Manager）&amp;&amp; make install常见的使用方式" /><link rel="next" type="text/html" href="http://localhost:1313/posts/bb6cad8/" title="wifi密码破解分析的几种常见方式" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/de36ed4/index.md" title="ssh常见配置和操作命令 - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Linuxsshstudy",
+    "headline": "ssh常见配置和操作命令",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/de36ed4\/"
-    },"genre": "posts","keywords": "draft","wordcount":  0 ,
+    },"genre": "posts","keywords": "draft","wordcount":  235 ,
     "url": "http:\/\/localhost:1313\/posts\/de36ed4\/","datePublished": "2025-12-17T12:36:21+08:00","dateModified": "2025-12-17T12:36:21+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -106,21 +108,192 @@
   </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linuxsshstudy</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Ssh常见配置和操作命令</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:36:21"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="0 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 0 分钟</span>&nbsp;</div>
-    </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:36:21"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="235 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh-利用非对称加密实现安全的登录">ssh 利用非对称加密实现安全的登录</a>
+      <ul>
+        <li><a href="#ssh-服务的配置文件"><strong>SSH 服务的配置文件</strong></a></li>
+        <li><a href="#通过-ssh-实现免密登录"><strong>通过 ssh 实现免密登录。</strong></a></li>
+        <li><a href="#端口转发"><strong>端口转发</strong></a></li>
+        <li><a href="#删除或更改私钥上的密码">删除或更改私钥上的密码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 class="heading-element" id="ssh-利用非对称加密实现安全的登录"><span>ssh 利用非对称加密实现安全的登录</span>
+  <a href="#ssh-%e5%88%a9%e7%94%a8%e9%9d%9e%e5%af%b9%e7%a7%b0%e5%8a%a0%e5%af%86%e5%ae%9e%e7%8e%b0%e5%ae%89%e5%85%a8%e7%9a%84%e7%99%bb%e5%bd%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>非对称加密中有两个密钥：公钥和私钥。公钥由私钥产生，但却无法推算出私钥；公钥加密后的密文，只能通过对应的私钥来解密。</p>
+<p>终端要登录 Server 服务器，发起登录请求 ssh <a href="mailto:work@server.com"target="_blank" rel="external nofollow noopener noreferrer">work@server.com</a>。服务端运行有 sshd 服务，并监听指定的端口，默认为 22 号端口。</p>
+<p>服务端会生成一对公钥和私钥；此时将公钥返回给客户端；客户端使用公钥，对登录密码进行加密（如服务器work用户密码为xxx），生成公钥加密字符串；客户端将公钥加密字符串发送给服务端；服务端使用私钥，解密公钥加密字符串，得到原始密码；校验密码是否合法（此为本机 work 密码）；返回登录结果给客户端：成功登录或密码错。</p>
+<p><strong>在非对称加密中，由于只有公钥会被传输，而私钥是服务端本地保存，因此即便公钥被监听，也无法拿到原始密码，从而安全地登录服务器。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">使用指定用户名和端口登录远程主机</span><span class="err">。</span><span class="nt">ssh</span> <span class="nt">-p3600</span> <span class="nt">root</span><span class="p">@</span><span class="k">9</span><span class="p">.</span><span class="nc">134</span><span class="p">.</span><span class="nc">114</span><span class="p">.</span><span class="nc">170</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="ssh-服务的配置文件"><span><strong>SSH 服务的配置文件</strong></span>
+  <a href="#ssh-%e6%9c%8d%e5%8a%a1%e7%9a%84%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>通常位于 <code>/etc/ssh/sshd_config</code>。可以使用文本编辑器编辑该文件以调整设置。常见配置选项包括：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Port：指定 SSH 服务监听的端口（默认为 22）。Port <span class="m">22</span>
+</span></span><span class="line"><span class="cl">PermitRootLogin：控制是否允许 root 用户通过 SSH 登录。出于安全考虑，通常建议设置为 no。 PermitRootLogin no
+</span></span><span class="line"><span class="cl">PasswordAuthentication：控制是否允许密码认证。启用密钥认证时，可以将此选项设置为 no。 PasswordAuthentication yes
+</span></span><span class="line"><span class="cl">AllowUsers 和 DenyUsers：控制允许和拒绝登录的用户。AllowUsers user1 user2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 修改配置文件后，使用以下命令重启 SSH 服务使更改生效：sudo systemctl restart ssh</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="通过-ssh-实现免密登录"><span><strong>通过 ssh 实现免密登录。</strong></span>
+  <a href="#%e9%80%9a%e8%bf%87-ssh-%e5%ae%9e%e7%8e%b0%e5%85%8d%e5%af%86%e7%99%bb%e5%bd%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>免密登录的实现过程如下：</p>
+<p><strong>1.在客户端使用 ssh-keygen 生成一对密钥：公钥+私钥；``</strong></p>
+<p><strong>2.将客户端公钥追加到服务端的 authorized_key 文件中，完成公钥认证操作；</strong></p>
+<p><strong>3.认证完成后，客户端向服务端发起登录请求，并传递公钥到服务端；</strong></p>
+<p><strong>4.服务端检索 authorized_key 文件，确认该公钥是否存在。如果存在该公钥，则生成随机数 R，并用公钥进行加密，生成公钥加密字符串 pubKey(R)；</strong></p>
+<p><strong>5.将公钥加密字符串传递给客户端；</strong></p>
+<p><strong>6客户端使用私钥解密公钥加密字符串，得到 R；</strong></p>
+<p><strong>7.服务端和客户端通信时会产生一个会话 ID(sessionKey)，用 MD5 对 R 和 SessionKey 进行加密，生成摘要；</strong></p>
+<p><strong>8.客户端将生成的 MD5 加密字符串传给服务端；</strong></p>
+<p><strong>9.服务端同样生成 MD5(R,SessionKey) 加密字符串；</strong></p>
+<p><strong>10.如果客户端传来的加密字符串等于服务端自身生成的加密字符串，则认证成功。此时不用输入密码，即完成建连，可以开始远程执行 Shell 命令了。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">##第一步使用 ssh-keygen 命令在客户端生成 RSA 公钥和私钥，一直回车确认。公钥和私钥默认名称为 id_rsa.pub（公钥）和私钥（id_rsa），默认保存在 ~/.ssh/目录下。</span>
+</span></span><span class="line"><span class="cl">ssh-keygen -t rsa
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">##第二步将客户端公钥追加至服务端 ~/.ssh/authorized_keys 文件中，authorized_keys 是用来存放客户端公钥的文件。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">##有三种方法，</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#一是通过 ssh-copy-id 命令，</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#二是通过 scp 命令，</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#三是手动复制。例如使用 ssh-copy-id 命令实现如下</span>
+</span></span><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/id_rsa.pub -p <span class="m">3600</span> root@9.134.114.170
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">##第三步使用 ssh 进行免密登录。</span>
+</span></span><span class="line"><span class="cl">ssh -p3600 root@9.134.114.170</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="端口转发"><span><strong>端口转发</strong></span>
+  <a href="#%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>SSH 支持端口转发功能，可以将本地端口转发到远程主机，或将远程端口转发到本地。</strong></p>
+<p>例如：本地端口转发：将本地端口 8080 转发到远程主机的 80 端口。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="o">-</span><span class="n">L</span> <span class="mi">8080</span><span class="ss">:localhost</span><span class="p">:</span><span class="mi">80</span> <span class="n">user</span><span class="vi">@example</span><span class="o">.</span><span class="n">com</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>远程端口转发：将远程主机的 8080 端口转发到本地的 80 端口。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="o">-</span><span class="n">R</span> <span class="mi">8080</span><span class="ss">:localhost</span><span class="p">:</span><span class="mi">80</span> <span class="n">user</span><span class="vi">@example</span><span class="o">.</span><span class="n">com</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>动态端口转发：使用 SOCKS 代理将本地端口转发到远程主机。ssh -D 1080 <a href="mailto:user@example.com"target="_blank" rel="external nofollow noopener noreferrer">user@example.com</a><code>SSH 配置文件</code>可以在 ~/.ssh/config 文件中配置 SSH 客户端的选项，以简化连接。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Host myserver
+</span></span><span class="line"><span class="cl">HostName example.com
+</span></span><span class="line"><span class="cl">User myuser
+</span></span><span class="line"><span class="cl">Port <span class="m">2222</span>
+</span></span><span class="line"><span class="cl">IdentityFile ~/.ssh/id_rsa</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样，可以使用简化的命令连接：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh myserver</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="删除或更改私钥上的密码"><span>删除或更改私钥上的密码</span>
+  <a href="#%e5%88%a0%e9%99%a4%e6%88%96%e6%9b%b4%e6%94%b9%e7%a7%81%e9%92%a5%e4%b8%8a%e7%9a%84%e5%af%86%e7%a0%81" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>如果您已经为您的私钥生成了密码并希望更改或删除它，您可以轻松地做到这一点。</strong></p>
+<p>注意：要更改或删除密码，您必须知道原始密码。如果您丢失了密钥的密码短语，则没有追索权，您将不得不生成一个新的密钥对。</p>
+<p>要更改或删除密码，只需键入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -pEnter file in which the key is <span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>:
+</span></span><span class="line"><span class="cl"><span class="c1">#您可以键入要修改的键的位置或按 ENTER 接受默认值：</span>
+</span></span><span class="line"><span class="cl">Enter old passphrase:</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输入您要更改的旧密码。然后系统会提示您输入新密码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Enter new passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>: Enter same passphrase again:</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这里，输入您的新密码或按 ENTER 删除密码。</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
         <span title="更新于 2025-12-17 12:36:21">更新于 2025-12-17&nbsp;</span>
       </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/de36ed4/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5clinuxsshstudy.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/de36ed4/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5cssh%20%e5%b8%b8%e8%a7%81%e9%85%8d%e7%bd%ae%e5%92%8c%e6%93%8d%e4%bd%9c%e5%91%bd%e4%bb%a4.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/de36ed4/" data-title="Linuxsshstudy" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/de36ed4/" data-title="Ssh常见配置和操作命令" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/de36ed4/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/de36ed4/" data-title="Linuxsshstudy"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/de36ed4/" data-title="Ssh常见配置和操作命令"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -130,7 +303,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/3d7214d/" class="post-nav-item" rel="prev" title="LinuxRPMinstall"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>LinuxRPMinstall</a><a href="/posts/bb6cad8/" class="post-nav-item" rel="next" title="Wifipasswdcrack">Wifipasswdcrack<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/3d7214d/" class="post-nav-item" rel="prev" title="编译过程和依赖管理，RPM（Red Hat Package Manager）&amp;&amp; Make Install常见的使用方式"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>编译过程和依赖管理，RPM（Red Hat Package Manager）&amp;&amp; Make Install常见的使用方式</a><a href="/posts/bb6cad8/" class="post-nav-item" rel="next" title="Wifi密码破解分析的几种常见方式">Wifi密码破解分析的几种常见方式<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Buy me a coffee</div>
@@ -140,7 +313,8 @@
           </div></div>
   </div></article>
 
-  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.20"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
