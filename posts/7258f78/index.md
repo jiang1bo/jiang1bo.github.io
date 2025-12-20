@@ -55,5 +55,5 @@ lrwxrwxrwx. 1 root root 26 Oct 23 18:38 /usr/lib64/libssl.so.3 -> /usr/lib64/lib
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/7258f78/  
+> URL: https://jiang1bo.github.io/posts/7258f78/  
 
