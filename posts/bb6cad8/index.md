@@ -73,5 +73,5 @@
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/bb6cad8/  
+> URL: https://jiang1bo.github.io/posts/bb6cad8/  
 

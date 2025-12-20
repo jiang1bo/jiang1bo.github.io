@@ -76,5 +76,5 @@ vim /etc/environment
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/d681069/  
+> URL: https://jiang1bo.github.io/posts/d681069/  
 

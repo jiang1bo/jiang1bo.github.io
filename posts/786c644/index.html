@@ -7,13 +7,13 @@
     <meta name="robots" content="noodp" />
     <title>Linux防火墙命令 开启、关闭、放行端口、检测远程端口 - Fermi</title><meta name="author" content="">
 <meta name="description" content="查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开
-"><meta name="keywords" content='draft'>
+"><meta name="keywords" content='firewalld, port'>
   <meta itemprop="name" content="Linux防火墙命令 开启、关闭、放行端口、检测远程端口">
   <meta itemprop="description" content="查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开">
   <meta itemprop="datePublished" content="2025-12-17T12:31:31+08:00">
   <meta itemprop="dateModified" content="2025-12-17T12:31:31+08:00">
   <meta itemprop="wordCount" content="218">
-  <meta itemprop="keywords" content="Draft"><meta property="og:url" content="http://localhost:1313/posts/786c644/">
+  <meta itemprop="keywords" content="Firewalld,Port"><meta property="og:url" content="http://localhost:1313/posts/786c644/">
   <meta property="og:site_name" content="Fermi">
   <meta property="og:title" content="Linux防火墙命令 开启、关闭、放行端口、检测远程端口">
   <meta property="og:description" content="查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开">
@@ -22,7 +22,8 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-12-17T12:31:31+08:00">
     <meta property="article:modified_time" content="2025-12-17T12:31:31+08:00">
-    <meta property="article:tag" content="Draft">
+    <meta property="article:tag" content="Firewalld">
+    <meta property="article:tag" content="Port">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Linux防火墙命令 开启、关闭、放行端口、检测远程端口">
@@ -39,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/786c644\/"
-    },"genre": "posts","keywords": "draft","wordcount":  218 ,
+    },"genre": "posts","keywords": "firewalld, port","wordcount":  218 ,
     "url": "http:\/\/localhost:1313\/posts\/786c644\/","datePublished": "2025-12-17T12:31:31+08:00","dateModified": "2025-12-17T12:31:31+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -111,7 +112,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Linux防火墙命令 开启、关闭、放行端口、检测远程端口</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:31:31"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="218 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/linux/" class="post-category" title="分类 - Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Linux</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:31:31"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="218 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -312,15 +313,15 @@
       </div></div><div class="post-info-line">
         <div class="post-info-md"><span><a href="/posts/786c644/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5cLinux%e9%98%b2%e7%81%ab%e5%a2%99%e5%91%bd%e4%bb%a4%20%e5%bc%80%e5%90%af%e3%80%81%e5%85%b3%e9%97%ad%e3%80%81%e6%94%be%e8%a1%8c%e7%ab%af%e5%8f%a3%e3%80%81%e6%a3%80%e6%b5%8b%e8%bf%9c%e7%a8%8b%e7%ab%af%e5%8f%a3.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/786c644/" data-title="Linux防火墙命令 开启、关闭、放行端口、检测远程端口" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/786c644/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/786c644/" data-title="Linux防火墙命令 开启、关闭、放行端口、检测远程端口" data-hashtags="firewalld,port"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/786c644/" data-hashtag="firewalld"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/786c644/" data-title="Linux防火墙命令 开启、关闭、放行端口、检测远程端口"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/draft/" class="post-tag" title="标签 - Draft">Draft</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/firewalld/" class="post-tag" title="标签 - Firewalld">Firewalld</a><a href="/tags/port/" class="post-tag" title="标签 - Port">Port</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>

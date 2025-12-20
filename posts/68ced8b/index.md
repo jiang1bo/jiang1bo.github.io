@@ -43,7 +43,7 @@ wget还有许多其他的选项，可以通过man wget或wget help查看。
 
 ```
 
-### 1.2curl命令
+### 1.2 curl命令
 
 **curl命令也是一个常用的下载命令，它支持的功能与wget类似。**
 
@@ -182,5 +182,5 @@ unzip file.zip
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/68ced8b/  
+> URL: https://jiang1bo.github.io/posts/68ced8b/  
 

@@ -66,9 +66,11 @@ ssh-keygen -t rsa
 
 ##有三种方法，
 #一是通过 ssh-copy-id 命令，
-#二是通过 scp 命令，
-#三是手动复制。例如使用 ssh-copy-id 命令实现如下
+#例如使用 ssh-copy-id 命令实现如下
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p 3600 root@9.134.114.170
+#二是通过 scp 命令，
+#三是手动复制。
+
 
 ##第三步使用 ssh 进行免密登录。
 ssh -p3600 root@9.134.114.170
@@ -132,5 +134,5 @@ Enter new passphrase (empty for no passphrase): Enter same passphrase again:
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/de36ed4/  
+> URL: https://jiang1bo.github.io/posts/de36ed4/  
 

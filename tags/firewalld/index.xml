@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Firewalld - 标签 - Fermi</title>
+    <link>http://localhost:1313/tags/firewalld/</link>
+    <description>welcome to femris的博客网站!</description>
+    <generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator>
+    <language>zh-CN</language>
+    <managingEditor>3044483124@qq.com (fermi)</managingEditor>
+    <webMaster>3044483124@qq.com (fermi)</webMaster>
+    <lastBuildDate>Wed, 17 Dec 2025 12:31:31 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/firewalld/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux防火墙命令 开启、关闭、放行端口、检测远程端口</title>
+      <link>http://localhost:1313/posts/786c644/</link>
+      <pubDate>Wed, 17 Dec 2025 12:31:31 +0800</pubDate>
+      <guid>http://localhost:1313/posts/786c644/</guid>
+      <category domain="http://localhost:1313/categories/linux/">Linux</category>
+      <description>&lt;p&gt;查看系统防火墙状态（如果返回 running 代表防火墙启动正常）,放行端口,关闭端口,基本操作,linux检测远程端口是否打开&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

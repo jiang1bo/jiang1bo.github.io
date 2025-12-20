@@ -164,5 +164,5 @@ Nmap中的vmauthd-brute脚本可以破解安装虚拟机系统的用户名与密
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/d59e8d0/  
+> URL: https://jiang1bo.github.io/posts/d59e8d0/  
 

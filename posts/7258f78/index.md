@@ -5,7 +5,7 @@
 
 # yum/dnf运行报错，重启系统后网络无法连接
 
-![linux升级openssl到最新版，yum/dnf运行报错，重启系统后网络无法连接，](https://jiangbos.top/wp-content/uploads/2024/10/Snipaste_2024-10-23_08-18-06-300x188.jpg)
+![linux升级openssl到最新版，yum/dnf运行报错，重启系统后网络无法连接，](./assets/Snipaste_2024-10-23_08-18-06-768x480.jpg)
 
 **linux组件底层依赖openssl 1.0.0版本导致的程序在编译的时候采用的是1.0版本的openssl库。升级后，导致动态库不兼容，感觉应该是openssl版本太新了，而yum\dnf这些包管理器，要用到一些旧版本的依赖**
 
@@ -15,7 +15,7 @@
 
 **2.从本机或者其他机器上找到libcrypt.so.*和libssl.so.*文件，复制到问题机器的/lib64目录，在创建1.0版本的符号链接。将错误的软连接删除，恢复成为旧的链接**
 
-```perl
+```shell
 [root@localhost ~]# ll /usr/lib64/libcrypto.so*
 -rwxr-xr-x. 1 root root 3357304 Oct 23 18:09 /usr/lib64/libcrypto.so.1.1
 lrwxrwxrwx. 1 root root 29 Oct 23 18:37 /usr/lib64/libcrypto.so.3 -> /usr/lib64/libcrypto.so.3.0.7
@@ -31,7 +31,7 @@ lrwxrwxrwx. 1 root root 26 Oct 23 18:38 /usr/lib64/libssl.so.3 -> /usr/lib64/lib
 [root@localhost ~]# ln -s /usr/lib64/libssl.so.3.0.7 /usr/lib64/libssl.so.3
 ```
 
-<img src="https://jiangbos.top/wp-content/uploads/2024/10/Snipaste_2024-10-23_10-56-04-300x23.jpg" alt="linux升级openssl到最新版，yum/dnf运行报错，重启系统后网络无法连接，" style="zoom:200%;" />
+<img src="./assets/Snipaste_2024-10-23_10-56-04-1536x118.jpg" alt="linux升级openssl到最新版，yum/dnf运行报错，重启系统后网络无法连接，" style="zoom:200%;" />
 
 [OpenSSL升级后导致libcrypt.so.10和libssl.so.10找不到的解决_libssl.so.10 找不到-CSDN博客](https://blog.csdn.net/yin138/article/details/110820145)
 

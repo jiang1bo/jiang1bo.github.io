@@ -96,5 +96,5 @@ Sudo apt-get install iputils-ping
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/835784b/  
+> URL: https://jiang1bo.github.io/posts/835784b/  
 

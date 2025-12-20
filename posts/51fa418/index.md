@@ -351,5 +351,5 @@ more /etc/rsyslog.conf
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/51fa418/  
+> URL: https://jiang1bo.github.io/posts/51fa418/  
 

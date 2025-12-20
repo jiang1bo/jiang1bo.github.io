@@ -1,4 +1,4 @@
-# 在 Ubuntu 中修改 IP 地址
+# 在 Ubuntu 中修改静态 IP 地址
 
 
 <!--more-->

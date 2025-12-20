@@ -326,5 +326,5 @@ yum install -y --downloadonly --downloaddir=/root/install_pckg_rpm/dpndncy_pckg 
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/e7e6a08/  
+> URL: https://jiang1bo.github.io/posts/e7e6a08/  
 
