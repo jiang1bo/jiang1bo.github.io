@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Markdown - 分类 - Fermi</title><link>https://jiang1bo.github.io/categories/markdown/</link><description>welcome to femris的博客网站!</description><generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator><language>zh-CN</language><managingEditor>3044483124@qq.com (fermi)</managingEditor><webMaster>3044483124@qq.com (fermi)</webMaster><lastBuildDate>Sat, 29 Nov 2025 12:56:18 +0800</lastBuildDate><atom:link href="https://jiang1bo.github.io/categories/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown 语法示例</title><link>https://jiang1bo.github.io/posts/7090144/</link><pubDate>Sat, 29 Nov 2025 12:56:18 +0800</pubDate><guid>https://jiang1bo.github.io/posts/7090144/</guid><category domain="https://jiang1bo.github.io/categories/markdown/">Markdown</category><description>&lt;p&gt;Hugo 支持使用 &lt;a href="https://en.wikipedia.org/wiki/Markdown"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown&lt;/a&gt; 语法来格式化文本、创建列表等。本页将展示一些最常用的 Markdown 语法示例。&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown - 分类 - Fermi</title>
+    <link>https://jiang1bo.github.io/categories/markdown/</link>
+    <description>welcome to femris的博客网站!</description>
+    <generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator>
+    <language>zh-CN</language>
+    <managingEditor>3044483124@qq.com (fermi)</managingEditor>
+    <webMaster>3044483124@qq.com (fermi)</webMaster>
+    <lastBuildDate>Sat, 29 Nov 2025 12:56:18 +0800</lastBuildDate>
+    <atom:link href="https://jiang1bo.github.io/categories/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown 语法示例</title>
+      <link>https://jiang1bo.github.io/posts/7090144/</link>
+      <pubDate>Sat, 29 Nov 2025 12:56:18 +0800</pubDate>
+      <guid>https://jiang1bo.github.io/posts/7090144/</guid>
+      <category domain="https://jiang1bo.github.io/categories/markdown/">Markdown</category>
+      <description>&lt;p&gt;Hugo 支持使用 &lt;a href=&#34;https://en.wikipedia.org/wiki/Markdown&#34;target=&#34;_blank&#34; rel=&#34;external nofollow noopener noreferrer&#34;&gt;Markdown&lt;/a&gt; 语法来格式化文本、创建列表等。本页将展示一些最常用的 Markdown 语法示例。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

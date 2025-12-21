@@ -1,28 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fermi</title><link>https://jiang1bo.github.io/</link><description>welcome to femris的博客网站!</description><generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator><language>zh-CN</language><managingEditor>3044483124@qq.com (fermi)</managingEditor><webMaster>3044483124@qq.com (fermi)</webMaster><lastBuildDate>Sun, 21 Dec 2025 13:13:34 +0800</lastBuildDate><atom:link href="https://jiang1bo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>pdftest</title><link>https://jiang1bo.github.io/posts/e7d8135/</link><pubDate>Sun, 21 Dec 2025 13:13:34 +0800</pubDate><guid>https://jiang1bo.github.io/posts/e7d8135/</guid><category domain="https://jiang1bo.github.io/categories/draft/">Draft</category><description>&lt;p&gt;几个常见，常用的linux发行版，版本规划以及生命周期&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fermi</title><link>https://jiang1bo.github.io/</link><description>welcome to femris的博客网站!</description><generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator><language>zh-CN</language><managingEditor>3044483124@qq.com (fermi)</managingEditor><webMaster>3044483124@qq.com (fermi)</webMaster><lastBuildDate>Sun, 21 Dec 2025 13:13:34 +0800</lastBuildDate><atom:link href="https://jiang1bo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown 语法示例</title><link>https://jiang1bo.github.io/posts/e7d8135/</link><pubDate>Sun, 21 Dec 2025 13:13:34 +0800</pubDate><guid>https://jiang1bo.github.io/posts/e7d8135/</guid><category domain="https://jiang1bo.github.io/categories/draft/">Draft</category><description>&lt;p&gt;Hugo 支持使用 &lt;a href="https://en.wikipedia.org/wiki/Markdown"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown&lt;/a&gt; 语法来格式化文本、创建列表等。本页将展示一些最常用的 Markdown 语法示例。&lt;/p&gt;
 &lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
-&lt;p&gt;&lt;a href="https://ubuntu.com/about/release-cycle#ubuntu"target="_blank" rel="external nofollow noopener noreferrer"&gt;Ubuntu 发布周期 |Ubuntu 浏览器&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;LTS 或“长期支持”版本每两年在 4 月发布一次。LTS 版本是 Ubuntu 的“企业级”版本，使用最多。估计 95% 的 Ubuntu 安装是 LTS 版本。&lt;/p&gt;
-&lt;p&gt;Ubuntu LTS 版本对“Main”存储库中的所有包提供 5 年的标准安全维护。通过 Ubuntu Pro 订阅，您可以访问 10 年的扩展安全维护 （ESM），涵盖“Main”和“Universe”存储库中软件包的安全修复。&lt;a href="https://ubuntu.com/support"target="_blank" rel="external nofollow noopener noreferrer"&gt;电话和票证支持&lt;/a&gt;也可用，并且可以选择添加到 Ubuntu Pro 订阅之上，涵盖 ESM 涵盖的相同软件包，时间范围相同。&lt;/p&gt;
-&lt;p&gt;Ubuntu Pro 之上的可选旧版支持插件将安全维护和支持延长了 2 年，从而实现了 12 年的总体保修。&lt;/p&gt;
-&lt;p&gt;在 LTS 版本之间，Canonical 每六个月发布一次 Ubuntu 的临时版本，最新的示例是 24.10。这些是生产质量版本，支持期限为 9 个月，并为用户提供了足够的更新时间，但这些版本没有收到 LTS 版本的长期承诺。&lt;/p&gt;
-&lt;img src=".\assets\未命名图片.png" alt="几个常用linux发行版，支持时间（Ubuntu24，openEuler24，Rocky 9）" /&gt;
-&lt;p&gt;&lt;a href="https://www.openeuler.org/zh/other/lifecycle/"target="_blank" rel="external nofollow noopener noreferrer"&gt;openEuler版本规划及生命周期&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="heading-element" id="markdown-示例"&gt;&lt;span&gt;Markdown 示例&lt;/span&gt;
+ &lt;a href="#markdown-%e7%a4%ba%e4%be%8b" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="heading-element" id="文档网页渲染实现pdf内嵌"&gt;&lt;span&gt;文档网页渲染实现pdf内嵌&lt;/span&gt;
+ &lt;a href="#%e6%96%87%e6%a1%a3%e7%bd%91%e9%a1%b5%e6%b8%b2%e6%9f%93%e5%ae%9e%e7%8e%b0pdf%e5%86%85%e5%b5%8c" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Makedown文档本身无法实现pdf文档预览的功能，但是可以通过embed,网页渲染实现pdf文档预览&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Go语言圣经 (Alan A. A. Donovan, Brian W. Kernighan etc.) (Z-Library).pdf&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;长期支持版本&lt;/strong&gt;：发布间隔周期定为2年，提供4年社区支持。&lt;/p&gt;
-&lt;img src=".\assets\Snipaste_2024-10-14_16-17-53-300x171.jpg" alt="几个常用linux发行版，支持时间（Ubuntu24，openEuler24，Rocky 9）" /&gt;
-&lt;p&gt;&lt;a href="https://docs.rockylinux.org/zh/release_notes/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Rocky 发布版本说明 – Documentation (rockylinux.org)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Rocky 9（代号 “Blue Onyx” ）的一般支持直到2027年5月31日为止，安全支持直到2032年5月31日为止。 支持的架构是 x86_64-v2、aarch64、ppc64le 和 s390x。&lt;/p&gt;
-&lt;img src=".\assets\Snipaste_2024-10-14_16-18-15-300x151.jpg" alt="几个常用linux发行版，支持时间（Ubuntu24，openEuler24，Rocky 9）" /&gt;
-&lt;p&gt;Go语言圣经 (Alan A. A. Donovan, Brian W. Kernighan etc.) (Z-Library).pdf&lt;/p&gt;
-&lt;p&gt;&lt;a href=".%5cassets%5cgolang.pdf"&gt;pdf&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&amp;lt;embed src=&amp;#34;文件链接&amp;#34; type=&amp;#34;application/pdf&amp;#34; width=&amp;#34;100%&amp;#34; height=&amp;#34;600&amp;#34;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;embed src="./assets/golang.pdf" type="application/pdf" width="100%" height="600"&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -30,8 +17,352 @@
 &lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&amp;lt;embed src=&amp;#34;https://example.com/document.pdf&amp;#34; type=&amp;#34;application/pdf&amp;#34; width=&amp;#34;100%&amp;#34; height=&amp;#34;600px&amp;#34;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;embed src="./assets/golang.pdf" type="application/pdf" width="100%" height="600px"&gt;
-&lt;p&gt;测试测试测试测试测试&lt;/p&gt;</description></item><item><title>linux杂谈：一些常用命令</title><link>https://jiang1bo.github.io/posts/835784b/</link><pubDate>Thu, 18 Dec 2025 05:52:10 +0800</pubDate><guid>https://jiang1bo.github.io/posts/835784b/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;h2 class="heading-element" id="linux杂谈一些常用命令"&gt;&lt;span&gt;linux杂谈：一些常用命令&lt;/span&gt;
+&lt;/div&gt;&lt;embed src="./assets/golang.pdf" type="application/pdf" width="100%" height="800px"&gt;
+&lt;h3 class="heading-element" id="文本样式"&gt;&lt;span&gt;文本样式&lt;/span&gt;
+ &lt;a href="#%e6%96%87%e6%9c%ac%e6%a0%b7%e5%bc%8f" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;样式&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;语法&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;示例&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;输出&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;粗体&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;**粗体文本**&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;**粗体文本**&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;粗体文本&lt;/strong&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;斜体&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;*斜体文本*&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;*斜体文本*&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;em&gt;斜体文本&lt;/em&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;删除线&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;~~删除线文本~~&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;~~删除线文本~~&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;del&gt;删除线文本&lt;/del&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;下标&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;&amp;lt;sub&amp;gt;&amp;lt;/sub&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;这是&amp;lt;sub&amp;gt;下标&amp;lt;/sub&amp;gt;文本&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;这是下标文本&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;上标&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;&amp;lt;sup&amp;gt;&amp;lt;/sup&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;这是&amp;lt;sup&amp;gt;上标&amp;lt;/sup&amp;gt;文本&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;这是上标文本&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="heading-element" id="引用块"&gt;&lt;span&gt;引用块&lt;/span&gt;
+ &lt;a href="#%e5%bc%95%e7%94%a8%e5%9d%97" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;带出处的引用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不要通过共享内存来通信，而要通过通信来共享内存。
+— Rob Pike&lt;a href="https://imfing.github.io/hextra/zh-cn/docs/guide/markdown/#fn:1"target="_blank" rel="external nofollow noopener noreferrer"&gt;1&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;不要通过共享内存来通信，而要通过通信来共享内存。&amp;lt;br&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;— &amp;lt;cite&amp;gt;Rob Pike[^1]&amp;lt;/cite&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[^1]: 上述引用摘自 Rob Pike 在 2015 年 11 月 18 日 Gopherfest 上的[&lt;span class="nt"&gt;演讲&lt;/span&gt;](&lt;span class="na"&gt;https://www.youtube.com/watch?v=PAAkCSZUG1c&lt;/span&gt;)。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="heading-element" id="提示框"&gt;&lt;span&gt;提示框&lt;/span&gt;
+ &lt;a href="#%e6%8f%90%e7%a4%ba%e6%a1%86" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;提示框是基于引用块语法的 Markdown 扩展，可用于强调关键信息。 支持 &lt;a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts"target="_blank" rel="external nofollow noopener noreferrer"&gt;GitHub 风格的提示框&lt;/a&gt;。 请确保您使用的是最新版本的 Hextra 和 &lt;a href="https://github.com/gohugoio/hugo/releases/tag/v0.146.0"target="_blank" rel="external nofollow noopener noreferrer"&gt;Hugo v0.146.0&lt;/a&gt; 或更高版本。&lt;/p&gt;
+&lt;div class="alert alert-note"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5.0 100 13 6.5 6.5.0 000-13zM6.5 7.75A.75.75.0 017.25 7h1a.75.75.0 01.75.75v2.75h.25a.75.75.0 010 1.5h-2a.75.75.0 010-1.5h.25v-2h-.25a.75.75.0 01-.75-.75zM8 6a1 1 0 110-2 1 1 0 010 2z"/&gt;&lt;/svg&gt;注意&lt;/p&gt;&lt;p&gt;即使用户只是浏览内容，也应该知道的有用信息。&lt;/p&gt;&lt;/div&gt;&lt;div class="alert alert-tip"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M8 1.5c-2.363.0-4 1.69-4 3.75.0.984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75.0 01-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456.0 00-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863.0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751.0 01-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304.0-2.06-1.637-3.75-4-3.75zM5.75 12h4.5a.75.75.0 010 1.5h-4.5a.75.75.0 010-1.5zM6 15.25a.75.75.0 01.75-.75h2.5a.75.75.0 010 1.5h-2.5A.75.75.0 016 15.25z"/&gt;&lt;/svg&gt;提示&lt;/p&gt;&lt;p&gt;帮助用户更高效或更轻松完成任务的建议。&lt;/p&gt;&lt;/div&gt;&lt;div class="alert alert-important"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M0 1.75C0 .784.784.0 1.75.0h12.5C15.216.0 16 .784 16 1.75v9.5A1.75 1.75.0 0114.25 13H8.06l-2.573 2.573A1.458 1.458.0 013 14.543V13H1.75A1.75 1.75.0 010 11.25zm1.75-.25a.25.25.0 00-.25.25v9.5c0 .138.112.25.25.25h2a.75.75.0 01.75.75v2.19l2.72-2.72a.749.749.0 01.53-.22h6.5a.25.25.0 00.25-.25v-9.5a.25.25.0 00-.25-.25zm7 2.25v2.5a.75.75.0 01-1.5.0v-2.5a.75.75.0 011.5.0zM9 9A1 1 0 117 9a1 1 0 012 0z"/&gt;&lt;/svg&gt;重要&lt;/p&gt;&lt;p&gt;用户需要了解的关键信息，以实现他们的目标。&lt;/p&gt;&lt;/div&gt;&lt;div class="alert alert-warning"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086.0l6.082 11.378A1.75 1.75.0 0114.082 15H1.918A1.75 1.75.0 01.375 12.425zm1.763.707a.25.25.0 00-.44.0L1.698 13.132a.25.25.0 00.22.368h12.164a.25.25.0 00.22-.368zm.53 3.996v2.5a.75.75.0 01-1.5.0v-2.5a.75.75.0 011.5.0zM9 11a1 1 0 11-2 0 1 1 0 012 0z"/&gt;&lt;/svg&gt;警告&lt;/p&gt;&lt;p&gt;需要用户立即关注的紧急信息，以避免出现问题。&lt;/p&gt;&lt;/div&gt;&lt;div class="alert alert-caution"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M4.47.22A.749.749.0 015 0h6c.199.0.389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749.0 01-.22.53l-4.25 4.25A.749.749.0 0111 16H5a.749.749.0 01-.53-.22L.22 11.53A.749.749.0 010 11V5c0-.199.079-.389.22-.53zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5zM8 4a.75.75.0 01.75.75v3.5a.75.75.0 01-1.5.0v-3.5A.75.75.0 018 4zm0 8a1 1 0 110-2 1 1 0 010 2z"/&gt;&lt;/svg&gt;小心&lt;/p&gt;&lt;p&gt;关于某些操作可能带来风险或负面结果的警告。&lt;/p&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!NOTE]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;即使用户只是浏览内容，也应该知道的有用信息。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!TIP]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;帮助用户更高效或更轻松完成任务的建议。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!IMPORTANT]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;用户需要了解的关键信息，以实现他们的目标。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!WARNING]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;需要用户立即关注的紧急信息，以避免出现问题。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!CAUTION]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&amp;gt; 关于某些操作可能带来风险或负面结果的警告。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="heading-element" id="表格"&gt;&lt;span&gt;表格&lt;/span&gt;
+ &lt;a href="#%e8%a1%a8%e6%a0%bc" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;表格不是 Markdown 核心规范的一部分，但 Hugo 原生支持它们。&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;姓名&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;年龄&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;张三&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;27&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;李四&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;23&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 姓名 | 年龄 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| :--- | :--- |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 张三 | 27 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 李四 | 23 |&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 class="heading-element" id="表格内的行内-markdown"&gt;&lt;span&gt;表格内的行内 Markdown&lt;/span&gt;
+ &lt;a href="#%e8%a1%a8%e6%a0%bc%e5%86%85%e7%9a%84%e8%a1%8c%e5%86%85-markdown" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;斜体&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;粗体&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;代码&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;em&gt;斜体&lt;/em&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;粗体&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;代码&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 斜体 | 粗体 | 代码 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| :----- | :------- | :----- |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| &lt;span class="ge"&gt;_斜体_&lt;/span&gt; | &lt;span class="gs"&gt;**粗体**&lt;/span&gt; | &lt;span class="sb"&gt;`代码`&lt;/span&gt; |&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="heading-element" id="代码块"&gt;&lt;span&gt;代码块&lt;/span&gt;
+ &lt;a href="#%e4%bb%a3%e7%a0%81%e5%9d%97" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;a href="https://imfing.github.io/hextra/zh-cn/docs/guide/syntax-highlighting"target="_blank" rel="external nofollow noopener noreferrer"&gt;语法高亮&lt;/a&gt;&lt;/p&gt;
+&lt;h3 class="heading-element" id="列表"&gt;&lt;span&gt;列表&lt;/span&gt;
+ &lt;a href="#%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;h4 class="heading-element" id="有序列表"&gt;&lt;span&gt;有序列表&lt;/span&gt;
+ &lt;a href="#%e6%9c%89%e5%ba%8f%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;第一项&lt;/li&gt;
+&lt;li&gt;第二项&lt;/li&gt;
+&lt;li&gt;第三项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;1.&lt;/span&gt; 第一项
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;2.&lt;/span&gt; 第二项
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;3. 第三项&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 class="heading-element" id="无序列表"&gt;&lt;span&gt;无序列表&lt;/span&gt;
+ &lt;a href="#%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;列表项&lt;/li&gt;
+&lt;li&gt;另一个项&lt;/li&gt;
+&lt;li&gt;再一个项&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; 列表项
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; 另一个项
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;- 再一个项&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 class="heading-element" id="嵌套列表"&gt;&lt;span&gt;嵌套列表&lt;/span&gt;
+ &lt;a href="#%e5%b5%8c%e5%a5%97%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;水果
+&lt;ul&gt;
+&lt;li&gt;苹果&lt;/li&gt;
+&lt;li&gt;橙子&lt;/li&gt;
+&lt;li&gt;香蕉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;乳制品
+&lt;ul&gt;
+&lt;li&gt;牛奶&lt;/li&gt;
+&lt;li&gt;奶酪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; 水果
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;-&lt;/span&gt; 苹果
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;-&lt;/span&gt; 橙子
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;-&lt;/span&gt; 香蕉
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; 乳制品
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;-&lt;/span&gt; 牛奶
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - 奶酪&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 class="heading-element" id="任务列表"&gt;&lt;span&gt;任务列表&lt;/span&gt;
+ &lt;a href="#%e4%bb%bb%e5%8a%a1%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;编写文档&lt;/li&gt;
+&lt;li data-task=" " title="未完成"&gt;&lt;i class="checkbox-icon fa-fw fa-regular fa-square" aria-hidden="true"&gt;&lt;/i&gt;代码审查&lt;/li&gt;
+&lt;li data-task=" " title="未完成"&gt;&lt;i class="checkbox-icon fa-fw fa-regular fa-square" aria-hidden="true"&gt;&lt;/i&gt;部署更改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;- [x]&lt;/span&gt; 编写文档
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;- [ ]&lt;/span&gt; 代码审查
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;- [ ] 部署更改&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="heading-element" id="图片"&gt;&lt;span&gt;图片&lt;/span&gt;
+ &lt;a href="#%e5%9b%be%e7%89%87" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img loading="lazy" src='https://picsum.photos/800/600' alt="风景"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;![&lt;span class="nt"&gt;风景&lt;/span&gt;](&lt;span class="na"&gt;https://picsum.photos/800/600&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;带标题：&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img loading="lazy" src='https://picsum.photos/800/600' alt="风景"&gt;&lt;figcaption class="image-caption"&gt;Lorem Picsum&lt;/figcaption&gt;
+ &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;![&lt;span class="nt"&gt;风景&lt;/span&gt;](&lt;span class="na"&gt;https://picsum.photos/800/600 &amp;#34;Lorem Picsum&amp;#34;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如需更高级的功能，请使用 Hugo 内置的 &lt;a href="https://gohugo.io/shortcodes/figure/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Figure 短代码&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 class="heading-element" id="配置"&gt;&lt;span&gt;配置&lt;/span&gt;
+ &lt;a href="#%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hugo 使用 &lt;a href="https://github.com/yuin/goldmark"target="_blank" rel="external nofollow noopener noreferrer"&gt;Goldmark&lt;/a&gt; 进行 Markdown 解析。 Markdown 渲染可以在 &lt;code&gt;hugo.yaml&lt;/code&gt; 中的 &lt;code&gt;markup.goldmark&lt;/code&gt; 下配置。 以下是 Hextra 的默认配置：&lt;/p&gt;
+&lt;p&gt;hugo.yaml&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;markup:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; goldmark:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; renderer:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; unsafe: true
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; highlight:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; noClasses: false&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;更多配置选项，请参阅 Hugo 文档中的 &lt;a href="https://gohugo.io/getting-started/configuration-markup/"target="_blank" rel="external nofollow noopener noreferrer"&gt;配置 Markup&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 class="heading-element" id="学习资源"&gt;&lt;span&gt;学习资源&lt;/span&gt;
+ &lt;a href="#%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%ba%90" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.markdownguide.org/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown 指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown 速查表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.markdowntutorial.com/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown 教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://commonmark.org/help/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown 参考&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>linux杂谈：一些常用命令</title><link>https://jiang1bo.github.io/posts/835784b/</link><pubDate>Thu, 18 Dec 2025 05:52:10 +0800</pubDate><guid>https://jiang1bo.github.io/posts/835784b/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;h2 class="heading-element" id="linux杂谈一些常用命令"&gt;&lt;span&gt;linux杂谈：一些常用命令&lt;/span&gt;
  &lt;a href="#linux%e6%9d%82%e8%b0%88%e4%b8%80%e4%ba%9b%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
