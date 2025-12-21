@@ -17,8 +17,8 @@ Hugo 支持使用 [Markdown](https://en.wikipedia.org/wiki/Markdown) 语法来�
 
 Go语言圣经 (Alan A. A. Donovan, Brian W. Kernighan etc.) (Z-Library).pdf
 
-```
-<embed src="https://example.com/document.pdf" type="application/pdf" width="100%" height="600px">
+```html
+<embed src="https://example.com/document.pdf" type="application/pdf" width="100%" height="800px">
 ```
 
 <embed src="./assets/golang.pdf" type="application/pdf" width="100%" height="800px">
