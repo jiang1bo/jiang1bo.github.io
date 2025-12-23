@@ -42,6 +42,121 @@ nmap -O -sV 192.168.1.1
 
 –scanflags：设置在扫描报文中的TCP标志。
 
+
+
+## Nmap简单的扫描方式
+
+```shell
+#全面扫描：nmap -T4 -A ip
+
+#主机发现：nmap -T4 -sn ip
+
+#端口扫描：nmap -T4 ip
+
+#服务扫描：nmap -T4 -sV ip
+
+#操作系统扫描：nmap -T4 -O ip
+```
+
+
+
+### 1、SYN扫描
+
+首先可以利用基本的SYN扫描方式探测其端口开放状态。
+
+
+
+```
+nmap -sS -T4 www.fujieace.com
+#扫描输出结果为：
+
+All 997 ports are filtered
+PORT STATE SERVICE
+80/tcp open http
+113/tcp closed auth
+507/tcp open crs
+```
+
+
+我们可以看到SYN方式探测到3个端口开放，而有997个端口被过滤。Nmap默认扫描只扫描1000个最可能开放的端口，如果想扫描全部的端口，命令如下：
+
+nmap -sS -T4-p- www.fujieace.com
+
+### 2、FIN扫描
+
+然后可以利用FIN扫描方式探测防火墙状态。FIN扫描方式用于识别端口是否关闭，收到RST回复说明该端口关闭，否则说明是open或filtered状态。
+
+
+
+```
+nmap -sF -T4 www.fujieace.com
+#扫描输出结果为：
+
+PORT STATE SERVICE
+7/tcp open|filtered echo
+9/tcp open|filtered discard
+11/tcp open|filtered systat
+13/tcp open|filtered daytime
+23/tcp open|filtered telnet
+25/tcp open|filtered smtp
+37/tcp open|filtered time
+79/tcp open|filtered finger
+80/tcp open|filtered http
+```
+
+
+更多端口，此处省略…….
+
+### 3、ACK扫描
+
+然后利用ACK扫描判断端口是否被过滤。针对ACK探测包，未被过滤的端口（无论打开、关闭）会回复RST包。
+
+```
+nmap -sA -T4 www.fujieace.com
+#扫描输出结果为：
+
+Not shown: 997 unfiltered ports
+PORT STATE SERVICE
+135/tcp filtered msrpc
+1434/tcp filtered ms-sql-m
+32777/tcp filtered sometimes-rpc17
+```
+
+
+从结果可以知道997个端口是未被过滤的（unfiltered），而3个（135/1434/32777）被过滤了。所以，将ACK与FIN扫描 的结果结合分析，我们可以找到很多开放的端口。例如7号端口，FIN中得出的状态是:open或filtered，从ACK中得出的状态是 unfiltered，那么该端口只能是open的。
+
+### 4、Window扫描
+
+当然也可以利用Window扫描方式，得出一些端口信息，可以与之前扫描分析的结果相互补充。Window扫描方式只对某些TCPIP协议栈才有效。
+
+window扫描原理与ACK类似，发送ACK包探测目标端口，对回复的RST包中的Window size进行解析。在某些TCPIP协议栈实现中，关闭的端口在RST中会将Window size设置为0；而开放的端口将Window size设置成非0的值。
+
+```
+nmap -sW -p- -T4 www.fujieace.com
+输出结果：
+
+PORT STATE SERVICE
+7/tcp open echo
+9/tcp open discard
+11/tcp open systat
+13/tcp open daytime
+```
+
+
+更多端口，此处省略……
+在采用多种
+
+扫描路由器操作系统
+nmap -O -F -n 192.168.1.1
+与通用PC扫描方式类似，使用-O选项扫描路由器的操作系统。-F用于快速扫描最可能开放的100个端口，并根据端口扫描结果进一步做OS的指纹分析方式获取出防火墙状态后，可以进一步进行应用程序与版本侦测及OS侦测。
+
+nmap [扫描目标] [选项]
+v: 增加输出的详细程度。
+
+A: 启用OS检测、版本检测、脚本扫描和traceroute。
+
+p:指定要扫描的端口范围，例如p 1-100。
+
 ## Nmap实战
 
 ### 1.扫描局域网中存活的主机
