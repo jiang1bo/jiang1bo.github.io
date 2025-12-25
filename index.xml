@@ -2325,7 +2325,215 @@ Ack = 1 : 表示当前端成功接收的数据位数，虽然客户端没有发�
  &lt;a href="#%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c%e7%bb%91%e5%ae%9a" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
-&lt;/h2&gt;&lt;h3 class="heading-element" id="使用nmcli"&gt;&lt;span&gt;使用nmcli&lt;/span&gt;
+&lt;/h2&gt;&lt;p&gt;Linux网络绑定（Bonding）是将&lt;strong&gt;多个物理网卡（NIC）逻辑上聚合成一个单一逻辑网卡&lt;/strong&gt;的技术，其主要目的是提升&lt;strong&gt;网络可靠性和/或带宽&lt;/strong&gt;。它类似于网络硬件中的“链路聚合组”（LAG）或“端口聚合”。&lt;/p&gt;
+&lt;h3 class="heading-element" id="网络绑定的主要作用"&gt;&lt;span&gt;网络绑定的主要作用&lt;/span&gt;
+ &lt;a href="#%e7%bd%91%e7%bb%9c%e7%bb%91%e5%ae%9a%e7%9a%84%e4%b8%bb%e8%a6%81%e4%bd%9c%e7%94%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;作用&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;说明&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;典型应用场景&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;1. 高可用/容错&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;最主要的作用&lt;/strong&gt;。当主网卡或链路故障时，流量&lt;strong&gt;毫秒级切换&lt;/strong&gt;到备用网卡，实现业务不中断。&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;服务器、网关等对网络连续性要求极高的设备。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;2. 带宽聚合&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;将多个物理链路的带宽&lt;strong&gt;叠加&lt;/strong&gt;，提升总吞吐量（需要交换机支持对应模式，如LACP）。&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;需要大带宽的数据传输、存储网络（如NAS）。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;3. 负载均衡&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;出站流量可以在多个网卡间&lt;strong&gt;智能分发&lt;/strong&gt;，以优化资源利用。&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;高并发访问的Web服务器、计算集群。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="heading-element" id="使用-nmcli-配置网络绑定以主备模式为例"&gt;&lt;span&gt;使用 &lt;code&gt;nmcli&lt;/code&gt; 配置网络绑定（以主备模式为例）&lt;/span&gt;
+ &lt;a href="#%e4%bd%bf%e7%94%a8-nmcli-%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c%e7%bb%91%e5%ae%9a%e4%bb%a5%e4%b8%bb%e5%a4%87%e6%a8%a1%e5%bc%8f%e4%b8%ba%e4%be%8b" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;最常见且稳定的模式是 &lt;strong&gt;&lt;code&gt;active-backup&lt;/code&gt;（主备模式）&lt;/strong&gt;，它提供&lt;strong&gt;故障切换&lt;/strong&gt;但不增加带宽。以下是使用 &lt;code&gt;nmcli&lt;/code&gt; 创建名为 &lt;code&gt;mybond0&lt;/code&gt; 的绑定连接的完整步骤。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心步骤流程图&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre class="mermaid"&gt;flowchart TD
+ A[“准备两块物理网卡&lt;br&gt;如 eth1 与 eth2”] --&gt; B[“创建绑定接口 bond0&lt;br&gt;（设置模式为 active-backup）”]
+ B --&gt; C[“将 eth1 添加为绑定从属接口”]
+ B --&gt; D[“将 eth2 添加为绑定从属接口”]
+ C --&gt; E[“激活绑定连接及所有从属连接”]
+ D --&gt; E
+ E --&gt; F[“验证绑定状态与故障切换”]&lt;/pre&gt;
+&lt;template&gt;flowchart TD
+ A[“准备两块物理网卡&lt;br&gt;如 eth1 与 eth2”] --&gt; B[“创建绑定接口 bond0&lt;br&gt;（设置模式为 active-backup）”]
+ B --&gt; C[“将 eth1 添加为绑定从属接口”]
+ B --&gt; D[“将 eth2 添加为绑定从属接口”]
+ C --&gt; E[“激活绑定连接及所有从属连接”]
+ D --&gt; E
+ E --&gt; F[“验证绑定状态与故障切换”]&lt;/template&gt;&lt;h4 class="heading-element" id="步骤1创建绑定接口bond-interface"&gt;&lt;span&gt;&lt;strong&gt;步骤1：创建绑定接口（Bond Interface）&lt;/strong&gt;&lt;/span&gt;
+ &lt;a href="#%e6%ad%a5%e9%aa%a41%e5%88%9b%e5%bb%ba%e7%bb%91%e5%ae%9a%e6%8e%a5%e5%8f%a3bond-interface" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;此命令会创建一个名为 &lt;code&gt;bond0&lt;/code&gt; 的&lt;strong&gt;逻辑绑定接口&lt;/strong&gt;，并设置其IP地址（示例为静态IP）。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nmcli connection add &lt;span class="nb"&gt;type&lt;/span&gt; bond con-name bond0 ifname bond0 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; bond.options &lt;span class="s2"&gt;&amp;#34;mode=active-backup,miimon=100&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; ipv4.addresses &lt;span class="s2"&gt;&amp;#34;192.168.1.50/24&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; ipv4.gateway &lt;span class="s2"&gt;&amp;#34;192.168.1.1&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; ipv4.dns &lt;span class="s2"&gt;&amp;#34;8.8.8.8&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; ipv4.method manual&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;关键参数详解&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;type bond&lt;/code&gt;：创建类型为“bond”的连接。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;con-name bond0 ifname bond0&lt;/code&gt;：连接名和设备名都设为 &lt;code&gt;bond0&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bond.options&lt;/code&gt;：绑定的核心选项。
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mode=active-backup&lt;/code&gt;：设置为&lt;strong&gt;主备模式&lt;/strong&gt;（故障切换）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;miimon=100&lt;/code&gt;：每100毫秒检查一次链路状态，是实现快速切换的关键。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;其余为标准的静态IP配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 class="heading-element" id="步骤2将物理网卡添加为从属接口slave"&gt;&lt;span&gt;&lt;strong&gt;步骤2：将物理网卡添加为“从属接口”（Slave）&lt;/strong&gt;&lt;/span&gt;
+ &lt;a href="#%e6%ad%a5%e9%aa%a42%e5%b0%86%e7%89%a9%e7%90%86%e7%bd%91%e5%8d%a1%e6%b7%bb%e5%8a%a0%e4%b8%ba%e4%bb%8e%e5%b1%9e%e6%8e%a5%e5%8f%a3slave" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;将两块物理网卡（例如 &lt;code&gt;eth1&lt;/code&gt; 和 &lt;code&gt;eth2&lt;/code&gt;）挂载到刚创建的 &lt;code&gt;bond0&lt;/code&gt; 上。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 添加 eth1 作为 bond0 的从属&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nmcli connection add &lt;span class="nb"&gt;type&lt;/span&gt; ethernet slave-type bond con-name bond0-port1 ifname eth1 master bond0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 添加 eth2 作为 bond0 的从属&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nmcli connection add &lt;span class="nb"&gt;type&lt;/span&gt; ethernet slave-type bond con-name bond0-port2 ifname eth2 master bond0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数解释&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;type ethernet&lt;/code&gt;：连接类型是以太网。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;slave-type bond&lt;/code&gt;：指定从属类型为bond。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;master bond0&lt;/code&gt;：指明主设备是 &lt;code&gt;bond0&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 class="heading-element" id="步骤3激活所有连接"&gt;&lt;span&gt;&lt;strong&gt;步骤3：激活所有连接&lt;/strong&gt;&lt;/span&gt;
+ &lt;a href="#%e6%ad%a5%e9%aa%a43%e6%bf%80%e6%b4%bb%e6%89%80%e6%9c%89%e8%bf%9e%e6%8e%a5" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;激活绑定连接，它会自动激活其从属连接。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nmcli connection up bond0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="heading-element" id="验证与状态查看"&gt;&lt;span&gt;验证与状态查看&lt;/span&gt;
+ &lt;a href="#%e9%aa%8c%e8%af%81%e4%b8%8e%e7%8a%b6%e6%80%81%e6%9f%a5%e7%9c%8b" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;配置后，务必进行验证。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;查看绑定状态&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /proc/net/bonding/bond0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;输出会详细显示绑定模式、当前活动接口、所有从接口状态及链路检查计数，这是&lt;strong&gt;最重要的诊断文件&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;查看网络设备状态&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmcli device status&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;确认 &lt;code&gt;bond0&lt;/code&gt; 为“已连接”，&lt;code&gt;eth1&lt;/code&gt;、&lt;code&gt;eth2&lt;/code&gt; 为“已连接”且显示为 &lt;code&gt;bond0&lt;/code&gt; 的从属。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;测试故障切换&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在持续ping服务器IP（例如 &lt;code&gt;ping 192.168.1.50 -t&lt;/code&gt;）的同时，&lt;strong&gt;断开 &lt;code&gt;eth1&lt;/code&gt; 的网线&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;观察ping日志，应该&lt;strong&gt;只丢1-2个包&lt;/strong&gt;（约 &lt;code&gt;miimon&lt;/code&gt; 设置的时间）就恢复，表示切换成功。&lt;/li&gt;
+&lt;li&gt;查看 &lt;code&gt;/proc/net/bonding/bond0&lt;/code&gt;，会显示当前活动接口已变为 &lt;code&gt;eth2&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 class="heading-element" id="其他常用绑定模式简介"&gt;&lt;span&gt;其他常用绑定模式简介&lt;/span&gt;
+ &lt;a href="#%e5%85%b6%e4%bb%96%e5%b8%b8%e7%94%a8%e7%bb%91%e5%ae%9a%e6%a8%a1%e5%bc%8f%e7%ae%80%e4%bb%8b" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;除了 &lt;code&gt;active-backup&lt;/code&gt;，&lt;code&gt;bond.options&lt;/code&gt; 中的 &lt;code&gt;mode&lt;/code&gt; 参数还可以设置为其他模式以满足不同需求：&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;模式&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;名称&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;特点&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;交换机要求&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;&lt;code&gt;balance-rr&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;轮询&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;出站流量轮流使用所有网卡，可&lt;strong&gt;负载均衡和聚合带宽&lt;/strong&gt;。&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;无需特殊配置。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;&lt;code&gt;balance-xor&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;XOR哈希&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;基于源/目IP和端口哈希选择网卡，保证同一会话流量走同一链路。&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;无需特殊配置。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;&lt;code&gt;802.3ad&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;LACP动态聚合&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;行业标准&lt;/strong&gt;，能动态聚合链路并提供&lt;strong&gt;带宽聚合与容错&lt;/strong&gt;。&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;必须&lt;/strong&gt;支持并配置LACP。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;&lt;code&gt;balance-tlb&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;自适应传输负载均衡&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;智能出站负载均衡，入站由当前活动接口处理。&lt;strong&gt;无需交换机支持&lt;/strong&gt;。&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;无需特殊配置。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="heading-element" id="总结与建议"&gt;&lt;span&gt;总结与建议&lt;/span&gt;
+ &lt;a href="#%e6%80%bb%e7%bb%93%e4%b8%8e%e5%bb%ba%e8%ae%ae" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;入门首选&lt;/strong&gt;：对于追求高可用性的服务器，&lt;strong&gt;&lt;code&gt;active-backup&lt;/code&gt;（主备模式）&lt;/strong&gt; 是最简单、最稳定的选择。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生产环境&lt;/strong&gt;：若追求带宽聚合且网络设备支持，应使用 &lt;strong&gt;&lt;code&gt;802.3ad&lt;/code&gt;（LACP）&lt;/strong&gt; 模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键排查&lt;/strong&gt;：配置后务必 &lt;strong&gt;&lt;code&gt;cat /proc/net/bonding/bond0&lt;/code&gt;&lt;/strong&gt; 查看详细状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;永久生效&lt;/strong&gt;：&lt;code&gt;nmcli&lt;/code&gt; 的配置会&lt;strong&gt;自动持久化&lt;/strong&gt;，重启后依然有效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="heading-element" id="使用nmcli"&gt;&lt;span&gt;使用nmcli&lt;/span&gt;
  &lt;a href="#%e4%bd%bf%e7%94%a8nmcli" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
