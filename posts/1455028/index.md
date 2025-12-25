@@ -811,6 +811,83 @@ PasswordAuthentication no
 
 ## 配置 IP 
 
+
+
+`nmcli` 是 **NetworkManager 的命令行管理工具**，它让你能完全通过命令来查询、配置和控制Linux系统的网络连接，**非常适合服务器、远程终端或无图形界面的环境**。
+
+它的设计哲学是“一个工具，完成所有”，**替代了传统的 `ifconfig`、`route` 和手动编辑 `/etc/network/interfaces` 或 `/etc/sysconfig/network-scripts/` 下配置文件的方式**，提供了更统一、强大的管理方式。
+
+### 🔧 使用 nmcli 配置静态 IP（有线连接）
+这是最常用的场景。假设你要为网卡 `enp3s0`（请用 `ip addr` 或 `nmcli device status` 确认你的实际网卡名）配置静态IP。
+
+**核心思路是：修改（或新建）一个与该网卡绑定的“连接”**。在 NetworkManager 里，“设备”是物理网卡，“连接”是配置方案，一个设备可以有多个连接配置，但一次只能激活一个。
+
+以下是两种最清晰、可靠的方法：
+
+#### 方法一：直接修改现有连接（推荐，最直接）
+此方法直接修改当前活跃的连接配置。
+```bash
+# 1. 先找到当前设备关联的连接名
+nmcli connection show
+
+# 假设找到的连接名是 “有线连接 1”，设备是 enp3s0
+# 2. 一次性修改所有关键参数（执行后会立即生效并自动重新连接）
+sudo nmcli connection modify "有线连接 1" \
+    ipv4.addresses "192.168.1.100/24" \
+    ipv4.gateway "192.168.1.1" \
+    ipv4.dns "8.8.8.8 8.8.4.4" \
+    ipv4.method manual \
+    connection.autoconnect yes
+
+# 3. 重新激活连接使配置生效
+sudo nmcli connection up "有线连接 1"
+```
+
+#### 方法二：新建一个连接配置
+如果不想改动原配置，或想保留多套配置方案，可以新建连接。
+```bash
+# 1. 为设备 enp3s0 新建一个名为 “my-static-ip” 的连接，并配置静态IP
+sudo nmcli connection add type ethernet con-name "my-static-ip" ifname enp3s0 \
+    ipv4.addresses "192.168.1.100/24" \
+    ipv4.gateway "192.168.1.1" \
+    ipv4.dns "8.8.8.8" \
+    ipv4.method manual \
+    autoconnect yes
+
+# 2. 激活这个新连接（会自动断开旧连接）
+sudo nmcli connection up "my-static-ip"
+```
+
+**关键参数解释**：
+*   `ipv4.addresses "192.168.1.100/24"`：设置IP地址和子网掩码（`/24` 即 `255.255.255.0`）。
+*   `ipv4.gateway "192.168.1.1"`：设置默认网关。
+*   `ipv4.dns "8.8.8.8 ..."`：设置DNS服务器，多个用空格隔开。
+*   `ipv4.method manual`：表示使用静态IP（手动配置）。`dhcp` 表示自动获取。
+*   `connection.autoconnect yes`：设置开机自动连接。
+
+### 📚 其他常用 nmcli 操作
+你可以通过以下命令组合，完成绝大多数网络管理任务：
+
+| 任务              | 命令                                                         | 说明                                                         |
+| :---------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| **查看设备状态**  | `nmcli device status`                                        | 查看所有网络设备（网卡）的**连接状态**。                     |
+| **查看连接配置**  | `nmcli connection show` <br> `nmcli connection show "连接名"` | 列出所有连接配置，或查看某个配置的**详细信息**。             |
+| **启用/禁用连接** | `sudo nmcli connection up "连接名"` <br> `sudo nmcli connection down "连接名"` | **激活**或**停用**一个连接配置。                             |
+| **连接 WiFi**     | `nmcli device wifi list` <br> `nmcli device wifi connect "SSID" password "密码"` | 扫描WiFi列表并连接。                                         |
+| **创建热点**      | `nmcli device wifi hotspot ifname wlan0 ssid "MyHotspot" password "12345678"` | 用指定网卡创建WiFi热点。                                     |
+| **重载配置**      | `sudo nmcli connection reload`                               | 在手动修改了网络配置文件后，**重载配置**（不会断开当前连接）。 |
+| **监控动态**      | `nmcli monitor`                                              | **实时监控**设备、连接的动态事件（如连接、断开），按 `Ctrl+C` 退出。 |
+
+**重要提示**：
+
+1.  **连接名（con-name）**：操作时，通常使用你在图形界面或命令中设置的**“连接名”**，而不是设备名。用 `nmcli connection show` 查看。
+2.  **生效与持久化**：`nmcli` 的配置修改是**即时生效且自动持久化**的，配置会保存到 `/etc/NetworkManager/system-connections/` 目录下。
+3.  **排错**：如果配置后网络不通，按顺序检查：
+    *   `ip addr show` 确认IP是否配置上。
+    *   `ping 网关IP` 检查局域网。
+    *   `ping 8.8.8.8` 检查外网。
+    *   `nslookup baidu.com` 检查DNS。
+
 ### 使用nmcli命令 
 
 说明：
@@ -923,15 +1000,11 @@ virbr0-nic  tun       unmanaged  --
 
 要使用 DHCP 分配网络时，可以使用动态IP配置添加网络配置文件，命令格式如下：
 
-
-
-```
+```shell
 nmcli connection add type ethernet con-name connection-name ifname interface-name
 ```
 
 例如创建名为net-test的动态连接配置文件，在root权限下使用以下命令：
-
-
 
 ```
 # nmcli connection add type ethernet con-name net-test ifname enp3s0
@@ -944,16 +1017,12 @@ NetworkManager 会将参数 connection.autoconnect 设定为 yes，并将设置�
 
 在root权限下使用以下命令激活网络连接：
 
-
-
 ```
 # nmcli con up net-test 
 Connection successfully activated (D-Bus active path:/org/freedesktop/NetworkManager/ActiveConnection/5)
 ```
 
 检查这些设备及连接的状态，使用以下命令：
-
-
 
 ```
 # nmcli device status
@@ -972,8 +1041,6 @@ virbr0-nic  tun       unmanaged  --
 
 添加静态 IPv4 配置的网络连接，可使用以下命令：
 
-
-
 ```
 nmcli connection add type ethernet con-name connection-name ifname interface-name ip4 address gw4 address
 ```
@@ -984,15 +1051,11 @@ nmcli connection add type ethernet con-name connection-name ifname interface-nam
 
 例如创建名为 net-static的静态连接配置文件，在root权限下使用以下命令：
 
-
-
 ```
 # nmcli con add type ethernet con-name net-static ifname enp3s0 ip4 192.168.0.10/24 gw4 192.168.0.254
 ```
 
 还可为该设备同时指定 IPv6 地址和网关，示例如下：
-
-
 
 ```
 # nmcli con add type ethernet con-name test-lab ifname enp3s0 ip4 192.168.0.10/24 gw4 192.168.0.254 ip6 abbe::**** gw6 2001:***::*
@@ -1096,23 +1159,17 @@ nmcli --ask device wifi connect "$SSID"
 
 1，使用以下命令查看可用 Wi-Fi 访问点：
 
-
-
 ```
 # nmcli dev wifi list
 ```
 
 2，使用以下命令生成使用的静态 IP 配置，但允许自动 DNS 地址分配的 Wi-Fi 连接：
 
-
-
 ```
 # nmcli con add con-name Wifi ifname wlan0 type wifi ssid MyWifi ip4 192.168.100.101/24 gw4 192.168.100.1
 ```
 
 3，请使用以下命令设定 WPA2 密码，例如 “answer”：
-
-
 
 ```
 # nmcli con modify Wifi wifi-sec.key-mgmt wpa-psk
@@ -1121,17 +1178,13 @@ nmcli --ask device wifi connect "$SSID"
 
 4，使用以下命令更改 Wi-Fi 状态：
 
-
-
 ```
 # nmcli radio wifi [ on | off ]
 ```
 
-##### 更改属性 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/network/network_config/network_configuration.html#user-content-更改属性)
+##### 更改属性
 
 请使用以下命令检查具体属性，比如 mtu：
-
-
 
 ```
 # nmcli connection show id 'Wifi ' | grep mtu
@@ -1140,15 +1193,11 @@ nmcli --ask device wifi connect "$SSID"
 
 使用如下命令更改设置的属性：
 
-
-
 ```
 # nmcli connection modify id 'Wifi ' 802-11-wireless.mtu 1350
 ```
 
 使用如下命令确认更改：
-
-
 
 ```
 # nmcli connection show id 'Wifi ' | grep mtu
@@ -1159,15 +1208,11 @@ nmcli --ask device wifi connect "$SSID"
 
 - 使用nmcli命令为网络连接配置静态路由，使用命令如下：
 
-  
-
   ```
   # nmcli connection modify enp3s0 +ipv4.routes "192.168.122.0/24 10.10.10.1"
   ```
-
-- 使用编辑器配置静态路由，使用如下命令：
-
   
+- 使用编辑器配置静态路由，使用如下命令：
 
   ```
   # nmcli con edit type ethernet con-name enp3s0
@@ -1184,10 +1229,8 @@ nmcli --ask device wifi connect "$SSID"
   Connection 'enp3s0' (1464ddb4-102a-4e79-874a-0a42e15cc3c0) successfully saved.
   nmcli> quit
   ```
-
-- 使用如下命令激活连接以生效配置：
-
   
+- 使用如下命令激活连接以生效配置：
 
   ```
   # nmcli con up enp3s0
@@ -1203,8 +1246,6 @@ nmcli --ask device wifi connect "$SSID"
 
 使用ip命令为接口配置地址，命令格式如下，其中 *interface-name* 为网卡名称。
 
-
-
 ```
 # ip addr [ add | del ] address dev interface-name
 ```
@@ -1213,15 +1254,11 @@ nmcli --ask device wifi connect "$SSID"
 
 在root权限下，配置静态IP地址，使用示例如下：
 
-
-
 ```
 # ip address add 192.168.0.10/24 dev enp3s0
 ```
 
 查看配置结果，在root权限使用如下命令：
-
-
 
 ```
 # ip addr show dev enp3s0
@@ -1238,8 +1275,6 @@ nmcli --ask device wifi connect "$SSID"
 ##### 配置多个地址 
 
 ip 命令支持为同一接口分配多个地址，可在root权限下重复多次使用 ip 命令实现分配多个地址。使用示例如下：
-
-
 
 ```
 # ip address add 192.168.2.223/24 dev enp4s0
@@ -1262,15 +1297,11 @@ ip 命令支持为同一接口分配多个地址，可在root权限下重复多�
 
 如果需要静态路由，可使用 ip route add 命令在路由表中添加，使用 ip route del 命令删除。最常使用的 ip route 命令格式如下：
 
-
-
 ```
 # ip route [ add | del | change | append | replace ] destination-address
 ```
 
 在root权限下使用 ip route 命令显示当前的 IP 路由表。示例如下：
-
-
 
 ```
 # ip route
@@ -1284,8 +1315,6 @@ default via 192.168.0.1 dev enp4s0 proto dhcp metric 101
 
 在主机地址中添加一个静态路由，在 root 权限下，使用以下命令格式：
 
-
-
 ```
 # ip route add 192.168.2.1 via 10.0.0.1 [dev interface-name]
 ```
@@ -1293,8 +1322,6 @@ default via 192.168.0.1 dev enp4s0 proto dhcp metric 101
 其中 192.168.2.1 是用点分隔的十进制符号中的 IP 地址，10.0.0.1 是下一个跃点，*interface-name* 是进入下一个跃点的退出接口。
 
 要在网络中添加一个静态路由，即代表 IP 地址范围的 IP 地址，请在root权限下运行以下命令格式：
-
-
 
 ```
 # ip route add 192.168.2.0/24 via 10.0.0.1 [dev interface-name]
@@ -1310,9 +1337,7 @@ default via 192.168.0.1 dev enp4s0 proto dhcp metric 101
 
 #### 配置静态网络 
 
-以enp4s0网络接口进行静态网络设置为例，通过在root权限下修改ifcfg文件实现，在/etc/sysconfig/network-scripts/目录中生成名为ifcfg-enp4s0的文件中，修改参数配置，示例如下：
-
-
+**以enp4s0网络接口进行静态网络设置为例，通过在root权限下修改ifcfg文件实现，在/etc/sysconfig/network-scripts/目录中生成名为ifcfg-enp4s0的文件中，修改参数配置，示例如下：**
 
 ```
 TYPE=Ethernet
@@ -1338,8 +1363,6 @@ ONBOOT=yes
 
 要通过ifcfg文件为em1接口配置动态网络，请按照如下操作在/etc/sysconfig/network-scripts/目录中生成名为 ifcfg-em1 的文件，示例如下：
 
-
-
 ```
 DEVICE=em1
 BOOTPROTO=dhcp
@@ -1348,23 +1371,17 @@ ONBOOT=yes
 
 要配置一个向DHCP服务器发送不同的主机名的接口，请在ifcfg文件中新增一行内容，如下所示：
 
-
-
 ```
 DHCP_HOSTNAME=hostname
 ```
 
 要配置忽略由DHCP服务器发送的路由，防止网络服务使用从DHCP服务器接收的DNS服务器更新/etc/resolv.conf。请在ifcfg文件中新增一行内容，如下所示：
 
-
-
 ```
 PEERDNS=no
 ```
 
 要配置一个接口使用具体DNS服务器，请将参数PEERDNS=no，并在ifcfg文件中添加以下行：
-
-
 
 ```
 DNS1=ip-address
@@ -1382,8 +1399,6 @@ DNS2=ip-address
 ### 通过 nmtui 工具 
 
 nmtui 工具提供了一个交互式的界面，可以用来配置网络连接。要使用 nmtui 工具，以 root 权限执行以下命令：
-
-
 
 ```
 # nmtui
@@ -1413,8 +1428,6 @@ static和transient主机名只能包含a-z、A-Z、0-9、“-”和“.”，不
 
 查看当前的主机名，使用如下命令：
 
-
-
 ```
 # hostnamectl status
 ```
@@ -1427,8 +1440,6 @@ static和transient主机名只能包含a-z、A-Z、0-9、“-”和“.”，不
 
 在root权限下，设定系统中的所有主机名，使用如下命令：
 
-
-
 ```
 # hostnamectl set-hostname name
 ```
@@ -1436,8 +1447,6 @@ static和transient主机名只能包含a-z、A-Z、0-9、“-”和“.”，不
 #### 设定特定主机名 
 
 在root权限下，通过不同的参数来设定特定主机名，使用如下命令：
-
-
 
 ```
 # hostnamectl set-hostname name [option...]
@@ -1449,8 +1458,6 @@ static和transient主机名只能包含a-z、A-Z、0-9、“-”和“.”，不
 
 当设定pretty主机名时，如果主机名中包含空格或单引号，需要使用引号。命令示例如下：
 
-
-
 ```
 # hostnamectl set-hostname "Stephen's notebook" --pretty
 ```
@@ -1458,8 +1465,6 @@ static和transient主机名只能包含a-z、A-Z、0-9、“-”和“.”，不
 #### 清除特定主机名 
 
 要清除特定主机名，并将其还原为默认形式，在root权限下，使用如下命令：
-
-
 
 ```
 # hostnamectl set-hostname "" [option...]
@@ -1471,8 +1476,6 @@ static和transient主机名只能包含a-z、A-Z、0-9、“-”和“.”，不
 
 在远程系统中运行hostnamectl命令时，要使用-H，--host 选项，在root权限下使用如下命令：
 
-
-
 ```
 # hostnamectl set-hostname -H [username]@hostname new_hostname
 ```
@@ -1483,23 +1486,17 @@ static和transient主机名只能包含a-z、A-Z、0-9、“-”和“.”，不
 
 查询static主机名，使用如下命令：
 
-
-
 ```
 # nmcli general hostname
 ```
 
 在root权限下，将static主机名设定为host-server，使用如下命令：
 
-
-
 ```
 # nmcli general hostname host-server
 ```
 
 要让系统hostnamectl感知到static主机名的更改，在root权限下，重启hostnamed服务，使用如下命令：
-
-
 
 ```
 # systemctl restart systemd-hostnamed
@@ -1521,53 +1518,41 @@ nmtui 提供了一个交互式的界面，可以用来配置网络连接。要�
 
 - 创建名为mybond0的绑定，使用示例如下：
 
-  
-
   ```
   # nmcli con add type bond con-name mybond0 ifname mybond0 mode active-backup
   ```
-
-- 添加从属接口，使用示例如下：
-
   
+- 添加从属接口，使用示例如下：
 
   ```
   # nmcli con add type bond-slave ifname enp3s0 master mybond0
   ```
-
-  要添加其他从属接口，重复上一个命令，并在命令中使用新的接口，使用示例如下：
-
   
+  要添加其他从属接口，重复上一个命令，并在命令中使用新的接口，使用示例如下：
 
   ```
   # nmcli con add type bond-slave ifname enp4s0 master mybond0
   Connection 'bond-slave-enp4s0' (05e56afc-b953-41a9-b3f9-0791eb49f7d3) successfully added.
   ```
-
+  
 - 要启动绑定，则必须首先启动从属接口，使用示例如下：
 
-  
-
   ```
-  # nmcli con up bond-slave-enp3s0
+# nmcli con up bond-slave-enp3s0
   Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/14)
   ```
-
   
-
   ```
-  # nmcli con up bond-slave-enp4s0
+# nmcli con up bond-slave-enp4s0
   Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/15)
-  ```
-
-  现在可以启动绑定，使用示例如下：
-
+```
   
-
+  现在可以启动绑定，使用示例如下：
+  
   ```
-  # nmcli con up mybond0
+# nmcli con up mybond0
   Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/16)
-  ```
+```
 
 ### 使用命令行 
 
@@ -1575,15 +1560,11 @@ nmtui 提供了一个交互式的界面，可以用来配置网络连接。要�
 
 在系统中默认已加载相应模块。要载入绑定模块，可在root权限下使用如下命令：
 
-
-
 ```
 # modprobe --first-time bonding
 ```
 
 显示该模块的信息，可在root权限下使用如下命令：
-
-
 
 ```
 # modinfo bonding
@@ -1596,8 +1577,6 @@ nmtui 提供了一个交互式的界面，可以用来配置网络连接。要�
 要创建绑定接口，可在root权限下通过在 /etc/sysconfig/network-scripts/ 目录中创建名为 ifcfg-bondN 的文件（使用接口号码替换 N，比如 0）。
 
 根据要绑定接口类型的配置文件来编写相应的内容，比如网络接口。接口配置文件示例如下：
-
-
 
 ```
 DEVICE=bond0
@@ -1616,8 +1595,6 @@ BONDING_OPTS="bonding parameters separated by spaces"
 创建频道绑定接口后，必须在从属接口的配置文件中添加 MASTER 和 SLAVE 指令。
 
 例如将两个网络接口enp3s0 和 enp4s0 以频道方式绑定，其配置文件示例分别如下：
-
-
 
 ```
 TYPE=Ethernet
@@ -1645,14 +1622,10 @@ SLAVE=yes
 
 要激活绑定，则需要启动所有从属接口。请在root权限下，运行以下命令：
 
-
-
 ```
 # ifup enp3s0
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)
 ```
-
-
 
 ```
 # ifup enp4s0
@@ -1667,15 +1640,11 @@ Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkMa
 
 要让 NetworkManager 感知到系统所做的修改，在每次修改后，请在root权限下，运行以下命令：
 
-
-
 ```
 # nmcli con load /etc/sysconfig/network-scripts/ifcfg-device
 ```
 
 查看绑定接口的状态，请在root权限下运行以下命令：
-
-
 
 ```
 # ip link show
@@ -1701,8 +1670,6 @@ Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkMa
 - 使用 MASTER 指令工具在频道绑定接口中分配要绑定的接口，即从属接口。
 
 以下是频道绑定接口配置文件示例：
-
-
 
 ```
 DEVICE=bondN
@@ -1809,12 +1776,10 @@ IPv6与IPv4都可以在root权限下通过DHCP的方式获得IP地址。IPv6地�
 
   在有状态自动配置IPv6地址时，DHCPv6服务端可以通过客户端设置的vendor class将客户端进行分类，不同类别分配不同地址段的IPv6地址。在IPv4场景中，客户端可以直接用dhclient的-V选项来设置vendor-class-identifier，DHCP服务端在配置文件中根据vendor-class-identifier来对客户端进行分类处理。而IPv6场景中，如果使用同样的方法对客户端分类，则分类并不会生效。
 
-  
-
   ```
   dhclient -6 <interface> -V <vendor-class-identifier string> <interface>
   ```
-
+  
   这是由于DHCPv6和DHCP协议存在较大差异，DHCPv6的可选项中使用vendor-class-option替代了DHCP中的vendor-class-identifier。而dhclient的-V选项并不能设置vendor-class-option。
 
 ##### 有状态自动配置IPv6地址时dhclient设置vendor class方法 
@@ -1823,34 +1788,28 @@ IPv6与IPv4都可以在root权限下通过DHCP的方式获得IP地址。IPv6地�
 
   客户端配置文件（/etc/dhcp/dhclient6.conf），文件位置可以自定义，在使用时需要通过dhclient -cf选项来指定配置文件：
 
-  
-
   ```
-  option dhcp6.vendor-class code 16 = {integer 32, integer 16, string};
+option dhcp6.vendor-class code 16 = {integer 32, integer 16, string};
   interface "enp3s0" {
           send dhcp6.vendor-class <Enterprise-ID number> <vendor class string length> <vendor class string>;
   }
   ```
-
+  
   说明：
 
   
 
   - <Enterprise-ID number>，32位整型数字，企业标识号，企业通过IANA注册。
-  - <vendor class string length>，16位整型数字，vendor class字符串长度。
+- <vendor class string length>，16位整型数字，vendor class字符串长度。
   - <vendor class string>，要设置的vendor class字符串，例如：“HWHW”。
-
+  
   客户端使用方法：
 
-  
-
   ```
-  dhclient -6 <interface> -cf /etc/dhcp/dhclient6.conf
+dhclient -6 <interface> -cf /etc/dhcp/dhclient6.conf
   ```
 
 - DHCPv6服务端配置文件（/etc/dhcp/dhcpd6.conf），需要dhcpd -cf选项来指定该配置文件：
-
-  
 
   ```
   option dhcp6.vendor-class code 16 = {integer 32, integer 16, string};
@@ -1868,14 +1827,12 @@ IPv6与IPv4都可以在root权限下通过DHCP的方式获得IP地址。IPv6地�
           }
   }
   ```
-
+  
   说明：
 
   substring ( option dhcp6.vendor-class, 6, 10 ) 其中子字符串的开始位置为6，因为前面包含4个字节的<Enterprise-ID number>和2个字节的<string length>。而子字符串的结束位置为：6+<vendor class string length>。这里vendor class string为“HWHW”，字符串的长度为4，所以子字符串的结束位置为6+4=10。用户可以根据实际需要来确定<vendor class string>及相应的<vendor class string length>。
 
   服务端使用方法：
-
-  
 
   ```
   dhcpd -6 -cf /etc/dhcp/dhcpd6.conf <interface>
@@ -1890,8 +1847,6 @@ IPv6地址长度扩展到128比特，所以有足够的IPv6地址可供分配使
 ##### link-local地址和global地址在socket调用时的差异 
 
 RFC 2553： Basic Socket Interface Extensions for IPv6 定义sockaddr_in6的数据结构如下；
-
-
 
 ```
 struct sockaddr_in6 {     
@@ -1909,8 +1864,6 @@ struct sockaddr_in6 {
 sin6_scope_id： 32位整型，对于链路本地地址（link-local address），对于链路范围的sin6_addr，它可以用来标识指定的接口索引号。如果是站点范围的sin6_addr，则用来作为站点的标识符（站点本地地址已被抛弃）。
 
 在使用link-local地址进行socket通信时，在构造目的地址时，需要指定该地址所对应的接口索引号。一般可以通过if_nametoindex函数将接口名转化为接口索引号。具体方式如下，
-
-
 
 ```
 int port = 1234;
@@ -1950,8 +1903,6 @@ dhclient提供了"-1"选项来决定dhclient进程在未获得DHCP服务响应�
 ##### IPv4 DHCP和IPv6 DHCPv6方式获取地址的配置差异 
 
 可以通过配置接口ifcfg-<interface-name>参数来分别实现IPv4和IPv6通过DHCP/DHCPv6协议来动态获取IP地址，具体配置说明如下；
-
-
 
 ```
 BOOTPROTO=none|bootp|dhcp
