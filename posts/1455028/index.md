@@ -835,39 +835,29 @@ nmcli是NetworkManager的一个命令行工具，它提供了使用命令行配�
 
 - 显示NetworkManager状态：
 
-  
-
   ```
   # nmcli general status
   ```
-
-- 显示所有连接：
-
   
+- 显示所有连接：
 
   ```
   # nmcli connection show
   ```
-
-- 只显示当前活动连接，如下所示添加-a, --active：
-
   
+- 只显示当前活动连接，如下所示添加-a, --active：
 
   ```
   # nmcli connection show --active
   ```
-
-- 显示由NetworkManager识别到的设备及其状态：
-
   
+- 显示由NetworkManager识别到的设备及其状态：
 
   ```
   # nmcli device status
   ```
-
-- 使用nmcli工具启动和停止网络接口，在root权限下执行如下命令：
-
   
+- 使用nmcli工具启动和停止网络接口，在root权限下执行如下命令：
 
   ```
   # nmcli connection up id enp3s0
@@ -880,8 +870,6 @@ nmcli是NetworkManager的一个命令行工具，它提供了使用命令行配�
 
 使用如下命令，NetworkManager将连接到对应网络设备，尝试找到合适的连接配置，并激活配置。
 
-
-
 ```
 # nmcli device connect "$IFNAME"
 ```
@@ -892,8 +880,6 @@ nmcli是NetworkManager的一个命令行工具，它提供了使用命令行配�
 
 使用如下命令，NetworkManager将断开设备连接，并防止设备自动激活。
 
-
-
 ```
 # nmcli device disconnect "$IFNAME"
 ```
@@ -901,8 +887,6 @@ nmcli是NetworkManager的一个命令行工具，它提供了使用命令行配�
 #### 设置网络连接
 
 列出目前可用的网络连接：
-
-
 
 ```
 # nmcli con show
