@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>个人建站总结 - Fermi</title><meta name="author" content="">
+<meta name="description" content="welcome to femris的博客网站!"><meta name="keywords" content='draft'>
+  <meta itemprop="name" content="个人建站总结">
+  <meta itemprop="description" content="welcome to femris的博客网站!">
+  <meta itemprop="datePublished" content="2025-12-17T12:40:52+08:00">
+  <meta itemprop="dateModified" content="2025-12-17T12:40:52+08:00">
+  <meta itemprop="wordCount" content="3233">
+  <meta itemprop="keywords" content="Draft"><meta property="og:url" content="http://localhost:1313/posts/70685c3/">
+  <meta property="og:site_name" content="Fermi">
+  <meta property="og:title" content="个人建站总结">
+  <meta property="og:description" content="welcome to femris的博客网站!">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-17T12:40:52+08:00">
+    <meta property="article:modified_time" content="2025-12-17T12:40:52+08:00">
+    <meta property="article:tag" content="Draft">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="个人建站总结">
+  <meta name="twitter:description" content="welcome to femris的博客网站!">
+<meta name="application-name" content="Fermi&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Fermi&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#ffffff" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/70685c3/" title="个人建站总结 - Fermi" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/51fa418/" title="Windows与Linux入侵排查" /><link rel="next" type="text/html" href="http://localhost:1313/posts/835784b/" title="linux杂谈：一些常用命令" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/70685c3/index.md" title="个人建站总结 - Fermi"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "个人建站总结",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/70685c3\/"
+    },"genre": "posts","keywords": "draft","wordcount":  3233 ,
+    "url": "http:\/\/localhost:1313\/posts\/70685c3\/","datePublished": "2025-12-17T12:40:52+08:00","dateModified": "2025-12-17T12:40:52+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/" title="Fermi"><span class="header-title-text">Fermi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Fermi"><span class="header-title-text">Fermi&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>个人建站总结</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/draft/" class="post-category" title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Draft</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-17 12:40:52"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-17">2025-12-17</time></span>&nbsp;<span title="3233 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 16 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用hugo搭建个人网站"><strong>使用hugo搭建个人网站</strong></a></li>
+    <li><a href="#1先决条件">1.先决条件</a></li>
+    <li><a href="#2创建网站">2.创建网站</a>
+      <ul>
+        <li><a href="#11为你的项目创建网站">1.1为你的项目创建网站</a></li>
+        <li><a href="#12给你的网站添加新页面">1.2给你的网站添加新页面</a></li>
+        <li><a href="#13发布网站">1.3发布网站</a></li>
+        <li><a href="#14文档指南">1.4文档指南</a></li>
+        <li><a href="#15一个全局toml模板">1.5一个全局toml模板：</a></li>
+      </ul>
+    </li>
+    <li><a href="#3github-仓库准备">3.GitHub 仓库准备</a>
+      <ul>
+        <li><a href="#这里需要两个授权">这里需要两个授权</a></li>
+        <li><a href="#1获取并配置部署令牌-personal-access-token">1.获取并配置部署令牌 (Personal Access Token)</a></li>
+        <li><a href="#2获取并配置ssh-部署密钥-deploy-key">2.获取并配置<strong>SSH 部署密钥 (Deploy Key)</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#4详细配置步骤">4.详细配置步骤</a>
+      <ul>
+        <li><a href="#11-源仓库源码仓库配置">1.1. <strong>源仓库（源码仓库）配置</strong></a></li>
+        <li><a href="#12-目标仓库配置">1.2. <strong>目标仓库配置</strong></a></li>
+        <li><a href="#13-创建-secrets">1.3. <strong>创建 Secrets</strong></a></li>
+        <li><a href="#14-配置源仓库-secrets">1.4. <strong>配置源仓库 Secrets</strong></a></li>
+        <li><a href="#15-配置目标仓库-deploy-key">1.5. <strong>配置目标仓库 Deploy Key</strong></a></li>
+        <li><a href="#16-检查配置">1.6. <strong>检查配置</strong></a></li>
+        <li><a href="#17-权限设置">1.7. <strong>权限设置</strong></a></li>
+        <li><a href="#18验证工作流">1.8验证工作流</a></li>
+        <li><a href="#19故障排除">1.9.故障排除</a></li>
+        <li><a href="#110一个完整的workflow工作流">1.10一个完整的workflow工作流</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#网站建站流程">网站建站流程</a></li>
+    <li><a href="#建站总结">建站总结</a></li>
+    <li><a href="#github-pages建站">github pages建站</a></li>
+    <li><a href="#vps域名宝塔wordpress建站">vps+域名+宝塔+wordpress建站</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#全文加密"><strong>全文加密</strong></a></li>
+    <li><a href="#图片配置">图片配置</a></li>
+    <li><a href="#文档网页渲染实现pdf内嵌">文档网页渲染实现pdf内嵌</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
+<h2 class="heading-element" id="一一个由hugofixlt搭建的博客网站"><span>一，一个由hugo+fixlt搭建的博客网站</span>
+  <a href="#%e4%b8%80%e4%b8%80%e4%b8%aa%e7%94%b1hugofixlt%e6%90%ad%e5%bb%ba%e7%9a%84%e5%8d%9a%e5%ae%a2%e7%bd%91%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><img src=".\assets\1.png"  title="blog images" style="zoom:67%;"  />
+<h2 class="heading-element" id="使用hugo搭建个人网站"><span><strong>使用hugo搭建个人网站</strong></span>
+  <a href="#%e4%bd%bf%e7%94%a8hugo%e6%90%ad%e5%bb%ba%e4%b8%aa%e4%ba%ba%e7%bd%91%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>建站步骤：<a href="https://fixit.lruihao.cn/zh-cn/"target="_blank" rel="external nofollow noopener noreferrer">FixIt (lruihao.cn)</a></p>
+<h2 class="heading-element" id="1先决条件"><span>1.先决条件</span>
+  <a href="#1%e5%85%88%e5%86%b3%e6%9d%a1%e4%bb%b6" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>技巧：如果这是你第一次使用 <a href="https://gohugo.io/"target="_blank" rel="external nofollow noopener noreferrer">Hugo</a>，我们强烈建议你通过阅读这篇 <a href="https://gohugo.io/getting-started/"target="_blank" rel="external nofollow noopener noreferrer">入门文档</a> 来更多地了解它。</strong></p>
+<p>在开始本教程之前，你必须：</p>
+<ol>
+<li><a href="https://gohugo.io/getting-started/installing/"target="_blank" rel="external nofollow noopener noreferrer">安装 Hugo</a>（扩展版，v0.147.7 或更高版本）</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"target="_blank" rel="external nofollow noopener noreferrer">安装 Git</a></li>
+</ol>
+<p>你还必须熟悉使用命令行。</p>
+<h2 class="heading-element" id="2创建网站"><span>2.创建网站</span>
+  <a href="#2%e5%88%9b%e5%bb%ba%e7%bd%91%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>提示：接下来的步骤将一步步指导你创建一个 Hugo 网站。
+如果你已经熟悉 Hugo，可以跳过这些步骤，使用 <a href="https://fixit.lruihao.cn/zh-cn/documentation/installation/#cli"target="_blank" rel="external nofollow noopener noreferrer">FixIt CLI</a> 来快速创建一个网站。</p>
+<p>命令：验证你是否安装了 Hugo v0.147.7 或更高版本。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo version</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行以下命令来创建一个带有 <a href="https://github.com/hugo-fixit/FixIt"target="_blank" rel="external nofollow noopener noreferrer">FixIt</a> 主题的 Hugo 网站。</p>
+<h3 class="heading-element" id="11为你的项目创建网站"><span>1.1为你的项目创建网站</span>
+  <a href="#11%e4%b8%ba%e4%bd%a0%e7%9a%84%e9%a1%b9%e7%9b%ae%e5%88%9b%e5%bb%ba%e7%bd%91%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="err">#</span><span class="nx">在</span><span class="w"> </span><span class="nx">my</span><span class="o">-</span><span class="nx">blog</span><span class="w"> </span><span class="nx">目录中为你的项目创建网站</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">hugo</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">site</span><span class="w"> </span><span class="nx">my</span><span class="o">-</span><span class="nx">blog</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">git</span><span class="w"> </span><span class="nx">init</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">将</span><span class="w"> </span><span class="nx">FixIt</span><span class="w"> </span><span class="nx">主题作为</span><span class="w"> </span><span class="nx">Git</span><span class="w"> </span><span class="nx">子模块</span><span class="w"> </span><span class="nx">添加到你的项目中的</span><span class="w"> </span><span class="nx">themes</span><span class="w"> </span><span class="nx">目录</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">git</span><span class="w"> </span><span class="nx">submodule</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">https</span><span class="p">:</span><span class="cp">//github.com/hugo-fixit/FixIt.git themes/FixIt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">在站点配置文件中添加一行</span><span class="err">，</span><span class="nx">指定当前主题</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">echo</span><span class="w"> </span><span class="s">&#34;theme = &#39;FixIt&#39;&#34;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">hugo</span><span class="p">.</span><span class="nx">toml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">在站点配置文件中添加一行</span><span class="err">，</span><span class="nx">指定默认的内容语言</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">echo</span><span class="w"> </span><span class="s">&#34;defaultContentLanguage = &#39;zh-cn&#39;&#34;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">hugo</span><span class="p">.</span><span class="nx">toml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">启动</span><span class="w"> </span><span class="nx">Hugo</span><span class="w"> </span><span class="nx">的开发服务器以查看站点</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">hugo</span><span class="w"> </span><span class="nx">server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">按</span><span class="w"> </span><span class="nx">Ctrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="nx">停止</span><span class="w"> </span><span class="nx">Hugo</span><span class="w"> </span><span class="nx">的开发服务器</span><span class="err">。</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="12给你的网站添加新页面"><span>1.2给你的网站添加新页面</span>
+  <a href="#12%e7%bb%99%e4%bd%a0%e7%9a%84%e7%bd%91%e7%ab%99%e6%b7%bb%e5%8a%a0%e6%96%b0%e9%a1%b5%e9%9d%a2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="mf">1.</span><span class="err">（</span><span class="nx">第一种方式</span><span class="err">）</span><span class="nx">给你的网站添加新页面</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">hugo</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="nx">posts</span><span class="o">/</span><span class="nx">my</span><span class="o">-</span><span class="nx">first</span><span class="o">-</span><span class="nx">post</span><span class="p">.</span><span class="nx">md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mf">2.</span><span class="err">（</span><span class="nx">第二种方式</span><span class="err">）</span><span class="nx">Hugo</span><span class="w"> </span><span class="nx">支持</span><span class="w"> </span><span class="nx">Page</span><span class="w"> </span><span class="nx">bundles</span><span class="w"> </span><span class="nx">模式</span><span class="err">，</span><span class="nx">即文章内容打包在一个文件夹下</span><span class="err">，</span><span class="nx">内部可以独立包含图片</span><span class="err">、</span><span class="nx">子页面等静态资源</span><span class="err">，</span><span class="nx">文章以</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">md</span><span class="w"> </span><span class="nx">作为入口</span><span class="err">，</span><span class="nx">可基于</span><span class="w"> </span><span class="nx">FixIt</span><span class="w"> </span><span class="nx">主题提供的</span><span class="w"> </span><span class="nx">post</span><span class="o">-</span><span class="nx">bundle</span><span class="w"> </span><span class="nx">原型进行自定义修改</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="w"> </span><span class="nx">拷贝主题原型到站点目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="nx">cp</span><span class="w"> </span><span class="o">-</span><span class="nx">r</span><span class="w"> </span><span class="nx">themes</span><span class="o">/</span><span class="nx">FixIt</span><span class="o">/</span><span class="nx">archetypes</span><span class="o">/</span><span class="nx">post</span><span class="o">-</span><span class="nx">bundle</span><span class="w"> </span><span class="nx">archetypes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="w"> </span><span class="nx">增加博客图片目录</span><span class="err">，</span><span class="nx">最终结构如下</span><span class="err">，</span><span class="nx">注意空目录在原型使用时不会生效</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="nx">tree</span><span class="w"> </span><span class="o">-</span><span class="nx">a</span><span class="w"> </span><span class="nx">archetypes</span><span class="o">/</span><span class="nx">post</span><span class="o">-</span><span class="nx">bundle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">archetypes</span><span class="o">/</span><span class="nx">post</span><span class="o">-</span><span class="nx">bundle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">├──</span><span class="w"> </span><span class="nx">images</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="p">.</span><span class="nx">gitkeep</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">└──</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="w"> </span><span class="nx">创建</span><span class="w"> </span><span class="nx">Page</span><span class="w"> </span><span class="nx">bundles</span><span class="w"> </span><span class="nx">文章</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="nx">hugo</span><span class="w"> </span><span class="nx">new</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">--</span><span class="nx">kind</span><span class="w"> </span><span class="nx">post</span><span class="o">-</span><span class="nx">bundle</span><span class="w"> </span><span class="nx">posts</span><span class="o">/</span><span class="nx">hello</span><span class="o">-</span><span class="nx">world</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="w"> </span><span class="nx">文章目录结构</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="nx">tree</span><span class="w"> </span><span class="o">-</span><span class="nx">a</span><span class="w"> </span><span class="nx">content</span><span class="o">/</span><span class="nx">posts</span><span class="o">/</span><span class="nx">hello</span><span class="o">-</span><span class="nx">world</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">content</span><span class="o">/</span><span class="nx">posts</span><span class="o">/</span><span class="nx">hello</span><span class="o">-</span><span class="nx">world</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">├──</span><span class="w"> </span><span class="nx">images</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="p">.</span><span class="nx">gitkeep</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">└──</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="w"> </span><span class="nx">添加</span><span class="w"> </span><span class="nx">markdown</span><span class="w"> </span><span class="nx">内容</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="nx">echo</span><span class="w"> </span><span class="s">&#34;\n## Hello World&#34;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">content</span><span class="o">/</span><span class="nx">posts</span><span class="o">/</span><span class="nx">hello</span><span class="o">-</span><span class="nx">world</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">Hugo</span><span class="w"> </span><span class="nx">在</span><span class="w"> </span><span class="nx">content</span><span class="o">/</span><span class="nx">posts</span><span class="w"> </span><span class="nx">目录中创建了该文件</span><span class="err">，</span><span class="nx">使用编辑器打开文件</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">请注意</span><span class="err">，</span><span class="nx">front</span><span class="w"> </span><span class="nx">matter</span><span class="w"> </span><span class="nx">中的</span><span class="w"> </span><span class="nx">draft</span><span class="w"> </span><span class="nx">值为</span><span class="w"> </span><span class="kc">true</span><span class="err">。</span><span class="nx">默认情况下</span><span class="err">，</span><span class="nx">Hugo</span><span class="w"> </span><span class="nx">在你构建网站时不会发布草稿内容</span><span class="err">。</span><span class="nx">详细了解</span><span class="w"> </span><span class="nx">草稿</span><span class="err">、</span><span class="nx">未来和过期内容</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">在帖子正文中添加一些</span><span class="w"> </span><span class="nx">Markdown</span><span class="err">，</span><span class="nx">但不要更改</span><span class="w"> </span><span class="nx">draft</span><span class="w"> </span><span class="nx">值</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">title</span><span class="p">:</span><span class="w"> </span><span class="nx">我的第一篇文章</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">date</span><span class="p">:</span><span class="w"> </span><span class="mi">2024</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mo">01</span><span class="nx">T17</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mo">04</span><span class="o">+</span><span class="mi">08</span><span class="p">:</span><span class="mo">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="w"> </span><span class="o">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">保存文件</span><span class="err">，</span><span class="nx">然后启动</span><span class="w"> </span><span class="nx">Hugo</span><span class="w"> </span><span class="nx">的开发服务器来查看站点</span><span class="err">。</span><span class="nx">你可以运行以下任一命令来包含草稿内容</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">hugo</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">--</span><span class="nx">buildDrafts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">hugo</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">-</span><span class="nx">D</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">hugo</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">-</span><span class="nx">D</span><span class="w"> </span><span class="o">--</span><span class="nx">disableFastRender</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">由于本主题使用了</span><span class="w"> </span><span class="nx">Hugo</span><span class="w"> </span><span class="nx">中的</span><span class="w"> </span><span class="p">.</span><span class="nx">Store</span><span class="w"> </span><span class="nx">来实现一些特性</span><span class="err">，</span><span class="w"> </span><span class="nx">非常建议你为</span><span class="w"> </span><span class="nx">hugo</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="nx">命令添加</span><span class="w"> </span><span class="o">--</span><span class="nx">disableFastRender</span><span class="w"> </span><span class="nx">参数来实时预览你正在编辑的文章页面</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">#</span><span class="nx">当对新内容感到满意时</span><span class="err">，</span><span class="nx">将</span><span class="w"> </span><span class="nx">front</span><span class="w"> </span><span class="nx">matter</span><span class="w"> </span><span class="nx">中的</span><span class="w"> </span><span class="s">`draft`</span><span class="w"> </span><span class="nx">值更改为</span><span class="w"> </span><span class="s">`false`</span><span class="err">，</span><span class="nx">然后保存文件</span><span class="err">。</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="13发布网站"><span>1.3发布网站</span>
+  <a href="#13%e5%8f%91%e5%b8%83%e7%bd%91%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在此步骤中，你将发布你的网站，但不会 <em>部署</em> 它。</p>
+<p>当你发布站点时，Hugo 在项目根目录的 <code>public</code> 目录中创建整个静态站点。这包括 HTML 文件以及图像、CSS 文件和 JavaScript 文件等资源。</p>
+<p>当你发布网站时，你通常不希望包含 <a href="https://gohugo.io/getting-started/usage/#draft-future-and-expired-content"target="_blank" rel="external nofollow noopener noreferrer">草稿、未来或过期的内容</a>，命令很简单。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="14文档指南"><span>1.4文档指南</span>
+  <a href="#14%e6%96%87%e6%a1%a3%e6%8c%87%e5%8d%97" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>强烈建议你花少量时间完整阅读 FixIt 主题的文档，以便你更好地了解如何使用它。</p>
+<ol>
+<li><a href="https://pre.fixit.lruihao.cn/zh-cn/documentation/installation/"target="_blank" rel="external nofollow noopener noreferrer">安装篇</a></li>
+<li><a href="https://pre.fixit.lruihao.cn/zh-cn/documentation/getting-started/"target="_blank" rel="external nofollow noopener noreferrer">入门篇</a></li>
+<li><a href="https://pre.fixit.lruihao.cn/zh-cn/documentation/content-management/"target="_blank" rel="external nofollow noopener noreferrer">内容管理</a></li>
+<li><a href="https://pre.fixit.lruihao.cn/zh-cn/documentation/advanced/"target="_blank" rel="external nofollow noopener noreferrer">进阶篇</a></li>
+</ol>
+<h3 class="heading-element" id="15一个全局toml模板"><span>1.5一个全局toml模板：</span>
+  <a href="#15%e4%b8%80%e4%b8%aa%e5%85%a8%e5%b1%80toml%e6%a8%a1%e6%9d%bf" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span><span class="lnt">253
+</span><span class="lnt">254
+</span><span class="lnt">255
+</span><span class="lnt">256
+</span><span class="lnt">257
+</span><span class="lnt">258
+</span><span class="lnt">259
+</span><span class="lnt">260
+</span><span class="lnt">261
+</span><span class="lnt">262
+</span><span class="lnt">263
+</span><span class="lnt">264
+</span><span class="lnt">265
+</span><span class="lnt">266
+</span><span class="lnt">267
+</span><span class="lnt">268
+</span><span class="lnt">269
+</span><span class="lnt">270
+</span><span class="lnt">271
+</span><span class="lnt">272
+</span><span class="lnt">273
+</span><span class="lnt">274
+</span><span class="lnt">275
+</span><span class="lnt">276
+</span><span class="lnt">277
+</span><span class="lnt">278
+</span><span class="lnt">279
+</span><span class="lnt">280
+</span><span class="lnt">281
+</span><span class="lnt">282
+</span><span class="lnt">283
+</span><span class="lnt">284
+</span><span class="lnt">285
+</span><span class="lnt">286
+</span><span class="lnt">287
+</span><span class="lnt">288
+</span><span class="lnt">289
+</span><span class="lnt">290
+</span><span class="lnt">291
+</span><span class="lnt">292
+</span><span class="lnt">293
+</span><span class="lnt">294
+</span><span class="lnt">295
+</span><span class="lnt">296
+</span><span class="lnt">297
+</span><span class="lnt">298
+</span><span class="lnt">299
+</span><span class="lnt">300
+</span><span class="lnt">301
+</span><span class="lnt">302
+</span><span class="lnt">303
+</span><span class="lnt">304
+</span><span class="lnt">305
+</span><span class="lnt">306
+</span><span class="lnt">307
+</span><span class="lnt">308
+</span><span class="lnt">309
+</span><span class="lnt">310
+</span><span class="lnt">311
+</span><span class="lnt">312
+</span><span class="lnt">313
+</span><span class="lnt">314
+</span><span class="lnt">315
+</span><span class="lnt">316
+</span><span class="lnt">317
+</span><span class="lnt">318
+</span><span class="lnt">319
+</span><span class="lnt">320
+</span><span class="lnt">321
+</span><span class="lnt">322
+</span><span class="lnt">323
+</span><span class="lnt">324
+</span><span class="lnt">325
+</span><span class="lnt">326
+</span><span class="lnt">327
+</span><span class="lnt">328
+</span><span class="lnt">329
+</span><span class="lnt">330
+</span><span class="lnt">331
+</span><span class="lnt">332
+</span><span class="lnt">333
+</span><span class="lnt">334
+</span><span class="lnt">335
+</span><span class="lnt">336
+</span><span class="lnt">337
+</span><span class="lnt">338
+</span><span class="lnt">339
+</span><span class="lnt">340
+</span><span class="lnt">341
+</span><span class="lnt">342
+</span><span class="lnt">343
+</span><span class="lnt">344
+</span><span class="lnt">345
+</span><span class="lnt">346
+</span><span class="lnt">347
+</span><span class="lnt">348
+</span><span class="lnt">349
+</span><span class="lnt">350
+</span><span class="lnt">351
+</span><span class="lnt">352
+</span><span class="lnt">353
+</span><span class="lnt">354
+</span><span class="lnt">355
+</span><span class="lnt">356
+</span><span class="lnt">357
+</span><span class="lnt">358
+</span><span class="lnt">359
+</span><span class="lnt">360
+</span><span class="lnt">361
+</span><span class="lnt">362
+</span><span class="lnt">363
+</span><span class="lnt">364
+</span><span class="lnt">365
+</span><span class="lnt">366
+</span><span class="lnt">367
+</span><span class="lnt">368
+</span><span class="lnt">369
+</span><span class="lnt">370
+</span><span class="lnt">371
+</span><span class="lnt">372
+</span><span class="lnt">373
+</span><span class="lnt">374
+</span><span class="lnt">375
+</span><span class="lnt">376
+</span><span class="lnt">377
+</span><span class="lnt">378
+</span><span class="lnt">379
+</span><span class="lnt">380
+</span><span class="lnt">381
+</span><span class="lnt">382
+</span><span class="lnt">383
+</span><span class="lnt">384
+</span><span class="lnt">385
+</span><span class="lnt">386
+</span><span class="lnt">387
+</span><span class="lnt">388
+</span><span class="lnt">389
+</span><span class="lnt">390
+</span><span class="lnt">391
+</span><span class="lnt">392
+</span><span class="lnt">393
+</span><span class="lnt">394
+</span><span class="lnt">395
+</span><span class="lnt">396
+</span><span class="lnt">397
+</span><span class="lnt">398
+</span><span class="lnt">399
+</span><span class="lnt">400
+</span><span class="lnt">401
+</span><span class="lnt">402
+</span><span class="lnt">403
+</span><span class="lnt">404
+</span><span class="lnt">405
+</span><span class="lnt">406
+</span><span class="lnt">407
+</span><span class="lnt">408
+</span><span class="lnt">409
+</span><span class="lnt">410
+</span><span class="lnt">411
+</span><span class="lnt">412
+</span><span class="lnt">413
+</span><span class="lnt">414
+</span><span class="lnt">415
+</span><span class="lnt">416
+</span><span class="lnt">417
+</span><span class="lnt">418
+</span><span class="lnt">419
+</span><span class="lnt">420
+</span><span class="lnt">421
+</span><span class="lnt">422
+</span><span class="lnt">423
+</span><span class="lnt">424
+</span><span class="lnt">425
+</span><span class="lnt">426
+</span><span class="lnt">427
+</span><span class="lnt">428
+</span><span class="lnt">429
+</span><span class="lnt">430
+</span><span class="lnt">431
+</span><span class="lnt">432
+</span><span class="lnt">433
+</span><span class="lnt">434
+</span><span class="lnt">435
+</span><span class="lnt">436
+</span><span class="lnt">437
+</span><span class="lnt">438
+</span><span class="lnt">439
+</span><span class="lnt">440
+</span><span class="lnt">441
+</span><span class="lnt">442
+</span><span class="lnt">443
+</span><span class="lnt">444
+</span><span class="lnt">445
+</span><span class="lnt">446
+</span><span class="lnt">447
+</span><span class="lnt">448
+</span><span class="lnt">449
+</span><span class="lnt">450
+</span><span class="lnt">451
+</span><span class="lnt">452
+</span><span class="lnt">453
+</span><span class="lnt">454
+</span><span class="lnt">455
+</span><span class="lnt">456
+</span><span class="lnt">457
+</span><span class="lnt">458
+</span><span class="lnt">459
+</span><span class="lnt">460
+</span><span class="lnt">461
+</span><span class="lnt">462
+</span><span class="lnt">463
+</span><span class="lnt">464
+</span><span class="lnt">465
+</span><span class="lnt">466
+</span><span class="lnt">467
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s1">&#39;https://jiang1bo.github.io/&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s1">&#39;Fermi&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#languageCode = &#39;en-us&#39; #en-us</span>
+</span></span><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s1">&#39;FixIt&#39;</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">defaultContentLanguage</span> <span class="p">=</span> <span class="s1">&#39;zh-CN&#39;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">languages</span><span class="p">.</span><span class="nx">zh-CN</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">languageCode</span> <span class="p">=</span> <span class="s1">&#39;zh-CN&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">weight</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#title</span>
+</span></span><span class="line"><span class="cl"><span class="c">#map 页面头部导航栏标题配置。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#logo: string LOGO 的 URL。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#name: string 标题名称。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#pre: string 在名称之前添加其他信息。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#post: string 在名称之后添加其他信息。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#typeit: bool 是否为标题显示打字机动画。</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">header</span><span class="p">.</span><span class="nx">title</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">logo</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;Fermi&#39;s Blog&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">pre</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">post</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">typeit</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="c">#页面头部导航栏副标题配置。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#name: string 副标题名称。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#typeit: bool 是否为副标题显示打字机动画。</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">header</span><span class="p">.</span><span class="nx">subtitle</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">typeit</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#作者设置</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">author</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;fermi&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">email</span> <span class="p">=</span> <span class="s2">&#34;3044483124@qq.com&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">link</span> <span class="p">=</span> <span class="s2">&#34;https://jiangbos.top/&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">avatar</span> <span class="p">=</span> <span class="s2">&#34;./web-app-manifest-512x512.png&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#主页设置</span>
+</span></span><span class="line"><span class="cl"><span class="c">#enable: bool 是否显示个人信息，默认：false。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#gravatarEmail: stringGravatar 邮箱，用于优先在主页显示的头像。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#avatarURL: string 主页显示头像的 URL。FixIt 0.2.17 | 新增</span>
+</span></span><span class="line"><span class="cl"><span class="c">#avatarMenu: string 头像菜单链接的 identifier。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#title: string 主页显示的网站标题（支持 HTML 格式）。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#subtitle: string 主页显示的网站副标题。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#typeit: bool 是否为副标题显示打字机动画，默认：true。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#social: bool 是否显示社交账号，默认：true。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#disclaimer: string 免责声明（支持 HTML 格式）。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#posts</span>
+</span></span><span class="line"><span class="cl"><span class="c">#map 主页文章列表配置。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#enable: bool 是否显示文章列表，默认：true。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#paginate: int 主页每页显示文章数量，默认：6。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">home</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">paginate</span> <span class="p">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">home</span><span class="p">.</span><span class="nx">profile</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">gravatarEmail</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">avatarURL</span> <span class="p">=</span> <span class="s2">&#34;favicon-96x96.png&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">avatarMenu</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;你好,这里是ferm，一名python &amp; linux开发工程师， 热爱技术和分享。喜欢探索新技术，解决实际问题。在这个博客中，我分享我的学习笔记、项目经验和生活感悟。&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">subtitle</span> <span class="p">=</span> <span class="s2">&#34;“如果你来访我，我不在，请和我门外的花坐一会儿，它们很温暖，我注视它们很多很多日子了。” ——汪曾祺《人间草木》&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">typeit</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">social</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">disclaimer</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">home</span><span class="p">.</span><span class="nx">posts</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">paginate</span> <span class="p">=</span> <span class="mi">6</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#typeit map 打字机动画配置。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#speed int 打字速度，默认：100。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#cursorSpeed int 光标速度，默认：1000。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#cursorChar string 光标字符，默认：|。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#duration int 动画持续时间，默认：-1。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#loop FixIt 0.2.18 | 新增 bool 是否循环播放，默认：false。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">typeit</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">speed</span> <span class="p">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cursorSpeed</span> <span class="p">=</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cursorChar</span> <span class="p">=</span> <span class="s2">&#34;|&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">duration</span> <span class="p">=</span> <span class="mi">-1</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">loop</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># LoveIt 新增 | 0.2.0 应用图标配置</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">app</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;Fermi&#39;s Blog&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># 是否隐藏网站图标资源链接</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">noFavicon</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">svgFavicon</span> <span class="p">=</span> <span class="s2">&#34;favicon.svg&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Android 浏览器主题色</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">themeColor</span> <span class="p">=</span> <span class="s2">&#34;#ffffff&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Safari 图标颜色</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iconColor</span> <span class="p">=</span> <span class="s2">&#34;#5bbad5&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Windows v8-10磁贴颜色</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tileColor</span> <span class="p">=</span> <span class="s2">&#34;#da532c&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#可以参考位于 themes/FixIt/assets/data/social.yaml 的默认数据来配置你的社交链接。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#你可以直接配置你的社交 ID 来生成一个默认社交链接和图标：</span>
+</span></span><span class="line"><span class="cl"><span class="c">#  Mastodon = &#34;@xxxx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#生成的社交链接是 https://mastodon.social/@xxxx。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#或者你可以通过一个字典来设置更多的选项：</span>
+</span></span><span class="line"><span class="cl"><span class="c">#[params.social]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#  [params.social.Mastodon]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    # 排列图标时的权重（权重越大，图标的位置越靠后）</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    weight = 0</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    # 你的社交 ID</span>
+</span></span><span class="line"><span class="cl"><span class="c">#   id = &#34;@xxxx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    # 你的社交链接的前缀</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    prefix = &#34;https://mastodon.gal/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    # 当鼠标停留在图标上时的提示内容</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     title = &#34;Mastodon&#34; </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># custom social links like the following</span>
+</span></span><span class="line"><span class="cl"><span class="c"># [params.social.twitter]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#   id = &#34;lruihao&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#   weight = 3</span>
+</span></span><span class="line"><span class="cl"><span class="c">#   prefix = &#34;https://twitter.com/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#   Title = &#34;Twitter&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#   [social.twitter.icon]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     class = &#34;fa-brands fa-x-twitter fa-fw&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># FixIt 0.2.16 | CHANGED Social config about the author</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">social</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">GitHub</span> <span class="p">=</span> <span class="s2">&#34;jiang1bo&#34;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nx">Wordpress</span> <span class="p">=</span> <span class="s2">&#34;jiangbos.top&#34;</span>       
+</span></span><span class="line"><span class="cl">    <span class="nx">CSDN</span> <span class="p">=</span> <span class="s2">&#34;?spm=1038.2274.3001.4476&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Email</span> <span class="p">=</span> <span class="s2">&#34;ktamdz@163.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">QQ</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">QQGroup</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span> <span class="c"># https://qun.qq.com/join.html</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Feishu</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Douyin</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">TikTok</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Phone</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">Bilibili</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">Weibo</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nx">Zhihu</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Paypal</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>    
+</span></span><span class="line"><span class="cl">    <span class="nx">Steam</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Twitch</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>   
+</span></span><span class="line"><span class="cl">    <span class="nx">Whatsapp</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Twitter</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Instagram</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Facebook</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Telegram</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Gitlab</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Youtubelegacy</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Youtubecustom</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Youtubechannel</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Reddit</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">RSS</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Discord</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">DiscordInvite</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#[params.social]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    [params.social.csdn]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    weight = 0</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    id = &#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    prefix = &#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    title = &#34;CSDN&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    [params.social.github]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    weight = 2</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    id = &#34;jiang1bo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    prefix = &#34;https://github.com/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    title = &#34;GitHub&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    [params.social.bilibili]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    weight = 3</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    id = &#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    prefix = &#34;https://bilibili.com/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#    title = &#34;bilibili&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># FixIt 0.2.17 | 新增 赞赏设置</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">reward</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">animation</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="c"># 相对于页脚的位置，可选值：[&#34;before&#34;, &#34;after&#34;]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">position</span> <span class="p">=</span> <span class="s2">&#34;after&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">comment</span> <span class="p">=</span> <span class="s2">&#34;Buy me a coffee&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c"># FixIt 0.2.18 | 新增 二维码图片展示模式，可选值：[&#34;static&#34;, &#34;fixed&#34;]，默认：`static`</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">mode</span> <span class="p">=</span> <span class="s2">&#34;static&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">reward</span><span class="p">.</span><span class="nx">ways</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">wechatpay</span> <span class="p">=</span> <span class="s2">&#34;./web-app-manifest-512x512.png&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c"># alipay = &#34;/images/alipay.png&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c"># paypal = &#34;/images/paypal.png&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c"># bitcoin = &#34;/images/bitcoin.png&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 文章页面的分享信息设置</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">share</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Twitter</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Facebook</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Linkedin</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Whatsapp</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Pinterest</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Tumblr</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">HackerNews</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Reddit</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">VK</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Buffer</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Xing</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Line</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Instapaper</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Pocket</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Flipboard</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Weibo</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Myspace</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Blogger</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Baidu</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Odnoklassniki</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Evernote</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Skype</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Trello</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Mix</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="c">#githubCorner FixIt 0.2.14 | 新增map 在左上角或者右上角显示 GitHub 开源链接。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">githubCorner</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">permalink</span> <span class="p">=</span> <span class="s2">&#34;https://github.com/jiang1bo&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;View source on GitHub&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span> <span class="p">=</span> <span class="s2">&#34;right&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># FixIt 0.2.15 | 更改 评论系统设置</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">comment</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="c"># FixIt 0.1.1 | 新增 Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#[params.page.comment.gitalk]</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  enable = true</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  owner = &#34;jiang1bo&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  repo = &#34;jiang1bo&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  clientId = &#34;xxx3li4c6tbHMoc0ABQD&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  clientSecret = &#34;xxxf028b6a13cb0577027197179a83c97486b6b6&#34;</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c">#  &lt;script src=&#34;https://giscus.app/client.js&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-repo=&#34;jiang1bo/jiang1bo&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-repo-id=&#34;R_kgDOQgMS0A&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-category=&#34;General&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-category-id=&#34;DIC_kwDOQgMS0M4CzSCX&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-mapping=&#34;pathname&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-strict=&#34;0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-reactions-enabled=&#34;1&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-emit-metadata=&#34;0&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-input-position=&#34;top&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-theme=&#34;preferred_color_scheme&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  data-lang=&#34;zh-CN&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  crossorigin=&#34;anonymous&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  async&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#  &lt;/script&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="c">#origin = &#34;https://giscus.app&#34; # FixIt 0.3.7 | 新增 Or set it to your self-hosted domain</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c"># FixIt 0.2.14 | 新增 Giscus 评论系统设置</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">comment</span><span class="p">.</span><span class="nx">giscus</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">repo</span> <span class="p">=</span> <span class="s2">&#34;jiang1bo/jiang1bo&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">repoId</span> <span class="p">=</span> <span class="s2">&#34;xxxgDOQgMS0A&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">category</span> <span class="p">=</span> <span class="s2">&#34;General&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">categoryId</span> <span class="p">=</span> <span class="s2">&#34;xxx_kwDOQgxxx0M4CzSCX&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">mapping</span> <span class="p">=</span> <span class="s2">&#34;pathname&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">origin</span> <span class="p">=</span> <span class="s2">&#34;https://giscus.app&#34;</span> <span class="c"># FixIt 0.3.7 | 新增 Or set it to your self-hosted domain</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">strict</span> <span class="p">=</span> <span class="s2">&#34;0&#34;</span> <span class="c"># FixIt 0.2.18 | 新增</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">term</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">reactionsEnabled</span> <span class="p">=</span> <span class="s2">&#34;1&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">emitMetadata</span> <span class="p">=</span> <span class="s2">&#34;0&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">inputPosition</span> <span class="p">=</span> <span class="s2">&#34;bottom&#34;</span> <span class="c"># [&#34;top&#34;, &#34;bottom&#34;]</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">lightTheme</span> <span class="p">=</span> <span class="s2">&#34;light&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">darkTheme</span> <span class="p">=</span> <span class="s2">&#34;dark&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">lazyLoad</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">lang</span> <span class="p">=</span> <span class="s2">&#34;zh-CN&#34;</span>  <span class="c"># 设置语言</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#verification map 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu/360/Sogou。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">verification</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">google</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bing</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">yandex</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pinterest</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">baidu</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">so</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sogou</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#seo map SEO 配置。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">seo</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">thumbnailUrl</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#compatibility map 兼容性设置。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">compatibility</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">polyfill</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">objectFit</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#backToTop FixIt 0.2.16 | 新增 map 返回顶部按钮配置。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">backToTop</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">scrollpercent</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#readingProgress FixIt 0.2.16 | 新增 map 阅读进度条配置。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">readingProgress</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">start</span> <span class="p">=</span> <span class="s2">&#34;left&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span> <span class="p">=</span> <span class="s2">&#34;top&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">reversed</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">light</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dark</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">height</span> <span class="p">=</span> <span class="s2">&#34;2px&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#cacheRemotebool 是否缓存远程图片以获得更好的优化效果，默认：false。</span>
+</span></span><span class="line"><span class="cl"><span class="c">#optimisebool 是否对图片进行缩放和优化，默认：false。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">image</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cacheRemote</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">optimise</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#recentlyUpdated FixIt 0.3.13 | 新增 map 最近更新文章设置。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">recentlyUpdated</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">archives</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">section</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">list</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">days</span> <span class="p">=</span> <span class="mi">30</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">maxCount</span> <span class="p">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#busuanzi FixIt 0.3.10 | 新增 map 不蒜子计数器配置。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">busuanzi</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">source</span> <span class="p">=</span> <span class="s2">&#34;https://vercount.one/js&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">siteViews</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pageViews</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#搜索设置</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">search</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;fuse&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">contentLength</span> <span class="p">=</span> <span class="mi">4000</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">placeholder</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">maxResultLength</span> <span class="p">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">snippetLength</span> <span class="p">=</span> <span class="mi">30</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">highlightTag</span> <span class="p">=</span> <span class="s2">&#34;em&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">absoluteURL</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">fuse</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">isCaseSensitive</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">minMatchCharLength</span> <span class="p">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">findAllMatches</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">location</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">threshold</span> <span class="p">=</span> <span class="mf">0.3</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">distance</span> <span class="p">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">ignoreLocation</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">useExtendedSearch</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">ignoreFieldNorm</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#页面底部信息设置</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">footer</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">copyright</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">author</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">since</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">gov</span> <span class="p">=</span> <span class="s2">&#34;china&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">icp</span> <span class="p">=</span> <span class="s2">&#34;20251129&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">license</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">footer</span><span class="p">.</span><span class="nx">powered</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">hugoLogo</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">themeLogo</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">footer</span><span class="p">.</span><span class="nx">siteTime</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">animate</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">icon</span> <span class="p">=</span> <span class="s2">&#34;fa-solid fa-heartbeat&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">pre</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">value</span> <span class="p">=</span> <span class="s2">&#34;2021-11-11&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">footer</span><span class="p">.</span><span class="nx">order</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">powered</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">copyright</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">statistics</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">visitor</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">beian</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#自定义输出设置</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">mediaTypes</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">mediaTypes</span><span class="p">.</span><span class="s2">&#34;text/markdown&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">suffixes</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;md&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">outputFormats</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="c">#  用于输出 /archives/index.html 文件的设置</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">outputFormats</span><span class="p">.</span><span class="nx">archives</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">path</span> <span class="p">=</span> <span class="s2">&#34;archives&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">baseName</span> <span class="p">=</span> <span class="s2">&#34;index&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mediaType</span> <span class="p">=</span> <span class="s2">&#34;text/html&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isPlainText</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isHTML</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">permalinkable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="c">#  用于输出 /offline/index.html 文件的设置</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">outputFormats</span><span class="p">.</span><span class="nx">offline</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">path</span> <span class="p">=</span> <span class="s2">&#34;offline&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">baseName</span> <span class="p">=</span> <span class="s2">&#34;index&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mediaType</span> <span class="p">=</span> <span class="s2">&#34;text/html&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isPlainText</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isHTML</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">permalinkable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="c">#  用于输出 readme.md 文件的设置</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">outputFormats</span><span class="p">.</span><span class="nx">readme</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">baseName</span> <span class="p">=</span> <span class="s2">&#34;readme&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mediaType</span> <span class="p">=</span> <span class="s2">&#34;text/markdown&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isPlainText</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isHTML</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">  <span class="c">#  用于输出 baidu_urls.txt 文件的设置</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">outputFormats</span><span class="p">.</span><span class="nx">baidu_urls</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">baseName</span> <span class="p">=</span> <span class="s2">&#34;baidu_urls&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mediaType</span> <span class="p">=</span> <span class="s2">&#34;text/plain&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isPlainText</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isHTML</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">  <span class="c">#  用于输出 search.json 文件的设置</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">outputFormats</span><span class="p">.</span><span class="nx">search</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">baseName</span> <span class="p">=</span> <span class="s2">&#34;search&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mediaType</span> <span class="p">=</span> <span class="s2">&#34;application/json&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">rel</span> <span class="p">=</span> <span class="s2">&#34;search&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isPlainText</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isHTML</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">permalinkable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">markup</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">_merge</span> <span class="p">=</span> <span class="s2">&#34;shallow&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">outputs</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">_merge</span> <span class="p">=</span> <span class="s2">&#34;shallow&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">taxonomies</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">_merge</span> <span class="p">=</span> <span class="s2">&#34;shallow&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">description</span> <span class="p">=</span> <span class="s1">&#39;welcome to femris的博客网站!&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">keywords</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;Hugo&#34;</span><span class="p">,</span> <span class="s2">&#34;FixIt&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#是否显示纯文本摘要，默认：false</span>
+</span></span><span class="line"><span class="cl"><span class="nx">summaryPlainify</span> <span class="p">=</span> <span class="s1">&#39;true&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#header map 页面头部导航栏配置。</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">header</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c">#桌面端导航栏模式，可选值：sticky、normal、auto, 默认：sticky。</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">desktopMode</span> <span class="p">=</span> <span class="s2">&#34;sticky&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c">#移动端导航栏模式，可选值：sticky、normal、auto, 默认：auto。</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mobileMode</span> <span class="p">=</span> <span class="s2">&#34;auto&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c"># FixIt 0.2.18 | 新增 是否启用文章作者头像</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">authorAvatar</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 代码块包装器配置</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">code</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="c"># FixIt 0.3.9 | 新增 是否启用代码块包装器</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="c"># 是否显示代码块包装器的复制按钮</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">copy</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="c"># FixIt 0.2.13 | 新增 是否显示代码块包装器的编辑按钮</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">edit</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="c"># 默认展开显示的代码行数</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">maxShownLines</span> <span class="p">=</span> <span class="mi">10</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="3github-仓库准备"><span>3.GitHub 仓库准备</span>
+  <a href="#3github-%e4%bb%93%e5%ba%93%e5%87%86%e5%a4%87" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>接下来创建两个 GitHub 仓库：</p>
+<ol>
+<li>GitHub Pages 仓库：仓库名前缀必须使用用户名，格式为<username>.github.io，必须为公开仓库，用于博客部署。</li>
+<li>博客仓库：可随意命名如 myblog，私有仓库，用于存储博客源代码，包括文章和配置。</li>
+</ol>
+<p><strong>当blog博客仓库的代码提交到 main 分支时，会触发 GitHub Actions 将 Hugo 构建好的静态站点文件部署到 GitHub Pages 仓库，用户即可通过 GitHub Pages 域名进行博客访问。</strong></p>
+<p>博客仓库将主题以 下载后手动导入，通过配置文件指定使用的主题；</p>
+<p>2个仓库中，只有 GitHub pages 仓库是必须的，如果不在意博客内容和源代码隐私性，可以去掉 myblog 仓库，将博客源代码存储到 <username>.github.io 仓库中，GitHub Pages 支持使用特定分支（默认是 gh-pages）部署。</p>
+<h3 class="heading-element" id="这里需要两个授权"><span>这里需要两个授权</span>
+  <a href="#%e8%bf%99%e9%87%8c%e9%9c%80%e8%a6%81%e4%b8%a4%e4%b8%aa%e6%8e%88%e6%9d%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>（1）为了使 <code>r1源仓库</code> 中的 Actions 工作流有权限启动构建，你需要一个 Token</strong>。</p>
+<p><strong>（2）为了源仓库r1有权限向目标仓库r2推送，你需要一个 SSH密钥对， 进行授权。</strong></p>
+<h3 class="heading-element" id="1获取并配置部署令牌-personal-access-token"><span>1.获取并配置部署令牌 (Personal Access Token)</span>
+  <a href="#1%e8%8e%b7%e5%8f%96%e5%b9%b6%e9%85%8d%e7%bd%ae%e9%83%a8%e7%bd%b2%e4%bb%a4%e7%89%8c-personal-access-token" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>1. 获取并配置部署令牌 (Personal Access Token)</strong></p>
+<p><strong>为了使 <code>源r1仓库</code> 中的 Actions 工作流有权限启动构建，你需要一个 Token</strong>。</p>
+<ul>
+<li><strong>生成 Token</strong>：在你的 GitHub 主页，点击头像 -&gt; <strong>Settings</strong> -&gt; <strong>Developer settings</strong> -&gt; <strong>Personal access tokens</strong> -&gt; <strong>Tokens (classic)</strong>。</li>
+<li><strong>关键设置</strong>：为 Token 设置一个描述性名称（如 <code>Deploy to My Pages</code>），<strong>过期时间建议选 <code>No expiration</code></strong>，并在权限中<strong>务必勾选完整的 <code>repo</code></strong>。生成后<strong>务必立即复制保存</strong>。</li>
+<li><strong>在 r1 中添加 Secret</strong>：进入私有仓库 <code>r1</code> 的 <strong>Settings</strong> -&gt; <strong>Secrets and variables</strong> -&gt; <strong>Actions</strong>。点击 <code>New repository secret</code>。
+<ul>
+<li><strong>Name</strong>: <code>PERSONAL_TOKEN</code> (必须与工作流中名称一致)。</li>
+<li><strong>Value</strong>: 粘贴你刚才复制的 Token。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 为目标仓库 r2 启用 GitHub Pages</strong>
+进入公共仓库 <code>r2</code> 的 <strong>Settings</strong> -&gt; <strong>Pages</strong>。在 <strong>Source</strong> 部分，选择 <strong>GitHub Actions</strong>。</p>
+<h3 class="heading-element" id="2获取并配置ssh-部署密钥-deploy-key"><span>2.获取并配置<strong>SSH 部署密钥 (Deploy Key)</strong></span>
+  <a href="#2%e8%8e%b7%e5%8f%96%e5%b9%b6%e9%85%8d%e7%bd%aessh-%e9%83%a8%e7%bd%b2%e5%af%86%e9%92%a5-deploy-key" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>这个工作流使用 <strong>SSH密钥对</strong> 而非 Personal Access Token (PAT) 进行授权，这是更安全、更推荐的做法。你需要按照以下步骤进行配置：</p>
+<ol>
+<li><strong>生成密钥对</strong>：在本地使用 <code>ssh-keygen -t rsa -b 4096 -C “your_email@example.com” -f gh-pages-deploy-key</code> 生成一对新的SSH密钥（私钥 <code>gh-pages-deploy-key</code> 和公钥 <code>gh-pages-deploy-key.pub</code>）。</li>
+<li><strong>在目标仓库 (r2) 添加公钥</strong>：
+<ul>
+<li>进入你的公共 Pages 仓库 (r2) 的 <strong>Settings</strong>。</li>
+<li>找到 <strong>Deploy keys</strong> 部分，点击 <strong>Add deploy key</strong>。</li>
+<li><strong>Title</strong> 可填 <code>Actions Deploy Key</code>，将公钥文件 (<code>gh-pages-deploy-key.pub</code>) 的内容粘贴到 <strong>Key</strong> 框中。</li>
+<li><strong>务必勾选 <code>Allow write access</code></strong>，否则只有读取权限，无法推送。</li>
+</ul>
+</li>
+<li><strong>在源仓库 (r1) 添加私钥</strong>：
+<ul>
+<li>进入你的私有博客源码仓库 (r1) 的 <strong>Settings</strong>。</li>
+<li>找到 <strong>Secrets and variables</strong> 下的 <strong>Actions</strong>，点击 <strong>New repository secret</strong>。</li>
+<li><strong>Name</strong> 必须填 <code>PAGES_DEPLOY_KEY</code>（与工作流中 <code>secrets.PAGES_DEPLOY_KEY</code> 对应）。</li>
+<li>将私钥文件 (<code>gh-pages-deploy-key</code>) 的<strong>全部内容</strong>（包括 <code>-----BEGIN OPENSSH PRIVATE KEY-----</code> 和 <code>-----END OPENSSH PRIVATE KEY-----</code>）粘贴到 <strong>Value</strong> 框中。</li>
+</ul>
+</li>
+</ol>
+<h2 class="heading-element" id="4详细配置步骤"><span>4.详细配置步骤</span>
+  <a href="#4%e8%af%a6%e7%bb%86%e9%85%8d%e7%bd%ae%e6%ad%a5%e9%aa%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 class="heading-element" id="11-源仓库源码仓库配置"><span>1.1. <strong>源仓库（源码仓库）配置</strong></span>
+  <a href="#11-%e6%ba%90%e4%bb%93%e5%ba%93%e6%ba%90%e7%a0%81%e4%bb%93%e5%ba%93%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li><strong>位置</strong>：存放 Hugo 源代码的仓库</li>
+<li><strong>需要设置的 Secrets</strong>：
+<ul>
+<li><code>ACCESS_TOKEN</code>：具有 <code>repo</code> 权限的 Personal Access Token，用于访问私有子模块</li>
+<li><code>PAGES_DEPLOY_KEY</code>：SSH 私钥，用于推送到目标仓库</li>
+</ul>
+</li>
+</ul>
+<h3 class="heading-element" id="12-目标仓库配置"><span>1.2. <strong>目标仓库配置</strong></span>
+  <a href="#12-%e7%9b%ae%e6%a0%87%e4%bb%93%e5%ba%93%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li><strong>位置</strong>：GitHub Pages 托管的仓库</li>
+<li><strong>需要设置</strong>：
+<ul>
+<li>添加对应的 SSH 公钥为 <strong>Deploy Key</strong></li>
+<li>Settings → Deploy keys → 添加新密钥，勾选 <strong>Allow write access</strong></li>
+</ul>
+</li>
+</ul>
+<h3 class="heading-element" id="13-创建-secrets"><span>1.3. <strong>创建 Secrets</strong></span>
+  <a href="#13-%e5%88%9b%e5%bb%ba-secrets" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>创建 Personal Access Token：</strong></p>
+<ol>
+<li>GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)</li>
+<li>生成新 token，至少选择：
+<ul>
+<li><code>repo</code>（完全访问仓库）</li>
+<li><code>workflow</code>（如果需要）</li>
+</ul>
+</li>
+<li>复制 token 值</li>
+</ol>
+<p><strong>创建 SSH 密钥对：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 生成 SSH 密钥对</span>
+</span></span><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your-email@example.com&#34;</span> -f github_pages_deploy_key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 会生成两个文件：</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - github_pages_deploy_key（私钥）</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - github_pages_deploy_key.pub（公钥）</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="14-配置源仓库-secrets"><span>1.4. <strong>配置源仓库 Secrets</strong></span>
+  <a href="#14-%e9%85%8d%e7%bd%ae%e6%ba%90%e4%bb%93%e5%ba%93-secrets" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在源仓库的 Settings → Secrets and variables → Actions：</p>
+<ul>
+<li>添加 <code>ACCESS_TOKEN</code>：填入刚才创建的 PAT</li>
+<li>添加 <code>PAGES_DEPLOY_KEY</code>：填入生成的私钥内容</li>
+</ul>
+<h3 class="heading-element" id="15-配置目标仓库-deploy-key"><span>1.5. <strong>配置目标仓库 Deploy Key</strong></span>
+  <a href="#15-%e9%85%8d%e7%bd%ae%e7%9b%ae%e6%a0%87%e4%bb%93%e5%ba%93-deploy-key" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在目标仓库的 Settings → Deploy keys：</p>
+<ul>
+<li>添加新密钥，名称随意</li>
+<li>将公钥内容粘贴进去</li>
+<li><strong>必须勾选</strong> &ldquo;Allow write access&rdquo;</li>
+</ul>
+<h3 class="heading-element" id="16-检查配置"><span>1.6. <strong>检查配置</strong></span>
+  <a href="#16-%e6%a3%80%e6%9f%a5%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>确保以下配置与实际匹配：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 检查这些值是否符合你的项目</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">HUGO_VERSION</span><span class="p">:</span><span class="w"> </span><span class="m">0.152.2</span><span class="w">        </span><span class="c"># 必须与本地 Hugo 版本一致</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">DART_SASS_VERSION</span><span class="p">:</span><span class="w"> </span><span class="m">1.93.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">external_repository</span><span class="p">:</span><span class="w"> </span><span class="l">jiang1bo/jiang1bo.github.io </span><span class="w"> </span><span class="c"># 目标仓库</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">publish_branch</span><span class="p">:</span><span class="w"> </span><span class="l">main        </span><span class="w"> </span><span class="c"># 目标仓库的分支</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 class="heading-element" id="17-权限设置"><span>1.7. <strong>权限设置</strong></span>
+  <a href="#17-%e6%9d%83%e9%99%90%e8%ae%be%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在源仓库的 Settings → Actions → General：</p>
+<ul>
+<li>确保 &ldquo;Workflow permissions&rdquo; 设置为：
+<ul>
+<li>✅ &ldquo;Read and write permissions&rdquo;</li>
+<li>✅ &ldquo;Allow GitHub Actions to create and approve pull requests&rdquo;</li>
+</ul>
+</li>
+</ul>
+<h3 class="heading-element" id="18验证工作流"><span>1.8验证工作流</span>
+  <a href="#18%e9%aa%8c%e8%af%81%e5%b7%a5%e4%bd%9c%e6%b5%81" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p><strong>手动触发测试</strong>：</p>
+<ul>
+<li>在 Actions 页面点击 &ldquo;Run workflow&rdquo;</li>
+<li>选择 &ldquo;workflow_dispatch&rdquo;</li>
+</ul>
+</li>
+<li>
+<p><strong>查看日志</strong>：</p>
+<ul>
+<li>检查每一步是否成功</li>
+<li>特别注意缓存和部署步骤</li>
+</ul>
+</li>
+</ol>
+<h3 class="heading-element" id="19故障排除"><span>1.9.故障排除</span>
+  <a href="#19%e6%95%85%e9%9a%9c%e6%8e%92%e9%99%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p><strong>权限问题</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Error: Permission to jiang1bo/jiang1bo.github.io denied</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>检查 Deploy Key 是否允许写权限</li>
+<li>检查 SSH 密钥是否正确</li>
+</ul>
+</li>
+<li>
+<p><strong>Hugo 构建失败</strong>：</p>
+<ul>
+<li>确认 Hugo 版本与本地一致</li>
+<li>检查主题子模块是否配置正确</li>
+</ul>
+</li>
+<li>
+<p><strong>子模块问题</strong>：</p>
+<ul>
+<li>确保主题或其他子模块使用 HTTPS 而非 SSH URL</li>
+<li>在 <code>.gitmodules</code> 中验证</li>
+</ul>
+</li>
+</ol>
+<p><strong>这个工作流配置完成后，每次推送到 <code>main</code> 分支都会自动构建并部署网站到 GitHub Pages。</strong></p>
+<h3 class="heading-element" id="110一个完整的workflow工作流"><span>1.10一个完整的workflow工作流</span>
+  <a href="#110%e4%b8%80%e4%b8%aa%e5%ae%8c%e6%95%b4%e7%9a%84workflow%e5%b7%a5%e4%bd%9c%e6%b5%81" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>2仓库结合,,一个私密构建,一个GitHub pages 公开仓库。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">name: Deploy to Github Pages
+</span></span><span class="line"><span class="cl">on:
+</span></span><span class="line"><span class="cl">  push:
+</span></span><span class="line"><span class="cl">    branches: <span class="o">[</span> main <span class="o">]</span>
+</span></span><span class="line"><span class="cl">  workflow_dispatch:
+</span></span><span class="line"><span class="cl"><span class="c1"># 权限配置 (已修正，删除无效的 metadata 和 packages)</span>
+</span></span><span class="line"><span class="cl">permissions:
+</span></span><span class="line"><span class="cl">  contents: <span class="nb">read</span>  <span class="c1"># checkout 代码需要读权限 (如果使用 PAT 认证，此项非必须但建议保留)</span>
+</span></span><span class="line"><span class="cl">  pages: write
+</span></span><span class="line"><span class="cl">  id-token: write
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">jobs:
+</span></span><span class="line"><span class="cl">  build:
+</span></span><span class="line"><span class="cl">    runs-on: ubuntu-latest  <span class="c1"># 更新为最新 Ubuntu 版本以获取更好的兼容性</span>
+</span></span><span class="line"><span class="cl">    concurrency:
+</span></span><span class="line"><span class="cl">      group: <span class="si">${</span><span class="p">{ github.workflow </span><span class="si">}</span><span class="o">}</span>-<span class="si">${</span><span class="p">{ github.ref </span><span class="si">}</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    env:
+</span></span><span class="line"><span class="cl">      <span class="c1"># ==================== 版本定义（根据参考配置更新）====================</span>
+</span></span><span class="line"><span class="cl">      DART_SASS_VERSION: 1.93.2   <span class="c1"># Dart Sass 版本</span>
+</span></span><span class="line"><span class="cl">      GO_VERSION: 1.25.3          <span class="c1"># Go 语言版本</span>
+</span></span><span class="line"><span class="cl">      HUGO_VERSION: 0.152.2       <span class="c1"># Hugo 版本（必须与参考配置及本地版本一致）</span>
+</span></span><span class="line"><span class="cl">      NODE_VERSION: 22.20.0       <span class="c1"># Node.js 版本</span>
+</span></span><span class="line"><span class="cl">      TZ: Europe/Oslo             <span class="c1"># 设置构建环境时区</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># ==================== 版本定义结束 ====================</span>
+</span></span><span class="line"><span class="cl">    steps:
+</span></span><span class="line"><span class="cl">       <span class="c1"># 步骤 1: 检出源代码 (已添加 token 认证)</span>
+</span></span><span class="line"><span class="cl">      - name: Checkout Source Code
+</span></span><span class="line"><span class="cl">        uses: actions/checkout@v5
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          submodules: recursive
+</span></span><span class="line"><span class="cl">          fetch-depth: <span class="m">0</span>
+</span></span><span class="line"><span class="cl">          <span class="c1"># 使用你创建的 Personal Access Token 来访问私有仓库</span>
+</span></span><span class="line"><span class="cl">          token: <span class="si">${</span><span class="p">{ secrets.ACCESS_TOKEN </span><span class="si">}</span><span class="o">}</span> <span class="c1"># 请确保在仓库 Secrets 中已添加 ACCESS_TOKEN</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 2: 设置 Go 环境（更新至 v5 版本）</span>
+</span></span><span class="line"><span class="cl">      - name: Setup Go
+</span></span><span class="line"><span class="cl">        uses: actions/setup-go@v5
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          go-version: <span class="si">${</span><span class="p">{ env.GO_VERSION </span><span class="si">}</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">          cache: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">      - run: go version
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 3: 设置 Node.js 环境（保持 v4，与参考配置一致）</span>
+</span></span><span class="line"><span class="cl">      - name: Setup Node.js
+</span></span><span class="line"><span class="cl">        uses: actions/setup-node@v4
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          node-version: <span class="si">${</span><span class="p">{ env.NODE_VERSION </span><span class="si">}</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 4 &amp; 5: 创建本地目录并安装 Dart Sass（优化安装方式）</span>
+</span></span><span class="line"><span class="cl">      - name: Create directory <span class="k">for</span> user-specific executable files
+</span></span><span class="line"><span class="cl">        run: mkdir -p <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.local&#34;</span>
+</span></span><span class="line"><span class="cl">      - name: Install Dart Sass
+</span></span><span class="line"><span class="cl">        run: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">          curl -sLJO <span class="s2">&#34;https://github.com/sass/dart-sass/releases/download/</span><span class="si">${</span><span class="nv">DART_SASS_VERSION</span><span class="si">}</span><span class="s2">/dart-sass-</span><span class="si">${</span><span class="nv">DART_SASS_VERSION</span><span class="si">}</span><span class="s2">-linux-x64.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">          tar -C <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.local&#34;</span> -xf <span class="s2">&#34;dart-sass-</span><span class="si">${</span><span class="nv">DART_SASS_VERSION</span><span class="si">}</span><span class="s2">-linux-x64.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">          rm <span class="s2">&#34;dart-sass-</span><span class="si">${</span><span class="nv">DART_SASS_VERSION</span><span class="si">}</span><span class="s2">-linux-x64.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.local/dart-sass&#34;</span> &gt;&gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">GITHUB_PATH</span><span class="si">}</span><span class="s2">&#34;</span> <span class="c1"># 将路径加入系统 PATH</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 6: 安装 Hugo 扩展版（优化安装方式，并改为本地下载）</span>
+</span></span><span class="line"><span class="cl">      - name: Install Hugo
+</span></span><span class="line"><span class="cl">        run: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">          curl -sLJO <span class="s2">&#34;https://github.com/gohugoio/hugo/releases/download/v</span><span class="si">${</span><span class="nv">HUGO_VERSION</span><span class="si">}</span><span class="s2">/hugo_extended_</span><span class="si">${</span><span class="nv">HUGO_VERSION</span><span class="si">}</span><span class="s2">_linux-amd64.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">          mkdir <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.local/hugo&#34;</span>
+</span></span><span class="line"><span class="cl">          tar -C <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.local/hugo&#34;</span> -xf <span class="s2">&#34;hugo_extended_</span><span class="si">${</span><span class="nv">HUGO_VERSION</span><span class="si">}</span><span class="s2">_linux-amd64.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">          rm <span class="s2">&#34;hugo_extended_</span><span class="si">${</span><span class="nv">HUGO_VERSION</span><span class="si">}</span><span class="s2">_linux-amd64.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.local/hugo&#34;</span> &gt;&gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">GITHUB_PATH</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 7: 验证所有安装（新增步骤，参考参考配置）</span>
+</span></span><span class="line"><span class="cl">      - name: Verify installations
+</span></span><span class="line"><span class="cl">        run: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">echo</span> <span class="s2">&#34;Dart Sass: </span><span class="k">$(</span>sass --version<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">echo</span> <span class="s2">&#34;Go: </span><span class="k">$(</span>go version<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">echo</span> <span class="s2">&#34;Hugo: </span><span class="k">$(</span>hugo version<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">echo</span> <span class="s2">&#34;Node.js: </span><span class="k">$(</span>node --version<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 8: 安装 Node.js 依赖（新增步骤，参考参考配置）</span>
+</span></span><span class="line"><span class="cl">      - name: Install Node.js dependencies
+</span></span><span class="line"><span class="cl">        run: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">          <span class="o">[[</span> -f package-lock.json <span class="o">||</span> -f npm-shrinkwrap.json <span class="o">]]</span> <span class="o">&amp;&amp;</span> npm ci <span class="o">||</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 9: 配置 Git（新增步骤，参考参考配置）</span>
+</span></span><span class="line"><span class="cl">      - name: Configure Git
+</span></span><span class="line"><span class="cl">        run: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">          git config core.quotepath <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 10 &amp; 11 &amp; 12: 缓存管理（新增步骤，大幅提升后续构建速度）</span>
+</span></span><span class="line"><span class="cl">      - name: Cache restore
+</span></span><span class="line"><span class="cl">        id: cache-restore
+</span></span><span class="line"><span class="cl">        uses: actions/cache/restore@v4
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          path: <span class="si">${</span><span class="p">{ runner.temp </span><span class="si">}</span><span class="o">}</span>/hugo_cache
+</span></span><span class="line"><span class="cl">          key: hugo-<span class="si">${</span><span class="p">{ github.run_id </span><span class="si">}</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">          restore-keys:
+</span></span><span class="line"><span class="cl">            hugo-
+</span></span><span class="line"><span class="cl">      <span class="c1"># 使用与参考配置一致的构建参数，并添加缓存目录</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 新增缓存参数</span>
+</span></span><span class="line"><span class="cl">      - name: Build with Hugo
+</span></span><span class="line"><span class="cl">        env:
+</span></span><span class="line"><span class="cl">          HUGO_ENVIRONMENT: production
+</span></span><span class="line"><span class="cl">          HUGO_ENV: production
+</span></span><span class="line"><span class="cl">        run: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">          hugo <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --gc <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --minify <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --cacheDir <span class="s2">&#34;</span><span class="si">${</span><span class="p">{ runner.temp </span><span class="si">}</span><span class="s2">}/hugo_cache&#34;</span> 
+</span></span><span class="line"><span class="cl">      - name: Cache save
+</span></span><span class="line"><span class="cl">        id: cache-save
+</span></span><span class="line"><span class="cl">        uses: actions/cache/save@v4
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          path: <span class="si">${</span><span class="p">{ runner.temp </span><span class="si">}</span><span class="o">}</span>/hugo_cache
+</span></span><span class="line"><span class="cl">          key: <span class="si">${</span><span class="p">{ steps.cache-restore.outputs.cache-primary-key </span><span class="si">}</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 步骤 13: 部署 （核心部署步骤保持不变）</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 从源仓库 (r1) Secrets 读取 SSH 私钥</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">#  需要修改为你自己的目标仓库 (r2)</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># 或 gh-pages，需与目标仓库 Pages 设置匹配</span>
+</span></span><span class="line"><span class="cl">      - name: Deploy 
+</span></span><span class="line"><span class="cl">        uses: peaceiris/actions-gh-pages@v3
+</span></span><span class="line"><span class="cl">        with:
+</span></span><span class="line"><span class="cl">          deploy_key: <span class="si">${</span><span class="p">{ secrets.PAGES_DEPLOY_KEY </span><span class="si">}</span><span class="o">}</span> 
+</span></span><span class="line"><span class="cl">          external_repository: jiang1bo/jiang1bo.github.io 
+</span></span><span class="line"><span class="cl">          publish_dir: ./public
+</span></span><span class="line"><span class="cl">          publish_branch: main 
+</span></span><span class="line"><span class="cl">          user_name: <span class="s1">&#39;github-actions[bot]&#39;</span>
+</span></span><span class="line"><span class="cl">          user_email: <span class="s1">&#39;github-actions[bot]@users.noreply.github.com&#39;</span>
+</span></span><span class="line"><span class="cl">          full_commit_message: <span class="si">${</span><span class="p">{ github.event.head_commit.message </span><span class="si">}</span><span class="o">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用 CI/CD 工作流程部署他们的网站，通过推送 <a href="https://pre.fixit.lruihao.cn/zh-cn/documentation/getting-started/quick-start/#fn:1"target="_blank" rel="external nofollow noopener noreferrer">1</a>到他们的 GitHub 或 GitLab 存储库会触发构建和部署。流行的提供商包括 <a href="https://vercel.com/"target="_blank" rel="external nofollow noopener noreferrer">Vercel</a><a href="https://pre.fixit.lruihao.cn/zh-cn/documentation/getting-started/quick-start/#fn:2"target="_blank" rel="external nofollow noopener noreferrer">2</a>、<a href="https://www.netlify.com/"target="_blank" rel="external nofollow noopener noreferrer">Netlify</a><a href="https://pre.fixit.lruihao.cn/zh-cn/documentation/getting-started/quick-start/#fn:3"target="_blank" rel="external nofollow noopener noreferrer">3</a>、<a href="https://aws.amazon.com/amplify/"target="_blank" rel="external nofollow noopener noreferrer">AWS Amplify</a>、<a href="https://cloudcannon.com/"target="_blank" rel="external nofollow noopener noreferrer">CloudCannon</a>、<a href="https://pages.cloudflare.com/"target="_blank" rel="external nofollow noopener noreferrer">Cloudflare Pages</a>、 <a href="https://pages.github.com/"target="_blank" rel="external nofollow noopener noreferrer">GitHub pages</a> 和 <a href="https://docs.gitlab.com/ee/user/project/pages/"target="_blank" rel="external nofollow noopener noreferrer">GitLab pages</a>。</p>
+<p>要了解如何部署站点，请参阅 <a href="https://gohugo.io/hosting-and-deployment/"target="_blank" rel="external nofollow noopener noreferrer">托管和部署</a> 部分。</p>
+<h2 class="heading-element" id="二建站总结"><span>二，建站总结：</span>
+  <a href="#%e4%ba%8c%e5%bb%ba%e7%ab%99%e6%80%bb%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 class="heading-element" id="网站建站流程"><span>网站建站流程</span>
+  <a href="#%e7%bd%91%e7%ab%99%e5%bb%ba%e7%ab%99%e6%b5%81%e7%a8%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>1.买域名，（国内：速度快，需要实名，卖服务器icp备案。国外：速度较慢，不需要实名，服务器，域名都不需要备案）</p>
+<p>2.买服务器，域名解析，备案</p>
+<p>3.代码编程</p>
+<p>4.云上部署</p>
+<p><strong>因为备案和域名没有关系，只和主机是否在国内的有关系。</strong></p>
+<p>国外域名+国外主机=不用备案</p>
+<p>国外域名+国内主机=备案</p>
+<p>国内域名+国外主机=不用备案</p>
+<p>国内域名+国内主机=备案</p>
+<h2 class="heading-element" id="建站总结"><span>建站总结</span>
+  <a href="#%e5%bb%ba%e7%ab%99%e6%80%bb%e7%bb%93" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>根据中国法律 ，使用境外服务器建立的网站，如果服务对象为中国内地 用户，则需要备案。</strong></p>
+<p>**即使 网站域名是国外的，如果网站内容或服务涉及中国内地用户，也需要备案。 **</p>
+<p><strong>因此，如果您使用腾讯云中国香港服务器建立的网站服务对象为中国内地用户，您需要进行备案。</strong></p>
+<p><strong>建议您咨询相关部门了解更多细节和要求</strong></p>
+<ul>
+<li>使用 TCP 隧道时，如果您穿透的 协议 是 HTTP，必须使用海外节点。HTTPS 协议 不受影响</li>
+<li>使用 HTTP(S) 隧道时，必须完成 实名认证。如果使用国内节点进行穿透，必须使用 有备案 的域名</li>
+</ul>
+<p>来自 <a href="https://doc.natfrp.com/app/http.html#choose-tunnel-type"target="_blank" rel="external nofollow noopener noreferrer">https://doc.natfrp.com/app/http.html#choose-tunnel-type</a></p>
+<p>限制过大，可以购买国外服务器，国外建站,较为方便,</p>
+<p>国内域名备案比较繁琐。需要money，购买云服务器，icp服务器注册码</p>
+<h2 class="heading-element" id="github-pages建站"><span>github pages建站</span>
+  <a href="#github-pages%e5%bb%ba%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><a href="https://jiang1bo.github.io/"target="_blank" rel="external nofollow noopener noreferrer">Fermi</a></p>
+<p><strong>当建站github仓库名字为name.github.io时(name是github的用户名),网站域名不会有后缀</strong></p>
+<p>功能不完善，限制很大，只能部署静态网页，</p>
+<p>经济，简单，稳定</p>
+<h2 class="heading-element" id="vps域名宝塔wordpress建站"><span>vps+域名+宝塔+wordpress建站</span>
+  <a href="#vps%e5%9f%9f%e5%90%8d%e5%ae%9d%e5%a1%94wordpress%e5%bb%ba%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><a href="https://jiangbos.top/"target="_blank" rel="external nofollow noopener noreferrer">https://jiangbos.top/</a></p>
+<p>功能强大，技术成熟，方便快捷</p>
+<p>耗费有点大</p>
+<h2 class="heading-element" id="三遇到的问题"><span>三，遇到的问题</span>
+  <a href="#%e4%b8%89%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 class="heading-element" id="全文加密"><span><strong>全文加密</strong></span>
+  <a href="#%e5%85%a8%e6%96%87%e5%8a%a0%e5%af%86" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>前置参数</strong></p>
+<p>FixIt 主题提供了两个前置参数用于全文加密。</p>
+<ul>
+<li><strong>password</strong>: <em>[必需]</em> 加密页面内容的密码</li>
+<li><strong>message</strong>: <em>[可选]</em> 加密提示信息</li>
+</ul>
+<p>例如，本文的前置参数如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"> <span class="nx">title</span><span class="err">:</span> <span class="err">主题文档</span> <span class="nx">-</span> <span class="err">内容加密</span>
+</span></span><span class="line"><span class="cl"><span class="nx">date</span><span class="err">:</span> <span class="ld">2022-05-28T11:51:41+08:00</span>
+</span></span><span class="line"><span class="cl"><span class="nx">author</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="err">:</span> <span class="nx">jiangbo</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">link</span><span class="err">:</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">description</span><span class="err">:</span> <span class="err">了解如何在</span> <span class="nx">FixIt</span> <span class="err">主题中加密内容。</span>
+</span></span><span class="line"><span class="cl"><span class="nx">password</span><span class="err">:</span> <span class="mi">1212</span>
+</span></span><span class="line"><span class="cl"><span class="nx">message</span><span class="err">:</span> <span class="err">密码是</span> <span class="mi">1212</span>
+</span></span><span class="line"><span class="cl"><span class="nx">resources</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-</span> <span class="nx">name</span><span class="err">:</span> <span class="nx">featured-image</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">src</span><span class="err">:</span> <span class="nx">featured-image</span><span class="p">.</span><span class="nx">png</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tags</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-</span> <span class="nx">Encryption</span>
+</span></span><span class="line"><span class="cl"><span class="nx">categories</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">-</span> <span class="nx">Documentation</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>信息</strong></p>
+<ol>
+<li>每次输入正确密码后，会在用户本地缓存密码 hash 值，一天之内再次访问时，将自动解锁文章</li>
+<li>文章最后提供有一个 “重新加密” 的按钮，点击即可立即忘记密码，并重新加密内容</li>
+<li>加密文章已从搜索中隐藏</li>
+<li>加密文章的 Markdown 输出已禁用，为了防止密码泄漏，<strong>请勿将加密文章以任何形式公开</strong></li>
+</ol>
+<h2 class="heading-element" id="图片配置"><span>图片配置</span>
+  <a href="#%e5%9b%be%e7%89%87%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>图片配置，ico需要parm.app，svgfavicon配置控制</p>
+<ul>
+<li>对于 <strong>static</strong> 和 <strong>assets</strong> 这两个文件夹，Hugo 在构建时会直接将 <strong>static</strong> 文件夹下的文件复制到网站的根目录下，而 <strong>assets</strong> 文件夹下的文件会被编译后得到一个链接。</li>
+<li>例如，我的网站图标是 <strong>static/favicon.webp</strong>，在最终上线后，可以直接访问 <a href="https://www.trrw.tech/favicon.webp"target="_blank" rel="external nofollow noopener noreferrer">https://www.trrw.tech/favicon.webp</a> 来打开这个图片。     而我首页的头像图片则是 <strong>assets/img/avatar.jpg</strong>，他的链接是 <a href="https://www.trrw.tech/img/avatar_hu_b50a61df1acbb930.jpg"target="_blank" rel="external nofollow noopener noreferrer">https://www.trrw.tech/img/avatar_hu_b50a61df1acbb930.jpg</a></li>
+<li>但是在配置中，这两个文件夹下的文件使用方式是一样的，上个两个文件的使用方式分别是：favicon.webp 和 img/avatar.jpg。</li>
+</ul>
+<p>来自 &lt;<a href="https://www.trrw.tech/p/hugo-stack%e4%b8%bb%e9%a2%98%e9%85%8d%e7%bd%ae/"target="_blank" rel="external nofollow noopener noreferrer">https://www.trrw.tech/p/hugo-stack%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</a>&gt;</p>
+<h2 class="heading-element" id="文档网页渲染实现pdf内嵌"><span>文档网页渲染实现pdf内嵌</span>
+  <a href="#%e6%96%87%e6%a1%a3%e7%bd%91%e9%a1%b5%e6%b8%b2%e6%9f%93%e5%ae%9e%e7%8e%b0pdf%e5%86%85%e5%b5%8c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>Makedown文档本身无法实现pdf文档预览的功能，但是可以通过embed,网页渲染实现pdf文档预览</strong></p>
+<p>Go语言圣经 (Alan A. A. Donovan, Brian W. Kernighan etc.) (Z-Library).pdf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">embed</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://example.com/document.pdf&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/pdf&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;800px&#34;</span><span class="p">&gt;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 class="heading-element" id="内容参考"><span>内容参考：</span>
+  <a href="#%e5%86%85%e5%ae%b9%e5%8f%82%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><ol>
+<li>
+<p><a href="https://fixit.lruihao.cn/zh-cn/documentation/getting-started/quick-start/"target="_blank" rel="external nofollow noopener noreferrer">快速上手 | FixIt</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/gitblog_07048/article/details/148377292"target="_blank" rel="external nofollow noopener noreferrer">Hugo主题Reimu中giscus.app拒绝连接问题的分析与解决-CSDN博客</a></p>
+</li>
+<li>
+<p><a href="https://pre.fixit.lruihao.cn/zh-cn/documentation/getting-started/configuration/#page"target="_blank" rel="external nofollow noopener noreferrer">配置 FixIt | FixIt</a></p>
+</li>
+<li>
+<p><a href="https://shuiwang.online/posts/create-blog-with-hugo-and-theme-fixit/"target="_blank" rel="external nofollow noopener noreferrer">使用 Hugo 和 FixIt 主题创建个人博客 - 程序员水王</a></p>
+</li>
+<li>
+<p><a href="https://stilig.me/posts/add-friend/"target="_blank" rel="external nofollow noopener noreferrer">Hugo 添加友链卡片及页面 - Stilig&rsquo;s blog</a></p>
+</li>
+<li>
+<p><a href="https://z3n1th1.com/2024/12/%e5%8d%9a%e5%ae%a2%e6%90%ad%e5%bb%ba%e5%92%8c%e9%85%8d%e7%bd%aegithub-cloudflare-fixit/"target="_blank" rel="external nofollow noopener noreferrer">博客搭建和配置(Github+Cloudflare+FixIt) - Z3n1th Blog</a></p>
+</li>
+<li>
+<p><a href="https://ibrights.github.io/post/blog20210527/"target="_blank" rel="external nofollow noopener noreferrer">利用 Favicon 为 Hugo 静态站点添加图标 - Bright&rsquo;s Blog</a></p>
+</li>
+<li>
+<p><a href="https://www.trrw.tech/p/hugo-stack%e4%b8%bb%e9%a2%98%e9%85%8d%e7%bd%ae/"target="_blank" rel="external nofollow noopener noreferrer">Hugo Stack主题配置</a></p>
+</li>
+<li>
+<p><a href="https://www.haoyep.com/posts/windows-hugo-blog-github/#%e4%b8%8a%e4%bc%a0%e9%a1%b5%e9%9d%a2"target="_blank" rel="external nofollow noopener noreferrer">Windows下使用hugo和Github Pages配置博客 | Leehow的小站</a></p>
+</li>
+<li>
+<p><a href="https://heluo520.github.io/posts/notes/deploy"target="_blank" rel="external nofollow noopener noreferrer">使用Github Actions将构建产物自动推送到另一个仓库 - 贤狼赫萝</a></p>
+</li>
+</ol></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-12-17 12:40:52">更新于 2025-12-17&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/70685c3/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="vscode://file/D:%5cIDM%5cgit%5cgithub%5cwebsite%5cprivacy-fixlt%5ccontent%5cposts%5cwebsiteall%5cindex.md" title="在编辑器中打开"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-vscode">在编辑器中打开</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/70685c3/" data-title="个人建站总结" data-hashtags="draft"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/70685c3/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/70685c3/" data-title="个人建站总结"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/draft/" class="post-tag" title="标签 - Draft">Draft</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/51fa418/" class="post-nav-item" rel="prev" title="Windows与Linux入侵排查"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Windows与Linux入侵排查</a><a href="/posts/835784b/" class="post-nav-item" rel="next" title="Linux杂谈：一些常用命令">Linux杂谈：一些常用命令<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">Buy me a coffee</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i>赞赏</label>
+    <div class="reward-ways" data-mode="static"><div><img src='/web-app-manifest-512x512.png' alt="微信" height="512" width="512"><span data-animation>微信</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.20"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://jiangbos.top/"target="_blank" rel="external nofollow noopener noreferrer">fermi</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div><div class="footer-line beian"><span class="gov">china</span><span class="icp footer-divider">20251129</span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric">0%</span>
+        </div></div><a href="https://github.com/jiang1bo" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true" width="56" height="56"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":true,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":true},"siteTime":"2021-11-11","version":"v0.3.20"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

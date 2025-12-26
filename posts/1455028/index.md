@@ -1637,19 +1637,23 @@ sudo nmcli connection up bond0
 - 要启动绑定，则必须首先启动从属接口，使用示例如下：
 
   ```
-# nmcli con up bond-slave-enp3s0
+
+**nmcli con up bond-slave-enp3s0**
+
   Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/14)
   ```
   
   ```
-# nmcli con up bond-slave-enp4s0
+**nmcli con up bond-slave-enp4s0**
+
   Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/15)
 ```
   
   现在可以启动绑定，使用示例如下：
   
-  ```
-# nmcli con up mybond0
+```
+**nmcli con up mybond0**
+
   Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/16)
 ```
 
@@ -1660,13 +1664,15 @@ sudo nmcli connection up bond0
 在系统中默认已加载相应模块。要载入绑定模块，可在root权限下使用如下命令：
 
 ```
-# modprobe --first-time bonding
+**modprobe --first-time bonding**
+
 ```
 
 显示该模块的信息，可在root权限下使用如下命令：
 
 ```
-# modinfo bonding
+**modinfo bonding**
+
 ```
 
 更多命令请在root权限下使用modprobe --help查看。
@@ -1722,12 +1728,14 @@ SLAVE=yes
 要激活绑定，则需要启动所有从属接口。请在root权限下，运行以下命令：
 
 ```
-# ifup enp3s0
+**ifup enp3s0**
+
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)
 ```
 
 ```
-# ifup enp4s0
+**ifup enp4s0**
+
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/8)
 ```
 
@@ -1740,13 +1748,14 @@ Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkMa
 要让 NetworkManager 感知到系统所做的修改，在每次修改后，请在root权限下，运行以下命令：
 
 ```
-# nmcli con load /etc/sysconfig/network-scripts/ifcfg-device
+**nmcli con load /etc/sysconfig/network-scripts/ifcfg-device**
+
 ```
 
 查看绑定接口的状态，请在root权限下运行以下命令：
 
 ```
-# ip link show
+**ip link show**
 
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -1758,6 +1767,7 @@ Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkMa
     link/ether 86:a1:10:fb:ef:07 brd ff:ff:ff:ff:ff:ff
 5: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 qdisc fq_codel master virbr0 state DOWN mode DEFAULT group default qlen 1000
     link/ether 52:54:00:29:35:4c brd ff:ff:ff:ff:ff:ff
+
 ```
 
 #### 创建多个绑定
@@ -1807,20 +1817,19 @@ IPv6场景中会发现整个路由路径中的最小mtu的值作为当前链接�
 
 
 ```
-# ip addr show enp3s0
+**ip addr show enp3s0**
+
 3: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 52:54:00:62:xx:xx brd ff:ff:ff:ff:xx:xx
     inet 10.41.125.236/16 brd 10.41.255.255 scope global noprefixroute dynamic enp3s0
        valid_lft 38663sec preferred_lft 38663sec
     inet6 2001:222::2/64 scope global
        valid_lft forever preferred_lft forever
-```
 
+**ip link set dev enp3s0 mtu 1200**
 
+**ip addr show enp3s0**
 
-```
-# ip link set dev enp3s0 mtu 1200
-# ip addr show enp3s0
 3: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 52:54:00:62:xx:xx brd ff:ff:ff:ff:xx:xx
     inet 10.41.125.236/16 brd 10.41.255.255 scope global noprefixroute dynamic enp3s0
@@ -1830,32 +1839,39 @@ IPv6场景中会发现整个路由路径中的最小mtu的值作为当前链接�
 
 
 ```
-# ip addr add 2001:222::2/64 dev enp3s0
+**ip addr add 2001:222::2/64 dev enp3s0**
+
 RTNETLINK answers: No buffer space available
 ```
 
 
 
 ```
-# ip link set dev enp3s0 mtu 1500
-# ip addr show enp3s0
+**ip link set dev enp3s0 mtu 1500**
+
+**ip addr show enp3s0**
+
 3: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 52:54:00:62:xx:xx brd ff:ff:ff:ff:xx:xx
     inet 10.41.125.236/16 brd 10.41.255.255 scope global noprefixroute dynamic enp3s0
        valid_lft 38538sec preferred_lft 38538sec
-```
-
-
 
 ```
-# ip addr add 2001:222::2/64 dev enp3s0
-# ip addr show enp3s0
+
+
+
+```
+**ip addr add 2001:222::2/64 dev enp3s0**
+
+**ip addr show enp3s0**
+
 3: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 52:54:00:62:xx:xx brd ff:ff:ff:ff:xx:xx
     inet 10.41.125.236/16 brd 10.41.255.255 scope global noprefixroute dynamic enp3s0
        valid_lft 38531sec preferred_lft 38531sec
     inet6 2001:222::2/64 scope global
        valid_lft forever preferred_lft forever
+
 ```
 
 #### 有状态自动配置IPv6地址 
@@ -1875,7 +1891,7 @@ IPv6与IPv4都可以在root权限下通过DHCP的方式获得IP地址。IPv6地�
 
   在有状态自动配置IPv6地址时，DHCPv6服务端可以通过客户端设置的vendor class将客户端进行分类，不同类别分配不同地址段的IPv6地址。在IPv4场景中，客户端可以直接用dhclient的-V选项来设置vendor-class-identifier，DHCP服务端在配置文件中根据vendor-class-identifier来对客户端进行分类处理。而IPv6场景中，如果使用同样的方法对客户端分类，则分类并不会生效。
 
-  ```
+```
   dhclient -6 <interface> -V <vendor-class-identifier string> <interface>
   ```
   
@@ -1947,7 +1963,7 @@ IPv6地址长度扩展到128比特，所以有足够的IPv6地址可供分配使
 
 RFC 2553： Basic Socket Interface Extensions for IPv6 定义sockaddr_in6的数据结构如下；
 
-```
+  ```
 struct sockaddr_in6 {     
     uint8_t         sin6_len;       /* length of this struct */     
     sa_family_t     sin6_family;    /* AF_INET6 */     
@@ -2055,8 +2071,9 @@ IPv6中PMTU的最小值为1280，如果mtu值设置小于1280则会导致IPv6地
 
 1. 命令：
 
-   ```
-   # ip [-6] addr add IFADDR dev IFNAME
+```
+**ip [-6] addr add IFADDR dev IFNAME**
+
    ```
 
    添加IPv6地址可以选择添加-6选项也可以不添加，ip addr命令会根据具体地址类型来判断是ipv4地址还是IPv6地址。
@@ -2066,7 +2083,8 @@ IPv6中PMTU的最小值为1280，如果mtu值设置小于1280则会导致IPv6地
 2. 命令：
 
    ```
-   # ip [-6] addr add IFADDR  dev IFNAME [home|nodad]
+**ip [-6] addr add IFADDR  dev IFNAME [home|nodad]**
+
    ```
 
    [home|nodad] 选项只针对IPv6地址有效。
@@ -2079,7 +2097,8 @@ IPv6中PMTU的最小值为1280，如果mtu值设置小于1280则会导致IPv6地
    
 
    ```
-   # ip [-6] addr del IFADDR dev IFNAME
+**ip [-6] addr del IFADDR dev IFNAME**
+
    ```
 
    删除IPv6地址可以选择添加-6选项也可以不添加，ip addr del命令会根据具体地址类型来判断是ipv4地址还是IPv6地址。
@@ -2089,7 +2108,8 @@ IPv6中PMTU的最小值为1280，如果mtu值设置小于1280则会导致IPv6地
    
 
    ```
-   # ip [-6] addr show dev IFNAME [tentative|-tentative|deprecated|-deprecated|dadfailed|-dadfailed|temporary]
+**ip [-6] addr show dev IFNAME [tentative|-tentative|deprecated|-deprecated|dadfailed|-dadfailed|temporary]**
+
    ```
 
    - 不指定-6选项，则会同时打印IPv4和IPv6地址。指定-6选项则只打印IPv6地址。
@@ -2107,7 +2127,8 @@ IPv6中PMTU的最小值为1280，如果mtu值设置小于1280则会导致IPv6地
 1. 命令：
 
    ```
-   # ip [-6] route add ROUTE [mtu lock MTU]
+**ip [-6] route add ROUTE [mtu lock MTU]**
+
    ```
 
    - -6选项：添加IPv6路由可以选择添加-6选项也可以不添加，ip route命令会根据具体地址类型来判断是IPv4地址还是IPv6地址。
@@ -2116,7 +2137,8 @@ IPv6中PMTU的最小值为1280，如果mtu值设置小于1280则会导致IPv6地
 2. 命令：
 
    ```
-   # ip [-6] route del ROUTE
+**ip [-6] route del ROUTE**
+
    ```
 
    删除IPv6路由可以选择添加-6选项也可以不添加，ip route命令会根据具体地址类型来判断是IPv4地址还是IPv6地址。
@@ -2126,7 +2148,8 @@ IPv6中PMTU的最小值为1280，如果mtu值设置小于1280则会导致IPv6地
 1. 命令：
 
    ```
-   # ip [-6] rule list
+**ip [-6] rule list**
+
    ```
 
    -6选项：设置-6选项打印IPv6的策略路由，不设置-6选项打印IPv4的策略路由。所以需要根据具体协议类型来配置-6选项。
@@ -2134,7 +2157,8 @@ IPv6中PMTU的最小值为1280，如果mtu值设置小于1280则会导致IPv6地
 2. 命令：
 
    ```
-   # ip [-6] rule [add|del] [from|to] ADDR table TABLE pref PREF
+**ip [-6] rule [add|del] [from|to] ADDR table TABLE pref PREF**
+
    ```
 
    -6选项：IPv6相关的策略路由表项需要设置-6选项，否则会报错：“Error: Invalid source address.”。相应地，IPv4相关的策略路由表项不可以设置-6选项，否则会报错：“Error: Invalid source address.”。
@@ -2210,7 +2234,7 @@ NetworkManager服务使用ifup/ifdown的逻辑接口定义进行高级网络设�
 
 
 
-```
+   ```
 ip a add/del 192:168::18:X/64 dev DEVICE
 ```
 
@@ -2239,16 +2263,14 @@ rsyslog客户端配置文件同时配置IPv4和IPv6地址，且端口配置相�
 可在root权限下通过配置Direct模式，关闭缓冲队列机制解决该问题。在rsyslog远程传输服务端的/etc/rsyslog.d目录下新增的远程传输配置文件中，最开头增加如下配置：
 
 ```
-# ActionQueueType Direct
-# MainMsgQueueType Direct
+**ActionQueueType Direct**
+
+**MainMsgQueueType Direct**
+
 ```
-
 说明：
-
 - Direct模式减少队列大小为1，所以在队列中会保留1条日志到下次日志打印；
 - Direct模式会降低服务器端的rsyslog性能。
-
-
 
 ## 系统资源性能查看
 
@@ -2272,7 +2294,7 @@ rsyslog客户端配置文件同时配置IPv4和IPv6地址，且端口配置相�
    ```shell
    #使用vmstat进行监测，每隔1秒刷新一次
    vmstat 1
-   ```
+```
 
    ![img](https://docs.openeuler.openatom.cn/assets/24.03_LTS_SP1/zh-cn_image_0000001385585749.Rvm16HI4.png)
 
