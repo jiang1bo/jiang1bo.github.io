@@ -5,9 +5,7 @@
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
 
-## 触发kdump重启 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/maintenance/troubleshooting/troubleshooting.html#user-content-触发kdump重启)
-
-
+## 触发kdump重启 
 
 ```
 # 向sysrq文件中写入1, 开启SysRq功能，开启该功能后，内核会响应任何操作。
@@ -17,13 +15,11 @@ echo 1 > /proc/sys/kernel/sysrq
 echo c > /proc/sysrq-trigger
 ```
 
-## 强制重启 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/maintenance/troubleshooting/troubleshooting.html#user-content-强制重启)
+## 强制重启 
 
 强制重启有以下两种方式：
 
 1.手动重启OS。
-
-
 
 ```
 reboot -f
@@ -33,21 +29,17 @@ reboot -f
 
 ![zh-cn_image_0000001372249333](https://docs.openeuler.openatom.cn/assets/24.03_LTS_SP1/zh-cn_image_0000001372249333.B4Koduq2.png)
 
-## 重启网络 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/maintenance/troubleshooting/troubleshooting.html#user-content-重启网络)
+## 重启网络 
 
 openEuler使用**NetworkManager**来管理网络，执行下面命令即可重启网络。
-
-
 
 ```
 systemctl restart NetworkManager
 ```
 
-## 修复文件系统 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/maintenance/troubleshooting/troubleshooting.html#user-content-修复文件系统)
+## 修复文件系统 
 
 当系统强行上下电重启后，文件系统可能受到损坏，系统启动时会自动检查并修复文件系统，当文件系统没有自动修复成功时，便需要手动使用**fsck**进行扫描和修复。
-
-
 
 ```
 # 此时一般会进入救援模式，在日志中查看是哪个文件系统路径损坏。
@@ -63,9 +55,7 @@ kill xxx
 fsck -y /dev/xxx
 ```
 
-## 手动dropcache [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/maintenance/troubleshooting/troubleshooting.html#user-content-手动dropcache)
-
-
+## 手动dropcache
 
 ```
 #当N数值不同时，可以达到不同的清理目的。根据linux内核文档建议，在清理前先执行sync（因为drop操作不会释放任何脏对象，而sync命令将所有未写的系统缓冲区写到磁盘中，包含已修改的inodes、已延迟的块I/O和读写映射文件，这样可以减少脏对象，从而让更多对象可以被释放。）
@@ -81,7 +71,7 @@ echo 2 > /proc/sys/vm/drop_caches
 echo 3 > /proc/sys/vm/drop_caches
 ```
 
-## 救援模式和单用户模式 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/maintenance/troubleshooting/troubleshooting.html#user-content-救援模式和单用户模式)
+## 救援模式和单用户模式 
 
 - 救援模式
 
@@ -107,5 +97,5 @@ echo 3 > /proc/sys/vm/drop_caches
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/0fead30/  
+> URL: https://jiang1bo.github.io/posts/0fead30/  
 

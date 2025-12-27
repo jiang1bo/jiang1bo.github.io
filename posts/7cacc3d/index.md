@@ -1,4 +1,4 @@
-# Euler安全加固指南
+# Openeuler安全加固指南
 
 
 <!--more-->
@@ -982,6 +982,10 @@ sudo命令的使用控制通过修改/etc/sudoers文件实现，需要注释掉�
 
   该参数决定了SYN_RECV状态队列的数量，超过这个数量，系统将不再接受新的TCP连接请求，一定程度上可以防止系统资源耗尽。建议由用户根据实际使用场景配置合适的值。
 
+
+
+
+
 # SELinux配置 
 
 ## 概述 
@@ -998,103 +1002,131 @@ openEuler默认使用SELinux提升系统安全性。SELinux分为三种模式：
 
 - 获取当前SELinux运行状态：
 
+  
+
   ```
   # getenforce
   Enforcing
   ```
-  
+
 - SELinux开启的前提下，设置运行状态为enforcing模式：
+
+  
 
   ```
   # setenforce 1
   # getenforce
   Enforcing
   ```
-  
+
 - SELinux开启的前提下，设置运行状态为permissive模式：
+
+  
 
   ```
   # setenforce 0
   # getenforce
   Permissive
   ```
-  
+
 - SELinux开启的前提下，设置当前SELinux运行状态为disabled（关闭SELinux，需要重启系统）。
 
   1. 修改SELinux配置文件/etc/selinux/config，设置“SELINUX=disabled”。
+
+  
 
   ```
   # cat /etc/selinux/config | grep "SELINUX="
   SELINUX=disabled
   ```
-  
+
   1. 重启系统：
+
+  
 
   ```
   # reboot
   ```
 
   1. 状态切换成功：
+
   
+
   ```
   # getenforce
   Disabled
   ```
-  
+
 - SELinux关闭的前提下，设置SELinux运行状态为permissive。
 
   1. 修改SELinux配置文件/etc/selinux/config，设置“SELINUX=permissive”：
+
+  
 
   ```
   # cat /etc/selinux/config | grep "SELINUX="
   SELINUX=permissive
   ```
-  
+
   1. 在根目录下创建.autorelabel文件：
+
+  
 
   ```
   # touch /.autorelabel
   ```
 
   1. 重启系统，此时系统会重启两次：
+
   
+
   ```
   # reboot
   ```
 
   1. 状态切换成功：
 
+  
+
   ```
   # getenforce
   Permissive
   ```
-  
+
 - SELinux关闭的前提下，设置SELinux运行状态为enforcing。
 
   1. 按照上一步骤所述，设置SELinux运行状态为permissive。
   2. 修改SELinux配置文件/etc/selinux/config，设置“SELINUX=enforcing”：
 
-  ```
-# cat /etc/selinux/config | grep "SELINUX="
-  SELINUX=enforcing
-  ```
   
-  1. 重启系统：
 
   ```
-# reboot
+  # cat /etc/selinux/config | grep "SELINUX="
+  SELINUX=enforcing
+  ```
+
+  1. 重启系统：
+
+  
+
+  ```
+  # reboot
   ```
 
   1. 状态切换成功：
+
   
+
   ```
-# getenforce
+  # getenforce
   Enforcing
-```
+  ```
 
 ## SELinux相关命令 
 
 - 查询运行SELinux的系统状态。SELinux status表示SELinux的状态，enabled表示启用SELinux，disabled表示关闭SELinux。Current mode表示SELinux当前的安全策略。
+
+  
 
   ```
   # sestatus
@@ -1116,27 +1148,35 @@ openEuler默认使用SELinux提升系统安全性。SELinux分为三种模式：
 
   1. 查询audit日志中是否有SELinux访问拒绝日志，其中audit日志的路径视具体情况决定。
 
-  ```
-# grep avc /var/log/audit/audit.log*
-  ```
   
-  1. 查询缺失规则。
 
   ```
-# audit2allow -a /var/log/audit/audit.log*
+  # grep avc /var/log/audit/audit.log*
+  ```
+
+  1. 查询缺失规则。
+
+  
+
+  ```
+  # audit2allow -a /var/log/audit/audit.log*
   ```
 
   1. 根据缺失规则生成一个策略模块，命名为demo。
+
   
+
   ```
-# audit2allow -a /var/log/audit/audit.log* -M demo
+  # audit2allow -a /var/log/audit/audit.log* -M demo
   ******************** IMPORTANT ***********************
-To make this policy package active, execute:
+  To make this policy package active, execute:
   semodule -i demo.pp
-```
-  
+  ```
+
   1. 加载demo策略模块。
+
   
+
   ```
   # semodule -i demo.pp
   ```
@@ -1145,18 +1185,22 @@ To make this policy package active, execute:
 
   1. 编写FC文件（涉及新增文件安全上下文需要编写）。
 
+  
+
   ```
-# cat demo.fc 
+  # cat demo.fc 
   /usr/bin/example -- system_u:object_r:example_exec_t:s0
   /resource -- system_u:object_r:resource_file_t:s0
   ```
-  
+
   1. 编写TE文件（仅供参考）。
 
+  
+
   ```
-# cat demo.te 
+  # cat demo.te 
   module demo 1.0;
-require
+  require
   {
    role unconfined_r;
    role system_r;
@@ -1191,14 +1235,18 @@ require
   type_transition domain example_exec_t : process example_t;
   type_transition example_t root_t : file resource_file_t "resource";
   ```
-  
+
   1. 编译demo.te为demo.mod。
+
   
+
   ```
-# checkmodule -Mmo demo.mod demo.te
+  # checkmodule -Mmo demo.mod demo.te
   ```
 
   1. 打包demo.mod和demo.fc为策略模块文件。
+
+  
 
   ```
   semodule_package -m demo.mod -f demo.fc -o demo.pp
@@ -1206,16 +1254,20 @@ require
 
   1. 加载策略模块。
 
-  ```
-# semodule -i demo.pp
-  ```
   
-  1. 删除加载的策略模块。
 
   ```
-# semodule -r demo
+  # semodule -i demo.pp
+  ```
+
+  1. 删除加载的策略模块。
+
+  
+
+  ```
+  # semodule -r demo
   libsemanage.semanage_direct_remove_key: Removing last demo module (no other demo module exists at another priority).
-```
+  ```
 
 ## 功能验证 
 
@@ -1223,24 +1275,32 @@ require
 
   1. 查看audit服务是否开启。
 
+  
+
   ```
   # systemctl status auditd
   ```
-  
+
   1. 设置SELinux模式为permissive(仅打印告警而不强制执行，参考 配置说明 )。
+
+  
 
   ```
   # getenforce
   Permissive
   ```
-  
+
   1. 全量跑测试模块的功能用例，查看audit日志中SELinux访问拒绝日志。
+
   
+
   ```
   # grep avc /var/log/audit/audit.log*
   ```
 
   1. 分析访问拒绝日志，并过滤出缺失的合理规则。
+
+  
 
   ```
   type=AVC msg=audit(1596161643.271:1304): avc: denied { read } for pid=1782603 comm="smbd" name=".viminfo" dev="dm-0" ino=2488208 scontext=system_u:system_r:smbd_t:s0 tcontext=staff_u:object_r:user_home_t:s0 tclass=file permissive=1
@@ -1254,13 +1314,17 @@ require
 
 - 如用户需使能SELinux功能，建议通过dnf升级方式将selinux-policy更新为最新版本，否则应用程序有可能无法正常运行。升级命令示例：
 
+  
+
   ```
   dnf update selinux-policy -y
   ```
-  
+
 - 如果用户由于SELinux配置不当（如误删策略或未配置合理的规则或安全上下文）导致系统无法启动，可以在启动参数中添加selinux=0，关闭SELinux功能，系统即可正常启动。
 
 - 开启SELinux后，会对访问行为进行权限检查，对操作系统性能会有一定程度（与运行环境访问操作频率相关）的影响。
+
+
 
 # 安全加固工具 
 
@@ -1309,10 +1373,12 @@ usr-security.conf中的每一行代表一项配置，根据配置内容的不同
 
   示例：执行ID为101，将/etc/ssh/sshd_config文件中以Protocol 开头的行替换为Protocol 2。匹配和替换时也会考虑Protocol后的空格。
 
+  
+
   ```
   101@m@/etc/ssh/sshd_config@Protocol @2
   ```
-  
+
 - sm：精确修改
 
   格式：执行ID@sm@对象文件@匹配项@替换目标值
@@ -1321,10 +1387,12 @@ usr-security.conf中的每一行代表一项配置，根据配置内容的不同
 
   示例：执行ID为201，将/etc/audit/hzqtest文件中以size开头的行替换为size 2048。
 
+  
+
   ```
   201@sm@/etc/audit/hzqtest@size@ 2048
   ```
-  
+
 - M：修改子项
 
   格式：执行ID@M@对象文件@匹配项@匹配子项[@匹配子项的值]
@@ -1333,10 +1401,12 @@ usr-security.conf中的每一行代表一项配置，根据配置内容的不同
 
   示例：执行ID为101，找到file文件中以key开头的行，并将这些行中以key2开始的内容替换为key2value2。
 
+  
+
   ```
   101@M@file@key@key2@value2
   ```
-  
+
 - systemctl：管理服务
 
   格式：执行ID@systemctl@对象服务@具体操作
@@ -1345,10 +1415,12 @@ usr-security.conf中的每一行代表一项配置，根据配置内容的不同
 
   示例：执行ID为218，停止cups.service服务，等同于systemctl stop cups.service的配置行。
 
+  
+
   ```
   218@systemctl@cups.service@stop
   ```
-  
+
 - 其他命令
 
   格式：执行ID@命令@对象文件
@@ -1357,23 +1429,31 @@ usr-security.conf中的每一行代表一项配置，根据配置内容的不同
 
   示例一：执行ID为402，使用rm -f命令删除文件/etc/pki/ca-trust/extracted/pem/email-ca-bundle.pem。
 
+  
+
   ```
   402@rm -f @/etc/pki/ca-trust/extracted/pem/email-ca-bundle.pem
   ```
-  
+
   示例二：执行ID为215，使用touch命令创建文件/etc/cron.allow。
+
+  
 
   ```
   215@touch @/etc/cron.allow
   ```
 
   示例三：执行ID为214，使用chown命令将文件/etc/at.allow的属主改为root:root。
+
   
+
   ```
   214@chown root:root @/etc/at.allow
   ```
 
   示例四：执行ID为214，使用chmod命令去除文件/etc/at.allow属主所在群组及其他非属主用户的rwx权限。
+
+  
 
   ```
   214@chmod og-rwx @/etc/at.allow
@@ -1399,7 +1479,7 @@ systemctl restart openEuler-security.service
 
 openEuler已支持多种安全特性，包括Linux原生安全特性和社区自研安全特性，但是存在特性分散，配置难度大，用户学习成本高等问题。同时对于一些具备拦截功能的安全特性（如IMA评估、安全启动、访问控制等），一旦用户配置错误，可能导致系统无法启动或无法正常运行。因此，sec_conf旨在实现自动化安全配置机制，用户可基于工具进行系统的安全检查和加固，以更好地推进openEuler安全特性在各应用场景的落地。
 
-### 功能介绍
+### 功能介绍 
 
 sec_conf是一个帮助管理员配置openEuler安全特性（如IMA、DIM、secure boot等）的安全加固工具。用户可以输入配置信息，即需要实现的安全加固目标，生成相应的安全特性配置脚本。
 
@@ -1463,6 +1543,8 @@ sec_conf工程文件由策略配置文件、检查脚本模板文件、配置脚
 | appraise_list | string array | optional     | IMA评估文件列表（需要指定绝对路径）                          |                                     |
 
 说明：
+
+
 
 1. sec_conf.yaml文件必须放在/usr/share/secpaver/scripts/sec_conf/sec_conf.yaml，不可重命名。
 2. 参数类型需遵守上述表格要求。
@@ -1536,12 +1618,16 @@ ima:
 
 生成特性配置脚本、检查脚本
 
+
+
 ```
 sec_conf gen_config -o ./config.sh
 sec_conf gen_check -o ./check.sh
 ```
 
 执行配置脚本，并检查配置是否正确，若配置正确，则重启系统使配置生效
+
+
 
 ```
 sh ./config.sh -s
@@ -1551,16 +1637,22 @@ reboot
 
 重启后再次执行配置脚本，并检查配置是否正确，此时预期所有功能检查通过
 
+
+
 ```
 sh ./config.sh -s
 sh ./check.sh -s
 ```
 
-# 附录
+
+
+
+
+# 附录 
 
 介绍文件权限的含义和umask值的含义。
 
-## 文件和目录权限含义
+## 文件和目录权限含义 
 
 Linux系统中文件和目录权限用于限定谁能通过何种方式对文件和目录进行访问和操作。文件和目录的访问权限分为只读，只写和可执行三种。
 
@@ -1572,13 +1664,13 @@ Linux系统中文件和目录权限用于限定谁能通过何种方式对文件
 
 文件和目录的权限含义通过以下例子说明：
 
-**假设/usr/src的权限为755，将每位数字转化为二进制后为：111101101，含义如下：**
+**假设/usr/src的权限为755，将每位数字转化为二进制后为：111101101，含义如下**：
 
 - **左侧三个bit位111表示文件所有者的权限依次为：可读、可写、可执行。**
 - **中间三个bit位101表示同组用户的权限依次为：可读、不可写、可执行。**
 - **右侧三个bit位101表示其他用户的权限依次为：可读、不可写、可执行。**
 
-## umask值含义
+## umask值含义 
 
 当用户新创建文件或目录时，该文件或目录具有一个缺省权限。该缺省权限由umask值来指定。
 
@@ -1588,5 +1680,5 @@ umask值代表的是权限的“补码”，即用缺省最大权限值减去uma
 ---
 
 > 作者: <no value>  
-> URL: http://localhost:1313/posts/7cacc3d/  
+> URL: https://jiang1bo.github.io/posts/7cacc3d/  
 
