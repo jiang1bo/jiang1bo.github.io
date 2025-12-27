@@ -1,0 +1,453 @@
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><meta name=robots content="noodp"><title>Openeuler:mosh编译食用指南 - Fermi</title><meta name=author content><meta name=description content="welcome to femris的博客网站!"><meta name=keywords content='draft'><meta itemprop=name content="openeuler:mosh编译食用指南"><meta itemprop=description content="welcome to femris的博客网站!"><meta itemprop=datePublished content="2025-12-28T01:38:32+08:00"><meta itemprop=dateModified content="2025-12-28T01:38:32+08:00"><meta itemprop=wordCount content="1142"><meta itemprop=keywords content="Draft"><meta property="og:url" content="https://jiang1bo.github.io/posts/d0a3efc/"><meta property="og:site_name" content="Fermi"><meta property="og:title" content="openeuler:mosh编译食用指南"><meta property="og:description" content="welcome to femris的博客网站!"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-12-28T01:38:32+08:00"><meta property="article:modified_time" content="2025-12-28T01:38:32+08:00"><meta property="article:tag" content="Draft"><meta name=twitter:card content="summary"><meta name=twitter:title content="openeuler:mosh编译食用指南"><meta name=twitter:description content="welcome to femris的博客网站!"><meta name=application-name content="Fermi's Blog"><meta name=apple-mobile-web-app-title content="Fermi's Blog"><meta name=theme-color data-light=#ffffff data-dark=#ffffff content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical type=text/html href=https://jiang1bo.github.io/posts/d0a3efc/ title="openeuler:mosh编译食用指南 - Fermi"><link rel=prev type=text/html href=https://jiang1bo.github.io/posts/4190747/ title=openeuler，docker开箱指南><link rel=alternate type=text/markdown href=https://jiang1bo.github.io/posts/d0a3efc/index.md title="openeuler:mosh编译食用指南 - Fermi"><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"openeuler:mosh编译食用指南","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/jiang1bo.github.io\/posts\/d0a3efc\/"},"genre":"posts","keywords":"draft","wordcount":1142,"url":"https:\/\/jiang1bo.github.io\/posts\/d0a3efc\/","datePublished":"2025-12-28T01:38:32+08:00","dateModified":"2025-12-28T01:38:32+08:00","publisher":{"@type":"Organization","name":""},"description":""}</script><script src=/js/head/color-scheme.min.js></script></head><body data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper data-github-corner=right><div class=header-title><a href=/ title=Fermi><span class=header-title-text>Fermi's Blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class=menu-item><a class=menu-link href=/archives/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> Archives</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> Categories</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容…… id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></li><li class="menu-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Fermi><span class=header-title-text>Fermi's Blog</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><nav><ul class=menu id=menu-mobile><li class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容…… id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></li><li class=menu-item><a class=menu-link href=/archives/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> Archives</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> Categories</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> Tags</a></li><li class="menu-item menu-system"><span class="menu-system-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></span></li></ul></nav></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=container><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=合集></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span title=转载 class=icon-repost><i class="fa-solid fa-share fa-fw" aria-hidden=true></i></span><span>Openeuler:mosh编译食用指南</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><span class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
+Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categories/draft/ class=post-category title="分类 - Draft"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Draft</a></span></div><div class=post-meta-line><span title="发布于 2025-12-28 01:38:32"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden=true></i><time datetime=2025-12-28>2025-12-28</time></span>&nbsp;<span title="1142 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 1200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 6 分钟</span>&nbsp;<span id=busuanzi_container_page_pv class="busuanzi_visitors comment-visitors" data-flag-title=Openeuler:mosh编译食用指南><i class="fa-regular fa-eye fa-fw me-1" aria-hidden=true></i><span id=busuanzi_value_page_pv>-</span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><a href=#第一阶段准备编译环境与依赖>第一阶段：准备编译环境与依赖</a><ul><li><a href=#配置和构建相关文件><strong>配置和构建相关文件</strong></a></li><li><a href=#文档和许可证文件><strong>文档和许可证文件</strong></a></li><li><a href=#cicd配置文件><strong>CI/CD配置文件</strong></a></li><li><a href=#目录结构><strong>目录结构</strong></a><ul><li><a href=#src---源代码目录核心><strong><code>src/</code></strong> - <strong>源代码目录（核心）</strong></a></li><li><a href=#man---手册页目录><strong><code>man/</code></strong> - <strong>手册页目录</strong></a></li><li><a href=#scripts---辅助脚本目录><strong><code>scripts/</code></strong> - <strong>辅助脚本目录</strong></a></li><li><a href=#conf---配置文件目录><strong><code>conf/</code></strong> - <strong>配置文件目录</strong></a></li><li><a href=#m4---autoconf宏目录><strong><code>m4/</code></strong> - <strong>Autoconf宏目录</strong></a></li><li><a href=#debian---debianubuntu打包支持><strong><code>debian/</code></strong> - <strong>Debian/Ubuntu打包支持</strong></a></li><li><a href=#fedora---fedorarhel打包支持><strong><code>fedora/</code></strong> - <strong>Fedora/RHEL打包支持</strong></a></li><li><a href=#macosx---macos特定支持><strong><code>macosx/</code></strong> - <strong>macOS特定支持</strong></a></li><li><a href=#为什么没有><strong>为什么没有<code>configure</code>脚本？</strong></a></li><li><a href=#mosh的目录结构特点>mosh的目录结构特点：</a></li></ul></li><li><a href=#安装基础编译工具><strong>安装基础编译工具</strong></a><ul><li><a href=#安装-mosh-核心依赖库><strong>安装 Mosh 核心依赖库</strong></a></li><li><a href=#安装可选但推荐的依赖><strong>安装可选但推荐的依赖</strong></a></li></ul></li></ul></li><li><a href=#第二阶段编译与安装>第二阶段：编译与安装</a></li><li><a href=#第三阶段验证与配置>第三阶段：验证与配置</a></li><li><a href=#第四阶段使用与进阶玩法>第四阶段：使用与进阶玩法</a><ul><li><a href=#使用示例>使用示例</a></li><li><a href=#卸载>卸载</a></li></ul></li><li><a href=#简化使用mosh连接远程主机的流程>简化使用mosh连接远程主机的流程</a><ul><li><a href=#配置ssh免密登录><strong>配置SSH免密登录</strong></a><ul><li><a href=#1-生成ssh密钥对><strong>1. 生成SSH密钥对</strong></a></li><li><a href=#2-复制公钥到远程主机><strong>2. 复制公钥到远程主机</strong></a></li><li><a href=#3-测试免密登录><strong>3. 测试免密登录</strong></a></li></ul></li><li><a href=#为远程主机设置别名>为远程主机设置别名</a><ul><li><a href=#1-配置ssh-config文件><strong>1. 配置SSH Config文件</strong></a></li></ul></li></ul></li><li><a href=#2-配置mosh别名><strong>2. 配置mosh别名</strong></a></li><li><a href=#故障排查>故障排查</a></li><li><a href=#总结与建议>总结与建议</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>在 openEuler 上从源码编译安装 mosh-1.4.0，虽然步骤较多，但能让你更灵活地控制版本和编译选项。整个过程可总结为以下流程：</p><pre class=mermaid>flowchart TD
+    A[开始: 源码编译安装 Mosh] --> B
+    
+    subgraph B[第一阶段: 安装编译环境与依赖]
+        direction LR
+        B1[安装基础开发工具] --> B2[安装必需的核心依赖库<br>protobuf, ncurses, openssl等] --> B3[安装可选但推荐的依赖<br>如zlib]
+    end
+    
+    B --> C[第二阶段: 获取并编译源码]
+    C --> C1[下载 mosh-1.4.0.tar.gz 并解压]
+    C1 --> C2[进入源码目录并配置编译选项]
+    C2 --> C3[执行 make 编译]
+    
+    C3 --> D[第三阶段: 安装与验证]
+    D --> D1[sudo make install 安装]
+    D1 --> D2[更新动态链接库缓存]
+    D2 --> D3[验证 mosh 命令可用性]
+    
+    D3 --> E[第四阶段: 必要配置]
+    E --> E1[配置服务器防火墙<br>开放UDP 60000-61000端口]
+    E1 --> F[完成安装]</pre><template>flowchart TD
+A[开始: 源码编译安装 Mosh] --> B
+subgraph B[第一阶段: 安装编译环境与依赖]
+direction LR
+B1[安装基础开发工具] --> B2[安装必需的核心依赖库<br>protobuf, ncurses, openssl等] --> B3[安装可选但推荐的依赖<br>如zlib]
+end
+B --> C[第二阶段: 获取并编译源码]
+C --> C1[下载 mosh-1.4.0.tar.gz 并解压]
+C1 --> C2[进入源码目录并配置编译选项]
+C2 --> C3[执行 make 编译]
+C3 --> D[第三阶段: 安装与验证]
+D --> D1[sudo make install 安装]
+D1 --> D2[更新动态链接库缓存]
+D2 --> D3[验证 mosh 命令可用性]
+D3 --> E[第四阶段: 必要配置]
+E --> E1[配置服务器防火墙<br>开放UDP 60000-61000端口]
+E1 --> F[完成安装]</template><h3 class=heading-element id=第一阶段准备编译环境与依赖><span>第一阶段：准备编译环境与依赖</span>
+<a href=#%e7%ac%ac%e4%b8%80%e9%98%b6%e6%ae%b5%e5%87%86%e5%a4%87%e7%bc%96%e8%af%91%e7%8e%af%e5%a2%83%e4%b8%8e%e4%be%9d%e8%b5%96 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p><strong>下载源码文件：<a href=https://github.com/mobile-shell/mosh/releases/tag/mosh-1.4.0 target=_blank rel="external nofollow noopener noreferrer">Release mosh-1.4.0 · mobile-shell/mosh</a></strong></p><p><strong><a href=https://github.com/mobile-shell/mosh/archive/refs/tags/mosh-1.4.0.tar.gz target=_blank rel="external nofollow noopener noreferrer">https://github.com/mobile-shell/mosh/archive/refs/tags/mosh-1.4.0.tar.gz</a></strong></p><p><strong>最好下载source code源代码，本人用其他版本代码总是莫名报错，</strong></p><p><strong>mosh-1.4.0项目中每个目录和文件的作用：</strong></p><h4 class=heading-element id=配置和构建相关文件><span><strong>配置和构建相关文件</strong></span>
+<a href=#%e9%85%8d%e7%bd%ae%e5%92%8c%e6%9e%84%e5%bb%ba%e7%9b%b8%e5%85%b3%e6%96%87%e4%bb%b6 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><ol><li><p><strong><code>configure.ac</code></strong> - <strong>最重要的文件</strong></p><ul><li>Autoconf的输入文件，用于生成<code>configure</code>脚本</li><li>包含项目的配置需求，如检查编译器、库依赖、系统特性等</li><li>定义了软件版本、安装路径、特性开关等</li></ul></li><li><p><strong><code>Makefile.am</code></strong> - <strong>构建规则定义</strong></p><ul><li>Automake的输入文件，用于生成<code>Makefile.in</code></li><li>定义了源代码如何编译、哪些文件需要安装、测试规则等</li></ul></li><li><p><strong><code>autogen.sh</code></strong> - <strong>自动配置生成脚本</strong></p><ul><li>运行<code>autoreconf</code>等命令生成<code>configure</code>脚本</li><li>用于从版本控制系统中检出的代码（您当前的情况）</li></ul></li><li><p><strong><code>build-package.sh</code></strong> / <strong><code>build-source-package.sh</code></strong> - <strong>打包脚本</strong></p><ul><li>用于构建发行版软件包（如RPM、DEB）</li><li><code>build-package.sh</code>：构建二进制包</li><li><code>build-source-package.sh</code>：构建源码包</li></ul></li></ol><h4 class=heading-element id=文档和许可证文件><span><strong>文档和许可证文件</strong></span>
+<a href=#%e6%96%87%e6%a1%a3%e5%92%8c%e8%ae%b8%e5%8f%af%e8%af%81%e6%96%87%e4%bb%b6 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><ol start=5><li><p><strong><code>README.md</code></strong> - <strong>项目说明</strong></p><ul><li>Markdown格式的说明文档</li><li>包含项目简介、构建说明、使用方法等</li></ul></li><li><p><strong><code>ChangeLog</code></strong> - <strong>变更日志</strong></p><ul><li>记录每个版本的详细变更历史</li><li>格式通常遵循GNU ChangeLog规范</li></ul></li><li><p><strong><code>NEWS</code></strong> - <strong>新闻文件</strong></p><ul><li>面向用户的版本更新摘要</li><li>比ChangeLog更简洁，突出重要变化</li></ul></li><li><p><strong><code>COPYING</code></strong> - <strong>主要许可证文件</strong></p><ul><li>包含GNU GPL许可证文本</li><li>mosh使用GPLv3许可证</li></ul></li><li><p><strong><code>COPYING.iOS</code></strong> - <strong>iOS版许可证</strong></p><ul><li>针对iOS版本的特殊许可证条款</li></ul></li><li><p><strong><code>ocb-license.html</code></strong> - <strong>OCB模式许可证</strong></p><ul><li>OCB（Offset Codebook）加密模式的许可证</li><li>mosh使用OCB进行加密，这是其专利许可证</li></ul></li><li><p><strong><code>AUTHORS</code></strong> / <strong><code>THANKS</code></strong> - <strong>贡献者列表</strong></p><ul><li><code>AUTHORS</code>：主要作者和版权持有者</li><li><code>THANKS</code>：感谢列表，包括贡献者和支持者</li></ul></li></ol><h4 class=heading-element id=cicd配置文件><span><strong>CI/CD配置文件</strong></span>
+<a href=#cicd%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><ol start=12><li><strong><code>appveyor.yml</code></strong> / <strong><code>appveyor.sh</code></strong> - <strong>Windows CI配置</strong><ul><li>AppVeyor持续集成配置</li><li>用于在Windows平台上自动构建和测试</li></ul></li></ol><h4 class=heading-element id=目录结构><span><strong>目录结构</strong></span>
+<a href=#%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><h5 class=heading-element id=src---源代码目录核心><span><strong><code>src/</code></strong> - <strong>源代码目录（核心）</strong></span>
+<a href=#src---%e6%ba%90%e4%bb%a3%e7%a0%81%e7%9b%ae%e5%bd%95%e6%a0%b8%e5%bf%83 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>包含所有C++源代码文件：</p><ul><li><strong><code>src/crypto/</code></strong> - 加密相关代码<ul><li>OCB模式实现、密钥交换等</li></ul></li><li><strong><code>src/frontend/</code></strong> - 客户端代码<ul><li>终端界面处理、用户输入输出</li></ul></li><li><strong><code>src/network/</code></strong> - 网络通信代码<ul><li>UDP传输、网络协议实现</li></ul></li><li><strong><code>src/protobufs/</code></strong> - Protocol Buffers定义<ul><li><code>.proto</code>文件及生成的代码</li></ul></li><li><strong><code>src/statesync/</code></strong> - 状态同步机制<ul><li>终端状态同步算法</li></ul></li><li><strong><code>src/terminal/</code></strong> - 终端模拟器<ul><li>终端属性、字符编码处理</li></ul></li><li><strong><code>src/util/</code></strong> - 工具函数<ul><li>日志、错误处理、辅助函数</li></ul></li></ul><h5 class=heading-element id=man---手册页目录><span><strong><code>man/</code></strong> - <strong>手册页目录</strong></span>
+<a href=#man---%e6%89%8b%e5%86%8c%e9%a1%b5%e7%9b%ae%e5%bd%95 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>包含Unix手册页（man pages）：</p><ul><li><code>man/mosh.1</code> - mosh客户端手册</li><li><code>man/mosh-server.1</code> - mosh服务器手册</li><li>通常使用troff/groff格式编写</li></ul><h5 class=heading-element id=scripts---辅助脚本目录><span><strong><code>scripts/</code></strong> - <strong>辅助脚本目录</strong></span>
+<a href=#scripts---%e8%be%85%e5%8a%a9%e8%84%9a%e6%9c%ac%e7%9b%ae%e5%bd%95 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>包含各种构建和维护脚本：</p><ul><li><strong>自动补全脚本</strong>（bash、zsh等）</li><li><strong>安装/卸载脚本</strong></li><li><strong>测试辅助脚本</strong></li><li><strong>开发工具脚本</strong></li></ul><h5 class=heading-element id=conf---配置文件目录><span><strong><code>conf/</code></strong> - <strong>配置文件目录</strong></span>
+<a href=#conf---%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e7%9b%ae%e5%bd%95 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>包含配置模板和示例：</p><ul><li><strong>PAM（可插拔认证模块）配置</strong></li><li><strong>系统服务配置文件</strong></li><li><strong>日志配置文件</strong></li><li><strong>其他运行时配置</strong></li></ul><h5 class=heading-element id=m4---autoconf宏目录><span><strong><code>m4/</code></strong> - <strong>Autoconf宏目录</strong></span>
+<a href=#m4---autoconf%e5%ae%8f%e7%9b%ae%e5%bd%95 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>包含自定义Autoconf宏：</p><ul><li>用于<code>configure.ac</code>中检查特定库或功能</li><li>例如检查C++11支持、特定库版本等</li><li>扩展Autoconf的功能</li></ul><h5 class=heading-element id=debian---debianubuntu打包支持><span><strong><code>debian/</code></strong> - <strong>Debian/Ubuntu打包支持</strong></span>
+<a href=#debian---debianubuntu%e6%89%93%e5%8c%85%e6%94%af%e6%8c%81 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>Debian系列发行版的打包文件：</p><ul><li><strong><code>debian/control</code></strong> - 包依赖和描述</li><li><strong><code>debian/rules</code></strong> - 构建规则</li><li><strong><code>debian/changelog</code></strong> - Debian包变更日志</li><li><strong><code>debian/copyright</code></strong> - 版权信息</li><li><strong><code>debian/*.install</code></strong> - 文件安装规则</li></ul><h5 class=heading-element id=fedora---fedorarhel打包支持><span><strong><code>fedora/</code></strong> - <strong>Fedora/RHEL打包支持</strong></span>
+<a href=#fedora---fedorarhel%e6%89%93%e5%8c%85%e6%94%af%e6%8c%81 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>Red Hat系列发行版的打包文件：</p><ul><li><strong><code>.spec</code>文件</strong> - RPM包的构建规范</li><li>可能包含<code>mosh.spec</code>或类似文件</li><li>定义了RPM包的构建、依赖和安装规则</li></ul><h5 class=heading-element id=macosx---macos特定支持><span><strong><code>macosx/</code></strong> - <strong>macOS特定支持</strong></span>
+<a href=#macosx---macos%e7%89%b9%e5%ae%9a%e6%94%af%e6%8c%81 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>macOS平台特定文件：</p><ul><li><strong>Xcode项目文件</strong>（<code>.xcodeproj</code>）</li><li><strong>macOS特定补丁</strong></li><li><strong>启动脚本和配置</strong></li></ul><h5 class=heading-element id=为什么没有><span><strong>为什么没有<code>configure</code>脚本？</strong></span>
+<a href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e6%b2%a1%e6%9c%89 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>您遇到<code>configure</code>脚本缺失的情况是因为：</p><ol><li><p><strong>从Git仓库直接打包</strong>：这个tarball可能是从版本控制系统直接导出的，不包含生成的构建文件</p></li><li><p><strong>Autotools工作流程</strong>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>configure.ac + Makefile.am → autogen.sh/autoreconf → configure + Makefile.in</span></span></code></pre></td></tr></table></div></div></li><li><p><strong>需要生成步骤</strong>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 您需要执行的步骤</span>
+</span></span><span class=line><span class=cl>./autogen.sh              <span class=c1># 运行生成脚本</span>
+</span></span><span class=line><span class=cl><span class=c1># 或</span>
+</span></span><span class=line><span class=cl>autoreconf -fvi           <span class=c1># 手动生成</span></span></span></code></pre></td></tr></table></div></div></li></ol><h5 class=heading-element id=mosh的目录结构特点><span>mosh的目录结构特点：</span>
+<a href=#mosh%e7%9a%84%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84%e7%89%b9%e7%82%b9 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><ol><li><strong>跨平台支持</strong>：包含macOS、Windows（AppVeyor）、Linux（debian/fedora）的支持文件</li><li><strong>现代构建系统</strong>：使用Autotools（Autoconf+Automake）确保跨平台兼容性</li><li><strong>模块化设计</strong>：源代码按功能分目录，便于维护</li><li><strong>完整文档</strong>：包含手册页、多种格式的说明文档</li><li><strong>打包友好</strong>：直接支持主流Linux发行版的打包系统</li></ol><p>这种目录结构是典型的GNU风格开源项目，理解了各部分的作用，您就能更好地进行定制化编译和问题排查。</p><p>在开始编译前，<strong>必须</strong>安装所有必要的依赖包。请<strong>逐条执行</strong>以下命令：</p><h4 class=heading-element id=安装基础编译工具><span><strong>安装基础编译工具</strong></span>
+<a href=#%e5%ae%89%e8%a3%85%e5%9f%ba%e7%a1%80%e7%bc%96%e8%af%91%e5%b7%a5%e5%85%b7 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo dnf groupinstall <span class=s2>&#34;Development Tools&#34;</span> -y</span></span></code></pre></td></tr></table></div></div><h5 class=heading-element id=安装-mosh-核心依赖库><span><strong>安装 Mosh 核心依赖库</strong></span>
+<a href=#%e5%ae%89%e8%a3%85-mosh-%e6%a0%b8%e5%bf%83%e4%be%9d%e8%b5%96%e5%ba%93 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><p>这是最关键的一步，请确保全部安装成功：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo dnf install protobuf-devel ncurses-devel openssl-devel libutempter-devel gcc8 gcc8-c++ make automake autoconf wget tar perl-IO-Tty pam-devel perl-ExtUtils-MakeMaker -y</span></span></code></pre></td></tr></table></div></div><ul><li><code>protobuf-devel</code>：Mosh 通信协议的核心，<strong>必须安装</strong>。</li><li><code>ncurses-devel</code>：终端处理库。</li><li><code>openssl-devel</code>：加密通信支持。</li><li><code>libutempter-devel</code>：记录终端会话。</li></ul><h5 class=heading-element id=安装可选但推荐的依赖><span><strong>安装可选但推荐的依赖</strong></span>
+<a href=#%e5%ae%89%e8%a3%85%e5%8f%af%e9%80%89%e4%bd%86%e6%8e%a8%e8%8d%90%e7%9a%84%e4%be%9d%e8%b5%96 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo dnf install zlib-devel -y</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=第二阶段编译与安装><span>第二阶段：编译与安装</span>
+<a href=#%e7%ac%ac%e4%ba%8c%e9%98%b6%e6%ae%b5%e7%bc%96%e8%af%91%e4%b8%8e%e5%ae%89%e8%a3%85 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>假设你已将 <code>mosh-1.4.0.tar.gz</code> 下载到当前用户的 <code>~/</code> 目录下。</p><ol><li><p><strong>解压源码并进入目录</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 设置编译环境</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>CC</span><span class=o>=</span>gcc-11
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>CXX</span><span class=o>=</span>g++-11
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>CXXFLAGS</span><span class=o>=</span><span class=s2>&#34;-std=c++17&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>LDFLAGS</span><span class=o>=</span><span class=s2>&#34;-L/usr/local/lib&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>tar -xzvf ~/mosh-1.4.0.tar.gz
+</span></span><span class=line><span class=cl><span class=c1># 进入源码目录</span>
+</span></span><span class=line><span class=cl><span class=nb>cd</span> mosh-1.4.0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 运行 autogen.sh 生成 configure 脚本</span>
+</span></span><span class=line><span class=cl>./autogen.sh</span></span></code></pre></td></tr></table></div></div></li><li><p><strong>配置编译选项</strong>
+运行 <code>configure</code> 脚本检查环境并生成编译规则：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 配置编译选项</span>
+</span></span><span class=line><span class=cl>./configure <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --prefix<span class=o>=</span>/usr/local <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --sysconfdir<span class=o>=</span>/etc <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --localstatedir<span class=o>=</span>/var <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  --enable-completion
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 如果需要安装到特定目录，使用：</span>
+</span></span><span class=line><span class=cl><span class=c1># ./configure --prefix=/opt/mosh</span></span></span></code></pre></td></tr></table></div></div><p><strong>请注意</strong>：如果希望安装到特定路径（如 <code>/opt/mosh</code>），可使用 <code>./configure --prefix=/opt/mosh</code>。</p></li><li><p><strong>编译源码</strong>
+使用 <code>make</code> 命令进行编译，<code>-j$(nproc)</code> 表示使用所有CPU核心加速：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 编译（使用多核加速）</span>
+</span></span><span class=line><span class=cl>make -j<span class=k>$(</span>nproc<span class=k>)</span></span></span></code></pre></td></tr></table></div></div><p>此过程若无错误，会在当前目录生成可执行文件。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>configure:  === Configuration results ===
+</span></span><span class=line><span class=cl>configure: Version:             1.4.0
+</span></span><span class=line><span class=cl>configure: c++ compiler:        g++ -std=c++17 -std=gnu++11
+</span></span><span class=line><span class=cl>configure: Warning CXXFLAGS:    -Wall
+</span></span><span class=line><span class=cl>configure: Picky CXXFLAGS:
+</span></span><span class=line><span class=cl>configure: Harden CFLAGS:        -fno-strict-overflow -D_FORTIFY_SOURCE=2 -fstack-protector-all -Wstack-protector --param ssp-buffer-size=1 -fPIE
+</span></span><span class=line><span class=cl>configure: Cryptography:        internal OCB, OpenSSL AES
+</span></span><span class=line><span class=cl>configure:  =============================</span></span></code></pre></td></tr></table></div></div></li><li><p><strong>安装到系统</strong>
+将编译好的程序安装到系统路径（默认是 <code>/usr/local/</code>）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 运行测试（可选）</span>
+</span></span><span class=line><span class=cl>make check
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 安装</span>
+</span></span><span class=line><span class=cl>sudo make install</span></span></code></pre></td></tr></table></div></div></li></ol><h3 class=heading-element id=第三阶段验证与配置><span>第三阶段：验证与配置</span>
+<a href=#%e7%ac%ac%e4%b8%89%e9%98%b6%e6%ae%b5%e9%aa%8c%e8%af%81%e4%b8%8e%e9%85%8d%e7%bd%ae class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ol><li><p><strong>刷新动态链接库缓存</strong>
+安装后，建议运行以下命令以确保系统能找到新安装的库：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo ldconfig</span></span></code></pre></td></tr></table></div></div></li><li><p><strong>验证安装是否成功</strong>
+执行以下命令，若显示版本号 <code>1.4.0</code> 则说明安装成功：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mosh --version
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 检查二进制文件</span>
+</span></span><span class=line><span class=cl>which mosh
+</span></span><span class=line><span class=cl>which mosh-server
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看版本</span>
+</span></span><span class=line><span class=cl>mosh-server --version
+</span></span><span class=line><span class=cl>mosh-client --version
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 测试基本功能</span>
+</span></span><span class=line><span class=cl>mosh-server new
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 连接测试（在另一个终端）</span>
+</span></span><span class=line><span class=cl><span class=c1># mosh-client &lt;IP地址&gt; &lt;端口&gt; &lt;密钥&gt;</span></span></span></code></pre></td></tr></table></div></div></li><li><p><strong>配置服务器防火墙</strong>
+这是 Mosh 能成功连接的<strong>关键一步</strong>。Mosh 使用 UDP 端口 60000-61000，你必须在防火墙中放行：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 如果使用 firewalld（openEuler 默认）</span>
+</span></span><span class=line><span class=cl>sudo firewall-cmd --permanent --add-port<span class=o>=</span>60000-61000/udp
+</span></span><span class=line><span class=cl>sudo firewall-cmd --reload
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 如果使用 iptables</span>
+</span></span><span class=line><span class=cl>sudo iptables -I INPUT -p udp --dport 60000:61000 -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 并记得保存iptables规则</span></span></span></code></pre></td></tr></table></div></div></li></ol><p>4.<strong>完整的安装验证脚本</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 完整的安装验证脚本</span>
+</span></span><span class=line><span class=cl><span class=c1>#!/bin/bash</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;1. 检查二进制文件:&#34;</span>
+</span></span><span class=line><span class=cl>which mosh <span class=o>&amp;&amp;</span> which mosh-server
+</span></span><span class=line><span class=cl><span class=nb>echo</span> -e <span class=s2>&#34;\n2. 检查版本:&#34;</span>
+</span></span><span class=line><span class=cl>mosh-server --version
+</span></span><span class=line><span class=cl><span class=nb>echo</span> -e <span class=s2>&#34;\n3. 检查动态依赖:&#34;</span>
+</span></span><span class=line><span class=cl>ldd <span class=k>$(</span>which mosh-server<span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> -e <span class=s2>&#34;\n4. 测试基本功能:&#34;</span>
+</span></span><span class=line><span class=cl>timeout <span class=m>2</span> mosh-server new 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=p>|</span> head -5
+</span></span><span class=line><span class=cl><span class=nb>echo</span> -e <span class=s2>&#34;\n5. 安装完成!&#34;</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=第四阶段使用与进阶玩法><span>第四阶段：使用与进阶玩法</span>
+<a href=#%e7%ac%ac%e5%9b%9b%e9%98%b6%e6%ae%b5%e4%bd%bf%e7%94%a8%e4%b8%8e%e8%bf%9b%e9%98%b6%e7%8e%a9%e6%b3%95 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><h4 class=heading-element id=使用示例><span>使用示例</span>
+<a href=#%e4%bd%bf%e7%94%a8%e7%a4%ba%e4%be%8b class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 基本用法
+</span></span><span class=line><span class=cl>mosh user@hostname
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 指定端口范围
+</span></span><span class=line><span class=cl>mosh -p 60001:60010 user@hostname
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 通过SSH连接
+</span></span><span class=line><span class=cl>mosh --ssh=&#34;ssh -p 2222&#34; user@hostname</span></span></code></pre></td></tr></table></div></div><h4 class=heading-element id=卸载><span>卸载</span>
+<a href=#%e5%8d%b8%e8%bd%bd class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 进入源码目录
+</span></span><span class=line><span class=cl>cd mosh-1.4.0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 卸载
+</span></span><span class=line><span class=cl>sudo make uninstall
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 清理编译中间文件（保留可执行文件）
+</span></span><span class=line><span class=cl>make clean
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 完全清理，回到配置前状态
+</span></span><span class=line><span class=cl># make distclean
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 清理配置文件
+</span></span><span class=line><span class=cl>sudo rm -f /etc/ld.so.conf.d/mosh.conf
+</span></span><span class=line><span class=cl>sudo ldconfig</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=简化使用mosh连接远程主机的流程><span>简化使用mosh连接远程主机的流程</span>
+<a href=#%e7%ae%80%e5%8c%96%e4%bd%bf%e7%94%a8mosh%e8%bf%9e%e6%8e%a5%e8%bf%9c%e7%a8%8b%e4%b8%bb%e6%9c%ba%e7%9a%84%e6%b5%81%e7%a8%8b class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><h4 class=heading-element id=配置ssh免密登录><span><strong>配置SSH免密登录</strong></span>
+<a href=#%e9%85%8d%e7%bd%aessh%e5%85%8d%e5%af%86%e7%99%bb%e5%bd%95 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><h5 class=heading-element id=1-生成ssh密钥对><span><strong>1. 生成SSH密钥对</strong></span>
+<a href=#1-%e7%94%9f%e6%88%90ssh%e5%af%86%e9%92%a5%e5%af%b9 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 检查是否已有SSH密钥
+</span></span><span class=line><span class=cl>ls -la ~/.ssh/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 生成ED25519密钥（推荐）
+</span></span><span class=line><span class=cl>ssh-keygen -t ed25519 -C &#34;mosh@$(hostname)&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 或生成RSA密钥
+</span></span><span class=line><span class=cl>ssh-keygen -t rsa -b 4096 -C &#34;mosh@$(hostname)&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 生成过程中会询问：
+</span></span><span class=line><span class=cl># - 保存位置（按回车使用默认 ~/.ssh/id_ed25519）
+</span></span><span class=line><span class=cl># - 密码短语（可留空）</span></span></code></pre></td></tr></table></div></div><h5 class=heading-element id=2-复制公钥到远程主机><span><strong>2. 复制公钥到远程主机</strong></span>
+<a href=#2-%e5%a4%8d%e5%88%b6%e5%85%ac%e9%92%a5%e5%88%b0%e8%bf%9c%e7%a8%8b%e4%b8%bb%e6%9c%ba class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 方法1：使用ssh-copy-id（最简单）
+</span></span><span class=line><span class=cl># 使用ssh-copy-id并指定端口
+</span></span><span class=line><span class=cl>ssh-copy-id -i ~/.ssh/id_ed25519_55.pub -p 55 root@192.168.8.55
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 或者使用已有密钥
+</span></span><span class=line><span class=cl>ssh-copy-id -p 55 root@192.168.8.55
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 方法2：手动复制
+</span></span><span class=line><span class=cl>cat ~/.ssh/id_ed25519.pub | ssh user@remote-server &#34;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 方法3：使用openEuler的ssh-copy-id
+</span></span><span class=line><span class=cl>sudo dnf install -y openssh-clients
+</span></span><span class=line><span class=cl>ssh-copy-id -i ~/.ssh/id_ed25519.pub user@remote-server</span></span></code></pre></td></tr></table></div></div><h5 class=heading-element id=3-测试免密登录><span><strong>3. 测试免密登录</strong></span>
+<a href=#3-%e6%b5%8b%e8%af%95%e5%85%8d%e5%af%86%e7%99%bb%e5%bd%95 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 测试SSH连接
+</span></span><span class=line><span class=cl>ssh user@remote-server
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 测试mosh连接
+</span></span><span class=line><span class=cl>mosh user@remote-server
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 尝试SSH连接，看是否已经可以免密登录
+</span></span><span class=line><span class=cl>ssh -o BatchMode=yes root@198.23.196.252 &#34;echo &#39;SSH连接测试成功&#39;&#34;</span></span></code></pre></td></tr></table></div></div><h4 class=heading-element id=为远程主机设置别名><span>为远程主机设置别名</span>
+<a href=#%e4%b8%ba%e8%bf%9c%e7%a8%8b%e4%b8%bb%e6%9c%ba%e8%ae%be%e7%bd%ae%e5%88%ab%e5%90%8d class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><h5 class=heading-element id=1-配置ssh-config文件><span><strong>1. 配置SSH Config文件</strong></span>
+<a href=#1-%e9%85%8d%e7%bd%aessh-config%e6%96%87%e4%bb%b6 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 编辑SSH配置文件</span>
+</span></span><span class=line><span class=cl>mkdir -p ~/.ssh
+</span></span><span class=line><span class=cl>chmod <span class=m>700</span> ~/.ssh
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cat &gt;&gt; ~/.ssh/config <span class=s>&lt;&lt; &#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s># 通用设置
+</span></span></span><span class=line><span class=cl><span class=s>Host *
+</span></span></span><span class=line><span class=cl><span class=s>    ServerAliveInterval 60
+</span></span></span><span class=line><span class=cl><span class=s>    ServerAliveCountMax 3
+</span></span></span><span class=line><span class=cl><span class=s>    TCPKeepAlive yes
+</span></span></span><span class=line><span class=cl><span class=s>    Compression yes
+</span></span></span><span class=line><span class=cl><span class=s>    IdentitiesOnly yes
+</span></span></span><span class=line><span class=cl><span class=s>    AddKeysToAgent yes
+</span></span></span><span class=line><span class=cl><span class=s>    UseKeychain yes
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># 示例服务器配置
+</span></span></span><span class=line><span class=cl><span class=s>Host server1
+</span></span></span><span class=line><span class=cl><span class=s>    HostName 192.168.1.100
+</span></span></span><span class=line><span class=cl><span class=s>    User admin
+</span></span></span><span class=line><span class=cl><span class=s>    Port 22
+</span></span></span><span class=line><span class=cl><span class=s>    IdentityFile ~/.ssh/id_ed25519
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Host server2
+</span></span></span><span class=line><span class=cl><span class=s>    HostName example.com
+</span></span></span><span class=line><span class=cl><span class=s>    User root
+</span></span></span><span class=line><span class=cl><span class=s>    Port 2222
+</span></span></span><span class=line><span class=cl><span class=s>    IdentityFile ~/.ssh/id_rsa
+</span></span></span><span class=line><span class=cl><span class=s>    # 使用代理跳板
+</span></span></span><span class=line><span class=cl><span class=s>    # ProxyJump jumpserver
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># 通用模板
+</span></span></span><span class=line><span class=cl><span class=s>Host dev-*
+</span></span></span><span class=line><span class=cl><span class=s>    User developer
+</span></span></span><span class=line><span class=cl><span class=s>    IdentityFile ~/.ssh/dev_key
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Host prod-*
+</span></span></span><span class=line><span class=cl><span class=s>    User deploy
+</span></span></span><span class=line><span class=cl><span class=s>    IdentityFile ~/.ssh/prod_key
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 设置正确的权限</span>
+</span></span><span class=line><span class=cl>chmod <span class=m>600</span> ~/.ssh/config</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=2-配置mosh别名><span><strong>2. 配置mosh别名</strong></span>
+<a href=#2-%e9%85%8d%e7%bd%aemosh%e5%88%ab%e5%90%8d class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 创建mosh专用别名文件</span>
+</span></span><span class=line><span class=cl>cat &gt;&gt; ~/.bashrc <span class=s>&lt;&lt; &#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s># Mosh别名
+</span></span></span><span class=line><span class=cl><span class=s>alias m1=&#39;mosh server1&#39;
+</span></span></span><span class=line><span class=cl><span class=s>alias m2=&#39;mosh server2&#39;
+</span></span></span><span class=line><span class=cl><span class=s>alias mdev=&#39;mosh dev-server&#39;
+</span></span></span><span class=line><span class=cl><span class=s>alias mprod=&#39;mosh prod-server&#39;
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># 使用ssh config中的主机名
+</span></span></span><span class=line><span class=cl><span class=s>alias mssh=&#39;mosh --ssh=&#34;ssh -F ~/.ssh/config&#34;&#39;
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>source</span> ~/.bashrc</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=故障排查><span>故障排查</span>
+<a href=#%e6%95%85%e9%9a%9c%e6%8e%92%e6%9f%a5 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>如果在 <code>./configure</code> 或 <code>make</code> 阶段失败，请检查：</p><ul><li><p><strong>错误：<code>configure: error: Package requirements (protobuf >= 3.0.0) were not met</code></strong></p><ul><li><strong>原因</strong>：protobuf 库版本太低或未安装。</li><li><strong>解决</strong>：确保已执行 <code>sudo dnf install protobuf-devel</code>。openEuler 22.03+ 的仓库版本通常是够的。可通过 <code>pkg-config --modversion protobuf</code> 查看版本。</li></ul></li><li><p><strong>错误：<code>fatal error: utempter.h: No such file or directory</code></strong></p><ul><li><strong>原因</strong>：缺少 <code>libutempter-devel</code>。</li><li><strong>解决</strong>：执行 <code>sudo dnf install libutempter-devel</code>。</li></ul></li><li><p><strong>安装后运行 <code>mosh</code> 提示 “command not found”</strong></p><ul><li><strong>原因</strong>：默认安装路径 <code>/usr/local/bin</code> 可能不在你的 <code>PATH</code> 中。</li><li><strong>解决</strong>：退出当前终端重新登录，或直接使用完整路径 <code>/usr/local/bin/mosh</code>。</li></ul></li></ul><h3 class=heading-element id=总结与建议><span>总结与建议</span>
+<a href=#%e6%80%bb%e7%bb%93%e4%b8%8e%e5%bb%ba%e8%ae%ae class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ul><li><strong>卸载</strong>：如需卸载，在源码目录执行 <code>sudo make uninstall</code>（如果该目标存在），或手动删除相关文件。</li><li><strong>推荐方案</strong>：除非有特定需求，<strong>对于大多数用户，直接通过 <code>sudo dnf install mosh</code> 安装是更简单可靠的选择</strong>。源码编译主要用于需要特定版本、定制功能或学习的目的。</li></ul><p>如果在任何步骤遇到问题，请提供具体的错误信息，我可以为你提供更具体的解决方案。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback></code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="更新于 2025-12-28 01:38:32">更新于 2025-12-28&nbsp;</span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/posts/d0a3efc/index.md title=阅读原始文档 class=link-to-markdown>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 X" data-sharer=twitter data-url=https://jiang1bo.github.io/posts/d0a3efc/ data-title=Openeuler:mosh编译食用指南 data-hashtags=draft><i class="fa-brands fa-x-twitter fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://jiang1bo.github.io/posts/d0a3efc/ data-hashtag=draft><i class="fa-brands fa-facebook-square fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://jiang1bo.github.io/posts/d0a3efc/ data-title=Openeuler:mosh编译食用指南><i class="fa-brands fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fa-solid fa-tags fa-fw me-1" aria-hidden=true></i><a href=/tags/draft/ class=post-tag title="标签 - Draft">Draft</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/4190747/ class=post-nav-item rel=prev title=Openeuler，docker开箱指南><i class="fa-solid fa-angle-left fa-fw" aria-hidden=true></i>Openeuler，docker开箱指南</a></div></div><div class=post-reward><div class=comment>Buy me a coffee</div><input type=checkbox class=reward-input name=reward id=fi-reward hidden>
+<label class=reward-button for=fi-reward><i class="fa-solid fa-qrcode fa-fw" aria-hidden=true></i>赞赏</label><div class=reward-ways data-mode=static><div><img src=/web-app-manifest-512x512.png alt=微信 height=512 width=512><span data-animation>微信</span></div></div></div></article><aside class=toc id=toc-auto aria-label=目录><h2 class=toc-title>目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden=true></i></h2><div class=toc-content id=toc-content-auto></div></aside></main><footer class=footer><div class=footer-container><div class="footer-line powered">由 <a href=https://gohugo.io/ target=_blank rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class=hugo-icon src=/images/hugo.min.svg alt="Hugo logo"> Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/hugo-fixit/FixIt target=_blank rel=external title="FixIt v0.3.20"><img class=fixit-icon src=/images/fixit.min.svg alt="FixIt logo"> FixIt</a></div><div class="footer-line copyright" itemscope itemtype=http://schema.org/CreativeWork><i class="fa-regular fa-copyright fa-fw" aria-hidden=true></i>
+<span itemprop=copyrightYear>2025</span><span class=author itemprop=copyrightHolder>
+<a href=https://jiangbos.top/ target=_blank rel="external nofollow noopener noreferrer">fermi</a></span></div><div class="footer-line statistics"><span class=site-time title=网站运行中……><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden=true></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor"><span id=busuanzi_container_site_uv title=总访客数><i class="fa-regular fa-user fa-fw me-1" aria-hidden=true></i><span id=busuanzi_value_site_uv><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden=true></i></span></span><span id=busuanzi_container_site_pv class=footer-divider title=总访问量><i class="fa-regular fa-eye fa-fw me-1" aria-hidden=true></i><span id=busuanzi_value_site_pv><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden=true></i></span></span></div><div class="footer-line beian"><span class=gov>china</span><span class="icp footer-divider">20251129</span></div></div></footer></div><div class=widgets><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role=button aria-label=回到顶部><i class="fa-solid fa-arrow-up fa-fw" aria-hidden=true></i><span class=variant-numeric>0%</span></div></div><a href=https://github.com/jiang1bo title="View source on GitHub" target=_blank rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true" width="56" height="56"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentColor" class="octo-body"/></svg></a><div id=mask></div><noscript><div class=noscript-warning>该网站在启用 JavaScript 的情况下效果最佳。</div></noscript></div><script type=module>
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.3.0/dist/mermaid.esm.min.mjs';
+    
+    
+    
+    window.mermaid = mermaid;
+  </script><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script src=/lib/autocomplete/autocomplete.min.js defer></script><script src=/lib/fuse/fuse.min.js defer></script><script src=/lib/sharer/sharer.min.js async defer></script><script src=/lib/cookieconsent/cookieconsent.min.js defer></script><script src=https://vercount.one/js async defer></script><script>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{enable:!1},cookieconsent:{content:{dismiss:"同意",link:"了解更多",message:"本网站使用 Cookies 来改善您的浏览体验。"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},mermaid:{themes:["default","dark"]},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/search.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!0,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:30,threshold:.3,type:"fuse",useExtendedSearch:!0},siteTime:"2021-11-11",version:"v0.3.20"}</script><script src=/js/theme.min.js defer></script></body></html>
