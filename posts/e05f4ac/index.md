@@ -1,4 +1,4 @@
-# Ssl自动续签
+# Ssl自动续签：（certbot以及acme.sh两种方式）
 
 
 <!--more-->
@@ -306,7 +306,7 @@ drwxr-xr-x. 5 root root 4096 Dec 30 01:52 renewal-hooks
    #--post-hook "nginx -s reload" → 续签后自动重载 Nginx
    ```
 
-## acme.sh 实现ssl申请以及自动续签
+## Acme.sh 实现ssl申请以及自动续签
 
 ### 🚀 acme.sh 的核心特点与工作原理
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fermi</title><link>https://jiang1bo.github.io/</link><description>welcome to femris的博客网站!</description><generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator><language>zh-CN</language><managingEditor>3044483124@qq.com (fermi)</managingEditor><webMaster>3044483124@qq.com (fermi)</webMaster><lastBuildDate>Tue, 30 Dec 2025 01:10:30 +0800</lastBuildDate><atom:link href="https://jiang1bo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>ssl自动续签</title><link>https://jiang1bo.github.io/posts/e05f4ac/</link><pubDate>Tue, 30 Dec 2025 01:10:30 +0800</pubDate><guid>https://jiang1bo.github.io/posts/e05f4ac/</guid><category domain="https://jiang1bo.github.io/categories/draft/">Draft</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fermi</title><link>https://jiang1bo.github.io/</link><description>welcome to femris的博客网站!</description><generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator><language>zh-CN</language><managingEditor>3044483124@qq.com (fermi)</managingEditor><webMaster>3044483124@qq.com (fermi)</webMaster><lastBuildDate>Tue, 30 Dec 2025 01:10:30 +0800</lastBuildDate><atom:link href="https://jiang1bo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>ssl自动续签：（certbot以及acme.sh两种方式）</title><link>https://jiang1bo.github.io/posts/e05f4ac/</link><pubDate>Tue, 30 Dec 2025 01:10:30 +0800</pubDate><guid>https://jiang1bo.github.io/posts/e05f4ac/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;h2 class="heading-element" id="certbot-实现ssl申请以及自动续签"&gt;&lt;span&gt;Certbot 实现ssl申请以及自动续签&lt;/span&gt;
  &lt;a href="#certbot-%e5%ae%9e%e7%8e%b0ssl%e7%94%b3%e8%af%b7%e4%bb%a5%e5%8f%8a%e8%87%aa%e5%8a%a8%e7%bb%ad%e7%ad%be" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -586,7 +586,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 class="heading-element" id="acmesh-实现ssl申请以及自动续签"&gt;&lt;span&gt;acme.sh 实现ssl申请以及自动续签&lt;/span&gt;
+&lt;h2 class="heading-element" id="acmesh-实现ssl申请以及自动续签"&gt;&lt;span&gt;Acme.sh 实现ssl申请以及自动续签&lt;/span&gt;
  &lt;a href="#acmesh-%e5%ae%9e%e7%8e%b0ssl%e7%94%b3%e8%af%b7%e4%bb%a5%e5%8f%8a%e8%87%aa%e5%8a%a8%e7%bb%ad%e7%ad%be" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -860,7 +860,7 @@
 &lt;li&gt;&lt;strong&gt;凭证安全&lt;/strong&gt;：DNS API的密钥文件（如&lt;code&gt;cloudflare.ini&lt;/code&gt;）必须设置严格权限 (&lt;code&gt;chmod 600&lt;/code&gt;)。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;测试先行&lt;/strong&gt;：在正式签发前，务必使用 &lt;code&gt;--dry-run&lt;/code&gt; (Certbot) 或在测试服务器 (&lt;code&gt;--staging&lt;/code&gt;) 上操作。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;对于个人域名 &lt;code&gt;fermis.top&lt;/code&gt; 和 openEuler 服务器，&lt;strong&gt;两者都能完美工作&lt;/strong&gt;。如果你希望流程更“傻瓜化”、更符合 Shell 运维习惯，&lt;strong&gt;acme.sh 是更精妙的选择&lt;/strong&gt;；如果你更看重官方文档和社区支持的广泛性，Certbot 则是更稳妥的选项。&lt;/p&gt;</description></item><item><title>openeuler:mosh编译食用指南</title><link>https://jiang1bo.github.io/posts/d0a3efc/</link><pubDate>Sun, 28 Dec 2025 01:38:32 +0800</pubDate><guid>https://jiang1bo.github.io/posts/d0a3efc/</guid><category domain="https://jiang1bo.github.io/categories/draft/">Draft</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+&lt;p&gt;对于个人域名 &lt;code&gt;fermis.top&lt;/code&gt; 和 openEuler 服务器，&lt;strong&gt;两者都能完美工作&lt;/strong&gt;。如果你希望流程更“傻瓜化”、更符合 Shell 运维习惯，&lt;strong&gt;acme.sh 是更精妙的选择&lt;/strong&gt;；如果你更看重官方文档和社区支持的广泛性，Certbot 则是更稳妥的选项。&lt;/p&gt;</description></item><item><title>openeuler:mosh编译食用指南</title><link>https://jiang1bo.github.io/posts/d0a3efc/</link><pubDate>Sun, 28 Dec 2025 01:38:32 +0800</pubDate><guid>https://jiang1bo.github.io/posts/d0a3efc/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;p&gt;在 openEuler 上从源码编译安装 mosh-1.4.0，虽然步骤较多，但能让你更灵活地控制版本和编译选项。整个过程可总结为以下流程：&lt;/p&gt;
 &lt;pre class="mermaid"&gt;flowchart TD
  A[开始: 源码编译安装 Mosh] --&gt; B
@@ -1794,7 +1794,7 @@
 &lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>openeuler，docker开箱指南</title><link>https://jiang1bo.github.io/posts/4190747/</link><pubDate>Fri, 26 Dec 2025 11:27:25 +0800</pubDate><guid>https://jiang1bo.github.io/posts/4190747/</guid><category domain="https://jiang1bo.github.io/categories/openeuler/">Openeuler</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+&lt;/div&gt;</description></item><item><title>openeuler，docker开箱指南</title><link>https://jiang1bo.github.io/posts/4190747/</link><pubDate>Fri, 26 Dec 2025 11:27:25 +0800</pubDate><guid>https://jiang1bo.github.io/posts/4190747/</guid><category domain="https://jiang1bo.github.io/categories/docker/">Docker</category><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;h2 class="heading-element" id="安装配置"&gt;&lt;span&gt;安装配置 &lt;a href="https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/cloud/container_engine/docker_engine/installation_and_configuration_3.html#user-content-%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%ae"target="_blank" rel="external nofollow noopener noreferrer"&gt;&lt;/a&gt;&lt;/span&gt;
  &lt;a href="#%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -5723,7 +5723,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; OS/Arch: linux/arm64
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Experimental: false&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>openeuler故障应急处理</title><link>https://jiang1bo.github.io/posts/0fead30/</link><pubDate>Fri, 26 Dec 2025 11:27:00 +0800</pubDate><guid>https://jiang1bo.github.io/posts/0fead30/</guid><category domain="https://jiang1bo.github.io/categories/draft/">Draft</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+&lt;/div&gt;</description></item><item><title>openeuler故障应急处理</title><link>https://jiang1bo.github.io/posts/0fead30/</link><pubDate>Fri, 26 Dec 2025 11:27:00 +0800</pubDate><guid>https://jiang1bo.github.io/posts/0fead30/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;h2 class="heading-element" id="触发kdump重启"&gt;&lt;span&gt;触发kdump重启&lt;/span&gt;
  &lt;a href="#%e8%a7%a6%e5%8f%91kdump%e9%87%8d%e5%90%af" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -5863,7 +5863,7 @@
 &lt;li&gt;exit退出。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>openeuler系统管理员指南</title><link>https://jiang1bo.github.io/posts/7f40eb3/</link><pubDate>Fri, 26 Dec 2025 10:37:56 +0800</pubDate><guid>https://jiang1bo.github.io/posts/7f40eb3/</guid><category domain="https://jiang1bo.github.io/categories/openeuler/">Openeuler</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+&lt;/ul&gt;</description></item><item><title>openeuler系统管理员指南</title><link>https://jiang1bo.github.io/posts/7f40eb3/</link><pubDate>Fri, 26 Dec 2025 10:37:56 +0800</pubDate><guid>https://jiang1bo.github.io/posts/7f40eb3/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;h2 class="heading-element" id="基础配置"&gt;&lt;span&gt;基础配置&lt;/span&gt;
  &lt;a href="#%e5%9f%ba%e7%a1%80%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -14678,7 +14678,7 @@ mkdir /data&lt;/li&gt;
 &lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[openGauss@localhost ~]# gs_restore -W password backup/MPPDB_backup.dmp -p port -d postgres&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>openeuler安全加固指南</title><link>https://jiang1bo.github.io/posts/7cacc3d/</link><pubDate>Thu, 25 Dec 2025 23:48:37 +0800</pubDate><guid>https://jiang1bo.github.io/posts/7cacc3d/</guid><category domain="https://jiang1bo.github.io/categories/draft/">Draft</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+&lt;/div&gt;</description></item><item><title>openeuler安全加固指南</title><link>https://jiang1bo.github.io/posts/7cacc3d/</link><pubDate>Thu, 25 Dec 2025 23:48:37 +0800</pubDate><guid>https://jiang1bo.github.io/posts/7cacc3d/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><category domain="https://jiang1bo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;h2 class="heading-element" id="操作系统加固概述"&gt;&lt;span&gt;操作系统加固概述&lt;/span&gt;
  &lt;a href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e5%8a%a0%e5%9b%ba%e6%a6%82%e8%bf%b0" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -17591,7 +17591,207 @@ sh ./check.sh -s&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;umask值代表的是权限的“补码”，即用缺省最大权限值减去umask值得到实际权限值。文件的缺省最大权限为可读可写，目录的缺省最大权限为可读可写可执行。即一个文件的实际缺省权限为666减去umask值。目录的实际缺省权限为777减去umask值。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Wireshark</title><link>https://jiang1bo.github.io/posts/9c9909b/</link><pubDate>Tue, 23 Dec 2025 11:55:43 +0800</pubDate><guid>https://jiang1bo.github.io/posts/9c9909b/</guid><category domain="https://jiang1bo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category><description>&lt;h2 class="heading-element" id="wireshark使用"&gt;&lt;span&gt;Wireshark使用&lt;/span&gt;
+&lt;/div&gt;</description></item><item><title>系统备份</title><link>https://jiang1bo.github.io/posts/f99de53/</link><pubDate>Tue, 23 Dec 2025 12:07:23 +0800</pubDate><guid>https://jiang1bo.github.io/posts/f99de53/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><category domain="https://jiang1bo.github.io/categories/windows/">Windows</category><description>&lt;h2 class="heading-element" id="热备冷备"&gt;&lt;span&gt;热备冷备&lt;/span&gt;
+ &lt;a href="#%e7%83%ad%e5%a4%87%e5%86%b7%e5%a4%87" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;windows备份&lt;/p&gt;
+&lt;p&gt;dism++(支持热备)&lt;/p&gt;
+&lt;p&gt;驱动天空ns5备份功能（可封装系统母盘）&lt;/p&gt;
+&lt;p&gt;ghost备份&lt;/p&gt;
+&lt;p&gt;linux&lt;/p&gt;
+&lt;p&gt;rsync定时传输文件到设定位置&lt;/p&gt;
+&lt;p&gt;ghost备份&lt;/p&gt;
+&lt;p&gt;nas(ABB套机)实时备份linux+windows&lt;/p&gt;
+&lt;p&gt;SyncBack&lt;/p&gt;
+&lt;p&gt;SyncBackPro中文正式版现在可以同时上传和下载多个文件，这大大提高了性能，我们已经在努力将此功能添加到FTP / SFTP和SyncBack Touch，由于文件现在可以并行压缩，因此多zip文件复制速度也更快，对于虚拟机和数据库等大型文件，您可能只想复制和存储更改而不是整个文件来节省存储空间，SyncBackPro现在通过现有的版本控制功能支持Delta-Copy，我们还将Delta-Copy添加到SyncBack Touch，其中只有更改通过网络传输，整个文件在另一端重建。两个新的FTP / FTPS引擎和一个新的SFTP引擎。当您需要使用远程FTP或SFTP服务器时，这为您提供了最佳的兼容性。为了提高文件扫描性能，我们与CompleteFTP的创建者合作，以便能够在一次FTP调用中扫描整个文件夹树。&lt;/p&gt;
+&lt;p&gt;备用&lt;/p&gt;
+&lt;p&gt;使用SyncBack备份数据非常简单，选择要备份的内容和位置，创建计划，设置它并忘记它，快速备份，线程文件复制和并行文件传输将确保备份尽快运行。&lt;/p&gt;
+&lt;p&gt;同步&lt;/p&gt;
+&lt;p&gt;智能同步为您提供最佳的可配置性，您可以决定SyncBack在每种情况下应该做什么，例如，如果文件已更改，或者已删除，或者已创建新文件等，应该执行的操作等。&lt;/p&gt;
+&lt;p&gt;云存储服务&lt;/p&gt;
+&lt;p&gt;SyncBackPro支持所有主要的云存储服务 Amazon S3™，Google Storage™，Google Drive™，Microsoft Azure™，Microsoft OneDrive™，OneDrive for Business（Office 365）SharePoint™（Office 365），Dropbox™，Box，SugarSync™ ，Amazon Drive™，OpenStack，Backblaze™B2，OVH™，Egnyte™，hubiC™和WebDAV。支持并行和线程文件传输。&lt;/p&gt;
+&lt;p&gt;FTP&lt;/p&gt;
+&lt;p&gt;SyncBackPro支持FTP，FTPS和SFTP，为了获得最大兼容性，可以选择三种不同的FTP引擎，支持所有主要的FTP命令以及自定义的命令，如CompleteFTP中引入的新的更快的文件扫描方法，自动备份您的网站从未如此简单。&lt;/p&gt;
+&lt;p&gt;SyncBack Touch&lt;/p&gt;
+&lt;p&gt;SyncBack Touch是一种跨平台服务（Windows，macOS，Linux和Android），可让SyncBack远程访问设备的文件系统，以执行备份/恢复和同步操作。SyncBackPro和SyncBackSE提供两个与SyncBack Touch的免费连接。&lt;/p&gt;
+&lt;p&gt;SyncBack管理服务&lt;/p&gt;
+&lt;p&gt;SyncBack管理系统（SBMS）通过一个简单易用的解决方案提高安全性，问责制和报告。它为系统管理员提供了宝贵的工具，可以监控和管理多个SyncBackPro安装。&lt;/p&gt;
+&lt;p&gt;复制&lt;/p&gt;
+&lt;p&gt;您现在可以只复制和存储对文件的更改，备份VHD或数据库文件并节省大量存储空间，SyncBack Touch（适用于Windows）也得到了改进，允许通过网络进行Delta-Copy，从而减少网络使用。&lt;/p&gt;
+&lt;p&gt;版本&lt;/p&gt;
+&lt;p&gt;永远不要丢失旧的文件副本，使用SyncBack，您可以指定要保留的文件版本数量以及保留时间，所有云存储服务，FTP，NAS驱动器，SyncBack Touch等也支持版本控制。&lt;/p&gt;
+&lt;p&gt;安全&lt;/p&gt;
+&lt;p&gt;SyncBack支持256位AES文件加密以及PKZip SecureZip（SyncBackPro）勒索软件检测可以阻止备份文件损坏。&lt;/p&gt;
+&lt;p&gt;官方网站 &lt;a href="https://www.2brightsparks.com/"target="_blank" rel="external nofollow noopener noreferrer"&gt;https://www.2brightsparks.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;食用说明&lt;/p&gt;
+&lt;p&gt;1、双击正常安装主程序安装包 SyncBackPro 专业版 ；&lt;/p&gt;
+&lt;p&gt;2、运行Crack文件夹的SyncBackPro KeyGen解锁钥匙 ；&lt;/p&gt;
+&lt;p&gt;3、SyncBackPro 专业版河蟹成功尽情的使用吧；&lt;/p&gt;
+&lt;p&gt;傲梅&lt;/p&gt;
+&lt;p&gt;系统备份与还原&lt;/p&gt;
+&lt;p&gt;像一键Ghost系统那样，您只需要点几次鼠标就能将系统盘备份到指定的位置，如备份系统到移动硬盘。以后，如果系统出现问题就可以快速地还原系统，从而避免了重装系统的麻烦。&lt;/p&gt;
+&lt;p&gt;文件备份与还原&lt;/p&gt;
+&lt;p&gt;如果只想备份电脑少数的几个目录或文件，怎么办？例如：只需要备份工作目录，只想备份D盘中的Word文档。文件备份与还原功能能只处理特定的文件，让备份功能变得更灵活。&lt;/p&gt;
+&lt;p&gt;磁盘分区备份与还原&lt;/p&gt;
+&lt;p&gt;它也称作磁盘分区镜像，能直接备份多个硬盘和多个分区。当然，硬盘和分区中包含的所有数据都将被备份。还原功能除了能直接还原硬盘和分区外，还能选择性地还原特定的文件。&lt;/p&gt;
+&lt;p&gt;定时备份&lt;/p&gt;
+&lt;p&gt;对于某些重要的文件，我们可能想定期做一次备份。定时备份功能支持按每天，每周，每月，或某个周期自动做您指定数据的备份。&lt;/p&gt;
+&lt;p&gt;增量与差异备份&lt;/p&gt;
+&lt;p&gt;增量与差异备份只会备份中相比上一次改变过的数据，此功能能极大地提高备份速度和降低镜像文件所占用的空间。定时备份默认将使用增量备份的方式来优化备份的效率。&lt;/p&gt;
+&lt;p&gt;备份后Email通知&lt;/p&gt;
+&lt;p&gt;自动备份完成后，是不是想知道备份的结果怎么样了，Email通知功能允许您设置是否将备份日志报告发到您的邮箱。于此，让您更安心！&lt;/p&gt;
+&lt;p&gt;磁盘与分区克隆&lt;/p&gt;
+&lt;p&gt;克隆一个硬盘到另一个硬盘&lt;/p&gt;
+&lt;p&gt;硬盘1 -&amp;gt; 磁盘2&lt;/p&gt;
+&lt;p&gt;克隆硬盘上的一个分区到另一个硬盘D: -&amp;gt; F:&lt;/p&gt;
+&lt;p&gt;系统克隆与系统迁移&lt;/p&gt;
+&lt;p&gt;克隆系统或迁移系统到固态硬盘或其它普通硬盘&lt;/p&gt;
+&lt;p&gt;支持系统如下&lt;/p&gt;
+&lt;p&gt;Windows 10/7/8/8.1、Windows XP/Vista、Windows Server 2003/2008/2012/2016、Windows SBS 2003, 2008, 2011&lt;/p&gt;
+&lt;p&gt;支持存储如下&lt;/p&gt;
+&lt;p&gt;各种接口的硬盘如：IDE、SATA、SCSI、IEEE1394、USB1.1/2.0/3.0、各种类型的硬盘如：机械硬盘、固态硬盘(SSD)、U盘、移动硬盘、RAID盘、2TB+硬盘、各种格式的磁盘如：MBR磁盘、GPT磁盘、动态卷、NAS盘、备份数据到各种形式的光盘，如：CD-R/RW、DVD-R/RW、DVD+R/RW。&lt;/p&gt;
+&lt;p&gt;如果注册反弹请把以下加入到Windows\System32\drivers\etc\hosts文件里面以屏蔽联网验证；&lt;/p&gt;
+&lt;p&gt;127.0.0.1 &lt;a href="https://www.aomeitech.com"target="_blank" rel="external nofollow noopener noreferrer"&gt;www.aomeitech.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;无人值守静默安装参数：&lt;/p&gt;
+&lt;p&gt;/S =绝对路径默认C盘程序文件夹&lt;/p&gt;
+&lt;p&gt;/D E:\MyProgram ＝自定义路径&lt;/p&gt;
+&lt;p&gt;如果有较多文件夹不便移动，可以将文件夹路径添加至排除列表中 (菜单栏 – 详细设置 – 排除列表设置)，如 iCloud File、Tencent Files、Wechat Files。关于 ExclusionList 的高级用法可参照 Microsoft – Dism Configuration，此设置仅在 Dism 的映像备份中可用。&lt;/p&gt;
+&lt;p&gt;在文件保存对话框中，需要选择一个非系统盘的位置来保存备份映像；映像名称按照一定格式命名（系统备份_日期_系统版本），如「D:\Sys_Backup\Sys_Full_Backup-200804-Win10.wim」；压缩率按照需要选择，映像大小与制作所需时间、压缩率成反比，压缩率越高，制作所需的时间越长，映像文件越小，这里一般选择高压缩（Wim 格式映像）即可。&lt;/p&gt;
+&lt;p&gt;在 D 盘的 Sys_Backup 文件夹中找到备份的映像文件，然后将其拷贝至移动硬盘等安全的位置，需要时能够快速调用。后期如果需要修改备份映像也十分简单，在保存路径中选择先前的备份映像，Dism++ 会自动执行增量备份。&lt;/p&gt;
+&lt;h2 class="heading-element" id="windows系统数据备份恢复"&gt;&lt;span&gt;windows系统数据备份恢复&lt;/span&gt;
+ &lt;a href="#windows%e7%b3%bb%e7%bb%9f%e6%95%b0%e6%8d%ae%e5%a4%87%e4%bb%bd%e6%81%a2%e5%a4%8d" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;snap&lt;/p&gt;
+&lt;p&gt;原生&lt;/p&gt;
+&lt;p&gt;ghost&lt;/p&gt;
+&lt;p&gt;ventoy制作启动优盘，iventoy批量装机windows+linux&lt;/p&gt;
+&lt;p&gt;网刻启动盘&lt;/p&gt;
+&lt;p&gt;支持pxe,批量安装系统&lt;/p&gt;
+&lt;p&gt;批量（重）装系统：iventoy，网刻启动盘，支持pxe,批量安装系统&lt;/p&gt;
+&lt;p&gt;iso传统镜像文件&lt;/p&gt;</description></item><item><title>Ping网络排查</title><link>https://jiang1bo.github.io/posts/abbe34a/</link><pubDate>Tue, 23 Dec 2025 12:03:23 +0800</pubDate><guid>https://jiang1bo.github.io/posts/abbe34a/</guid><category domain="https://jiang1bo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category><description>&lt;h3 class="heading-element" id="1ping-127001"&gt;&lt;span&gt;(1)ping 127.0.0.1&lt;/span&gt;
+ &lt;a href="#1ping-127001" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;检查本地TCP/IP协议的安装或则运行是否存在某些最基本的问题。这是回路测试ip，ping回路测试ip时，命令被发送到本地的计算机的ip协议软件。&lt;/p&gt;
+&lt;h3 class="heading-element" id="2ping-localhost"&gt;&lt;span&gt;(2)ping localhost&lt;/span&gt;
+ &lt;a href="#2ping-localhost" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;localhost是网络保留名，代表计算机本身。是127.0.0.1的别名，每台计算机都能将该名字转换成该ip地址。因此，如果使用该命令没有收到应答，表示主机文件（/windows/host）存在问题；&lt;/p&gt;
+&lt;h3 class="heading-element" id="3ping-本机ip"&gt;&lt;span&gt;(3)ping 本机ip&lt;/span&gt;
+ &lt;a href="#3ping-%e6%9c%ac%e6%9c%baip" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;用于检测本地主机网卡和调制解调器（猫）是否有问题。&lt;/p&gt;
+&lt;p&gt;IP地址（Internet Protocol Address 互联网国际地址）地址划分，Excel使用&lt;/p&gt;
+&lt;h3 class="heading-element" id="4ping-局域网内其他ip"&gt;&lt;span&gt;(4)ping 局域网内其他ip&lt;/span&gt;
+ &lt;a href="#4ping-%e5%b1%80%e5%9f%9f%e7%bd%91%e5%86%85%e5%85%b6%e4%bb%96ip" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;检测同网段主机间网络线路是否出现故障。该命令会经过网卡和网线发送到目的计算机，再返回。收到回送应答表明本地网络中的网卡和载体运行正常，如果收到0个回送应答，那么表示子网掩码不正确或者网卡配置错误或者网线有问题；若网络中还包含有路由器，则应先Ping路由器在本网段端口的IP，不通则此段线路有问题，通则再PING路由器在目标计算机所在网段的端口IP，不通则是路由出现故障，通则再Ping目的机IP地址。&lt;/p&gt;
+&lt;p&gt;要查看同网段正在使用的ip可以在cmd命令窗口输入for /L %i IN (1,1,254) DO ping -w 2 -n 1 10.34.0.%i&lt;/p&gt;
+&lt;p&gt;电脑突然连接不上网络诊断顺序&lt;/p&gt;
+&lt;p&gt;1.ping 127.0.0.1 先检查TCP/IP协议栈是否正常。&lt;/p&gt;
+&lt;p&gt;2.ping 本地ip 检查你网卡是否工作正常。&lt;/p&gt;
+&lt;p&gt;3.ping 网关地址 检查和网关连接性。&lt;/p&gt;
+&lt;p&gt;4.ping 远程网站 检查远程连接&lt;/p&gt;
+&lt;h2 class="heading-element" id="ping命令返回信息分析"&gt;&lt;span&gt;ping命令返回信息分析&lt;/span&gt;
+ &lt;a href="#ping%e5%91%bd%e4%bb%a4%e8%bf%94%e5%9b%9e%e4%bf%a1%e6%81%af%e5%88%86%e6%9e%90" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="heading-element" id="1request-timed-out请求超时"&gt;&lt;span&gt;1.Request timed out(请求超时)&lt;/span&gt;
+ &lt;a href="#1request-timed-out%e8%af%b7%e6%b1%82%e8%b6%85%e6%97%b6" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;（1）对方已关机或者网络上没有这个地址&lt;/p&gt;
+&lt;p&gt;（2）对方与自己不在同一个网段内，通过路由也无法找到对方&lt;/p&gt;
+&lt;p&gt;（3）对方存在但是设置了ICMP数据包过滤屏蔽（如防火墙设置）&lt;/p&gt;
+&lt;p&gt;怎么知道对方是存在还是不存在呢？可以用ping -a探测对方，如果能得到对方的NetBIOS名称，说明对方存在，但是有防火墙设置。如果得不到，多半是对方关机或者不存在，或不在同一个网段。&lt;/p&gt;
+&lt;p&gt;（4）网卡IP地址设置错误，如网卡手动设置出现问题。&lt;/p&gt;
+&lt;h3 class="heading-element" id="2destination-host-unreachable目的主机不可达"&gt;&lt;span&gt;2.Destination host Unreachable（目的主机不可达）&lt;/span&gt;
+ &lt;a href="#2destination-host-unreachable%e7%9b%ae%e7%9a%84%e4%b8%bb%e6%9c%ba%e4%b8%8d%e5%8f%af%e8%be%be" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;（1）对方和自己不在同一个网段内，而自己又没有设置默认的路由。&lt;/p&gt;
+&lt;p&gt;（2）网线出现了故障。&lt;/p&gt;
+&lt;p&gt;这里要分辨出“Destination host Unreachable”和“time out”的区别，所经过的路由器的路由表中具有到达目标的路由，而目标因为其他原因不可到达，这时候会出现“time out”，如果路由表中连到达目标的路由都没有，就会出现“Destination host Unreachable”&lt;/p&gt;
+&lt;h3 class="heading-element" id="3bad-ip-address"&gt;&lt;span&gt;3.Bad IP address&lt;/span&gt;
+ &lt;a href="#3bad-ip-address" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;表示可能没有连接到DNS服务器，所有没有办法解析这个ip地址，也可能是ip地址不存在。&lt;/p&gt;
+&lt;h3 class="heading-element" id="4source-quench-received"&gt;&lt;span&gt;4.Source quench received&lt;/span&gt;
+ &lt;a href="#4source-quench-received" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;表示对方或者中途的服务器繁忙无法回应。&lt;/p&gt;
+&lt;h3 class="heading-element" id="5unknown-host不知名主机"&gt;&lt;span&gt;5.Unknown host（不知名主机）&lt;/span&gt;
+ &lt;a href="#5unknown-host%e4%b8%8d%e7%9f%a5%e5%90%8d%e4%b8%bb%e6%9c%ba" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;该远程主机名字不能被DNS服务器转换为IP地址。故障原因可能是域名服务器有问题或者其名字不正确，或者网络管理员的系统与远程主机之间的同信线路有故障。&lt;/p&gt;
+&lt;h3 class="heading-element" id="6no-answer无响应"&gt;&lt;span&gt;6.No answer（无响应）&lt;/span&gt;
+ &lt;a href="#6no-answer%e6%97%a0%e5%93%8d%e5%ba%94" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;说明本地系统有一条通向中心主机的路由，但是却接受不到它发给中心主机的任何信息。故障原因可能是：中心主机没有工作；本地或中心主机网络配置不正确；本地或者中心的路由器没有工作；通信线路故障；中心主机存在路由选择问题。&lt;/p&gt;
+&lt;h3 class="heading-element" id="7ttl"&gt;&lt;span&gt;7.TTL&lt;/span&gt;
+ &lt;a href="#7ttl" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;可以通过ping返回的TTL值来判断数据报已经通过了多少个路由器。TTL的初值通常是对方系统的缺省值，每个操作系统可能不一样（但可以更改），是一个2的乘方数。那么源地点TTL的初始值减去返回时的TTL的值就是中间经过路由器的跳数。由于每个路由器至少要把TTL值减一，因此TTL通常表示包在被丢弃之前最多能经过的路由器个数。当计数到0时，路由器决定丢弃该包，并发送一个ICMP报文给最初的发送者。&lt;/p&gt;
+&lt;p&gt;例如，TTL返回值为51，那么我们可以推算数据报离开源地址的TTL初始值为64（2的6次方），所以从源地点到目的地点要通过13个路由网段（64—54）&lt;/p&gt;
+&lt;p&gt;另外TTL值还能帮我们分辨操作系统类型。例如&lt;/p&gt;
+&lt;p&gt;Unix及类Unix操作系统ICMP应答的TTL值一般为255；&lt;/p&gt;
+&lt;p&gt;Windows 2003/XP操作系统ICMP应答的TTL值一般为128；&lt;/p&gt;
+&lt;p&gt;Windows 7/8操作系统ICMP应答的TTL值一般为64；&lt;/p&gt;
+&lt;p&gt;Windows 10操作系统ICMP应答的TTL值一般为128；&lt;/p&gt;
+&lt;p&gt;Linux操作系统ICMP应答的TTL值一般为64；&lt;/p&gt;
+&lt;p&gt;MacOS/MacTCP操作系统ICMP应答的TTL值一般为60；&lt;/p&gt;
+&lt;p&gt;网络攻击者可以通过这种方式来判断别人的操作系统，以便于采用不同的策略来攻击。前提是这个初始值没有被更改过。&lt;/p&gt;
+&lt;p&gt;一个IPv6的地址使用冒号十六进制表示方法：128位的地址每16位分成一段，每个16位的段用十六进制表示并用冒号分隔开，例如：&lt;/p&gt;
+&lt;p&gt;一个普通公网IPv6地址：2001:0D12:0000:0000:02AA:0987:FE29:9871&lt;/p&gt;
+&lt;p&gt;IPv6地址支持压缩前导零的表示方法，例如上面的地址可以压缩表示为：&lt;/p&gt;
+&lt;p&gt;2001 12:0:0:2AA:987:FE29:9871&lt;/p&gt;
+&lt;p&gt;为了进一步精简IPv6地址，当冒号十六进制格式中出现连续几段数值0的位段时，这些段可以压缩为双冒号的表示，例如上面的地址还可以进一步精简表示为：&lt;/p&gt;
+&lt;p&gt;2001 12::2AA:987:FE29:9871&lt;/p&gt;
+&lt;p&gt;又例如IPv6的地址FF80:0:0:0:FF:3BA:891:67C2可以进一步精简表示为：&lt;/p&gt;
+&lt;p&gt;FE80::FF:3BA:891:67C2&lt;/p&gt;
+&lt;p&gt;这里值得注意的是：双冒号只能出现一次。&lt;/p&gt;
+&lt;h2 class="heading-element" id="tcp连接全过程各种状态详解"&gt;&lt;span&gt;tcp连接全过程各种状态详解&lt;/span&gt;
+ &lt;a href="#tcp%e8%bf%9e%e6%8e%a5%e5%85%a8%e8%bf%87%e7%a8%8b%e5%90%84%e7%a7%8d%e7%8a%b6%e6%80%81%e8%af%a6%e8%a7%a3" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LISTEN：侦听来自远方的TCP端口的连接请求&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SYN-SENT：再发送连接请求后等待匹配的连接请求（客户端）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SYN-RECEIVED：再收到和发送一个连接请求后等待对方对连接请求的确认（服务器）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ESTABLISHED：代表一个打开的连接&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FIN-WAIT-1：等待远程TCP连接中断请求，或先前的连接中断请求的确认&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FIN-WAIT-2：从远程TCP等待连接中断请求&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CLOSE-WAIT：等待从本地用户发来的连接中断请求&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CLOSING：等待远程TCP对连接中断的确认&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;LAST-ACK：等待原来的发向远程TCP的连接中断请求的确认&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TIME-WAIT：等待足够的时间以确保远程TCP接收到连接中断请求的确认&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CLOSED：没有任何连接状态&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 class="heading-element" id="tcp连接建立tcp三握手"&gt;&lt;span&gt;tcp连接建立（tcp三握手）&lt;/span&gt;
+ &lt;a href="#tcp%e8%bf%9e%e6%8e%a5%e5%bb%ba%e7%ab%8btcp%e4%b8%89%e6%8f%a1%e6%89%8b" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;TCP连接的建立采用客户-服务器模式：主动发起连接建立的应用进程叫做客户，被动等待连接建立的应用进程叫做服务器。&lt;/p&gt;
+&lt;p&gt;连接建立阶段：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一次握手&lt;/strong&gt;：客户端的应用进程主动打开，并向服务端发出请求报文段。其首部中：SYN=1,seq=x。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二次握手&lt;/strong&gt;：服务器应用进程被动打开。若同意客户端的请求，则发回确认报文，其首部中：SYN=1,ACK=1,ack=x+1,seq=y。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三次握手&lt;/strong&gt;：客户端收到确认报文之后，通知上层应用进程连接已建立，并向服务器发出确认报文，其首部：ACK=1,ack=y+1。当服务器收到客户端的确认报文之后，也通知其上层应用进程连接已建立。&lt;/p&gt;
+&lt;p&gt;在这个过程中，通信双方的状态如下图，其中CLOSED：关闭状态、LISTEN：收听状态、SYN-SENT：同步已发送、SYN-RCVD：同步收到、ESTAB-LISHED：连接已建立&lt;/p&gt;
+&lt;p&gt;至此，TCP连接就建立了，客户端和服务器可以愉快地玩耍了。只要通信双方没有一方发出连接释放的请求，连接就将一直保持。&lt;/p&gt;
+&lt;p&gt;tcp连接终止协议*（tcp四挥手）&lt;/p&gt;
+&lt;p&gt;由于TCP连接是全双工的，因此每个方向都必须单独进行关闭。这原则是当一方完成它的数据发送任务后就能发送一个FIN来终止这个方向的连接。收到一个 FIN只意味着这一方向上没有数据流动，一个TCP连接在收到一个FIN后仍能发送数据。首先进行关闭的一方将执行主动关闭，而另一方执行被动关闭。&lt;/p&gt;
+&lt;p&gt;（1） TCP客户端发送一个FIN，用来关闭客户到服务器的数据传送。&lt;/p&gt;
+&lt;p&gt;（2） 服务器收到这个FIN，它发回一个ACK，确认序号为收到的序号加1。和SYN一样，一个FIN将占用一个序号。&lt;/p&gt;
+&lt;p&gt;（3） 服务器关闭客户端的连接，发送一个FIN给客户端。&lt;/p&gt;
+&lt;p&gt;（4） 客户端发回ACK报文确认，并将确认序号设置为收到序号加1。&lt;/p&gt;</description></item><item><title>Wireshark</title><link>https://jiang1bo.github.io/posts/9c9909b/</link><pubDate>Tue, 23 Dec 2025 11:55:43 +0800</pubDate><guid>https://jiang1bo.github.io/posts/9c9909b/</guid><category domain="https://jiang1bo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category><description>&lt;h2 class="heading-element" id="wireshark使用"&gt;&lt;span&gt;Wireshark使用&lt;/span&gt;
  &lt;a href="#wireshark%e4%bd%bf%e7%94%a8" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
@@ -17656,7 +17856,7 @@ Ack = 1 : 表示当前端成功接收的数据位数，虽然客户端没有发�
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
  &lt;/a&gt;
 &lt;/h3&gt;&lt;p&gt;客户端向服务端发送FIN为1的报文，服务端返回确认，关闭客户端与服务端通信的部分。
-服务端向客户端发送FIN为1的报文，客户端返回确认，关闭服务端与客户端通信的部分。&lt;/p&gt;</description></item><item><title>openeuler开箱指南</title><link>https://jiang1bo.github.io/posts/1455028/</link><pubDate>Mon, 22 Dec 2025 06:30:06 +0800</pubDate><guid>https://jiang1bo.github.io/posts/1455028/</guid><category domain="https://jiang1bo.github.io/categories/draft/">Draft</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+服务端向客户端发送FIN为1的报文，客户端返回确认，关闭服务端与客户端通信的部分。&lt;/p&gt;</description></item><item><title>openeuler开箱指南</title><link>https://jiang1bo.github.io/posts/1455028/</link><pubDate>Mon, 22 Dec 2025 06:30:06 +0800</pubDate><guid>https://jiang1bo.github.io/posts/1455028/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;h2 class="heading-element" id="查看系统信息"&gt;&lt;span&gt;查看系统信息&lt;/span&gt;
  &lt;a href="#%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%bb%9f%e4%bf%a1%e6%81%af" class="heading-mark"&gt;
  &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -21457,762 +21657,4 @@ PERSISTENT_DHCLIENT=yes|no|1|0&lt;/p&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>Markdown 语法示例</title><link>https://jiang1bo.github.io/posts/e7d8135/</link><pubDate>Sun, 21 Dec 2025 13:13:34 +0800</pubDate><guid>https://jiang1bo.github.io/posts/e7d8135/</guid><category domain="https://jiang1bo.github.io/categories/makedown/">Makedown</category><description>&lt;p&gt;Hugo 支持使用 &lt;a href="https://en.wikipedia.org/wiki/Markdown"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown&lt;/a&gt; 语法来格式化文本、创建列表等。本页将展示一些最常用的 Markdown 语法示例。&lt;/p&gt;
-&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
-&lt;h2 class="heading-element" id="markdown-示例"&gt;&lt;span&gt;Markdown 示例&lt;/span&gt;
- &lt;a href="#markdown-%e7%a4%ba%e4%be%8b" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;h3 class="heading-element" id="文档网页渲染实现pdf内嵌"&gt;&lt;span&gt;文档网页渲染实现pdf内嵌&lt;/span&gt;
- &lt;a href="#%e6%96%87%e6%a1%a3%e7%bd%91%e9%a1%b5%e6%b8%b2%e6%9f%93%e5%ae%9e%e7%8e%b0pdf%e5%86%85%e5%b5%8c" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Makedown文档本身无法实现pdf文档预览的功能，但是可以通过embed,网页渲染实现pdf文档预览&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Go语言圣经 (Alan A. A. Donovan, Brian W. Kernighan etc.) (Z-Library).pdf&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;embed&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;https://example.com/document.pdf&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;application/pdf&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;100%&amp;#34;&lt;/span&gt; &lt;span class="na"&gt;height&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;800px&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;embed src="./assets/golang.pdf" type="application/pdf" width="100%" height="800px"&gt;
-&lt;h3 class="heading-element" id="文本样式"&gt;&lt;span&gt;文本样式&lt;/span&gt;
- &lt;a href="#%e6%96%87%e6%9c%ac%e6%a0%b7%e5%bc%8f" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th style="text-align: left"&gt;样式&lt;/th&gt;
- &lt;th style="text-align: left"&gt;语法&lt;/th&gt;
- &lt;th style="text-align: left"&gt;示例&lt;/th&gt;
- &lt;th style="text-align: left"&gt;输出&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;粗体&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;**粗体文本**&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;**粗体文本**&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;strong&gt;粗体文本&lt;/strong&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;斜体&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;*斜体文本*&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;*斜体文本*&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;em&gt;斜体文本&lt;/em&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;删除线&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;~~删除线文本~~&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;~~删除线文本~~&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;del&gt;删除线文本&lt;/del&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;下标&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;&amp;lt;sub&amp;gt;&amp;lt;/sub&amp;gt;&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;这是&amp;lt;sub&amp;gt;下标&amp;lt;/sub&amp;gt;文本&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;这是下标文本&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;上标&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;&amp;lt;sup&amp;gt;&amp;lt;/sup&amp;gt;&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;这是&amp;lt;sup&amp;gt;上标&amp;lt;/sup&amp;gt;文本&lt;/code&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;这是上标文本&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 class="heading-element" id="引用块"&gt;&lt;span&gt;引用块&lt;/span&gt;
- &lt;a href="#%e5%bc%95%e7%94%a8%e5%9d%97" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;p&gt;带出处的引用&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;不要通过共享内存来通信，而要通过通信来共享内存。
-— Rob Pike&lt;a href="https://imfing.github.io/hextra/zh-cn/docs/guide/markdown/#fn:1"target="_blank" rel="external nofollow noopener noreferrer"&gt;1&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Markdown&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;不要通过共享内存来通信，而要通过通信来共享内存。&amp;lt;br&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;— &amp;lt;cite&amp;gt;Rob Pike[^1]&amp;lt;/cite&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[^1]: 上述引用摘自 Rob Pike 在 2015 年 11 月 18 日 Gopherfest 上的[&lt;span class="nt"&gt;演讲&lt;/span&gt;](&lt;span class="na"&gt;https://www.youtube.com/watch?v=PAAkCSZUG1c&lt;/span&gt;)。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="提示框"&gt;&lt;span&gt;提示框&lt;/span&gt;
- &lt;a href="#%e6%8f%90%e7%a4%ba%e6%a1%86" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;p&gt;提示框是基于引用块语法的 Markdown 扩展，可用于强调关键信息。 支持 &lt;a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts"target="_blank" rel="external nofollow noopener noreferrer"&gt;GitHub 风格的提示框&lt;/a&gt;。 请确保您使用的是最新版本的 Hextra 和 &lt;a href="https://github.com/gohugoio/hugo/releases/tag/v0.146.0"target="_blank" rel="external nofollow noopener noreferrer"&gt;Hugo v0.146.0&lt;/a&gt; 或更高版本。&lt;/p&gt;
-&lt;div class="alert alert-note"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5.0 100 13 6.5 6.5.0 000-13zM6.5 7.75A.75.75.0 017.25 7h1a.75.75.0 01.75.75v2.75h.25a.75.75.0 010 1.5h-2a.75.75.0 010-1.5h.25v-2h-.25a.75.75.0 01-.75-.75zM8 6a1 1 0 110-2 1 1 0 010 2z"/&gt;&lt;/svg&gt;注意&lt;/p&gt;&lt;p&gt;即使用户只是浏览内容，也应该知道的有用信息。&lt;/p&gt;&lt;/div&gt;&lt;div class="alert alert-tip"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M8 1.5c-2.363.0-4 1.69-4 3.75.0.984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75.0 01-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456.0 00-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863.0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751.0 01-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304.0-2.06-1.637-3.75-4-3.75zM5.75 12h4.5a.75.75.0 010 1.5h-4.5a.75.75.0 010-1.5zM6 15.25a.75.75.0 01.75-.75h2.5a.75.75.0 010 1.5h-2.5A.75.75.0 016 15.25z"/&gt;&lt;/svg&gt;提示&lt;/p&gt;&lt;p&gt;帮助用户更高效或更轻松完成任务的建议。&lt;/p&gt;&lt;/div&gt;&lt;div class="alert alert-important"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M0 1.75C0 .784.784.0 1.75.0h12.5C15.216.0 16 .784 16 1.75v9.5A1.75 1.75.0 0114.25 13H8.06l-2.573 2.573A1.458 1.458.0 013 14.543V13H1.75A1.75 1.75.0 010 11.25zm1.75-.25a.25.25.0 00-.25.25v9.5c0 .138.112.25.25.25h2a.75.75.0 01.75.75v2.19l2.72-2.72a.749.749.0 01.53-.22h6.5a.25.25.0 00.25-.25v-9.5a.25.25.0 00-.25-.25zm7 2.25v2.5a.75.75.0 01-1.5.0v-2.5a.75.75.0 011.5.0zM9 9A1 1 0 117 9a1 1 0 012 0z"/&gt;&lt;/svg&gt;重要&lt;/p&gt;&lt;p&gt;用户需要了解的关键信息，以实现他们的目标。&lt;/p&gt;&lt;/div&gt;&lt;div class="alert alert-warning"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086.0l6.082 11.378A1.75 1.75.0 0114.082 15H1.918A1.75 1.75.0 01.375 12.425zm1.763.707a.25.25.0 00-.44.0L1.698 13.132a.25.25.0 00.22.368h12.164a.25.25.0 00.22-.368zm.53 3.996v2.5a.75.75.0 01-1.5.0v-2.5a.75.75.0 011.5.0zM9 11a1 1 0 11-2 0 1 1 0 012 0z"/&gt;&lt;/svg&gt;警告&lt;/p&gt;&lt;p&gt;需要用户立即关注的紧急信息，以避免出现问题。&lt;/p&gt;&lt;/div&gt;&lt;div class="alert alert-caution"&gt;&lt;p class="alert-title"&gt;&lt;svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"&gt;&lt;path d="M4.47.22A.749.749.0 015 0h6c.199.0.389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749.0 01-.22.53l-4.25 4.25A.749.749.0 0111 16H5a.749.749.0 01-.53-.22L.22 11.53A.749.749.0 010 11V5c0-.199.079-.389.22-.53zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5zM8 4a.75.75.0 01.75.75v3.5a.75.75.0 01-1.5.0v-3.5A.75.75.0 018 4zm0 8a1 1 0 110-2 1 1 0 010 2z"/&gt;&lt;/svg&gt;小心&lt;/p&gt;&lt;p&gt;关于某些操作可能带来风险或负面结果的警告。&lt;/p&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!NOTE]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;即使用户只是浏览内容，也应该知道的有用信息。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!TIP]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;帮助用户更高效或更轻松完成任务的建议。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!IMPORTANT]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;用户需要了解的关键信息，以实现他们的目标。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!WARNING]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;需要用户立即关注的紧急信息，以避免出现问题。
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&lt;span class="k"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;&amp;gt; &lt;/span&gt;&lt;span class="ge"&gt;[!CAUTION]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="ge"&gt;&lt;/span&gt;&amp;gt; 关于某些操作可能带来风险或负面结果的警告。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="表格"&gt;&lt;span&gt;表格&lt;/span&gt;
- &lt;a href="#%e8%a1%a8%e6%a0%bc" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;p&gt;表格不是 Markdown 核心规范的一部分，但 Hugo 原生支持它们。&lt;/p&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th style="text-align: left"&gt;姓名&lt;/th&gt;
- &lt;th style="text-align: left"&gt;年龄&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;张三&lt;/td&gt;
- &lt;td style="text-align: left"&gt;27&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;李四&lt;/td&gt;
- &lt;td style="text-align: left"&gt;23&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Markdown&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 姓名 | 年龄 |
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| :--- | :--- |
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 张三 | 27 |
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 李四 | 23 |&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 class="heading-element" id="表格内的行内-markdown"&gt;&lt;span&gt;表格内的行内 Markdown&lt;/span&gt;
- &lt;a href="#%e8%a1%a8%e6%a0%bc%e5%86%85%e7%9a%84%e8%a1%8c%e5%86%85-markdown" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h4&gt;&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th style="text-align: left"&gt;斜体&lt;/th&gt;
- &lt;th style="text-align: left"&gt;粗体&lt;/th&gt;
- &lt;th style="text-align: left"&gt;代码&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;&lt;em&gt;斜体&lt;/em&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;strong&gt;粗体&lt;/strong&gt;&lt;/td&gt;
- &lt;td style="text-align: left"&gt;&lt;code&gt;代码&lt;/code&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Markdown&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 斜体 | 粗体 | 代码 |
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| :----- | :------- | :----- |
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| &lt;span class="ge"&gt;_斜体_&lt;/span&gt; | &lt;span class="gs"&gt;**粗体**&lt;/span&gt; | &lt;span class="sb"&gt;`代码`&lt;/span&gt; |&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="代码块"&gt;&lt;span&gt;代码块&lt;/span&gt;
- &lt;a href="#%e4%bb%a3%e7%a0%81%e5%9d%97" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;p&gt;&lt;a href="https://imfing.github.io/hextra/zh-cn/docs/guide/syntax-highlighting"target="_blank" rel="external nofollow noopener noreferrer"&gt;语法高亮&lt;/a&gt;&lt;/p&gt;
-&lt;h3 class="heading-element" id="列表"&gt;&lt;span&gt;列表&lt;/span&gt;
- &lt;a href="#%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;h4 class="heading-element" id="有序列表"&gt;&lt;span&gt;有序列表&lt;/span&gt;
- &lt;a href="#%e6%9c%89%e5%ba%8f%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;第一项&lt;/li&gt;
-&lt;li&gt;第二项&lt;/li&gt;
-&lt;li&gt;第三项&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Markdown&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;1.&lt;/span&gt; 第一项
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;2.&lt;/span&gt; 第二项
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;3. 第三项&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 class="heading-element" id="无序列表"&gt;&lt;span&gt;无序列表&lt;/span&gt;
- &lt;a href="#%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;列表项&lt;/li&gt;
-&lt;li&gt;另一个项&lt;/li&gt;
-&lt;li&gt;再一个项&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Markdown&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; 列表项
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; 另一个项
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;- 再一个项&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 class="heading-element" id="嵌套列表"&gt;&lt;span&gt;嵌套列表&lt;/span&gt;
- &lt;a href="#%e5%b5%8c%e5%a5%97%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;水果
-&lt;ul&gt;
-&lt;li&gt;苹果&lt;/li&gt;
-&lt;li&gt;橙子&lt;/li&gt;
-&lt;li&gt;香蕉&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;乳制品
-&lt;ul&gt;
-&lt;li&gt;牛奶&lt;/li&gt;
-&lt;li&gt;奶酪&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Markdown&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; 水果
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;-&lt;/span&gt; 苹果
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;-&lt;/span&gt; 橙子
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;-&lt;/span&gt; 香蕉
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; 乳制品
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;-&lt;/span&gt; 牛奶
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - 奶酪&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 class="heading-element" id="任务列表"&gt;&lt;span&gt;任务列表&lt;/span&gt;
- &lt;a href="#%e4%bb%bb%e5%8a%a1%e5%88%97%e8%a1%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;编写文档&lt;/li&gt;
-&lt;li data-task=" " title="未完成"&gt;&lt;i class="checkbox-icon fa-fw fa-regular fa-square" aria-hidden="true"&gt;&lt;/i&gt;代码审查&lt;/li&gt;
-&lt;li data-task=" " title="未完成"&gt;&lt;i class="checkbox-icon fa-fw fa-regular fa-square" aria-hidden="true"&gt;&lt;/i&gt;部署更改&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Markdown&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;- [x]&lt;/span&gt; 编写文档
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;- [ ]&lt;/span&gt; 代码审查
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;- [ ] 部署更改&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="图片"&gt;&lt;span&gt;图片&lt;/span&gt;
- &lt;a href="#%e5%9b%be%e7%89%87" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;p&gt;&lt;img loading="lazy" src='https://picsum.photos/800/600' alt="风景"&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;![&lt;span class="nt"&gt;风景&lt;/span&gt;](&lt;span class="na"&gt;https://picsum.photos/800/600&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;带标题：&lt;/p&gt;
-&lt;p&gt;&lt;figure&gt;&lt;img loading="lazy" src='https://picsum.photos/800/600' alt="风景"&gt;&lt;figcaption class="image-caption"&gt;Lorem Picsum&lt;/figcaption&gt;
- &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Markdown&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;![&lt;span class="nt"&gt;风景&lt;/span&gt;](&lt;span class="na"&gt;https://picsum.photos/800/600 &amp;#34;Lorem Picsum&amp;#34;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;如需更高级的功能，请使用 Hugo 内置的 &lt;a href="https://gohugo.io/shortcodes/figure/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Figure 短代码&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 class="heading-element" id="配置"&gt;&lt;span&gt;配置&lt;/span&gt;
- &lt;a href="#%e9%85%8d%e7%bd%ae" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;p&gt;Hugo 使用 &lt;a href="https://github.com/yuin/goldmark"target="_blank" rel="external nofollow noopener noreferrer"&gt;Goldmark&lt;/a&gt; 进行 Markdown 解析。 Markdown 渲染可以在 &lt;code&gt;hugo.yaml&lt;/code&gt; 中的 &lt;code&gt;markup.goldmark&lt;/code&gt; 下配置。 以下是 Hextra 的默认配置：&lt;/p&gt;
-&lt;p&gt;hugo.yaml&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;markup:
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; goldmark:
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; renderer:
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; unsafe: true
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; highlight:
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; noClasses: false&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;更多配置选项，请参阅 Hugo 文档中的 &lt;a href="https://gohugo.io/getting-started/configuration-markup/"target="_blank" rel="external nofollow noopener noreferrer"&gt;配置 Markup&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 class="heading-element" id="学习资源"&gt;&lt;span&gt;学习资源&lt;/span&gt;
- &lt;a href="#%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%ba%90" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.markdownguide.org/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown 指南&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown 速查表&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.markdowntutorial.com/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown 教程&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://commonmark.org/help/"target="_blank" rel="external nofollow noopener noreferrer"&gt;Markdown 参考&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>linux杂谈：一些常用命令</title><link>https://jiang1bo.github.io/posts/835784b/</link><pubDate>Thu, 18 Dec 2025 05:52:10 +0800</pubDate><guid>https://jiang1bo.github.io/posts/835784b/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;h2 class="heading-element" id="linux杂谈一些常用命令"&gt;&lt;span&gt;linux杂谈：一些常用命令&lt;/span&gt;
- &lt;a href="#linux%e6%9d%82%e8%b0%88%e4%b8%80%e4%ba%9b%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;span class="lnt"&gt;17
-&lt;/span&gt;&lt;span class="lnt"&gt;18
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;##linux杂谈：一些常用命令&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#查看内核版本 &lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rpm -p kernel
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#删除....内核版本&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf -y remove .......
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#删除....内核版本&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf remove --oldinstallonly --setopt &lt;span class="nv"&gt;installonly_limit&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt; kernel
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#查看文本文件所在行&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;grep root /etc/passwd
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#执行如下命令可以设置一个新的系统时间：&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;date -s &lt;span class="s2"&gt;&amp;#34;20190712 18:30:50&amp;#34;&lt;/span&gt; &lt;span class="c1"&gt;#执行如下命令将系统时间同步到硬件，防止系统重启后时间被还原。 hwclock --systohc&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#重启一下我们修改过的网卡，nmtui修改ip&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@7-2 ~&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;# nmcli connection up ens3 ens33 ens34 ens35&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="网卡无法启动"&gt;&lt;span&gt;&lt;strong&gt;网卡无法启动&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#%e7%bd%91%e5%8d%a1%e6%97%a0%e6%b3%95%e5%90%af%e5%8a%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;span class="lnt"&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#用ifconfig查看，发现网卡不见了。用ifconfig -a查看，发现ens33网卡是在的，只是状态是down的。&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#临时的解决方法：&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#使用ifconfig命令，直接启动ens33网卡&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@centos7 ~&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;# ifconfig ens33 up&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#然后，临时配置一个IP地址&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@centos7 ~&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;# ifconfig ens33 192.168.100.1 netmask 255.255.255.0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;注意：此方法再虚拟机重启后失效。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="rpm-包的常用操作命令"&gt;&lt;span&gt;&lt;strong&gt;RPM 包的常用操作命令&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#rpm-%e5%8c%85%e7%9a%84%e5%b8%b8%e7%94%a8%e6%93%8d%e4%bd%9c%e5%91%bd%e4%bb%a4" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#1. 安装&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rpm -ivh package.rpm：安装指定的 RPM 包，其中-i表示安装，-v表示显示详细信息，-h表示以哈希符号显示安装进度。
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#2. 升级&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rpm -Uvh package.rpm：升级指定的 RPM 包，如果系统中未安装该包，则会进行安装。-U选项用于升级操作。
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#3. 卸载&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rpm -e package：卸载指定的已安装软件包，-e表示卸载操作。
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#4. 查询&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rpm -qa：查询系统中已安装的所有 RPM 包。可以通过管道符&lt;span class="p"&gt;|&lt;/span&gt;与grep命令结合使用，来查找特定的软件包。例如，rpm -qa &lt;span class="p"&gt;|&lt;/span&gt; grep openssh可以查找系统中已安装的 OpenSSH 相关的 RPM 包。
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rpm -qi package：查询指定软件包的详细信息，包括软件的描述、版本、依赖关系等。
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rpm -ql package：查询指定软件包安装的文件列表，显示该软件包在系统中安装的所有文件及其路径。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="ssh时出现warning-remote-host-identification-has-changed"&gt;&lt;span&gt;&lt;strong&gt;SSH时出现WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#ssh%e6%97%b6%e5%87%ba%e7%8e%b0warning-remote-host-identification-has-changed" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;p&gt;**翻译过来就是 警告：远程主机标识已更改！**ssh服务是通过公钥和私钥来进行连接的，它会把每个曾经访问过计算机或服务器的公钥（public key），记录在~/.ssh/known_hosts 中，当下次访问曾经访问过的计算机或服务器时，ssh就会核对公钥，如果和上次记录的不同，OpenSSH会发出警告。 使用命令清除所连接的IP ssh-keygen -R XX.XX.XX.XX&lt;/p&gt;
-&lt;h2 class="heading-element" id="vimvi-文本编辑器"&gt;&lt;span&gt;vim/vi 文本编辑器&lt;/span&gt;
- &lt;a href="#vimvi-%e6%96%87%e6%9c%ac%e7%bc%96%e8%be%91%e5%99%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;h3 class="heading-element" id="1常用快捷键"&gt;&lt;span&gt;1）常用快捷键：&lt;/span&gt;
- &lt;a href="#1%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e9%94%ae" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;p&gt;(在一般模式下使用)：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
-&lt;/span&gt;&lt;span class="lnt"&gt; 2
-&lt;/span&gt;&lt;span class="lnt"&gt; 3
-&lt;/span&gt;&lt;span class="lnt"&gt; 4
-&lt;/span&gt;&lt;span class="lnt"&gt; 5
-&lt;/span&gt;&lt;span class="lnt"&gt; 6
-&lt;/span&gt;&lt;span class="lnt"&gt; 7
-&lt;/span&gt;&lt;span class="lnt"&gt; 8
-&lt;/span&gt;&lt;span class="lnt"&gt; 9
-&lt;/span&gt;&lt;span class="lnt"&gt;10
-&lt;/span&gt;&lt;span class="lnt"&gt;11
-&lt;/span&gt;&lt;span class="lnt"&gt;12
-&lt;/span&gt;&lt;span class="lnt"&gt;13
-&lt;/span&gt;&lt;span class="lnt"&gt;14
-&lt;/span&gt;&lt;span class="lnt"&gt;15
-&lt;/span&gt;&lt;span class="lnt"&gt;16
-&lt;/span&gt;&lt;span class="lnt"&gt;17
-&lt;/span&gt;&lt;span class="lnt"&gt;18
-&lt;/span&gt;&lt;span class="lnt"&gt;19
-&lt;/span&gt;&lt;span class="lnt"&gt;20
-&lt;/span&gt;&lt;span class="lnt"&gt;21
-&lt;/span&gt;&lt;span class="lnt"&gt;22
-&lt;/span&gt;&lt;span class="lnt"&gt;23
-&lt;/span&gt;&lt;span class="lnt"&gt;24
-&lt;/span&gt;&lt;span class="lnt"&gt;25
-&lt;/span&gt;&lt;span class="lnt"&gt;26
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#在光标后一位开始插入&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;a 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#在该行的最后插入&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;A 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#在该行的最前面插入&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;I 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#直接跳到文件的首行&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gg 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#直接跳到文件的末行&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;G 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#删除一行；3dd 删除3行；yy 复制一行；3yy 复制3行；p 粘贴；u：即undo撤销操作；&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dd 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#进入字符选择模式，选择完成后，按y复制，按p粘贴&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#进入块选择模式，选择完成后，按y复制，按p粘贴&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ctrl+v 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#进入行选择模式，选择完成后，按y复制，按p粘贴&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;shift+v &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="2查找并替换"&gt;&lt;span&gt;2）查找并替换&lt;/span&gt;
- &lt;a href="#2%e6%9f%a5%e6%89%be%e5%b9%b6%e6%9b%bf%e6%8d%a2" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;p&gt;1 显示行号 :set nu&lt;/p&gt;
-&lt;p&gt;2 隐藏行号：:set nonu&lt;/p&gt;
-&lt;p&gt;3 查找关键字 :/you ## 效果：查找文件中出现的you，并定位到第一个找到的地方，按n可以定位到下一个匹配位置(按N定位到上一个)&lt;/p&gt;
-&lt;p&gt;4 替换操作 ：s/sad/bbb 查找光标所在行的第一个sad，替换为bbb&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;:%s/sad/bbb 查找文件中所有sad，替换为bbb&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="head-显示文件内容头部"&gt;&lt;span&gt;&lt;strong&gt;head 显示文件内容头部&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#head-%e6%98%be%e7%a4%ba%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9%e5%a4%b4%e9%83%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#查看文件头部的10行&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;head -10 install.log &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="tail-显示文件内容尾部"&gt;&lt;span&gt;tail 显示文件内容尾部&lt;/span&gt;
- &lt;a href="#tail-%e6%98%be%e7%a4%ba%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9%e5%b0%be%e9%83%a8" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tail -10 install.log 查看文件尾部的10行
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tail +10 install.log 查看文件 10–&amp;gt;末行
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tail -f install.log 小f跟踪文件的唯一inode号，就算文件改名后，还是跟踪原来这个inode表示的文件
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tail -F install.log 大F按照文件名来跟踪&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 class="heading-element" id="windows永恒之蓝测试"&gt;&lt;span&gt;windows永恒之蓝测试&lt;/span&gt;
- &lt;a href="#windows%e6%b0%b8%e6%81%92%e4%b9%8b%e8%93%9d%e6%b5%8b%e8%af%95" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;p&gt;在CMD窗口下，输入如下命令：netstat –ano | findstr “445”，找出相关进程号，其中SYN_SENT状态，很显然，该电脑被感染永恒之蓝病毒了&lt;/p&gt;
-&lt;p&gt;找出相关进程号对应的进程，在cmd下输入tasklist | findstr 20164，看看是哪个进程产生该数据包&lt;/p&gt;
-&lt;p&gt;打开任务管理器，找到相应的进程，先打开文件位置，然后结束进程&lt;/p&gt;
-&lt;h2 class="heading-element" id="cockpit-是什么具体解释"&gt;&lt;span&gt;Cockpit 是什么具体解释：&lt;/span&gt;
- &lt;a href="#cockpit-%e6%98%af%e4%bb%80%e4%b9%88%e5%85%b7%e4%bd%93%e8%a7%a3%e9%87%8a" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now cockpit.socket&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这条命令的作用是&lt;strong&gt;启用并立即启动 Cockpit Web 控制台的按需监听服务&lt;/strong&gt;。&lt;/p&gt;
-&lt;h3 class="heading-element" id="1-cockpit-是什么"&gt;&lt;span&gt;1. &lt;strong&gt;Cockpit 是什么？&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#1-cockpit-%e6%98%af%e4%bb%80%e4%b9%88" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Cockpit 是一个&lt;strong&gt;基于 Web 的 Linux 服务器管理界面&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;可通过浏览器（端口 9090）管理服务器：监控系统状态、管理服务、配置网络、查看日志等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 class="heading-element" id="2-cockpitsocket-的特殊性"&gt;&lt;span&gt;2. &lt;strong&gt;cockpit.socket 的特殊性&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#2-cockpitsocket-%e7%9a%84%e7%89%b9%e6%ae%8a%e6%80%a7" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;这是 &lt;strong&gt;Socket 激活（Socket Activation）&lt;/strong&gt; 方式&lt;/li&gt;
-&lt;li&gt;与传统服务不同：
-&lt;ul&gt;
-&lt;li&gt;普通服务：&lt;code&gt;cockpit.service&lt;/code&gt; 会一直运行&lt;/li&gt;
-&lt;li&gt;Socket 服务：&lt;code&gt;cockpit.socket&lt;/code&gt; 只&lt;strong&gt;监听端口&lt;/strong&gt;，当有连接请求时才启动服务&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 class="heading-element" id="3-命令执行的具体效果"&gt;&lt;span&gt;3. &lt;strong&gt;命令执行的具体效果：&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#3-%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c%e7%9a%84%e5%85%b7%e4%bd%93%e6%95%88%e6%9e%9c" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now cockpit.socket&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;enable&lt;/code&gt;：设置开机自动启动&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--now&lt;/code&gt;：立即启动（无需重启系统）&lt;/li&gt;
-&lt;li&gt;结果：
-&lt;ol&gt;
-&lt;li&gt;系统开始监听 &lt;strong&gt;9090 端口&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;当用户通过浏览器访问时，才启动 cockpit 服务&lt;/li&gt;
-&lt;li&gt;空闲一段时间后，服务会自动停止（节省资源）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 class="heading-element" id="4-与传统启动方式的对比"&gt;&lt;span&gt;4. &lt;strong&gt;与传统启动方式的对比：&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#4-%e4%b8%8e%e4%bc%a0%e7%bb%9f%e5%90%af%e5%8a%a8%e6%96%b9%e5%bc%8f%e7%9a%84%e5%af%b9%e6%af%94" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Socket 方式（按需启动 - 推荐）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now cockpit.socket&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="5-验证命令"&gt;&lt;span&gt;5. &lt;strong&gt;验证命令：&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#5-%e9%aa%8c%e8%af%81%e5%91%bd%e4%bb%a4" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;span class="lnt"&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 查看 socket 状态&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl status cockpit.socket
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 查看监听端口&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ss -ltn &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="m"&gt;9090&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 如果服务未按需启动，可检查&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl status cockpit.service&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 class="heading-element" id="6-访问方式"&gt;&lt;span&gt;6. &lt;strong&gt;访问方式：&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#6-%e8%ae%bf%e9%97%ae%e6%96%b9%e5%bc%8f" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;浏览器访问：&lt;code&gt;https://你的服务器IP:9090&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;使用系统账户密码登录&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 class="heading-element" id="7-关闭禁用方法"&gt;&lt;span&gt;7. &lt;strong&gt;关闭/禁用方法：&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#7-%e5%85%b3%e9%97%ad%e7%a6%81%e7%94%a8%e6%96%b9%e6%b3%95" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 停止并禁用&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl disable --now cockpit.socket
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 如果 cockpit.service 已被激活运行，也需要停止&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl stop cockpit.service&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;：Socket 激活方式更节省资源，特别适合不经常使用的管理界面。&lt;/p&gt;
-&lt;h2 class="heading-element" id="ubuntu拓荒指南"&gt;&lt;span&gt;&lt;strong&gt;ubuntu拓荒指南&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#ubuntu%e6%8b%93%e8%8d%92%e6%8c%87%e5%8d%97" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h2&gt;&lt;h3 class="heading-element" id="1ubuntu上报e-unable-to-locate-package-update错误的解决方法"&gt;&lt;span&gt;&lt;strong&gt;1.ubuntu上报E: Unable to locate package update错误的解决方法&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#1ubuntu%e4%b8%8a%e6%8a%a5e-unable-to-locate-package-update%e9%94%99%e8%af%af%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;如果第一次使用系统，软件库缓存没有更新会包找不到软件包的错误。使用下面命令更新&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;update&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="err"&gt;注意，上面的命令不是&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="err"&gt;，因为使用&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;包管理器会搜索缓存以获取包和版本信息，然后通&lt;/span&gt;&lt;span class="o"&gt;##&lt;/span&gt;&lt;span class="err"&gt;过网络从其存储库下载它。如果软件包不在此缓存中，系统将无法安装软件包。&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="err"&gt;新装系统，缓存是空的。首先应该运行&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;update&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;命令。这样就不会出现&lt;/span&gt;&lt;span class="n"&gt;E&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Unable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;locate&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;package&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;错误。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;[ubuntu上报E: Unable to locate package update错误的解决方法 – 知乎](&lt;a href="https://zhuanlan.zhihu.com/p/484067483#:~:text=ubuntu"target="_blank" rel="external nofollow noopener noreferrer"&gt;https://zhuanlan.zhihu.com/p/484067483#:~:text=ubuntu&lt;/a&gt;上报E%3A Unable to locate package update错误的解决方法 1 1.检查软件包名名称：,4. 检查 Ubuntu 版本的活跃程度 Ubuntu 有两种主要的版本。 常规版本支持九个月，而长期支持版本支持五年。)&lt;/p&gt;
-&lt;h3 class="heading-element" id="2ubuntu使用ping命令未发现"&gt;&lt;span&gt;&lt;strong&gt;2.ubuntu使用ping命令未发现&lt;/strong&gt;&lt;/span&gt;
- &lt;a href="#2ubuntu%e4%bd%bf%e7%94%a8ping%e5%91%bd%e4%bb%a4%e6%9c%aa%e5%8f%91%e7%8e%b0" class="heading-mark"&gt;
- &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
- &lt;/a&gt;
-&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-csharp" data-lang="csharp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;iputils&lt;/span&gt;&lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ping&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item></channel></rss>
+&lt;/ol&gt;</description></item></channel></rss>

@@ -1,4 +1,4 @@
-# 编译过程和依赖管理，RPM（Red Hat Package Manager）&& Make Install常见的使用方式
+# Linux编译过程和依赖管理，RPM（Red Hat Package Manager）&& Make Install常见的使用方式
 
 
 ## make install与rpmbuild -ba openssh.spec的区别特点
