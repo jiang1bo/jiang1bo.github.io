@@ -437,10 +437,38 @@ acme.sh 的命令风格更统一，基本遵循 `acme.sh --action [选项]`。
 
 **至此，全部设置完成。** 后续 acme.sh 会通过自带的 Cron 任务自动检查并续期证书，续期后会执行你指定的 `--reloadcmd` 命令，完全无需干预。
 
+### **核心使用场景与命令组合参考**
+
+为了方便你直接使用，这里有几个高频场景的命令组合：
+
+1. **场景一：使用 acme.sh 通过阿里云DNS全自动签发并部署ECC证书**
+
+   ```
+   # 1. 签发ECC证书
+   acme.sh --issue --dns dns_ali -d fermis.top -d '*.fermis.top' --keylength ec-256
+   # 2. 安装证书并设置续期后自动重载Nginx
+   acme.sh --install-cert -d fermis.top \
+     --key-file       /etc/nginx/ssl/fermis.top_ecc/key.pem \
+     --fullchain-file /etc/nginx/ssl/fermis.top_ecc/cert.pem \
+     --reloadcmd     "sudo systemctl reload nginx"
+   ```
+
+1. **场景二：查看当前证书状态（通用）**
+
+   ```
+   # Certbot 查看
+   sudo certbot certificates
+   # acme.sh 查看
+   acme.sh --list
+   ```
+
 ### 选择建议与总结
 
 - **选择 acme.sh，如果你**：追求**极致的简单、自动化**，不喜欢处理权限问题（sudo），或者环境受限（如轻量容器、嵌入式设备）。它的“设置即忘记”体验非常出色。
 - **坚持使用 Certbot，如果你**：更习惯主流的、由系统包管理器维护的软件，环境是标准的服务器，且需要与 Apache/Nginx 等深度集成的官方插件支持。
+- **参数顺序**：Certbot对参数顺序敏感，`-d` 域名参数通常需放在子命令之后、其他选项之前。
+- **凭证安全**：DNS API的密钥文件（如`cloudflare.ini`）必须设置严格权限 (`chmod 600`)。
+- **测试先行**：在正式签发前，务必使用 `--dry-run` (Certbot) 或在测试服务器 (`--staging`) 上操作。
 
 对于个人域名 `fermis.top` 和 openEuler 服务器，**两者都能完美工作**。如果你希望流程更“傻瓜化”、更符合 Shell 运维习惯，**acme.sh 是更精妙的选择**；如果你更看重官方文档和社区支持的广泛性，Certbot 则是更稳妥的选项。
 
