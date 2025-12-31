@@ -7,105 +7,19 @@
 
 ## **将wordpress源文件上传解压到wwwroot目录下**
 
-之后点击上方导航栏的“首页”，找到域名绑定
+之后点击上方导航栏的“首页”，找到域名绑定，之后类型选择CNAME，子域名填写自己喜欢的，主域名可以随便选，完成之后可以在下面找到这条记录（前面的是记录ID，每个人都不一样）
 
-![img](https://pica.zhimg.com/v2-6f352e12decdfc087e0ebc577fde9db8_1440w.jpg)
-
-来到雨云的首页，进入域名服务
-
-![img](https://pic4.zhimg.com/v2-b4261eb1c7b0f1bf205dd8b18b319d85_1440w.jpg)
-
-之后类型选择CNAME，子域名填写自己喜欢的，主域名可以随便选，云产品ID选择刚刚创建的虚拟主机，完成后点击立即创建
-
-完成之后可以在下面找到这条记录（前面的是记录ID，每个人都不一样）
-
-把后面的域名复制下来，在这个教程中就是rain.ates.top
-
-回到虚拟主机管理面板，把复制的内容填进去：
-
-上面的红字提示不用管，在雨云创建子域名的时候系统已经帮我们完成了，这里点击确定即可
+把后面的域名复制下来，在这个教程中就是rain.ates.top。回到虚拟主机管理面板，把复制的内容填进去：
 
 之后我们需要一个[SSL证书](https://zhida.zhihu.com/search?content_id=233295315&content_type=Article&match_order=1&q=SSL证书&zhida_source=entity)，不然访问网站会提示“不安全”
 
-由于面板的特殊性，我们需要使用第三方SSL机构来申请证书，先回到雨云的虚拟主机面板
-
-在右侧的域名管理中选择“绑定域名”
-
-![img](https://pic4.zhimg.com/v2-abb5c59741123674bc0d4aca5659678f_1440w.jpg)
+**由于面板的特殊性，我们需要使用第三方SSL机构来申请证书**
 
 暂时不要勾选开启HTTPS支持，确认创建后点击访问测试一下有无问题
 
 加载完成后会出现这个页面，代表成功了，这时候浏览器左上角，也就是地址栏的左边会提示不安全
 
-![img](https://pic1.zhimg.com/v2-35f22eb9c796456e22049e9f910e3ab4_1440w.jpg)
-
 如果要像这样给你的网站“加锁”，那就必须配置SSL证书：
-
-访问这里：[SSL Management | GoGetSSL®](https://link.zhihu.com/?target=https%3A//my.gogetssl.com/en/user/)，注册账户，点击New Order
-
-![img](https://pica.zhimg.com/v2-2aebca209638b1422e5718f2ce5daa5e_1440w.jpg)
-
-我们选择90天免费的
-
-点击后面的Order
-
-![img](https://picx.zhimg.com/v2-91c14edfecadd4429a8d37dc5312d7d3_1440w.jpg)
-
-保持默认，最下面选择那个0.00$的，点击Next Step
-
-![img](https://picx.zhimg.com/v2-23e8ce06d3d236a6323deee983e4dd17_1440w.jpg)
-
-点绿色的Complete Order
-
-在左侧选择[SSL Certificates](https://link.zhihu.com/?target=https%3A//my.gogetssl.com/en/user/sslcerts/all/)，点击刚刚生成的证书后面的View
-
-![img](https://pic4.zhimg.com/v2-50acbf51448ba8cfceef1e7da72dbd9b_1440w.jpg)
-
-点第一个齿轮标志的，在这里[SSL Management | GoGetSSL®](https://link.zhihu.com/?target=https%3A//my.gogetssl.com/en/user/csr/generate/)填写你网站的信息，第一个输入框填写你的域名，我这里直接用自动填充了
-
-之后把生成的东西复制下来：
-
-只需要复制Certificate Signing Request(CSR)的内容就行，从—–BEGIN CERTIFICATE REQUEST—–复制到—–END CERTIFICATE REQUEST—–即可，**页面不要关闭，之后还要用到！**
-
-将复制的内容填写到申请页面里：
-
-![img](https://pic2.zhimg.com/v2-a2a4f6f90a5034a159122212eb02209f_1440w.jpg)
-
-点击下面的验证即可
-
-![img](https://pic3.zhimg.com/v2-6fea9a3d1cac4da5d7b6689d52e6159e_1440w.jpg)
-
-
-
-验证方式选择HTTP，点击Next Step
-
-之后填写一些你的信息，滑倒最下面
-
-点击*Complete Generation*
-
-之后过大概一分钟刷新一下
-
-点击上面的Domain Validation
-
-点击Validation File，回到EP面板，在文件管理器中进入wwwroot目录，点击创建目录（也就是创建文件夹的意思），创建一个名为“.well-known”的文件夹
-
-![img](https://pic3.zhimg.com/v2-e0517e778513300855e64fe076a5e0b2_1440w.jpg)
-
-**进入这个目录后**再点击创建目录，名为“pki-validation”，创建完成后进入
-
-之后点击上传文件，把下载的TXT文件上传到这个目录中
-
-![img](https://pic4.zhimg.com/v2-d62caea711787a7b5db1503532f92e3b_1440w.jpg)
-
-这样子即可
-
-之后点击GoGetSSL的重新验证
-
-![img](https://pic3.zhimg.com/v2-ba481924964d33a1fb60d2e228e2c192_1440w.jpg)
-
-过一会邮箱就可以收到证书信息了，证书内容**千万不要**透露给别人！
-
-![img](https://pic3.zhimg.com/v2-277b83a28d8461df26168e2ee56af250_1440w.jpg)
 
 之后回到申请CSR的页面，复制Your Private Server Key的内容，从—–BEGIN PRIVATE KEY—–到—–END PRIVATE KEY—–
 
@@ -120,16 +34,6 @@
 ![img](https://pic1.zhimg.com/v2-aa49675f26e8e6b096fe1e73be16f29a_1440w.jpg)
 
 状态变为成功
-
-之后在雨云的SSL证书里点击上传证书
-
-![img](https://pic2.zhimg.com/v2-43247da1f4ac2e531a3329059aeec4c7_1440w.jpg)
-
-![img](https://pica.zhimg.com/v2-6ebc9712e62db35a7812b2c5c263fb08_1440w.jpg)
-
-点击保存证书，回到雨云虚拟主机的管理面板，删掉临时用的域名，之后重新绑定，这里要勾选开启HTTPS支持，选择刚刚上传的证书，打开强制SSL跳转
-
-![img](https://picx.zhimg.com/v2-decff4e037bf66b17190cc1633569395_1440w.jpg)
 
 过一分钟以后再次访问，就可以看到网站已经被“加锁”了
 
@@ -297,9 +201,7 @@ WordPress 网站搬家还是很简单的，得益于丰富的插件生态，各�
 
 如果网站文件不大的话，建议使用插件，方便省事；如果文件较大，那插件导入可能会有点慢，手动上传或许更快些。
 
-
-
-
+## cloudflaressl证书失效
 
 您遇到的 `NET::ERR_CERT_AUTHORITY_INVALID` 错误非常明确。问题不在于您的操作，而在于浏览器所信任的证书链。您直接从自己的服务器（`hk.jiangbos.top`）访问时，浏览器收到了一个**CloudFlare Origin SSL证书**，但这个证书**不是由公共信任的根证书机构签发的**，因此浏览器会直接拦截并报错。
 
@@ -328,17 +230,13 @@ WordPress 网站搬家还是很简单的，得益于丰富的插件生态，各�
 
 完成CloudFlare的DNS和SSL设置后，访问您的公开域名，安全锁就应该能正常显示了。如果完成所有设置后问题依然存在，请检查网站内是否有代码（如数据库中的链接）仍然指向 `http://` 或源站地址，导致“混合内容”问题。
 
-如果方便，请告诉我您在CloudFlare的DNS记录中，“云朵”代理状态是否是开启的（橙色）？以及SSL/TLS模式设置为什么？这能帮助我进一步确认问题。
-
-
-
 
 
 搭建完wordpress，试着写了一篇博客。文章发布后，首页已经能显示出文章的标题，但是点进去后却提示该页无法显示。
 
 百度一番，先后尝试网上的修改apache配置等方法后依然无效。折腾到最后无意间发现，这个问题是由于wordpress生成的链接中包含中文字符导致的。在wordpress的文章编辑页面中，手动修改链接为纯英文，问题解决。
 
-现在问题解决了，但是每次编辑完文章都要改下链接似乎也不太方便。对于想偷懒的同学，可以安装这个插件：Pinyin Permalink，自动修改文章的链接为拼音，这样即可一劳永逸的解决问题。
+现在问题解决了，但是每次编辑完文章都要改下链接似乎也不太方便。对于想偷懒的同学，可以安装这个插件：**Pinyin Permalink，自动修改文章的链接为拼音，这样即可一劳永逸的解决问题。**
 ————————————————
 版权声明：本文为CSDN博主「wayne_l123」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/l1902090/article/details/73610629
