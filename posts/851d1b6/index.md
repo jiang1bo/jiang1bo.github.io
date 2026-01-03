@@ -5,11 +5,17 @@
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
 
-## **将wordpress源文件上传解压到wwwroot目录下**
 
-之后点击上方导航栏的“首页”，找到域名绑定，之后类型选择CNAME，子域名填写自己喜欢的，主域名可以随便选，完成之后可以在下面找到这条记录（前面的是记录ID，每个人都不一样）
 
-把后面的域名复制下来，在这个教程中就是rain.ates.top。回到虚拟主机管理面板，把复制的内容填进去：
+## 上传wordpress文件
+
+**将wordpress源文件上传解压到wwwroot目录下**
+
+## 域名绑定
+
+之后点击上方导航栏的“首页”，找到域名绑定，之后类型选择CNAME，子域名填写自己喜欢的，主域名可以随便选，完成之后可以在下面找到这条记录，把后面的域名复制下来，在这个教程中就是rain.ates.top。回到虚拟主机管理面板，把复制的内容填进去：
+
+## ssl证书
 
 之后我们需要一个[SSL证书](https://zhida.zhihu.com/search?content_id=233295315&content_type=Article&match_order=1&q=SSL证书&zhida_source=entity)，不然访问网站会提示“不安全”
 
@@ -21,9 +27,7 @@
 
 如果要像这样给你的网站“加锁”，那就必须配置SSL证书：
 
-之后回到申请CSR的页面，复制Your Private Server Key的内容，从—–BEGIN PRIVATE KEY—–到—–END PRIVATE KEY—–
-
-回到EP面板，在首页-SSL证书中填写相关信息
+**回到EP面板，在首页-SSL证书中填写相关信息**
 
 ![img](https://pic3.zhimg.com/v2-e874f9c4edba772feed571f7789d6dae_1440w.jpg)
 
@@ -35,9 +39,9 @@
 
 状态变为成功
 
-过一分钟以后再次访问，就可以看到网站已经被“加锁”了
+## wordpress设置
 
-![img](https://pic2.zhimg.com/v2-96f710bc35a0ba2fd18380f07c85238d_1440w.jpg)
+**过一分钟以后再次访问，就可以看到网站已经被“加锁”了**
 
 接下来安装WordPress，这个页面就是选择语言的，拉到最下面可以选择中文，点击继续
 
@@ -45,29 +49,15 @@
 
 点击现在就开始，之后会要求填写数据库信息，可以在EP面板里下滑找到
 
-![img](https://pic4.zhimg.com/v2-e684b8c3cd14f16e314de6047d6eceb9_1440w.jpg)
-
-密码可以在雨云虚拟主机处下滑找到
-
-![img](https://pic4.zhimg.com/v2-283188fb5841a704ec4cd0103218105d_1440w.jpg)
-
 点击复制即可，将所有信息填写完成后点击提交，如果你填写的没问题那么会出现以下界面，点击“运行安装程序”
 
 ![img](https://pic2.zhimg.com/v2-a89c4261f7b04790ad14307caac4ce43_1440w.jpg)
 
-填写站点的基本信息后点击安装即可
-
-![img](https://pic2.zhimg.com/v2-c152016dcabc00c64b3344f8a85a8427_1440w.jpg)
-
-之后等待一会便可以看到安装成功
-
-![img](https://pic4.zhimg.com/v2-f7f96c00b547db605b2fa52460606dfb_1440w.jpg)
-
-点击登录即可登录到后台
+## 网站优化
 
 这时网站就已经安装完成了，接下来我们需要做一些优化
 
-回到EP面板，找到伪静态选项修改规则为“wordpress”
+**回到EP面板，找到伪静态选项修改规则为“wordpress”**
 
 ![img](https://pic2.zhimg.com/v2-38ca9c2129ee77ca0b594f2ac9e362b3_1440w.jpg)
 
@@ -87,11 +77,7 @@
 
 插件不是越多越好，越多的插件网站加载时间就越慢！
 
-## 前言
-
-WordPress 作为全球最流行的博客系统，使用简单，功能丰富，用它来建站的用户非常多。对于站长们来说，网站搬家也是少不了的，有时我们需要更换主机空间，把网站从一个服务器迁移到另一个服务器上，或者更换域名。
-
-本文就详细介绍下 WordPress 网站搬家的几种方法，我们可以通过手动备份搬家，也可以使用插件工具一键完成网站迁移。还是很简单的。
+## wordpress网站资源搬家
 
 ## 准备
 
@@ -105,7 +91,7 @@ WordPress 网站搬家分两种情况，更换域名和不更换域名。搬家�
 
 推荐使用 [All-in-One WP Migration](https://link.zhihu.com/?target=https%3A//wordpress.org/plugins/all-in-one-wp-migration/) 搬家插件，直接打包全站数据一键迁移，非常方便。
 
-## **# 1. 导出网站文件**
+##  1. 导出网站文件
 
 登陆 WordPress 后台，搜索并安装插件 All-in-One WP Migration。
 
@@ -119,7 +105,7 @@ WordPress 网站搬家分两种情况，更换域名和不更换域名。搬家�
 
 ![img](https://pica.zhimg.com/v2-aac9c58bd6febfecc373b18e03e6042a_1440w.jpg)
 
-## **# 2. 导入网站文件到新主机空间**
+##  2. 导入网站文件到新主机空间
 
 将域名解析到新主机空间。在新主机空间上安装好 WordPress，进入后台安装 All-in-One WP Migration。
 
@@ -137,7 +123,7 @@ WordPress 网站搬家分两种情况，更换域名和不更换域名。搬家�
 
 ## 方法二、WordPress 手动搬家
 
-## **# 1. 备份网站文件和数据库**
+##  1. 备份网站文件和数据库
 
 进入原网站服务器/主机后台，打包下载网站根目录下的所有文件到本地。
 
@@ -145,13 +131,13 @@ WordPress 网站搬家分两种情况，更换域名和不更换域名。搬家�
 
 ![img](https://pic1.zhimg.com/v2-d406719f4161d27bef726a6973b4b62a_1440w.jpg)
 
-## **# 2. 上传网站文件和导入数据库**
+## **2. 上传网站文件和导入数据库**
 
 上传网站文件到新主机的网站目录并解压。
 
 在 phpMyAdmin 中创建一个新数据库，并导入上面的网站数据库 sql 文件。
 
-## **# 3. 修改 [wp-config.php](https://zhida.zhihu.com/search?content_id=10350831&content_type=Article&match_order=1&q=wp-config.php&zhida_source=entity)**
+## **3. 修改 [wp-config.php](https://zhida.zhihu.com/search?content_id=10350831&content_type=Article&match_order=1&q=wp-config.php&zhida_source=entity)**
 
 编辑 wp-config.php 文件，修改数据库名称、用户名、密码，连接新主机。
 
@@ -195,17 +181,13 @@ UPDATE wp_posts SET guid = REPLACE(guid, '旧域名' ,'新域名');
 - 网站搬家完成后记得更新固定链接，设置 -> 固定链接 -> 保存;
 - 搬家前可以先清理下网站里的冗余内容，比如废弃的插件、站内备份文件等，减小网站体积。
 
-## 结语
 
-WordPress 网站搬家还是很简单的，得益于丰富的插件生态，各种搬家、备份插件也很多，可以按安装量排序选择。
-
-如果网站文件不大的话，建议使用插件，方便省事；如果文件较大，那插件导入可能会有点慢，手动上传或许更快些。
 
 ## cloudflaressl证书失效
 
-您遇到的 `NET::ERR_CERT_AUTHORITY_INVALID` 错误非常明确。问题不在于您的操作，而在于浏览器所信任的证书链。您直接从自己的服务器（`hk.jiangbos.top`）访问时，浏览器收到了一个**CloudFlare Origin SSL证书**，但这个证书**不是由公共信任的根证书机构签发的**，因此浏览器会直接拦截并报错。
+浏览器访问遇到 `NET::ERR_CERT_AUTHORITY_INVALID` 错误。问题不在于您的操作，而在于浏览器所信任的证书链。直接从自己的服务器（`hk.jiangbos.top`）访问时，浏览器收到了一个**CloudFlare Origin SSL证书**，但这个证书**不是由公共信任的根证书机构签发的**，因此浏览器会直接拦截并报错。
 
-您看到的这个 “CloudFlare Origin SSL Certificate” **不是公网证书，而是CloudFlare和您的源服务器之间建立内部加密的专用证书**，它只在CloudFlare的网络内部被信任。
+你看到的这个 “CloudFlare Origin SSL Certificate” **不是公网证书，而是CloudFlare和您的源服务器之间建立内部加密的专用证书**，它只在CloudFlare的网络内部被信任。
 
 ### 🔍 问题核心与解决方案
 
@@ -230,13 +212,16 @@ WordPress 网站搬家还是很简单的，得益于丰富的插件生态，各�
 
 完成CloudFlare的DNS和SSL设置后，访问您的公开域名，安全锁就应该能正常显示了。如果完成所有设置后问题依然存在，请检查网站内是否有代码（如数据库中的链接）仍然指向 `http://` 或源站地址，导致“混合内容”问题。
 
-
+## 搬家后主页正常，文章提示找不到资源
 
 搭建完wordpress，试着写了一篇博客。文章发布后，首页已经能显示出文章的标题，但是点进去后却提示该页无法显示。
 
 百度一番，先后尝试网上的修改apache配置等方法后依然无效。折腾到最后无意间发现，这个问题是由于wordpress生成的链接中包含中文字符导致的。在wordpress的文章编辑页面中，手动修改链接为纯英文，问题解决。
 
 现在问题解决了，但是每次编辑完文章都要改下链接似乎也不太方便。对于想偷懒的同学，可以安装这个插件：**Pinyin Permalink，自动修改文章的链接为拼音，这样即可一劳永逸的解决问题。**
+
+
+
 ————————————————
 版权声明：本文为CSDN博主「wayne_l123」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/l1902090/article/details/73610629
