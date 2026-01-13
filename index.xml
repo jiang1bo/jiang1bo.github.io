@@ -1290,7 +1290,7 @@
 &lt;p&gt;现在问题解决了，但是每次编辑完文章都要改下链接似乎也不太方便。对于想偷懒的同学，可以安装这个插件：&lt;strong&gt;Pinyin Permalink，自动修改文章的链接为拼音，这样即可一劳永逸的解决问题。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;————————————————
 版权声明：本文为CSDN博主「wayne_l123」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/l1902090/article/details/73610629&lt;/p&gt;</description></item><item><title>openeuler:mosh编译食用指南</title><link>https://jiang1bo.github.io/posts/d0a3efc/</link><pubDate>Sun, 28 Dec 2025 01:38:32 +0800</pubDate><guid>https://jiang1bo.github.io/posts/d0a3efc/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+原文链接：https://blog.csdn.net/l1902090/article/details/73610629&lt;/p&gt;</description></item><item><title>openeuler:mosh+ssh编译食用指南</title><link>https://jiang1bo.github.io/posts/d0a3efc/</link><pubDate>Sun, 28 Dec 2025 01:38:32 +0800</pubDate><guid>https://jiang1bo.github.io/posts/d0a3efc/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;p&gt;在 openEuler 上从源码编译安装 mosh-1.4.0，虽然步骤较多，但能让你更灵活地控制版本和编译选项。整个过程可总结为以下流程：&lt;/p&gt;
 &lt;pre class="mermaid"&gt;flowchart TD
  A[开始: 源码编译安装 Mosh] --&gt; B

@@ -1,4 +1,4 @@
-# Openeuler:mosh编译食用指南
+# Openeuler:mosh+ssh编译食用指南
 
 
 <!--more-->
