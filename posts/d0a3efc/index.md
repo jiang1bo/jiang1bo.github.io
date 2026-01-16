@@ -1,11 +1,11 @@
-# Openeuler:mosh+ssh编译食用指南
+# Openeuler:ssh常见配置和操作命令+mosh编译食用指南
 
+
+ssh常见配置和操作命令+mosh编译食用指南
 
 <!--more-->
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
-
-
 
 在 openEuler 上从源码编译安装 mosh-1.4.0，虽然步骤较多，但能让你更灵活地控制版本和编译选项。整个过程可总结为以下流程：
 
@@ -33,7 +33,186 @@ flowchart TD
     E1 --> F[完成安装]
 ```
 
+
+
+
+
+## ssh 利用非对称加密实现安全的登录
+
+非对称加密中有两个密钥：公钥和私钥。公钥由私钥产生，但却无法推算出私钥；公钥加密后的密文，只能通过对应的私钥来解密。
+
+终端要登录 Server 服务器，发起登录请求 ssh work@server.com。服务端运行有 sshd 服务，并监听指定的端口，默认为 22 号端口。
+
+服务端会生成一对公钥和私钥；此时将公钥返回给客户端；客户端使用公钥，对登录密码进行加密（如服务器work用户密码为xxx），生成公钥加密字符串；客户端将公钥加密字符串发送给服务端；服务端使用私钥，解密公钥加密字符串，得到原始密码；校验密码是否合法（此为本机 work 密码）；返回登录结果给客户端：成功登录或密码错。
+
+**在非对称加密中，由于只有公钥会被传输，而私钥是服务端本地保存，因此即便公钥被监听，也无法拿到原始密码，从而安全地登录服务器。**
+
+```css
+使用指定用户名和端口登录远程主机。ssh -p3600 root@9.134.114.170
+```
+
+#### **配置SSH免密登录**
+
+#### **SSH 服务的配置文件**
+
+**通常位于 `/etc/ssh/sshd_config`。可以使用文本编辑器编辑该文件以调整设置。常见配置选项包括：**
+
+```shell
+Port：指定 SSH 服务监听的端口（默认为 22）。Port 22
+PermitRootLogin：控制是否允许 root 用户通过 SSH 登录。出于安全考虑，通常建议设置为 no。 PermitRootLogin no
+PasswordAuthentication：控制是否允许密码认证。启用密钥认证时，可以将此选项设置为 no。 PasswordAuthentication yes
+AllowUsers 和 DenyUsers：控制允许和拒绝登录的用户。AllowUsers user1 user2
+
+## 修改配置文件后，使用以下命令重启 SSH 服务使更改生效：sudo systemctl restart ssh
+```
+
+#### **通过 ssh 实现免密登录**
+
+免密登录的实现过程如下：
+
+**1.在客户端使用 ssh-keygen 生成一对密钥：公钥+私钥；``**
+
+**2.将客户端公钥追加到服务端的 authorized_key 文件中，完成公钥认证操作；**
+
+**3.认证完成后，客户端向服务端发起登录请求，并传递公钥到服务端；**
+
+**4.服务端检索 authorized_key 文件，确认该公钥是否存在。如果存在该公钥，则生成随机数 R，并用公钥进行加密，生成公钥加密字符串 pubKey(R)；**
+
+**5.将公钥加密字符串传递给客户端；**
+
+**6客户端使用私钥解密公钥加密字符串，得到 R；**
+
+**7.服务端和客户端通信时会产生一个会话 ID(sessionKey)，用 MD5 对 R 和 SessionKey 进行加密，生成摘要；**
+
+**8.客户端将生成的 MD5 加密字符串传给服务端；**
+
+**9.服务端同样生成 MD5(R,SessionKey) 加密字符串；**
+
+**10.如果客户端传来的加密字符串等于服务端自身生成的加密字符串，则认证成功。此时不用输入密码，即完成建连，可以开始远程执行 Shell 命令了。**
+
+##### **1. 生成SSH密钥对**
+
+```shell
+# 检查是否已有SSH密钥
+ls -la ~/.ssh/
+
+##第一步使用 ssh-keygen 命令在客户端生成 RSA 公钥和私钥，一直回车确认。公钥和私钥默认名称为 id_rsa.pub（公钥）和私钥（id_rsa），默认保存在 ~/.ssh/目录下。
+ssh-keygen -t rsa
+
+# 生成ED25519密钥（推荐）
+ssh-keygen -t ed25519 -C "mosh@$(hostname)"
+
+# 或生成RSA密钥
+ssh-keygen -t rsa -b 4096 -C "mosh@$(hostname)"
+
+# 生成过程中会询问：
+# - 保存位置（按回车使用默认 ~/.ssh/id_ed25519）
+# - 密码短语（可留空）
+
+```
+
+##### **2. 复制公钥到远程主机**
+
+```shell
+##第二步将客户端公钥追加至服务端 ~/.ssh/authorized_keys 文件中，authorized_keys 是用来存放客户端公钥的文件。
+
+##有三种方法，
+#一是通过 ssh-copy-id 命令，
+#例如使用 ssh-copy-id 命令实现如下
+sudo dnf install -y openssh-clients
+ssh-copy-id -i ~/.ssh/id_rsa.pub -p 3600 root@9.134.114.170
+
+# 使用ssh-copy-id并指定端口
+ssh-copy-id -i ~/.ssh/id_ed25519_55.pub -p 55 root@192.168.8.55
+
+# 使用openEuler的ssh-copy-id
+ssh-copy-id -i ~/.ssh/id_ed25519.pub user@remote-server
+
+# 或者使用已有密钥
+ssh-copy-id -p 55 root@192.168.8.55
+
+#二是通过 scp 命令，此处不展示。
+#三是手动复制。
+# 方法2：手动复制
+cat ~/.ssh/id_ed25519.pub | ssh user@remote-server "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+##第三步使用 ssh 进行免密登录。
+ssh -p3600 root@9.134.114.170
+```
+
+##### **3. 测试免密登录**
+
+```shell
+# 测试SSH连接
+ssh user@remote-server
+
+# 测试mosh连接
+mosh user@remote-server
+
+# 尝试SSH连接，看是否已经可以免密登录
+ssh -o BatchMode=yes root@198.23.196.252 "echo 'SSH连接测试成功'"
+```
+
+
+
+### **ssh端口转发**
+
+**SSH 支持端口转发功能，可以将本地端口转发到远程主机，或将远程端口转发到本地。**
+
+例如：本地端口转发：将本地端口 8080 转发到远程主机的 80 端口。
+
+```ruby
+ssh -L 8080:localhost:80 user@example.com
+```
+
+远程端口转发：将远程主机的 8080 端口转发到本地的 80 端口。
+
+```ruby
+ssh -R 8080:localhost:80 user@example.com
+```
+
+动态端口转发：使用 SOCKS 代理将本地端口转发到远程主机。ssh -D 1080 user@example.com``SSH 配置文件``可以在 ~/.ssh/config 文件中配置 SSH 客户端的选项，以简化连接。例如：
+
+```shell
+Host myserver
+HostName example.com
+User myuser
+Port 2222
+IdentityFile ~/.ssh/id_rsa
+```
+
+这样，可以使用简化的命令连接：
+
+```undefined
+ssh myserver
+```
+
+### 删除或更改私钥上的密码
+
+**如果您已经为您的私钥生成了密码并希望更改或删除它，您可以轻松地做到这一点。**
+
+注意：要更改或删除密码，您必须知道原始密码。如果您丢失了密钥的密码短语，则没有追索权，您将不得不生成一个新的密钥对。
+
+要更改或删除密码，只需键入：
+
+```shell
+ssh-keygen -pEnter file in which the key is (/root/.ssh/id_rsa):
+#您可以键入要修改的键的位置或按 ENTER 接受默认值：
+Enter old passphrase:
+```
+
+输入您要更改的旧密码。然后系统会提示您输入新密码：
+
+```shell
+Enter new passphrase (empty for no passphrase): Enter same passphrase again:
+```
+
+在这里，输入您的新密码或按 ENTER 删除密码。
+
+## mosh编译食用指南
+
 ### 第一阶段：准备编译环境与依赖
+
 **下载源码文件：[Release mosh-1.4.0 · mobile-shell/mosh](https://github.com/mobile-shell/mosh/releases/tag/mosh-1.4.0)**
 
 **https://github.com/mobile-shell/mosh/archive/refs/tags/mosh-1.4.0.tar.gz**
@@ -348,7 +527,7 @@ echo -e "\n5. 安装完成!"
 
 ###  第四阶段：使用与进阶玩法
 
-#### 使用示例
+**使用示例**
 
 ```
 # 基本用法
@@ -361,7 +540,7 @@ mosh -p 60001:60010 user@hostname
 mosh --ssh="ssh -p 2222" user@hostname
 ```
 
-#### 卸载
+**卸载**
 
 ```
 # 进入源码目录
@@ -381,59 +560,11 @@ sudo rm -f /etc/ld.so.conf.d/mosh.conf
 sudo ldconfig
 ```
 
-### 简化使用mosh连接远程主机的流程
+#### 简化使用mosh连接远程主机的流程
 
-#### **配置SSH免密登录**
+**mosh通过ssh进行免密登录**
 
-##### **1. 生成SSH密钥对**
-
-```
-# 检查是否已有SSH密钥
-ls -la ~/.ssh/
-
-# 生成ED25519密钥（推荐）
-ssh-keygen -t ed25519 -C "mosh@$(hostname)"
-
-# 或生成RSA密钥
-ssh-keygen -t rsa -b 4096 -C "mosh@$(hostname)"
-
-# 生成过程中会询问：
-# - 保存位置（按回车使用默认 ~/.ssh/id_ed25519）
-# - 密码短语（可留空）
-```
-
-##### **2. 复制公钥到远程主机**
-
-```
-# 方法1：使用ssh-copy-id（最简单）
-# 使用ssh-copy-id并指定端口
-ssh-copy-id -i ~/.ssh/id_ed25519_55.pub -p 55 root@192.168.8.55
-
-# 或者使用已有密钥
-ssh-copy-id -p 55 root@192.168.8.55
-
-# 方法2：手动复制
-cat ~/.ssh/id_ed25519.pub | ssh user@remote-server "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
-
-# 方法3：使用openEuler的ssh-copy-id
-sudo dnf install -y openssh-clients
-ssh-copy-id -i ~/.ssh/id_ed25519.pub user@remote-server
-```
-
-##### **3. 测试免密登录**
-
-```
-# 测试SSH连接
-ssh user@remote-server
-
-# 测试mosh连接
-mosh user@remote-server
-
-# 尝试SSH连接，看是否已经可以免密登录
-ssh -o BatchMode=yes root@198.23.196.252 "echo 'SSH连接测试成功'"
-```
-
-#### 为远程主机设置别名
+##### 为远程主机设置别名
 
 ##### **1. 配置SSH Config文件**
 
@@ -482,7 +613,7 @@ EOF
 chmod 600 ~/.ssh/config
 ```
 
-### **2. 配置mosh别名**
+##### **2. 配置mosh别名**
 
 ```shell
 # 创建mosh专用别名文件
@@ -499,8 +630,6 @@ EOF
 
 source ~/.bashrc
 ```
-
-
 
 
 
@@ -525,12 +654,6 @@ source ~/.bashrc
 *   **推荐方案**：除非有特定需求，**对于大多数用户，直接通过 `sudo dnf install mosh` 安装是更简单可靠的选择**。源码编译主要用于需要特定版本、定制功能或学习的目的。
 
 如果在任何步骤遇到问题，请提供具体的错误信息，我可以为你提供更具体的解决方案。
-
-
-
-```
-
-```
 
 
 

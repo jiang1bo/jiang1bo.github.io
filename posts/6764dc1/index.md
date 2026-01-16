@@ -9,6 +9,8 @@
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
 
+## Ubuntu
+
 [Ubuntu 发布周期 |Ubuntu 浏览器](https://ubuntu.com/about/release-cycle#ubuntu)
 
 LTS 或“长期支持”版本每两年在 4 月发布一次。LTS 版本是 Ubuntu 的“企业级”版本，使用最多。估计 95% 的 Ubuntu 安装是 LTS 版本。
@@ -21,11 +23,15 @@ Ubuntu Pro 之上的可选旧版支持插件将安全维护和支持延长了 2 
 
 <img src=".\assets\未命名图片.png" alt="几个常用linux发行版，支持时间（Ubuntu24，openEuler24，Rocky 9）"  />
 
+## OpenEuler
+
 [openEuler版本规划及生命周期](https://www.openeuler.org/zh/other/lifecycle/)
 
 **长期支持版本**：发布间隔周期定为2年，提供4年社区支持。
 
 <img src=".\assets\Snipaste_2024-10-14_16-17-53-300x171.jpg" alt="几个常用linux发行版，支持时间（Ubuntu24，openEuler24，Rocky 9）"  />
+
+## Rocky linux
 
 [Rocky 发布版本说明 – Documentation (rockylinux.org)](https://docs.rockylinux.org/zh/release_notes/)
 

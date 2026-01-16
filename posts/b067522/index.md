@@ -1,19 +1,13 @@
 # Windows常用操作
 
 
+一份非常全面和实用的Windows常用命令指南，涵盖系统信息、硬件信息、系统维护和防火墙设置、系统稳定与性能监控命令、网络诊断高级命令、系统配置与启动管理命令、等核心类别。这些命令主要在 **命令提示符（CMD）** 或 **PowerShell**（功能更强大）中运行
+
 <!--more-->
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
 
 # windows系统
-
-```
-windows常用命令
-```
-
-
-
-好的，这里为您整理了一份非常全面和实用的Windows常用命令指南，涵盖系统信息、硬件信息、系统维护和防火墙设置等核心类别。这些命令主要在 **命令提示符（CMD）** 或 **PowerShell**（功能更强大）中运行。
 
 **重要提示**：部分命令需要**以管理员身份运行**命令行工具才能执行。
 
@@ -251,14 +245,6 @@ Windows防火墙主要通过 `netsh advfirewall` 上下文进行配置。
 
 
 
-
-
-
-
-
-
-
-
 //进入d盘
 D:
 //进入F盘
@@ -365,9 +351,11 @@ command_parameters：为特定命令指定参数或命令行开关
 IN (set)：指在(set)中取值；DO command ：指执行command
 参数：/L 指用增量形式{ (set)为增量形式时 }；/F 指从文件中不断取值，直到取完为止{ (set)为文件时，如(d:pass.txt)时 }。
 
-用法举例：
 
- 
+
+
+
+用法举例：
 
 @echo off
 echo 用法格式：test.bat *.*.* > test.txt
@@ -642,17 +630,17 @@ wmic /node:%pcname% /USER:%pcaccount% PATH win32_terminalservicesetting WHERE (_
   
  wmic:root\cli    
   
- 列出所有的进程 : wmic process. 
+ #列出所有的进程 : wmic process. 
   
- 显示进程的详细信息 
- 输入 process where name=   chrome.exe    list full 
+ #显示进程的详细信息 
+ #输入 process where name=   chrome.exe    list full 
   
- 停止进程的操作 
- 例如，执行下面的命令将关闭正在运行的QQ.exe： 
- 例1、wmic process where name=   QQ.exe    call terminate 
- 例2、wmic process where name=   qq.exe    delete 
+ #停止进程的操作 
+ #例如，执行下面的命令将关闭正在运行的QQ.exe： 
+ #例1、wmic process where name=   QQ.exe    call terminate 
+ #例2、wmic process where name=   qq.exe    delete 
   
- 显示出BIOS信息 
+ #显示出BIOS信息 
  wmic bios list full 
   
  C:\Users\Administrator   wmic baseboard get manufacturer,name,product 
@@ -667,9 +655,8 @@ wmic /node:%pcname% /USER:%pcaccount% PATH win32_terminalservicesetting WHERE (_
  Name 
  11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz 
   
- DISKDRIVE  物理磁盘驱动器管理 
-  
- 获取物理磁盘型号大小等 
+ #DISKDRIVE  物理磁盘驱动器管理 
+ #获取物理磁盘型号大小等 
  wmic DISKDRIVE get Caption,size,InterfaceType 
   
  C:\Users\Administrator   wmic diskdrive get caption,size,interfacetype 
@@ -678,9 +665,9 @@ wmic /node:%pcname% /USER:%pcaccount% PATH win32_terminalservicesetting WHERE (_
  Kingston DataTraveler 3.0 USB Device  USB            123724661760 
  Great Wall GW3300 256GB               SCSI           256052966400 
   
- LOGICALDISK    本地储存设备管理 
- 获取硬盘系统格式、总大小、可用空间等 
- wmic LOGICALDISK get name,Description,filesystem,size,freespace 
+ #LOGICALDISK    本地储存设备管理 
+ #获取硬盘系统格式、总大小、可用空间等 
+ #wmic LOGICALDISK get name,Description,filesystem,size,freespace 
   
  C:\Users\Administrator   wmic logicaldisk get name,description,filesystem,size,freespace 
  Description   FileSystem  FreeSpace     Name  Size 
