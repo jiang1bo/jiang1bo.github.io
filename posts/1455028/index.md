@@ -206,23 +206,17 @@ valid_lft forever preferred_lft forever
 
 静态路由，可使用 `ip route add` 命令**在路由表中添加**，使用 `ip route del` 命令删除。常用的 `ip route` 命令格式如下：
 
-
-
 ```
 ip route [ add | del | change | append | replace ] destination-address
 ```
 
 - **在主机地址中添加一个静态路由**，在 root 权限下，使用以下命令格式：
 
-
-
 ```
 ip route add 192.168.2.1 via 10.0.0.1 [dev interface-name]
 ```
 
 - **在网络中添加一个静态路由**，在root权限下运行以下命令格式：
-
-
 
 ```
 ip route add 192.168.2.0/24 via 10.0.0.1 [dev interface-name]
@@ -736,7 +730,7 @@ update                                                                    update
 # dnf search 软件包
 ```
 
-### **操作9. 卸载一个或多个软件包**
+**操作9. 卸载一个或多个软件包**
 
 删除已过期或重复的软件包时，可使用`remove`命令移除一个软件包。
 
@@ -810,8 +804,6 @@ PasswordAuthentication no
 # 配置网络
 
 ## 配置 IP 
-
-
 
 `nmcli` 是 **NetworkManager 的命令行管理工具**，它让你能完全通过命令来查询、配置和控制Linux系统的网络连接，**非常适合服务器、远程终端或无图形界面的环境**。
 
