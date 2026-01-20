@@ -1218,7 +1218,7 @@ dnf可以检查您的系统中是否有软件包需要更新。您可以通过dn
 
 
 
-### dnf相关命令 
+### dnf常用相关命令 
 
 dnf命令在安装升级时能够自动解析包的依赖关系，一般的使用方式如下：
 
@@ -1287,6 +1287,197 @@ dnf <command> <packages name>
   ```
   # dnf makecache
   ```
+
+
+
+### dnf命令及其相关概述
+
+| 命令               | 概述                                           |
+| :----------------- | :--------------------------------------------- |
+| repolist           | 显示已配置的软件repo源。                       |
+| install            | Linux上安装单个或多个软件包。                  |
+| upgrade            | 升级Linux上的一个或多个软件包。                |
+| list               | 列出一个或一组软件包。                         |
+| info               | 显示关于软件包或软件包组的详细信息。           |
+| updateinfo         | 显示关于包的公告信息。                         |
+| search             | 在软件包详细信息中搜索指定字符串。             |
+| check-update       | 检查是否有软件包升级。                         |
+| remove             | 从系统中移除一个或多个软件包。                 |
+| reinstall          | 重装一个包。                                   |
+| downgrade          | 降级软件包。                                   |
+| autoremove         | 删除所有原先因为依赖关系安装的不需要的软件包。 |
+| distro-sync        | 同步已经安装的软件包到最新可用版本。           |
+| makecache          | 创建元数据缓存。                               |
+| repository-package | 对指定仓库中的所有软件包运行命令。             |
+| provides           | 查找提供指定内容的软件包。                     |
+| group              | 显示或使用组信息。                             |
+| history            | 显示或使用事务历史。                           |
+| clean              | 删除已缓存的数据。                             |
+
+**操作1. 已配置的软件repo**
+
+显示已配置的软件仓库，默认添加 **--enabled** 选项（显示启用的仓库）。
+
+
+
+```
+# dnf repolist --enabled
+repo id                                                                   repo name
+EPOL                                                                      EPOL
+OS                                                                        OS
+debuginfo                                                                 debuginfo
+everything                                                                everything
+pkgship_elasticsearch                                                     Elasticsearch repositor
+source                                                                    source
+update                                                                    update
+```
+
+- **--all**: 显示所有的软件仓库
+- **--disabled**: 显示被禁用的软件仓库
+- **--enabled**: 显示已经启用的仓库（默认）
+
+**操作2. 安装单个或多个软件包**
+
+通过**install** 命令可以安装RPM包。
+
+
+
+```
+# dnf install 软件包
+```
+
+安装软件包的过程中可能会存在**冲突**的包或**无法安装**的包，可以在命令中增加 **--allowerasing** 来替换冲突的软件包或 **--skip-broken** 来跳过无法安装的软件包。
+
+
+
+```
+# dnf install 软件包 [软件包 ...] --allowerasing --skip-broken
+```
+
+当使用dnf安装软件包时，通过添加 **--installroot** 设置软件包安装的根目录。
+
+
+
+```
+# dnf install 软件包 --installroot 软件包安装的根目录
+```
+
+需要临时指定特定的repo源安装时，可以添加 **--setopt=reposdir=** 选项来指定repo源的加载目录。
+
+
+
+```
+# dnf install 软件包 --setopt=reposdir=repo源的加载目录
+```
+
+在安装选项时，不需要交互式确认时，可以通过添加 **-y** 或**--assumeyes** 使需要安装的软件包全部自动应答为**是**。
+
+
+
+```
+# dnf install 软件包 -y
+```
+
+指定特定的repo源安装rpm包时，可以通过指定 **--repo** 或 **--enablerepo** 选项。为了达到相同的效果，也可以通过使用 **--disablerepo** 选项来禁用匹配的repo源，此处推荐您使用--repo选项来安装RPM包。
+
+
+
+```
+# dnf install 软件包 --repo=repo源
+```
+
+**操作3. 重新安装软件包**
+
+系统上的软件包需要执行重新安装操作时，可以执行 **reinstall** 命令。
+
+
+
+```
+# dnf reinstall 软件包
+```
+
+**操作4. 升级一个或多个软件包**
+
+- 通过**upgrade**或 **update**升级Linux上的一个或多个软件包。
+
+
+
+```
+# dnf upgrade 软件包 [软件包 ...]
+# dnf update 软件包 [软件包 ...]
+```
+
+**操作5. 软件包降级**
+
+当软件包版本过高发生兼容性问题时，可以采用降级的方式解决。
+
+
+
+```
+# dnf downgrade 软件包
+```
+
+**操作6. 列出一个或一组软件包**
+
+罗列系统中已安装的软件包和配置的repo仓中存在的软件包列表，可以使用 `list` 命令。
+
+
+
+```
+# dnf list
+```
+
+可以通过添加选项过滤显示的包列表
+
+- **--all**: 显示所有的软件包（默认）
+- **--available**: 只显示可用的软件包
+- **--installed**: 只显示已安装的软件包
+- **--extras**: 只显示额外的软件包
+- **--updates**: 只显示需要被升级的软件包
+- **--upgrades**: 只显示需要被升级的软件包
+- **--autoremove**: 只显示需要被删除的软件包
+- **--recent**: 限制最近被改变的软件包
+
+**操作7. 查看软件包详细信息**
+
+查看软件包的详细信息时，可以使用`info` 命令。
+
+
+
+```
+# dnf info 软件包
+```
+
+**操作8. 搜索软件包**
+
+如需在系统中安装软件包，但不确定软件包全称时，可使用`search`命令查找匹配的包。
+
+
+
+```
+# dnf search 软件包
+```
+
+**操作9. 卸载一个或多个软件包**
+
+删除已过期或重复的软件包时，可使用`remove`命令移除一个软件包。
+
+```
+# dnf remove 软件包
+```
+
+- **--duplicates**: **删除已安装（重复）的软件包**
+- **--oldinstallonly**: **移除过期的“仅安装”软件包**
+
+**操作10. 自动删除因为依赖关系安装的软件包**
+
+删除因为依赖关系安装的不需要的软件包时，可使用`autoremove`命令。
+
+```
+# dnf autoremove 软件包
+```
+
+
 
 # 管理服务 
 
@@ -4102,7 +4293,7 @@ MariaDB的架构如[图2](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_S
 
 #### 安装 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-安装-1)
 
-1. 配置本地yum源，详细信息请参考[搭建repo服务器](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_repo_server.html)。
+1. **配置本地yum源，详细信息请参考[搭建repo服务器](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_repo_server.html)。**
 
 2. 清除缓存。
 
@@ -4654,7 +4845,7 @@ mysql -h hostname -P portnumber -u username -ppassword databasename < infile
 
 ### 软件介绍 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-软件介绍-2)
 
-MySQL是一个关系型数据库管理系统，由瑞典MySQL AB公司开发，目前属于Oracle旗下产品。MySQL是业界最流行的RDBMS (Relational Database Management System，关系数据库管理系统)之一，尤其在WEB应用方面。
+**MySQL是一个关系型数据库管理系统，由瑞典MySQL AB公司开发，目前属于Oracle旗下产品。**MySQL是业界最流行的RDBMS (Relational Database Management System，关系数据库管理系统)之一，尤其在WEB应用方面。
 
 关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就加快了速度并提高了灵活性。
 
@@ -5454,7 +5645,7 @@ DROP SCHEMA是DROP DATABASE的同义词。
 
 #### 备份数据库 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-备份数据库-2)
 
-可以在root权限下使用mysqldump命令备份数据库。
+**可以在root权限下使用mysqldump命令备份数据库。**
 
 备份一个或多个表：
 
@@ -5571,7 +5762,7 @@ mysql -h hostname -P portnumber -u username -ppassword databasename < infile
 
 ### 软件介绍 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-软件介绍-3)
 
-openGauss是一款开源关系型数据库管理系统，采用木兰宽松许可证v2发行。openGauss内核深度融合华为在数据库领域多年的经验，结合企业级场景需求，持续构建竞争力特性。
+**openGauss是一款开源关系型数据库管理系统，采用木兰宽松许可证v2发行。openGauss内核深度融合华为在数据库领域多年的经验，结合企业级场景需求，持续构建竞争力特性。**
 
 ### 安装 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-安装-3)
 
@@ -5582,8 +5773,6 @@ openGauss是一款开源关系型数据库管理系统，采用木兰宽松许�
 #### 创建角色 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-创建角色-1)
 
 可以使用CREATE ROLE语句来创建角色，在数据库界面执行。
-
-
 
 ```
 CREATE ROLE role_name [ [ WITH ] option [ ... ] ] [ ENCRYPTED | UNENCRYPTED ] { PASSWORD | IDENTIFIED BY } { 'password' [EXPIRED] | DISABLE };
@@ -5874,8 +6063,6 @@ openGauss=# GRANT ALL PRIVILEGES ON TABLE table1 TO PUBLIC;
 
 撤销角色对表的操作权限：
 
-
-
 ```
 REVOKE [ GRANT OPTION FOR ]
     { { SELECT | INSERT | UPDATE | DELETE | TRUNCATE | REFERENCES | ALTER | DROP | COMMENT | INDEX | VACUUM }[, ...] 
@@ -5887,8 +6074,6 @@ REVOKE [ GRANT OPTION FOR ]
 ```
 
 撤销角色对序列的操作权限：
-
-
 
 ```
 REVOKE [ GRANT OPTION FOR ]
@@ -5902,8 +6087,6 @@ REVOKE [ GRANT OPTION FOR ]
 
 撤销角色对数据库的操作权限：
 
-
-
 ```
 REVOKE [ GRANT OPTION FOR ]
     { { CREATE | CONNECT | TEMPORARY | TEMP | ALTER | DROP | COMMENT } [, ...] 
@@ -5915,8 +6098,6 @@ REVOKE [ GRANT OPTION FOR ]
 
 撤销角色对函数的操作权限：
 
-
-
 ```
 REVOKE [ GRANT OPTION FOR ]
     { { EXECUTE | ALTER | DROP | COMMENT } [, ...] | ALL [ PRIVILEGES ] }
@@ -5927,8 +6108,6 @@ REVOKE [ GRANT OPTION FOR ]
 ```
 
 撤销角色对过程语言的操作权限：
-
-
 
 ```
 REVOKE [ GRANT OPTION FOR ]
@@ -6154,8 +6333,6 @@ gs_dump -U omm -W password -f backup/MPPDB_backup.dmp -p port postgres -F c
 
 gs_restore是openGauss提供的针对gs_dump导出数据的导入工具。通过此工具可将由gs_dump生成的导出文件进行导入。
 
-
-
 ```
 gs_restore [OPTION]... FILE
 ```
@@ -6228,6 +6405,26 @@ gs_restore [OPTION]... FILE
 | /usr/share/man/ | 帮助文件保存位置。           |
 
 **注意:** RPM包支持手动指定安装路径，但此方式不推荐使用。通过手动指定安装路径后，所有的安装文件会集中安装到指定位置，且系统中用来查询安装路径的命令也无法使用（需手动配置才能被系统识别）。
+
+## **RPM 包的常用操作命令**
+
+```shell
+#1. 安装
+rpm -ivh package.rpm：安装指定的 RPM 包，其中-i表示安装，-v表示显示详细信息，-h表示以哈希符号显示安装进度。
+ 
+#2. 升级
+rpm -Uvh package.rpm：升级指定的 RPM 包，如果系统中未安装该包，则会进行安装。-U选项用于升级操作。
+ 
+#3. 卸载
+rpm -e package：卸载指定的已安装软件包，-e表示卸载操作。
+ 
+#4. 查询
+rpm -qa：查询系统中已安装的所有 RPM 包。可以通过管道符|与grep命令结合使用，来查找特定的软件包。例如，rpm -qa | grep openssh可以查找系统中已安装的 OpenSSH 相关的 RPM 包。
+rpm -qi package：查询指定软件包的详细信息，包括软件的描述、版本、依赖关系等。
+rpm -ql package：查询指定软件包安装的文件列表，显示该软件包在系统中安装的所有文件及其路径。
+```
+
+
 
 ### rpm命令选项
 
@@ -6514,217 +6711,6 @@ rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-OpenEuler-24.03-LTS-SP1
 
 
 
-## dnf命令
-
-dnf命令及其相关概述
-
-| 命令               | 概述                                           |
-| :----------------- | :--------------------------------------------- |
-| repolist           | 显示已配置的软件repo源。                       |
-| install            | Linux上安装单个或多个软件包。                  |
-| upgrade            | 升级Linux上的一个或多个软件包。                |
-| list               | 列出一个或一组软件包。                         |
-| info               | 显示关于软件包或软件包组的详细信息。           |
-| updateinfo         | 显示关于包的公告信息。                         |
-| search             | 在软件包详细信息中搜索指定字符串。             |
-| check-update       | 检查是否有软件包升级。                         |
-| remove             | 从系统中移除一个或多个软件包。                 |
-| reinstall          | 重装一个包。                                   |
-| downgrade          | 降级软件包。                                   |
-| autoremove         | 删除所有原先因为依赖关系安装的不需要的软件包。 |
-| distro-sync        | 同步已经安装的软件包到最新可用版本。           |
-| makecache          | 创建元数据缓存。                               |
-| repository-package | 对指定仓库中的所有软件包运行命令。             |
-| provides           | 查找提供指定内容的软件包。                     |
-| group              | 显示或使用组信息。                             |
-| history            | 显示或使用事务历史。                           |
-| clean              | 删除已缓存的数据。                             |
-
-**操作1. 已配置的软件repo**
-
-显示已配置的软件仓库，默认添加 **--enabled** 选项（显示启用的仓库）。
-
-
-
-```
-# dnf repolist --enabled
-repo id                                                                   repo name
-EPOL                                                                      EPOL
-OS                                                                        OS
-debuginfo                                                                 debuginfo
-everything                                                                everything
-pkgship_elasticsearch                                                     Elasticsearch repositor
-source                                                                    source
-update                                                                    update
-```
-
-- **--all**: 显示所有的软件仓库
-- **--disabled**: 显示被禁用的软件仓库
-- **--enabled**: 显示已经启用的仓库（默认）
-
-**操作2. 安装单个或多个软件包**
-
-通过**install** 命令可以安装RPM包。
-
-
-
-```
-# dnf install 软件包
-```
-
-安装软件包的过程中可能会存在**冲突**的包或**无法安装**的包，可以在命令中增加 **--allowerasing** 来替换冲突的软件包或 **--skip-broken** 来跳过无法安装的软件包。
-
-
-
-```
-# dnf install 软件包 [软件包 ...] --allowerasing --skip-broken
-```
-
-当使用dnf安装软件包时，通过添加 **--installroot** 设置软件包安装的根目录。
-
-
-
-```
-# dnf install 软件包 --installroot 软件包安装的根目录
-```
-
-需要临时指定特定的repo源安装时，可以添加 **--setopt=reposdir=** 选项来指定repo源的加载目录。
-
-
-
-```
-# dnf install 软件包 --setopt=reposdir=repo源的加载目录
-```
-
-在安装选项时，不需要交互式确认时，可以通过添加 **-y** 或**--assumeyes** 使需要安装的软件包全部自动应答为**是**。
-
-
-
-```
-# dnf install 软件包 -y
-```
-
-指定特定的repo源安装rpm包时，可以通过指定 **--repo** 或 **--enablerepo** 选项。为了达到相同的效果，也可以通过使用 **--disablerepo** 选项来禁用匹配的repo源，此处推荐您使用--repo选项来安装RPM包。
-
-
-
-```
-# dnf install 软件包 --repo=repo源
-```
-
-**操作3. 重新安装软件包**
-
-系统上的软件包需要执行重新安装操作时，可以执行 **reinstall** 命令。
-
-
-
-```
-# dnf reinstall 软件包
-```
-
-**操作4. 升级一个或多个软件包**
-
-- 通过**upgrade**或 **update**升级Linux上的一个或多个软件包。
-
-
-
-```
-# dnf upgrade 软件包 [软件包 ...]
-# dnf update 软件包 [软件包 ...]
-```
-
-**操作5. 软件包降级**
-
-当软件包版本过高发生兼容性问题时，可以采用降级的方式解决。
-
-
-
-```
-# dnf downgrade 软件包
-```
-
-**操作6. 列出一个或一组软件包**
-
-罗列系统中已安装的软件包和配置的repo仓中存在的软件包列表，可以使用 `list` 命令。
-
-
-
-```
-# dnf list
-```
-
-可以通过添加选项过滤显示的包列表
-
-- **--all**: 显示所有的软件包（默认）
-- **--available**: 只显示可用的软件包
-- **--installed**: 只显示已安装的软件包
-- **--extras**: 只显示额外的软件包
-- **--updates**: 只显示需要被升级的软件包
-- **--upgrades**: 只显示需要被升级的软件包
-- **--autoremove**: 只显示需要被删除的软件包
-- **--recent**: 限制最近被改变的软件包
-
-**操作7. 查看软件包详细信息**
-
-查看软件包的详细信息时，可以使用`info` 命令。
-
-
-
-```
-# dnf info 软件包
-```
-
-**操作8. 搜索软件包**
-
-如需在系统中安装软件包，但不确定软件包全称时，可使用`search`命令查找匹配的包。
-
-
-
-```
-# dnf search 软件包
-```
-
-**操作9. 卸载一个或多个软件包**
-
-删除已过期或重复的软件包时，可使用`remove`命令移除一个软件包。
-
-```
-# dnf remove 软件包
-```
-
-- **--duplicates**: **删除已安装（重复）的软件包**
-- **--oldinstallonly**: **移除过期的“仅安装”软件包**
-
-**操作10. 自动删除因为依赖关系安装的软件包**
-
-删除因为依赖关系安装的不需要的软件包时，可使用`autoremove`命令。
-
-```
-# dnf autoremove 软件包
-```
-
-## **RPM 包的常用操作命令**
-
-```shell
-#1. 安装
-rpm -ivh package.rpm：安装指定的 RPM 包，其中-i表示安装，-v表示显示详细信息，-h表示以哈希符号显示安装进度。
- 
-#2. 升级
-rpm -Uvh package.rpm：升级指定的 RPM 包，如果系统中未安装该包，则会进行安装。-U选项用于升级操作。
- 
-#3. 卸载
-rpm -e package：卸载指定的已安装软件包，-e表示卸载操作。
- 
-#4. 查询
-rpm -qa：查询系统中已安装的所有 RPM 包。可以通过管道符|与grep命令结合使用，来查找特定的软件包。例如，rpm -qa | grep openssh可以查找系统中已安装的 OpenSSH 相关的 RPM 包。
-rpm -qi package：查询指定软件包的详细信息，包括软件的描述、版本、依赖关系等。
-rpm -ql package：查询指定软件包安装的文件列表，显示该软件包在系统中安装的所有文件及其路径。
-```
-
-
-
-
-
 ## 配置SSH
 
 1. SSH服务介绍
@@ -6777,99 +6763,7 @@ PasswordAuthentication no
 
 
 
-
-
-
-
-
-
-## 配置网络 
-
-1. 配置IP地址
-
-   使用IP命令为接口配置地址，**interface-name**为网卡名称。
-
-   ```
-   ip addr [ add | del ] address dev interface-name
-   ```
-
-2. 配置静态地址
-
-   ```
-   # 配置静态IP地址
-   ip address add 192.168.0.10/24 dev enp3s0
-   
-   # 查看配置结果，在root权限使用如下命令
-   ip addr show dev enp3s0
-   
-   # 结果如下
-   2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
-   link/ether 52:54:00:aa:ad:4a brd ff:ff:ff:ff:ff:ff
-   inet 192.168.202.248/16 brd 192.168.255.255 scope global dynamic noprefixroute enp3s0
-   valid_lft 9547sec preferred_lft 9547sec
-   inet 192.168.0.10/24 scope global enp3s0
-   valid_lft forever preferred_lft forever
-   inet6 fe80::32e8:cc22:9db2:f4d4/64 scope link noprefixroute
-   valid_lft forever preferred_lft forever
-   ```
-
-3. 配置静态路由
-
-   静态路由，可使用 `ip route add` 命令**在路由表中添加**，使用 `ip route del` 命令删除。常用的 `ip route` 命令格式如下：
-
-   
-
-   ```
-   ip route [ add | del | change | append | replace ] destination-address
-   ```
-
-   - **在主机地址中添加一个静态路由**，在 root 权限下，使用以下命令格式：
-
-   
-
-   ```
-   ip route add 192.168.2.1 via 10.0.0.1 [dev interface-name]
-   ```
-
-   - **在网络中添加一个静态路由**，在root权限下运行以下命令格式：
-
-   
-
-   ```
-   ip route add 192.168.2.0/24 via 10.0.0.1 [dev interface-name]
-   ```
-
-4. 通过ifcfg文件配置网络
-
-   通过在root权限下**修改ifcfg文件**实现，在/etc/sysconfig/network-scripts/目录中生成名为ifcfg-enp4s0的文件中，修改参数配置，示例如下：
-
-   
-
-   ```
-   TYPE=Ethernet
-   PROXY_METHOD=none
-   BROWSER_ONLY=no
-   BOOTPROTO=none
-   IPADDR=192.168.0.10
-   PREFIX=24
-   DEFROUTE=yes
-   IPV4_FAILURE_FATAL=no
-   IPV6INIT=yes
-   IPV6_AUTOCONF=yes
-   IPV6_DEFROUTE=yes
-   IPV6_FAILURE_FATAL=no
-   IPV6_ADDR_GEN_MODE=stable-privacy
-   NAME=enp4s0static
-   UUID=xx
-   DEVICE=enp4s0
-   ONBOOT=yes
-   ```
-
-
-
-
-
-# 配置网络
+## nmcli配置网络
 
 ## 配置 IP 
 
@@ -7395,6 +7289,94 @@ default via 192.168.0.1 dev enp4s0 proto dhcp metric 101
 ```
 
 其中 192.168.2.1 是目标网络的 IP 地址，10.0.0.1 是网络前缀，*interface-name* 为网卡名称。
+
+
+
+## 配置网络 
+
+1. 配置IP地址
+
+   使用IP命令为接口配置地址，**interface-name**为网卡名称。
+
+   ```
+   ip addr [ add | del ] address dev interface-name
+   ```
+
+2. 配置静态地址
+
+   ```
+   # 配置静态IP地址
+   ip address add 192.168.0.10/24 dev enp3s0
+   
+   # 查看配置结果，在root权限使用如下命令
+   ip addr show dev enp3s0
+   
+   # 结果如下
+   2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+   link/ether 52:54:00:aa:ad:4a brd ff:ff:ff:ff:ff:ff
+   inet 192.168.202.248/16 brd 192.168.255.255 scope global dynamic noprefixroute enp3s0
+   valid_lft 9547sec preferred_lft 9547sec
+   inet 192.168.0.10/24 scope global enp3s0
+   valid_lft forever preferred_lft forever
+   inet6 fe80::32e8:cc22:9db2:f4d4/64 scope link noprefixroute
+   valid_lft forever preferred_lft forever
+   ```
+
+3. 配置静态路由
+
+   静态路由，可使用 `ip route add` 命令**在路由表中添加**，使用 `ip route del` 命令删除。常用的 `ip route` 命令格式如下：
+
+   
+
+   ```
+   ip route [ add | del | change | append | replace ] destination-address
+   ```
+
+   - **在主机地址中添加一个静态路由**，在 root 权限下，使用以下命令格式：
+
+   
+
+   ```
+   ip route add 192.168.2.1 via 10.0.0.1 [dev interface-name]
+   ```
+
+   - **在网络中添加一个静态路由**，在root权限下运行以下命令格式：
+
+   
+
+   ```
+   ip route add 192.168.2.0/24 via 10.0.0.1 [dev interface-name]
+   ```
+
+4. 通过ifcfg文件配置网络
+
+   通过在root权限下**修改ifcfg文件**实现，在/etc/sysconfig/network-scripts/目录中生成名为ifcfg-enp4s0的文件中，修改参数配置，示例如下：
+
+   
+
+   ```
+   TYPE=Ethernet
+   PROXY_METHOD=none
+   BROWSER_ONLY=no
+   BOOTPROTO=none
+   IPADDR=192.168.0.10
+   PREFIX=24
+   DEFROUTE=yes
+   IPV4_FAILURE_FATAL=no
+   IPV6INIT=yes
+   IPV6_AUTOCONF=yes
+   IPV6_DEFROUTE=yes
+   IPV6_FAILURE_FATAL=no
+   IPV6_ADDR_GEN_MODE=stable-privacy
+   NAME=enp4s0static
+   UUID=xx
+   DEVICE=enp4s0
+   ONBOOT=yes
+   ```
+
+
+
+
 
 ### 通过ifcfg文件配置网络
 
