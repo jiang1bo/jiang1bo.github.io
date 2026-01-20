@@ -189,8 +189,6 @@ date -s "20190712 18:30:50"
 
 
 
-
-
 # 基础配置 
 
 ## 设置语言环境 
@@ -287,8 +285,6 @@ cn
 
 设置键盘布局，在root权限下执行如下命令，其中 *map* 是您想要设置的键盘类型，取值范围可通过**localectl list-keymaps**获取，请根据实际情况修改：
 
-
-
 ```
 # localectl set-keymap map
 ```
@@ -296,8 +292,6 @@ cn
 此时设置的键盘布局同样也会应用到图形界面中。
 
 设置完成后，查看当前状态：
-
-
 
 ```
 # localectl status
@@ -343,8 +337,6 @@ System clock synchronized: no
 
 例如开启自动远程时间同步，命令如下：
 
-
-
 ```
 # timedatectl set-ntp yes
 ```
@@ -357,15 +349,11 @@ System clock synchronized: no
 
 修改当前的日期，在root权限下执行如下命令，其中 *YYYY* 代表年份，*MM* 代表月份，*DD* 代表某天，请根据实际情况修改：
 
-
-
 ```
 # timedatectl set-time YYYY-MM-DD
 ```
 
 例如修改当前的日期为2019年8月14号，命令如下：
-
-
 
 ```
 # timedatectl set-time '2019-08-14'
@@ -379,15 +367,11 @@ System clock synchronized: no
 
 修改当前的时间，在root权限下执行如下命令，其中 *HH* 代表小时，*MM* 代表分钟，*SS* 代表秒，请根据实际情况修改：
 
-
-
 ```
 # timedatectl set-time HH:MM:SS
 ```
 
 例如修改当前的时间为15点57分24秒，命令如下：
-
-
 
 ```
 # timedatectl set-time 15:57:24
@@ -403,15 +387,11 @@ timedatectl list-timezones
 
 要修改当前的时区，在root权限下执行如下命令，其中 *time_zone* 是您想要设置的时区，请根据实际情况修改：
 
-
-
 ```
 # timedatectl set-timezone time_zone
 ```
 
 例如修改当前的时区，首先查询所在地域的可用时区，此处以Asia为例：
-
-
 
 ```
 # timedatectl list-timezones | grep Asia
@@ -440,8 +420,6 @@ Asia/Tokyo
 
 然后修改当前的时区为“Asia/Shanghai”，命令如下：
 
-
-
 ```
 # timedatectl set-timezone Asia/Shanghai
 ```
@@ -452,15 +430,11 @@ Asia/Tokyo
 
 显示当前的日期和时间，命令如下：
 
-
-
 ```
 # date
 ```
 
 默认情况下，date命令显示本地时间。要显示UTC时间，添加--utc或-u参数：
-
-
 
 ```
 # date --utc
@@ -468,15 +442,11 @@ Asia/Tokyo
 
 要自定义对应的输出信息格式，添加 +"format" 参数：
 
-
-
 ```
 # date +"format"
 ```
 
 **表 1** 参数说明
-
-
 
 | 格式参数 | 说明                                                       |
 | :------- | :--------------------------------------------------------- |
@@ -494,8 +464,6 @@ Asia/Tokyo
 
 - 显示当前的日期和本地时间。
 
-  
-
   ```
   # date 
   2019年 08月 17日 星期六 17:26:34 CST
@@ -503,16 +471,12 @@ Asia/Tokyo
 
 - 显示当前的日期和UTC时间。
 
-  
-
   ```
   # date --utc
   2019年 08月 17日 星期六 09:26:18 UTC
   ```
 
 - 自定义date命令的输出。
-
-  
 
   ```
   # date +"%Y-%m-%d %H:%M"
@@ -523,23 +487,17 @@ Asia/Tokyo
 
 要修改当前的时间，添加--set或者-s参数。在root权限下执行如下命令，其中 *HH* 代表小时，*MM* 代表分钟，*SS* 代表秒，请根据实际情况修改：
 
-
-
 ```
 # date --set HH:MM:SS
 ```
 
 默认情况下， date命令设置本地时间。要设置UTC时间，添加--utc或-u参数：
 
-
-
 ```
 # date --set HH:MM:SS --utc
 ```
 
 例如修改当前的时间为23点26分00秒，在root权限下执行如下命令：
-
-
 
 ```
 # date --set 23:26:00
@@ -549,15 +507,11 @@ Asia/Tokyo
 
 修改当前的日期，添加--set或者-s参数。在root权限下执行如下命令，其中 *YYYY* 代表年份，*MM* 代表月份，*DD* 代表某天，请根据实际情况修改：
 
-
-
 ```
 # date --set YYYY-MM-DD
 ```
 
 例如修改当前的日期为2019年11月2日，命令如下：
-
-
 
 ```
 # date --set 2019-11-02
@@ -605,130 +559,7 @@ Linux 将时钟分为：
 # hwclock --set --date "2019-10-21 21:17"
 ```
 
-## 设置kdump 
 
-本节介绍如何设置kdump预留内存及修改kdump配置文件参数。
-
-### 设置kdump预留内存 
-
-#### 预留内存参数格式 
-
-kdump预留内存参数必须添加到内核启动参数中，配置文件为/boot/efi/EFI/openEuler/grub.cfg（UEFI引导模式）或/boot/grub2/grub.cfg（legacy引导模式），openEuler发布版本中默认已经添加，可以根据实际使用情况调整。添加和修改启动参数后，重启系统生效。kdump预留内存参数格式如下：
-
-| 内核启动参数                         | 描述                                                         | 缺省值                      | 备注                                                         |
-| :----------------------------------- | :----------------------------------------------------------- | :-------------------------- | :----------------------------------------------------------- |
-| crashkernel=x                        | 在4G以下的物理内存预留x大小的内存给kdump使用。               | x86版本默认配置512M         | 该配置方法只在4G以下内存预留，必须保证4G以下连续可用内存足够预留。 |
-| crashkernel=x@y                      | 在y起始地址预留x大小的内存给kdump使用。                      | 未使用                      | 需要确保y起始地址的x大小的内存未被其他模块预留。             |
-| crashkernel=x,high                   | 在4G以下的物理内存中预留256M内存，在4G以上预留x大小内存给kdump使用。 | arm64版本默认配置1024M,high | 需要确保4G以下有256M连续可用的物理内存，4G以上有连续的x大小的连续物理内存。实际预留内存大小为256M+x。 |
-| crashkernel=x,low crashkernel=y,high | 在4G以下的物理内存中预留x大小，在4G以上预留y大小内存给kdump使用。 | 未使用                      | 需要确保4G以下有连续的x大小物理内存，4G以上有连续的y大小物理内存。 |
-
-### 预留内存推荐值 
-
-| 推荐方案 | 预留参数               | 参数说明                                                     |
-| :------- | :--------------------- | :----------------------------------------------------------- |
-| 通用方案 | crashkernel=2048M,high | 4G以下预留256M，4G以上预留2048M内存给kdump使用。共256+2048M。 |
-| 经济方案 | crashkernel=1024M,high | 4G以下预留256M，4G以上预留1024M内存给kdump使用。共256+1024M。 推荐系统512M内存以内的场景，并不使用网络转储kdump文件。对于虚拟机场景，可以适当减少内存预留值，推荐虚拟机设置为crashkernel=512M或者crashkernel=256M,high |
-
-说明：
-
-不通过网络转储kdump文件时，需要设置kdump文件系统不打包网络相关驱动。网络驱动加载需要申请较大内存，可能导致预留内存不足，kdump失败。因此建议禁用网络相关驱动。
-
-### 禁用网络相关驱动 
-
-kdump配置文件（/etc/kdump.conf）中，dracut参数可以设置裁剪的驱动模块，可以将网络驱动配置到裁剪驱动列表中，让kdump文件系统中不加载该驱动，修改配置文件后，重启kdump服务生效。dracut参数配置如下所示：
-
-```
-dracut_args --omit-drivers "mdio-gpi usb_8dev et1011c rt2x00usb bcm-phy-lib mac80211_hwsim rtl8723be rndis_host hns3_cae amd vrf rtl8192cu mt76x02-lib int51x1 ppp_deflate team_mode_loadbalance smsc911x aweth bonding mwifiex_usb hnae dnet rt2x00pci vaser_pci hdlc_ppp marvell rtl8xxxu mlxsw_i2c ath9k_htc rtl8150 smc91x cortina at803x rockchip cxgb4 spi_ks8995 mt76x2u smsc9420 mdio-cavium bnxt_en ch9200 dummy macsec ice mt7601u rtl8188ee ixgbevf net1080 liquidio_vf be2net mlxsw_switchx2 gl620a xilinx_gmii2rgmii ppp_generic rtl8192de sja1000_platform ath10k_core cc770_platform realte igb c_can_platform c_can ethoc dm9601 smsc95xx lg-vl600 ifb enic ath9 mdio-octeon ppp_mppe ath10k_pci cc770 team_mode_activebackup marvell10g hinic rt2x00lib mlx4_en iavf broadcom igc c_can_pci alx rtl8192se rtl8723ae microchip lan78xx atl1c rtl8192c-common almia ax88179_178a qed netxen_nic brcmsmac rt2800usb e1000 qla3xxx mdio-bitbang qsemi mdio-mscc-miim plx_pci ipvlan r8152 cx82310_eth slhc mt76x02-usb ems_pci xen-netfront usbnet pppoe mlxsw_minimal mlxsw_spectrum cdc_ncm rt2800lib rtl_usb hnae3 ath9k_common ath9k_hw catc mt76 hns_enet_drv ppp_async huawei_cdc_ncm i40e rtl8192ce dl2 qmi_wwan mii peak_usb plusb can-dev slcan amd-xgbe team_mode_roundrobin ste10Xp thunder_xcv pptp thunder_bgx ixgbe davicom icplus tap tun smsc75xx smsc dlci hns_dsaf mlxsw_core rt2800mmi softing uPD60620 vaser_usb dp83867 brcmfmac mwifiex_pcie mlx4_core micrel team macvlan bnx2 virtio_net rtl_pci zaurus hns_mdi libcxgb hv_netvsc nicvf mt76x0u teranetics mlxfw cdc_eem qcom-emac pppox mt76-usb sierra_net i40evf bcm87xx mwifiex pegasus rt2x00mmi sja1000 ena hclgevf cnic cxgb4vf ppp_synctty iwlmvm team_mode_broadcast vxlan vsockmon hdlc_cisc rtl8723-common bsd_comp fakelb dp83822 dp83tc811 cicada fm10 8139t sfc hs geneve hclge xgene-enet-v2 cdc_mbim hdlc asix netdevsim rt2800pci team_mode_random lxt ems_usb mlxsw_pci sr9700 mdio-thunder mlxsw_switchib macvtap atlantic cdc_ether mcs7830 nicpf mdi peak_pci atl1e cdc_subset ipvtap btcoexist mt76x0-common veth slip iwldvm bcm7xxx vitesse netconsole epic100 myri10ge r8169 qede microchip_t1 liquidi bnx2x brcmutil mwifiex_sdi mlx5_core rtlwifi vmxnet3 nlmon hns3 hdlc_raw esd_usb2 atl2 mt76x2-common iwlwifi mdio-bcm-unimac national ath rtwpci rtw88 nfp rtl8821ae fjes thunderbolt-net 8139cp atl1 mscc vcan dp83848 dp83640 hdlc_fr e1000e ipheth net_failover aquantia rtl8192ee igbvf rocker intel-xway tg3" --omit "ramdisk network ifcfg qemu-net" --install "chmod" --nofscks
-```
-
-## 设置磁盘调度算法 
-
-本节介绍如何设置磁盘调度算法。
-
-### 临时修改调度策略 
-
-### 例如将所有IO调度算法修改为mq-deadline，此修改重启后会失效。
-
-```
-# echo mq-deadline > /sys/block/sd*/queue/scheduler
-```
-
-### 永久设置调度策略 
-
-可以通过在内核启动配置文件grub.cfg中的kernel行追加：elevator=mq-deadline，重启后生效。
-
-
-
-```
-linux   /vmlinuz-4.19.90-2003.4.0.0036.oe1.x86_64 root=/dev/mapper/openeuler-root ro resume=/dev/mapper/openeuler-swap rd.lvm.lv=openeuler/root rd.lvm.lv=openeuler/swap quiet crashkernel=512M elevator=mq-deadline
-```
-
-## 设置NMI watchdog 
-
-本节介绍openEuler在arm64架构上NMI watchdog方案的差异以及配置。
-
-### 概述 
-
-NMI watchdog（Hard lockup detector）是一种用来检测系统是否出现Hard lockup（硬死锁）的机制。一般的watchdog依赖时钟中断进行挂死检测，当系统在原子上下文（中断，或者中断关闭的上下文中，etc）中出现挂死时，时钟中断处理，检测失效。NMI watchdog一般通过PMC（或者PMU）的NMI中断进行检测，NMI中断可以在原子上下文中产生并处理，因此可以用来检测原子上下文中挂死的场景。
-
-NMI watchdog主线已经支持，当硬件满足以下条件时可以使能NMI watchdog：
-
-1. 支持NMI中断
-2. 支持PMC（PMU）
-
-在arm64上，openEuler基于arm64的SDEI功能实现了SDEI watchdog作为NMI watchdog。因此openEuler在arm64上存在2种NMI watchdog方案：
-
-1. SDEI watchdog（默认方式）
-2. 基于PMC（PMU）中断的NMI watchdog
-
-### 注意事项 
-
-对于arm64机器，需要注意以下事项：
-
-- 默认情况下使用SDEI watchdog。当SDEI watchdog使能失败时，不会切换到NMI watchdog
-- 需要使用NMI watchdog时，需要显式的在启动参数中禁用SDEI watchdog：disable_sdei_nmi_watchdog
-- 当需要使用NMI watchdog时，需要保证硬件支持NMI中断：
-  - 当硬件支持NMI中断时，不需要额外处理
-  - 当硬件不支持NMI中断，但是支持伪NMI中断时，需要显式的在启动参数中使能伪NMI中断：irqchip.gicv3_pseudo_nmi=1
-
-以上事项不影响非arm64平台。
-
-### 操作步骤 
-
-针对arm64架构配置NMI watchdog的操作步骤如下：
-
-1. 在OS的引导配置文件grub.cfg中添加如下参数：irqchip.gicv3_pseudo_nmi=1（仅通过Pseudo-NMI实现NMI watchdog时添加） disable_sdei_nmi_watchdog
-2. 检查NMI watchdog是否加载成功，如果加载成功，内核dmesg日志打印类似如下内容
-
-
-
-```
-[   11.361889][  T129] NMI watchdog: Enabled. Permanently consumes one hw-PMU counter.
-```
-
-### 关闭NMI watchdog 
-
-将NMI watchdog临时关闭，此修改重启后会失效；默认nmi_watchdog=1。
-
-
-
-```
-#  echo 0 > /proc/sys/kernel/nmi_watchdog
-```
-
-在OS启动时，可以通过配置内核参数nmi_watchdog=0关闭NMI watchdog。
-
-### 修改NMI watchdog阈值 
-
-修改NMI watchdog阈值，此修改重启后会失效；默认watchdog_thresh=10。
-
-
-
-```
-#  echo 10 > /proc/sys/kernel/watchdog_thresh
-```
-
-在OS启动时，可以通过配置内核参数watchdog_thresh=[0-60]修改阈值。
 
 # 管理用户 
 
@@ -780,13 +611,11 @@ uid=1001(userexample)    gid=1001(userexample)    groups=1001(userexample)
 
 修改用户userexample的密码：
 
-
-
 ```
 # passwd userexample
 ```
 
-建议在修改用户密码时满足密码复杂度要求，密码的复杂度的要求如下：
+**建议在修改用户密码时满足密码复杂度要求，密码的复杂度的要求如下：**
 
 1. 口令长度至少8个字符。
 
@@ -798,8 +627,6 @@ uid=1001(userexample)    gid=1001(userexample)    groups=1001(userexample)
 
    - 查询字典 在已装好的openEuler环境中，可以通过如下命令导出字典库文件dictionary.txt，用户可以查询密码是否在该字典中。
 
-     
-
      ```
      cracklib-unpacker /usr/share/cracklib/pw_dict > dictionary.txt
      ```
@@ -808,23 +635,17 @@ uid=1001(userexample)    gid=1001(userexample)    groups=1001(userexample)
 
      1. 修改上面导出的字典文件，执行如下命令更新系统字典库。
 
-        
-
         ```
         # create-cracklib-dict dictionary.txt
         ```
 
      2. 在原字典库基础上新增其他字典内容custom.txt。
 
-        
-
         ```
         # create-cracklib-dict dictionary.txt custom.txt
         ```
 
 根据提示两次输入新用户的密码，完成密码更改。过程如下：
-
-
 
 ```
 # passwd userexample
@@ -926,8 +747,6 @@ sudo /usr/sbin/useradd newuserl
 
 - 可选的主机别名行：用来创建主机列表的简称。必须以Host_Alias关键词开头，列表中的主机必须用逗号隔开，如：
 
-  
-
   ```
   Host_Alias  linux=ted1,ted2
   ```
@@ -944,23 +763,17 @@ sudo /usr/sbin/useradd newuserl
 
   用户访问的说明语法如下：
 
-  
-
   ```
   user host = [ run as user ] command list
   ```
 
   在user处指定一个真正的用户名或定义过的别名，host也可以是一个真正的主机名或者定义过的主机别名。默认情况下，sudo执行的所有命令都是以root身份执行。如果您想使用其他身份可以指定。command list可以是以逗号分隔的命令列表，也可以是一个已经定义过的别名，如：
 
-  
-
   ```
   ted1   ted2=/sbin/shutdown
   ```
 
   这一句说明ted1可以在ted2主机上运行关机命令。
-
-  
 
   ```
   newuser1 ted1=(root) /usr/sbin/useradd,/usr/sbin/userdel
@@ -970,16 +783,12 @@ sudo /usr/sbin/useradd newuserl
 
   说明：
 
-  
-
   - 可以在一行定义多个别名，中间用冒号 (:) 隔开。
   - 可在命令或命令别名之前加上感叹号 (!)，使该命令或命令别名无效。
   - 有两个关键词：ALL和NOPASSWD。ALL意味着“所有”（所有文件、所有主机或所有命令），NOPASSWD意味着不用密码。
   - 通过修改用户访问，将普通用户的访问权限修改为同root一样，则可以给普通用户分配特权。
 
 下面是一个sudoers文件的例子：
-
-
 
 ```
 #sudoers files
@@ -1096,8 +905,8 @@ DNF是一款Linux软件包管理工具，用于管理RPM软件包。DNF可以查
 
 说明：
 
-- DNF与YUM完全兼容，提供了YUM兼容的命令行以及为扩展和插件提供的API。
-- 使用DNF需要管理员权限，本章所有命令需要在管理员权限下执行。
+- **DNF与YUM完全兼容，提供了YUM兼容的命令行以及为扩展和插件提供的API。**
+- **使用DNF需要管理员权限，本章所有命令需要在管理员权限下执行。**
 
 ## 配置DNF 
 
@@ -1110,7 +919,7 @@ DNF 的主要配置文件是 /etc/dnf/dnf.conf，该文件包含两部分：
 
 另外，在/etc/yum.repos.d 目录中保存着零个或多个repo源相关文件，它们也可以定义不同的“repository”。
 
-所以openEuler软件源的配置一般有两种方式，一种是直接配置/etc/dnf/dnf.conf文件中的“repository”部分，另外一种是在/etc/yum.repos.d目录下增加.repo文件。
+所以**openEuler软件源的配置一般有两种方式，一种是直接配置/etc/dnf/dnf.conf文件中的“repository”部分，另外一种是在/etc/yum.repos.d目录下增加.repo文件。**
 
 #### 配置main部分 
 
@@ -1127,8 +936,6 @@ best=True
 常用选项说明：
 
 **表 1** main参数说明
-
-
 
 | 参数                         | 说明                                                         |
 | :--------------------------- | :----------------------------------------------------------- |
@@ -1149,8 +956,6 @@ repository部分允许您定义定制化的openEuler软件源仓库，各个仓�
 - 直接配置/etc/dnf/dnf.conf文件中的“repository”部分
 
   下面是[repository]部分的一个最小配置示例：
-
-  
 
   ```
   [repository]
@@ -1175,8 +980,6 @@ repository部分允许您定义定制化的openEuler软件源仓库，各个仓�
 
   openEuler提供了多种repo源供用户在线使用，各repo源含义可参考[系统安装](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/releasenotes/releasenotes/os_installation.html)。使用root权限添加openEuler repo源，示例如下：
 
-  
-
   ```
   # vi /etc/yum.repos.d/openEuler.repo
   
@@ -1199,15 +1002,11 @@ repository部分允许您定义定制化的openEuler软件源仓库，各个仓�
 
 - 显示当前的配置信息：
 
-  
-
   ```
   # dnf config-manager --dump
   ```
 
 - 显示相应软件源的配置，首先查询repo id：
-
-  
 
   ```
   # dnf repolist
@@ -1215,15 +1014,11 @@ repository部分允许您定义定制化的openEuler软件源仓库，各个仓�
 
   然后执行如下命令，显示对应id的软件源配置，其中 *repository* 为查询得到的repo id：
 
-  
-
   ```
   # dnf config-manager --dump repository
   ```
 
 - 您也可以使用一个全局正则表达式，来显示所有匹配部分的配置：
-
-  
 
   ```
   # dnf config-manager --dump glob_expression
@@ -1381,74 +1176,6 @@ repository部分允许您定义定制化的openEuler软件源仓库，各个仓�
 # dnf remove totem
 ```
 
-## 管理软件包组 
-
-软件包集合是服务于一个共同的目的一组软件包，例如系统工具集等。使用dnf可以对软件包组进行安装/删除等操作，使相关操作更高效。
-
-### 列出软件包组清单 
-
-使用summary参数，可以列出系统中所有已安装软件包组、可用的组，可用的环境组的数量，命令如下：
-
-```
-# dnf groups summary
-```
-
-要列出所有软件包组和它们的组ID ，命令如下：
-
-```
-# dnf group list
-```
-
-### 显示软件包组信息 
-
-要列出包含在一个软件包组中必须安装的包和可选包，使用命令如下：
-
-```
-# dnf group info glob_expression...
-```
-
-例如显示Development Tools信息，示例如下：
-
-```
-# dnf group info "Development Tools"
-```
-
-### 安装软件包组 
-
-每一个软件包组都有自己的名称以及相应的ID（groupid），您可以使用软件包组名称或它的ID进行安装。
-
-要安装一个软件包组，请在root权限下执行如下命令：
-
-```
-# dnf group install group_name
-# dnf group install groupid
-```
-
-例如安装Development Tools相应的软件包组，命令如下：
-
-```
-# dnf group install "Development Tools"
-# dnf group install development
-```
-
-### 删除软件包组 
-
-要卸载软件包组，您可以使用软件包组名称或它的ID，在root权限下执行如下命令：
-
-```
-# dnf group remove group_name
-# dnf group remove groupid
-```
-
-例如删除Development Tools相应的软件包组，命令如下：
-
-
-
-```
-# dnf group remove "Development Tools"
-# dnf group remove development
-```
-
 ## 检查并更新 
 
 dnf可以检查您的系统中是否有软件包需要更新。您可以通过dnf列出需要更新的软件包，并可以选择一次性全部更新或者只对指定包进行更新。
@@ -1489,6 +1216,78 @@ dnf可以检查您的系统中是否有软件包需要更新。您可以通过dn
 # dnf update
 ```
 
+
+
+### dnf相关命令 
+
+dnf命令在安装升级时能够自动解析包的依赖关系，一般的使用方式如下：
+
+```
+dnf <command> <packages name>
+```
+
+常用的命令如下：
+
+- 安装，需要在root权限下执行。
+
+  ```
+  # dnf install <packages name>
+  ```
+
+- 升级，需要在root权限下执行。
+
+  ```
+  # dnf update <packages name>
+  ```
+
+- 回退，需要在root权限下执行。
+
+  ```
+  # dnf downgrade <packages name>
+  ```
+
+- 检查更新
+
+  ```
+  # dnf check-update
+  ```
+
+- 卸载，需要在root权限下执行。
+
+  ```
+  # dnf remove <packages name>
+  ```
+
+- 查询
+
+  ```
+  # dnf search <packages name>
+  ```
+
+- 本地安装，需要在root权限下执行。
+
+  ```
+  # dnf localinstall <absolute path to package name>
+  ```
+
+- 查看历史记录
+
+  ```
+  # dnf history
+  ```
+
+- 清除缓存目录
+
+  ```
+  # dnf clean all
+  ```
+
+- 更新缓存
+
+  ```
+  # dnf makecache
+  ```
+
 # 管理服务 
 
 本章介绍如何使用systemd进行系统和服务管理。
@@ -1527,68 +1326,15 @@ systemd开启和监督整个系统是基于unit的概念。unit是由一个与�
 | /run/systemd/system/     | 在运行时创建systemd units。             |
 | /etc/systemd/system/     | 由系统管理员创建和管理的systemd units。 |
 
-## 特性说明 
-
-### 更快的启动速度 
-
-systemd提供了比UpStart更激进的并行启动能力，采用了socket/D-Bus activation等技术启动服务，带来了更快的启动速度。
-
-为了减少系统启动时间，systemd的目标是：
-
-- 尽可能启动更少的进程。
-- 尽可能将更多进程并行启动。
-
-### 提供按需启动能力 
-
-当sysvinit系统初始化的时候，它会将所有可能用到的后台服务进程全部启动运行。并且系统必须等待所有的服务都启动就绪之后，才允许用户登录。这种做法有两个缺点：首先是启动时间过长；其次是系统资源浪费。
-
-某些服务很可能在很长一段时间内，甚至整个服务器运行期间都没有被使用过。比如CUPS，打印服务在多数服务器上很少被真正使用到。您可能没有想到，在很多服务器上SSHD也是很少被真正访问到的。花费在启动这些服务上的时间是不必要的；同样，花费在这些服务上的系统资源也是一种浪费。
-
-systemd可以提供按需启动的能力，只有在某个服务被真正请求的时候才启动它。当该服务结束，systemd可以关闭它，等待下次需要时再次启动它。
-
-### 采用cgroup特性跟踪和管理进程的生命周期 
-
-init系统的一个重要职责就是负责跟踪和管理服务进程的生命周期。它不仅可以启动一个服务，也能够停止服务。这看上去没有什么特别的，然而在真正用代码实现的时候，您或许会发现停止服务比一开始想的要困难。
-
-服务进程一般都会作为守护进程（daemon）在后台运行，为此服务程序有时候会派生（fork）两次。在UpStart中，需要在配置文件中正确地配置expect小节。这样UpStart通过对fork系统调用进行计数，从而获知真正的运行进程的PID号。
-
-cgroup已经出现了很久，它主要用来实现系统资源配额管理。cgroup提供了类似文件系统的接口，使用方便。当进程创建子进程时，子进程会继承父进程的cgroup。因此无论服务如何启动新的子进程，所有的这些相关进程都会属于同一个cgroup，systemd只需要简单地遍历指定的cgroup即可正确地找到所有的相关进程，将它们逐一停止即可。
-
-### 启动挂载点和自动挂载的管理 
-
-传统的Linux系统中，用户可以用/etc/fstab文件来维护固定的文件系统挂载点。这些挂载点在系统启动过程中被自动挂载，一旦启动过程结束，这些挂载点就会确保存在。这些挂载点都是对系统运行至关重要的文件系统，比如HOME目录。和sysvinit一样，systemd管理这些挂载点，以便能够在系统启动时自动挂载它们。systemd还兼容/etc/fstab文件，您可以继续使用该文件管理挂载点。
-
-有时候用户还需要动态挂载点，比如打算访问DVD内容时，才临时执行挂载以便访问其中的内容，而不访问光盘时该挂载点被取消（umount），以便节约资源。传统地，人们依赖autofs服务来实现这种功能。
-
-systemd内建了自动挂载服务，无需另外安装autofs服务，可以直接使用systemd提供的自动挂载管理能力来实现autofs的功能。
-
-### 实现事务性依赖关系管理 
-
-系统启动过程是由很多的独立工作共同组成的，这些工作之间可能存在依赖关系，比如挂载一个NFS文件系统必须依赖网络能够正常工作。systemd虽然能够最大限度地并发执行很多有依赖关系的工作，但是类似“挂载NFS”和“启动网络”这样的工作还是存在天生的先后依赖关系，无法并发执行。对于这些任务，systemd维护一个“事务一致性”的概念，保证所有相关的服务都可以正常启动而不会出现互相依赖，以至于死锁的情况。
-
-### 与SysV初始化脚本兼容 
-
-和UpStart一样，systemd引入了新的配置方式，对应用程序的开发也有一些新的要求。如果systemd想替代目前正在运行的初始化系统，就必须和现有程序兼容。任何一个Linux发行版都很难为了采用systemd而在短时间内将所有的服务代码都修改一遍。
-
-systemd提供了和sysvinit以及LSB initscripts兼容的特性。系统中已经存在的服务和进程无需修改。这降低了系统向systemd迁移的成本，使得systemd替换现有初始化系统成为可能。
-
-### 能够对系统进行快照和恢复 
-
-systemd支持按需启动，因此系统的运行状态是动态变化的，人们无法准确地知道系统当前运行了哪些服务。systemd快照提供了一种将当前系统运行状态保存并恢复的能力。
-
-比如系统当前正运行服务A和B，可以用systemd命令行对当前系统运行状况创建快照。然后将进程A停止，或者做其他的任意的对系统的改变，比如启动新的进程C。在这些改变之后，运行systemd的快照恢复命令，就可立即将系统恢复到快照时刻的状态，即只有服务A和B在运行。一个可能的应用场景是调试：比如服务器出现一些异常，为了调试用户将当前状态保存为快照，然后可以进行任意的操作，比如停止服务等等。等调试结束，恢复快照即可。
-
 ## 管理系统服务 
 
 systemd提供systemctl命令来运行、关闭、重启、显示、启用/禁用系统服务。
 
 ### sysvinit命令和systemd命令 
 
-systemd提供systemctl命令与sysvinit命令的功能类似。当前版本中依然兼容service和chkconfig命令，相关说明如[表3](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/service_management.html#zh-cn_topic_0151920917_ta7039963b0c74b909b72c22cbc9f2e28)，但建议用systemctl进行系统服务管理。
+**systemd提供systemctl命令与sysvinit命令的功能类似。当前版本中依然兼容service和chkconfig命令，相关说明如[表3](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/service_management.html#zh-cn_topic_0151920917_ta7039963b0c74b909b72c22cbc9f2e28)，但建议用systemctl进行系统服务管理。**
 
 **表 3** sysvinit命令和systemd命令的对照表
-
-
 
 | **sysvinit命令**              | **systemd命令**                                  | **备注**                                           |
 | :---------------------------- | :----------------------------------------------- | :------------------------------------------------- |
@@ -1621,7 +1367,7 @@ systemctl list-units --type service
 
 例如显示当前正在运行的服务，命令如下：
 
-```
+```shell
 # systemctl list-units --type service
 UNIT                        LOAD   ACTIVE     SUB           DESCRIPTION  
 atd.service                 loaded active     running       Deferred execution scheduler  
@@ -1675,8 +1421,6 @@ is-active命令的返回结果如下：
 
 同样，如果您需要判断某个服务是否被启用，可执行如下命令：
 
-
-
 ```
 systemctl is-enabled name.service
 ```
@@ -1684,8 +1428,6 @@ systemctl is-enabled name.service
 is-enabled命令的返回结果如下：
 
 **表 6** is-enabled命令的返回结果
-
-
 
 | 状态              | 含义                                                         |
 | :---------------- | :----------------------------------------------------------- |
@@ -1703,8 +1445,6 @@ is-enabled命令的返回结果如下：
 | "bad"             | 单元文件不正确或者出现其他错误。 **is-enabled** 不会返回此状态，而是会显示一条出错信息。 **list-unit-files** 命令有可能会显示此单元。 |
 
 例如查看gdm.service服务状态，命令如下：
-
-
 
 ```
 # systemctl status gdm.service
@@ -1998,8 +1738,6 @@ ps命令最常用的还是用来监控后台进程的工作情况，因为后台
 
 例如显示系统中终端上的所有进程。命令如下：
 
-
-
 ```
 # ps -a
   PID TTY          TIME CMD
@@ -2020,13 +1758,11 @@ top命令输出的示例如[图1](https://docs.openeuler.openatom.cn/zh/docs/24.
 
 ### kill命令 
 
-当需要中断一个前台进程的时候，通常足使用“Ctrl+c”组合键，而对于后台进程不能用组合键来终止，这时就可以使用kill命令。该命令可以终止前台和后台进程。终止后台进程的原因包括：该进程占用CPU的时间过多、该进程已经死锁等。
+**当需要中断一个前台进程的时候，通常足使用“Ctrl+c”组合键，而对于后台进程不能用组合键来终止，这时就可以使用kill命令。该命令可以终止前台和后台进程。**终止后台进程的原因包括：该进程占用CPU的时间过多、该进程已经死锁等。
 
 kill命令是通过向进程发送指定的信号来结束进程的。如果没有指定发送的信号，那么缺省值为TERM信号。TERM信号将终止所有不能捕获该信号的进程。至于那些可以捕获该信号的进程可能就需要使用KILL信号（它的编号为9），而该信号不能被捕捉。
 
 kill命令的浯法格式有以下两种方式：
-
-
 
 ```
 kill [-s 信号 | -p] [-a] 进程号…
@@ -2037,17 +1773,13 @@ kill -l [信号]
 
 杀死pid为1409的进程，在root权限下执行如下命令：
 
-
-
 ```
 # kill -9 1409
 ```
 
 显示所有的信号及其编号对应关系，示例如下：
 
-
-
-```
+```shell
 # kill -l
  1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
  6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
@@ -2072,7 +1804,7 @@ kill -l [信号]
 
 #### at命令 
 
-用户使用at命令在指定时刻执行指定的命令序列。该命令至少需要指定一个命令和一个执行时间。at命令可以只指定时间，也可以时间和日期一起指定。
+**用户使用at命令在指定时刻执行指定的命令序列。该命令至少需要指定一个命令和一个执行时间。at命令可以只指定时间，也可以时间和日期一起指定。**
 
 at命令的语法格式如下：
 
@@ -2113,8 +1845,6 @@ at允许使用一套相当复杂的时间指定方法，比如：
 
 例如在6月8日上午10点执行slocate -u命令。在root权限下执行命令如下：
 
-
-
 ```
 # at  10:00  6/8/19
 at> slocate -u
@@ -2151,8 +1881,6 @@ crontab命令的常用方法如下：
 
 例如root查看自己的cron设置。命令如下：
 
-
-
 ```
 # crontab -u root -l
 ```
@@ -2182,21 +1910,17 @@ minute hour day-of-month month-of-year day-of-week commands
 
 例如晚上18点到22点之间每两个小时，在/tmp/test.txt文件中加入sleepy文本。在crontab文件中对应的行如下：
 
-
-
 ```
 * 18-22/2 * * * echo "sleepy" >> /tmp/test.txt
 ```
 
-每次编辑完某个用户的cron设置后，cron自动在/var/spool/cron下生成一个与此用户同名的文件。此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e来编辑。用户也可以另外建立一个文件，使用“cron文件名”命令导入cron设置。
+**每次编辑完某个用户的cron设置后，cron自动在/var/spool/cron下生成一个与此用户同名的文件。**此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e来编辑。用户也可以另外建立一个文件，使用“cron文件名”命令导入cron设置。
 
 假设有个用户名为userexample，它需要为自己创建一个crontab文件。步骤如下：
 
-1. 首先可以使用任何文本编辑器建立一个新文件，并向该文件加入需要运行的命令和要定期执行的时间，假设该文件为 ~/userexample.cron。
+1. **首先可以使用任何文本编辑器建立一个新文件，并向该文件加入需要运行的命令和要定期执行的时间，假设该文件为 ~/userexample.cron。**
 
 2. 然后在root权限下使用crontab命令安装这个文件，使之成为该用户的crontab文件。命令如下：
-
-   
 
    ```
    # crontab -u userexample ~/userexample.cron
@@ -2265,8 +1989,6 @@ https://repo.openeuler.org/openEuler-{version}/ISO/
 ```
 
 挂载好的mnt目录如下：
-
-
 
 ```
 .
@@ -2404,8 +2126,6 @@ Packages为rpm包所在的目录，repodata为repo源元数据所在的目录，
 
    - 若nginx服务启动失败，查看错误信息：
 
-   
-
    ```
    # systemctl status nginx.service --full
    ```
@@ -2414,8 +2134,6 @@ Packages为rpm包所在的目录，repodata为repo源元数据所在的目录，
    ![img](https://docs.openeuler.openatom.cn/assets/24.03_LTS_SP1/nginx_start_failed.Q03mytTi.png)
 
    如[图2](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_repo_server.html#zh-cn_topic_0151920971_f1f9f3d086e454b9cba29a7cae96a4c54)所示nginx服务创建失败，是由于目录/var/spool/nginx/tmp/client_body创建失败，在root权限下手动进行创建，类似的问题也这样处理：
-
-   
 
    ```
    # mkdir -p /var/spool/nginx/tmp/client_body
@@ -2429,23 +2147,17 @@ Packages为rpm包所在的目录，repodata为repo源元数据所在的目录，
 
 1. 在root权限下创建nginx配置文件/etc/nginx/nginx.conf中指定的目录/usr/share/nginx/repo：
 
-   
-
    ```
    # mkdir -p /usr/share/nginx/repo
    ```
 
 2. 在root权限下修改目录/usr/share/nginx/repo的权限：
 
-   
-
    ```
    # chmod -R 755 /usr/share/nginx/repo
    ```
 
 3. 设置防火墙规则，开启nginx设置的端口（此处为80端口），在root权限下通过firewall设置端口开启：
-
-   
 
    ```
    # firewall-cmd --add-port=80/tcp --permanent
@@ -2454,15 +2166,11 @@ Packages为rpm包所在的目录，repodata为repo源元数据所在的目录，
 
    在root权限下查询80端口是否开启成功，输出为yes则表示80端口开启成功：
 
-   
-
    ```
    # firewall-cmd --query-port=80/tcp
    ```
 
    也可在root权限下通过iptables来设置80端口开启：
-
-   
 
    ```
    # iptables -I INPUT -p tcp --dport 80 -j ACCEPT
@@ -2477,8 +2185,6 @@ Packages为rpm包所在的目录，repodata为repo源元数据所在的目录，
 
    - 在root权限下拷贝镜像中相关文件至/usr/share/nginx/repo下，并修改目录权限。
 
-     
-
      ```
      # mount /home/openEuler/openEuler-{version}-aarch64-dvd.iso  /mnt/
      # cp -r /mnt/Packages /usr/share/nginx/repo
@@ -2490,8 +2196,6 @@ Packages为rpm包所在的目录，repodata为repo源元数据所在的目录，
      openEuler-{version}-aarch64-dvd.iso存放在/home/openEuler目录下。
 
    - 使用root在/usr/share/nginx/repo下创建repo源的软链接。
-
-     
 
      ```
      # ln -s /mnt /usr/share/nginx/repo/os
@@ -2505,13 +2209,11 @@ repo可配置为yum源，yum（全称为 Yellow dog Updater, Modified）是一�
 
 ### repo配置为yum源（软件源） 
 
-构建好的repo可以配置为yum源使用，在/etc/yum.repos.d/目录下使用root权限创建***.repo的配置文件（必须以.repo为扩展名），分为本地和http服务器配置yum源两种方式：
+**构建好的repo可以配置为yum源使用，在/etc/yum.repos.d/目录下使用root权限创建.repo的配置文件（必须以.repo为扩展名），分为本地和http服务器配置yum源两种方式：**
 
 - 配置本地yum源
 
   在/etc/yum.repos.d目录下创建openEuler.repo文件，使用构建的本地repo源作为yum源，openEuler.repo的内容如下：
-
-  
 
   ```
   [base]
@@ -2523,8 +2225,6 @@ repo可配置为yum源，yum（全称为 Yellow dog Updater, Modified）是一�
   ```
 
   说明：
-
-  
 
   - [*repoid*]中的repoid为软件仓库（repository）的ID号，所有.repo配置文件中的各repoid不能重复，必须唯一。示例中repoid设置为**base**。
   - name为软件仓库描述的字符串。
@@ -2538,8 +2238,6 @@ repo可配置为yum源，yum（全称为 Yellow dog Updater, Modified）是一�
   在/etc/yum.repos.d目录下创建openEuler.repo文件。
 
   - 若使用用户部署的http服务端的repo源作为yum源，openEuler.repo的内容如下：
-
-    
 
     ```
     [base]
@@ -2556,8 +2254,6 @@ repo可配置为yum源，yum（全称为 Yellow dog Updater, Modified）是一�
 
   - 若使用openEuler提供的openEuler repo源作为yum源，以AArch64架构的OS repo源为例，openEuler.repo的内容如下：
 
-    
-
     ```
     [base]
     name=base
@@ -2571,8 +2267,6 @@ repo可配置为yum源，yum（全称为 Yellow dog Updater, Modified）是一�
 
 当有多个repo源时，可通过在.repo文件的priority参数设置repo的优先级（如果不设置，默认优先级是99，当相同优先级的源中存在相同rpm包时，会安装最新的版本）。其中，1为最高优先级，99为最低优先级，如给openEuler.repo配置优先级为2：
 
-
-
 ```
 [base]
 name=base
@@ -2582,78 +2276,6 @@ priority=2
 gpgcheck=1
 gpgkey=http://192.168.139.209/RPM-GPG-KEY-openEuler
 ```
-
-### dnf相关命令 
-
-dnf命令在安装升级时能够自动解析包的依赖关系，一般的使用方式如下：
-
-```
-dnf <command> <packages name>
-```
-
-常用的命令如下：
-
-- 安装，需要在root权限下执行。
-
-  ```
-  # dnf install <packages name>
-  ```
-
-- 升级，需要在root权限下执行。
-
-  ```
-  # dnf update <packages name>
-  ```
-
-- 回退，需要在root权限下执行。
-
-  ```
-  # dnf downgrade <packages name>
-  ```
-
-- 检查更新
-
-  ```
-  # dnf check-update
-  ```
-
-- 卸载，需要在root权限下执行。
-
-  ```
-  # dnf remove <packages name>
-  ```
-
-- 查询
-
-  ```
-  # dnf search <packages name>
-  ```
-
-- 本地安装，需要在root权限下执行。
-
-  ```
-  # dnf localinstall <absolute path to package name>
-  ```
-
-- 查看历史记录
-
-  ```
-  # dnf history
-  ```
-
-- 清除缓存目录
-
-  ```
-  # dnf clean all
-  ```
-
-- 更新缓存
-
-  ```
-  # dnf makecache
-  ```
-
-
 
 # 搭建FTP服务器 
 
@@ -2700,8 +2322,6 @@ FTP的正常工作需要使用到多个网络端口，服务器端会使用到�
 
 使用vsftpd需要安装vsftpd软件，在已经配置yum源的情况下，通过root权限执行如下命令，即可完成vsftpd的安装。
 
-
-
 ```
 # dnf install vsftpd
 ```
@@ -2712,15 +2332,11 @@ FTP的正常工作需要使用到多个网络端口，服务器端会使用到�
 
 - 启动vsftpd服务
 
-  
-
   ```
   # systemctl start vsftpd
   ```
 
   可以通过netstat命令查看通信端口21是否开启，如下显示说明vsftpd已经启动。
-
-  
 
   ```
   # netstat -tulnp | grep 21
@@ -2733,15 +2349,11 @@ FTP的正常工作需要使用到多个网络端口，服务器端会使用到�
 
 - 停止vsftpd服务
 
-  
-
   ```
   # systemctl stop vsftpd
   ```
 
 - 重启vsftpd服务
-
-  
 
   ```
   # systemctl restart vsftpd
@@ -2754,8 +2366,6 @@ FTP的正常工作需要使用到多个网络端口，服务器端会使用到�
 用户可以通过修改vsftpd的配置文件，控制用户权限等。vsftpd的主要配置文件和含义如[表1](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_ftp_server.html#table1541615718372)所示，用户可以根据需求修改配置文件的内容。更多的配置参数含义可以通过man查看。
 
 **表 1** vsftpd配置文件介绍
-
-
 
 | 配置文件                | 含义                                                         |
 | :---------------------- | :----------------------------------------------------------- |
@@ -2774,8 +2384,6 @@ FTP的正常工作需要使用到多个网络端口，服务器端会使用到�
 文档中的配置内容仅供参考，请用户根据实际情况（例如安全加固需要）进行修改。
 
 openEuler系统中 ，vsftpd默认不开放匿名用户，使用vim命令查看主配置文件，其内容如下：
-
-
 
 ```
 # vim /etc/vsftpd/vsftpd.conf
@@ -2796,8 +2404,6 @@ userlist_enable=YES
 其中各参数含义如[表2](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_ftp_server.html#table18185162512499)所示。
 
 **表 2** 参数说明
-
-
 
 | 参数                 | 含义                                                         |
 | :------------------- | :----------------------------------------------------------- |
@@ -2827,15 +2433,11 @@ openEuler系统中，vsftpd默认使用GMT时间（格林尼治时间），可�
 
 1. 打开配置文件vsftpd.conf，将参数use_localtime的参数值改为YES。命令如下：
 
-   
-
    ```
    # vim /etc/vsftpd/vsftpd.conf
    ```
 
    配置内容如下：
-
-   
 
    ```
    use_localtime=YES
@@ -2843,15 +2445,11 @@ openEuler系统中，vsftpd默认使用GMT时间（格林尼治时间），可�
 
 2. 重启vsftpd服务。
 
-   
-
    ```
    # systemctl restart vsftpd
    ```
 
 3. 设置vsftpd服务开机启动。
-
-   
 
    ```
    # systemctl enable vsftpd
@@ -2863,15 +2461,11 @@ openEuler系统中，vsftpd默认使用GMT时间（格林尼治时间），可�
 
 1. 打开配置文件vsftpd.conf，加入欢迎信息文件配置内容后保存退出。
 
-   
-
    ```
    # vim /etc/vsftpd/vsftpd.conf
    ```
 
    需要加入的配置行如下：
-
-   
 
    ```
    banner_file=/etc/vsftpd/welcome.txt
@@ -2879,15 +2473,11 @@ openEuler系统中，vsftpd默认使用GMT时间（格林尼治时间），可�
 
 2. 建立欢迎信息。即打开welcome.txt文件，写入欢迎信息后保存退出。
 
-   
-
    ```
    # vim /etc/vsftpd/welcome.txt
    ```
 
    欢迎信息举例如下：
-
-   
 
    ```
    Welcome to this FTP server!
@@ -2905,8 +2495,6 @@ vsftpd有两个默认存放用户名单的文件，来对访问FTP服务的用�
 ## 验证FTP服务是否搭建成功 
 
 可以使用openEuler提供的FTP客户端进行验证。命令和回显如下，根据提示输入用户名（用户为系统中存在的用户）和密码。如果显示Login successful，即说明FTP服务器搭建成功。
-
-
 
 ```
 # ftp localhost
@@ -3002,8 +2590,6 @@ ftp>
 
 - 示例：获取远程服务器上的/home/openEuler/openEuler.htm文件到本地/home/myopenEuler/，并改名为myopenEuler.htm，命令如下：
 
-  
-
   ```
   ftp> get /home/openEuler/openEuler.htm /home/myopenEuler/myopenEuler.htm
   ```
@@ -3018,16 +2604,12 @@ ftp>
 
 - 示例：获取服务器上/home/openEuler/目录下的所有文件，命令如下：
 
-  
-
   ```
   ftp> cd /home/openEuler/
   ftp> mget *.*
   ```
 
   说明：
-
-  
 
   - 此时每下载一个文件，都会有提示信息。如果要屏蔽提示信息，则在 **mget \*.\*** 命令前先执行**prompt off**
   - 文件都被下载到Linux主机的当前目录下。比如，在/home/myopenEuler/下运行的ftp命令，则文件都下载到/home/myopenEuler/下。
@@ -3046,8 +2628,6 @@ ftp>
 
 - 示例：将本地的myopenEuler.htm传送到远端主机/home/openEuler/，并改名为openEuler.htm，命令如下：
 
-  
-
   ```
   ftp> put myopenEuler.htm /home/openEuler/openEuler.htm
   ```
@@ -3061,8 +2641,6 @@ ftp>
   其中 *local-file* 为本地文件
 
 - 示例：将本地当前目录下所有htm文件上传到服务器/home/openEuler/下，命令如下：
-
-  
 
   ```
   ftp> cd /home/openEuler/
@@ -3083,8 +2661,6 @@ ftp>
 
 - 示例：删除远程服务器上/home/openEuler/下的openEuler.htm文件，命令如下：
 
-  
-
   ```
   ftp> cd /home/openEuler/
   ftp> delete openEuler.htm
@@ -3100,8 +2676,6 @@ ftp>
 
 - 示例：删除远程服务器上/home/openEuler/下所有a开头的文件，命令如下：
 
-  
-
   ```
   ftp> cd /home/openEuler/
   ftp> mdelete a*
@@ -3114,8 +2688,6 @@ ftp>
 ```
 ftp> bye
 ```
-
-
 
 # 搭建web服务器 
 
@@ -3137,8 +2709,6 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
 
 - 为了能够使用Apache HTTP服务，请确保您的系统中已经安装httpd服务的rpm包。在root权限下执行如下命令进行安装：
 
-  
-
   ```
   # dnf install httpd
   ```
@@ -3151,15 +2721,11 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
 
 - 启动并运行httpd服务，命令如下：
 
-  
-
   ```
   # systemctl start httpd
   ```
 
 - 假如希望在系统启动时，httpd服务自动启动，则命令和回显如下：
-
-  
 
   ```
   # systemctl enable httpd
@@ -3174,15 +2740,11 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
 
 - 停止运行的httpd服务，命令如下：
 
-  
-
   ```
   # systemctl stop httpd
   ```
 
 - 如果希望防止服务在系统开机阶段自动开启，命令和回显如下：
-
-  
 
   ```
   # systemctl disable httpd
@@ -3195,8 +2757,6 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
 
 - 完全重启服务
 
-  
-
   ```
   # systemctl restart httpd
   ```
@@ -3205,8 +2765,6 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
 
 - 重新加载配置
 
-  
-
   ```
   # systemctl reload httpd
   ```
@@ -3214,8 +2772,6 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
   该命令会使运行的httpd服务重新加载它的配置文件。任何当前正在处理的请求将会被中断，从而造成客户端浏览器显示一个错误消息或者重新渲染部分页面。
 
 - 重新加载配置而不影响激活的请求
-
-  
 
   ```
   # apachectl graceful
@@ -3226,8 +2782,6 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
 #### 验证服务状态 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_web_server.html#user-content-验证服务状态)
 
 验证httpd服务是否正在运行。
-
-
 
 ```
 # systemctl is-active httpd
@@ -3241,8 +2795,6 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
 
 **表 1** 配置文件说明
 
-
-
 | 文件                       | 说明                                                         |
 | :------------------------- | :----------------------------------------------------------- |
 | /etc/httpd/conf/httpd.conf | 主要的配置文件                                               |
@@ -3250,23 +2802,17 @@ openEuler系统中的web服务器版本是Apache HTTP服务器2.4版本，即htt
 
 虽然默认配置可以适用于多数情况，但是用户至少需要熟悉里面的一些重要配置项。配置文件修改完成后，可以在root权限下使用如下命令检查配置文件可能出现的语法错误。
 
-
-
 ```
 # apachectl configtest
 ```
 
 如果回显如下，说明配置文件语法正确。
 
-
-
 ```
 Syntax OK
 ```
 
 说明：
-
-
 
 - 在修改配置文件之前，请先备份原始文件，以便出现问题时能够快速恢复配置文件。
 - 需要重启web服务，才能使修改后的配置文件生效。
@@ -3285,15 +2831,11 @@ httpd服务是一个模块化的应用，它和许多动态共享对象DSO（Dyn
 
 1. 在/etc/httpd/conf.modules.d/00-optional.conf文件中，使用root权限取消注释如下配置行。
 
-   
-
    ```
    LoadModule asis_module modules/mod_asis.so
    ```
 
 2. 加载完成后，请使用root权限重启httpd服务以便于重新加载配置文件。
-
-   
 
    ```
    # systemctl restart httpd
@@ -3301,15 +2843,11 @@ httpd服务是一个模块化的应用，它和许多动态共享对象DSO（Dyn
 
 3. 加载完成后，在root权限下使用httpd -M的命令查看是否已经加载了asis DSO模块。
 
-   
-
    ```
    # httpd -M | grep asis
    ```
 
    回显如下，说明asis DSO模块加载成功。
-
-   
 
    ```
    asis_module (shared)
@@ -3329,15 +2867,11 @@ httpd服务是一个模块化的应用，它和许多动态共享对象DSO（Dyn
 
 1. 在root权限下安装mod_ssl的rpm包。
 
-   
-
    ```
    # dnf install mod_ssl
    ```
 
 2. 安装完成后，请在root权限下重启httpd服务以便于重新加载配置文件。
-
-   
 
    ```
    # systemctl restart httpd
@@ -3345,15 +2879,11 @@ httpd服务是一个模块化的应用，它和许多动态共享对象DSO（Dyn
 
 3. 加载完成后，在root权限下使用httpd -M的命令查看是否已经加载了SSL。
 
-   
-
    ```
    # httpd -M | grep ssl
    ```
 
    回显如下，说明SSL已加载成功。
-
-   
 
    ```
    ssl_module (shared)
@@ -3365,15 +2895,11 @@ Web服务器搭建完成后，可以通过如下方式验证是否搭建成功�
 
 1. 在root权限下查看服务器的IP地址，命令如下：
 
-   
-
    ```
    # ip a
    ```
 
 2. 在root权限下配置防火墙：
-
-   
 
    ```
    # firewall-cmd --add-service=http --permanent
@@ -3388,15 +2914,11 @@ Web服务器搭建完成后，可以通过如下方式验证是否搭建成功�
 
      执行如下命令，查看是否可以访问网页信息，服务搭建成功时，该网页可以正常访问。
 
-     
-
      ```
      # curl http://192.168.1.60
      ```
 
      执行如下命令，查看命令返回值是否为0，返回值为0，说明httpd服务器搭建成功。
-
-     
 
      ```
      # echo $?
@@ -3424,15 +2946,11 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 2. 清除缓存。
 
-   
-
    ```
    # dnf clean all
    ```
 
 3. 创建缓存。
-
-   
 
    ```
    # dnf makecache
@@ -3440,15 +2958,11 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 4. 在root权限下安装nginx服务。
 
-   
-
    ```
    # dnf install nginx
    ```
 
 5. 查看安装后的rpm包。
-
-   
 
    ```
    # dnf list all | grep nginx
@@ -3470,15 +2984,11 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 - 启动并运行nginx服务，命令如下：
 
-  
-
   ```
   # systemctl start nginx
   ```
 
 - 假如希望在系统启动时，nginx服务自动启动，则命令和回显如下：
-
-  
 
   ```
   # systemctl enable nginx
@@ -3493,15 +3003,11 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 - 停止运行的nginx服务，命令如下：
 
-  
-
   ```
   # systemctl stop nginx
   ```
 
 - 如果希望防止服务在系统开机阶段自动开启，命令和回显如下：
-
-  
 
   ```
   # systemctl disable nginx
@@ -3514,8 +3020,6 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 - 完全重启服务
 
-  
-
   ```
   # systemctl restart nginx
   ```
@@ -3524,8 +3028,6 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 - 重新加载配置
 
-  
-
   ```
   # systemctl reload nginx
   ```
@@ -3533,8 +3035,6 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
   该命令会使运行的nginx服务重新加载它的配置文件。任何当前正在处理的请求将会被中断，从而造成客户端浏览器显示一个错误消息或者重新渲染部分页面。
 
 - 平滑重启nginx
-
-  
 
   ```
   # kill -HUP 主进程ID
@@ -3546,8 +3046,6 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 验证nginx服务是否正在运行
 
-
-
 ```
 # systemctl is-active nginx
 ```
@@ -3556,11 +3054,9 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 ### 配置文件说明 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_web_server.html#user-content-配置文件说明-1)
 
-当nginx服务启动后，默认情况下它会读取如[表2](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_web_server.html#table24341012096)所示的配置文件。
+**当nginx服务启动后，默认情况下它会读取如[表2](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/configuring_the_web_server.html#table24341012096)所示的配置文件。**
 
 **表 2** 配置文件说明
-
-
 
 | 文件                  | 说明                                                         |
 | :-------------------- | :----------------------------------------------------------- |
@@ -3569,8 +3065,6 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 
 虽然默认配置可以适用于多数情况，但是用户至少需要熟悉里面的一些重要配置项。配置文件修改完成后，可以在root权限下使用如下命令检查配置文件可能出现的语法错误。
 
-
-
 ```
 # nginx -t
 ```
@@ -3578,8 +3072,6 @@ Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件�
 如果回显信息中有“syntax is ok”，说明配置文件语法正确。
 
 说明：
-
-
 
 - 在修改配置文件之前，请先备份原始文件，以便出现问题时能够快速恢复配置文件。
 - 需要重启web服务，才能使修改后的配置文件生效。
@@ -3602,15 +3094,11 @@ Web服务器搭建完成后，可以通过如下方式验证是否搭建成功�
 
 1. 在root权限下查看服务器的IP地址，命令如下：
 
-   
-
    ```
    # ip a
    ```
 
    回显信息如下，说明服务器IP为 192.168.1.60。
-
-   
 
    ```
    enp3s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -3641,8 +3129,6 @@ Web服务器搭建完成后，可以通过如下方式验证是否搭建成功�
 
 2. 在root权限下配置防火墙：
 
-   
-
    ```
    # firewall-cmd --add-service=http --permanent
    success
@@ -3656,15 +3142,11 @@ Web服务器搭建完成后，可以通过如下方式验证是否搭建成功�
 
      执行如下命令，查看是否可以访问网页信息，服务搭建成功时，该网页可以正常访问。
 
-     
-
      ```
      # curl http://192.168.1.60
      ```
 
      执行如下命令，查看命令返回值是否为0，返回值为0，说明nginx服务器搭建成功。
-
-     
 
      ```
      # echo $?
@@ -3693,8 +3175,6 @@ PostgreSQL的架构如[图1](https://docs.openeuler.openatom.cn/zh/docs/24.03_LT
 
 **表 1** PostgreSql中的主要进程说明
 
-
-
 | 进程类别                   | 进程名称                                                     | 说明                                                         |
 | :------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 主进程                     | Postmaster                                                   | Postmaster是整个数据库实例的总控进程，负责启动和关闭该数据库实例。 |
@@ -3722,15 +3202,11 @@ PostgreSQL的架构如[图1](https://docs.openeuler.openatom.cn/zh/docs/24.03_LT
 
 1. 在root权限下停止防火墙。
 
-   
-
    ```
    systemctl stop firewalld
    ```
 
 2. 在root权限下关闭防火墙。
-
-   
 
    ```
    systemctl disable firewalld
@@ -3744,8 +3220,6 @@ PostgreSQL的架构如[图1](https://docs.openeuler.openatom.cn/zh/docs/24.03_LT
 
 在root权限下修改配置文件。
 
-
-
 ```
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ```
@@ -3758,16 +3232,12 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 1. 在root权限下创建PostgreSQL用户（组）。
 
-   
-
    ```
    groupadd postgres
    useradd -g postgres postgres
    ```
 
 2. 在root权限下设置postgres用户密码（重复输入密码）。
-
-   
 
    ```
    passwd postgres
@@ -3777,15 +3247,11 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 说明：
 
-
-
 - 测试极限性能时，建议单独挂载IO性能更优的NVME SSD存储介质创建PostgreSQL测试实例，避免磁盘IO对性能测试结果的影响，本文以单独挂载NVME SSD为例，参考步骤1~步骤4。
 - 非性能测试时，在root权限下执行以下命令，创建数据目录即可。然后跳过本小节：
   mkdir /data
 
 1. 在root权限下创建文件系统（以xfs为例，根据实际需求创建文件系统），若磁盘之前已做过文件系统，执行此命令会出现报错，可使用-f参数强制创建文件系统。
-
-   
 
    ```
    mkfs.xfs /dev/nvme0n1
@@ -3793,15 +3259,11 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 2. 在root权限下创建数据目录。
 
-   
-
    ```
    mkdir /data
    ```
 
 3. 在root权限下挂载磁盘。
-
-   
 
    ```
    mount -o noatime,nobarrier /dev/nvme0n1 /data
@@ -3810,8 +3272,6 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 #### 数据目录授权 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-数据目录授权)
 
 1. 在root权限下修改目录权限。
-
-   
 
    ```
    chown -R postgres:postgres /data/
@@ -3825,15 +3285,11 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 2. 清除缓存。
 
-   
-
    ```
    dnf clean all
    ```
 
 3. 创建缓存。
-
-   
 
    ```
    dnf makecache
@@ -3841,15 +3297,11 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 4. 在root权限下安装PostgreSQL服务器。
 
-   
-
    ```
    dnf install postgresql-server
    ```
 
 5. 查看安装后的rpm包。
-
-   
 
    ```
    rpm -qa | grep postgresql
@@ -3865,15 +3317,11 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 1. 切换到已创建的PostgreSQL用户。
 
-   
-
    ```
    su - postgres
    ```
 
 2. 初始化数据库，其中命令中的/usr/bin是命令initdb所在的目录。
-
-   
 
    ```
    usr/bin/initdb -D /data/
@@ -3883,15 +3331,11 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 1. 启动PostgreSQL数据库。
 
-   
-
    ```
    /usr/bin/pg_ctl -D /data/ -l /data/logfile start
    ```
 
 2. 确认PostgreSQL数据库进程是否正常启动。
-
-   
 
    ```
    ps -ef | grep postgres
@@ -3904,8 +3348,6 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ##### 登录数据库 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-登录数据库)
 
 1. 登录数据库。
-
-   
 
    ```
    /usr/bin/psql -U postgres
@@ -3921,8 +3363,6 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 1. 登录后，设置postgres密码。
 
-   
-
    ```
    postgres=#alter user postgres with password '123456';
    ```
@@ -3933,8 +3373,6 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 1. 执行\q退出数据库。
 
-   
-
    ```
    postgres=#\q
    ```
@@ -3942,8 +3380,6 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ##### 停止数据库 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-停止数据库)
 
 1. 停止PostgreSQL数据库。
-
-   
 
    ```
    /usr/bin/pg_ctl -D /data/ -l /data/logfile stop
@@ -3953,15 +3389,11 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 1. 在postgres用户下停止数据库。
 
-   
-
    ```
    /usr/bin/pg_ctl -D /data/ -l /data/logfile stop
    ```
 
 2. 在root用户下执行**dnf remove postgresql-server**卸载PostgreSQL数据库。
-
-   
 
    ```
    dnf remove postgresql-server
@@ -3973,13 +3405,9 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 可以使用CREATE ROLE语句或createuser来创建角色。createuser是对CREATE ROLE命令的封装，需要在shell界面执行，而不是在数据库界面。
 
-
-
 ```
 CREATE ROLE rolename [ [ WITH ] option [ ... ] ];
 ```
-
-
 
 ```
 createuser rolename
@@ -4005,23 +3433,17 @@ createuser rolename
 
 创建一个可以登录的角色roleexample1。
 
-
-
 ```
 postgres=# CREATE ROLE roleexample1 LOGIN;
 ```
 
 创建一个密码为123456的角色roleexample2。
 
-
-
 ```
 postgres=# CREATE ROLE roleexample2 WITH LOGIN PASSWORD '123456';
 ```
 
 创建角色名为roleexample3的角色。
-
-
 
 ```
 [postgres@localhost ~]# createuser roleexample3
@@ -4031,13 +3453,9 @@ postgres=# CREATE ROLE roleexample2 WITH LOGIN PASSWORD '123456';
 
 可以使用SELECT语句或psql的元命令\du查看角色。
 
-
-
 ```
 SELECT rolename FROM pg_roles;
 ```
-
-
 
 ```
 \du
@@ -4049,15 +3467,11 @@ SELECT rolename FROM pg_roles;
 
 查看roleexample1角色。
 
-
-
 ```
 postgres=# SELECT roleexample1 from pg_roles;
 ```
 
 查看现有角色。
-
-
 
 ```
 postgres=# \du
@@ -4068,8 +3482,6 @@ postgres=# \du
 ##### 修改用户名 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-修改用户名)
 
 可以使用ALTER ROLE语句修改一个已经存在的角色名。
-
-
 
 ```
 ALTER ROLE oldrolername RENAME TO newrolename;
@@ -4084,8 +3496,6 @@ ALTER ROLE oldrolername RENAME TO newrolename;
 
 将角色名roleexample1修改为roleexapme2。
 
-
-
 ```
 postgres=# ALTER ROLE roleexample1 RENAME TO roleexample2;
 ```
@@ -4093,8 +3503,6 @@ postgres=# ALTER ROLE roleexample1 RENAME TO roleexample2;
 ##### 修改用户密码 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-修改用户密码)
 
 可以使用ALTER ROLE语句修改一个角色的登录密码。
-
-
 
 ```
 ALTER ROLE rolename PASSWORD 'password'
@@ -4109,8 +3517,6 @@ ALTER ROLE rolename PASSWORD 'password'
 
 将roleexample1的密码修改为456789。
 
-
-
 ```
 postgres=# ALTER ROLE roleexample1 WITH PASSWORD '456789';
 ```
@@ -4119,13 +3525,9 @@ postgres=# ALTER ROLE roleexample1 WITH PASSWORD '456789';
 
 可以使用DROP ROLE语句或dropuser来删除角色。dropuser是对DROP ROLE命令的封装，需要在shell界面执行，而不是在数据库界面。
 
-
-
 ```
 DROP ROLE rolename;
 ```
-
-
 
 ```
 dropuser rolename
@@ -4137,15 +3539,11 @@ dropuser rolename
 
 删除userexample1角色。
 
-
-
 ```
 postgres=# DROP ROLE userexample1;
 ```
 
 删除userexample2角色。
-
-
 
 ```
 [postgres@localhost ~]# dropuser userexample2
@@ -4157,15 +3555,11 @@ postgres=# DROP ROLE userexample1;
 
 对角色授予表的操作权限：
 
-
-
 ```
 GRANT { { SELECT | INSERT | UPDATE | DELETE | REFERENCES | TRIGGER } [,...] | ALL [ PRIVILEGES ] } ON [ TABLE ] tablename [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]
 ```
 
 对角色授予序列的操作权限：
-
-
 
 ```
 GRANT { { USAGE | SELECT | UPDATE } [,...] | ALL [ PRIVILEGES ] } ON SEQUENCE sequencename [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]
@@ -4173,15 +3567,11 @@ GRANT { { USAGE | SELECT | UPDATE } [,...] | ALL [ PRIVILEGES ] } ON SEQUENCE se
 
 对角色授予数据库的操作权限：
 
-
-
 ```
 GRANT { { CREATE | CONNECT | TEMPORARY | TEMP } [,...] | ALL [ PRIVILEGES ] } ON DATABASE databasename [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]
 ```
 
 对角色授予函数的操作权限：
-
-
 
 ```
 GRANT { EXECUTE | ALL [ PRIVILEGES ] } ON FUNCTION funcname ( [ [ argmode ] [ argname ] argtype [, ...] ] ) [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]
@@ -4189,15 +3579,11 @@ GRANT { EXECUTE | ALL [ PRIVILEGES ] } ON FUNCTION funcname ( [ [ argmode ] [ ar
 
 对角色授予过程语言的操作权限：
 
-
-
 ```
 GRANT { USAGE | ALL [ PRIVILEGES ] } ON LANGUAGE langname [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]
 ```
 
 对角色授予模式的操作权限：
-
-
 
 ```
 GRANT { { CREATE | USAGE } [,...] | ALL [ PRIVILEGES ] } ON SCHEMA schemaname [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]
@@ -4205,15 +3591,11 @@ GRANT { { CREATE | USAGE } [,...] | ALL [ PRIVILEGES ] } ON SCHEMA schemaname [,
 
 对角色授予表空间的操作权限：
 
-
-
 ```
 GRANT { CREATE | ALL [ PRIVILEGES ] } ON TABLESPACE tablespacename [, ...] TO { rolename | GROUP groupname | PUBLIC } [, ...] [ WITH GRANT OPTION ]
 ```
 
 将角色rolename1的成员关系赋予角色rolename2：
-
-
 
 ```
 GRANT rolename1 [, ...] TO rolename2 [, ...] [ WITH ADMIN OPTION ]
@@ -4241,15 +3623,11 @@ GRANT rolename1 [, ...] TO rolename2 [, ...] [ WITH ADMIN OPTION ]
 
 对userexample授予数据库database1的CREATE权限。
 
-
-
 ```
 postgres=# GRANT CREATE ON DATABASE database1 TO userexample;
 ```
 
 对所有用户授予表table1的所有权限。
-
-
 
 ```
 postgres=# GRANT ALL PRIVILEGES ON TABLE table1 TO PUBLIC;
@@ -4261,15 +3639,11 @@ postgres=# GRANT ALL PRIVILEGES ON TABLE table1 TO PUBLIC;
 
 撤销角色对表的操作权限：
 
-
-
 ```
 REVOKE [ GRANT OPTION FOR ] { { SELECT | INSERT | UPDATE | DELETE | REFERENCES | TRIGGER } [,...] | ALL [ PRIVILEGES ] } ON [ TABLE ] tablename [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...]
 ```
 
 撤销角色对序列的操作权限：
-
-
 
 ```
 REVOKE [ GRANT OPTION FOR ] { { USAGE | SELECT | UPDATE } [,...] | ALL [ PRIVILEGES ] } ON SEQUENCE sequencename [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ]
@@ -4277,15 +3651,11 @@ REVOKE [ GRANT OPTION FOR ] { { USAGE | SELECT | UPDATE } [,...] | ALL [ PRIVILE
 
 撤销角色对数据库的操作权限：
 
-
-
 ```
 REVOKE [ GRANT OPTION FOR ] { { CREATE | CONNECT | TEMPORARY | TEMP } [,...] | ALL [ PRIVILEGES ] } ON DATABASE databasename [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ]
 ```
 
 撤销角色对函数的操作权限：
-
-
 
 ```
 REVOKE [ GRANT OPTION FOR ] { EXECUTE | ALL [ PRIVILEGES ] } ON FUNCTION funcname ( [ [ argmode ] [ argname ] argtype [, ...] ] ) [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ]
@@ -4293,15 +3663,11 @@ REVOKE [ GRANT OPTION FOR ] { EXECUTE | ALL [ PRIVILEGES ] } ON FUNCTION funcnam
 
 撤销角色对过程语言的操作权限：
 
-
-
 ```
 REVOKE [ GRANT OPTION FOR ] { USAGE | ALL [ PRIVILEGES ] } ON LANGUAGE langname [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ]
 ```
 
 撤销角色对模式的操作权限：
-
-
 
 ```
 REVOKE [ GRANT OPTION FOR ] { { CREATE | USAGE } [,...] | ALL [ PRIVILEGES ] } ON SCHEMA schemaname [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ]
@@ -4309,15 +3675,11 @@ REVOKE [ GRANT OPTION FOR ] { { CREATE | USAGE } [,...] | ALL [ PRIVILEGES ] } O
 
 撤销角色对表空间的操作权限：
 
-
-
 ```
 REVOKE [ GRANT OPTION FOR ] { CREATE | ALL [ PRIVILEGES ] } ON TABLESPACE tablespacename [, ...] FROM { rolename | GROUP groupname | PUBLIC } [, ...] [ CASCADE | RESTRICT ]
 ```
 
 删除rolename2的rolename1的成员关系：
-
-
 
 ```
 REVOKE [ ADMIN OPTION FOR ] rolename1 [, ...] FROM rolename2 [, ...] [ CASCADE | RESTRICT ]
@@ -4347,15 +3709,11 @@ REVOKE [ ADMIN OPTION FOR ] rolename1 [, ...] FROM rolename2 [, ...] [ CASCADE |
 
 对userexample授予数据库database1的CREATE权限。
 
-
-
 ```
 postgres=# GRANT CREATE ON DATABASE database1 TO userexample;
 ```
 
 对所有用户授予表table1的所有权限。
-
-
 
 ```
 postgres=# GRANT ALL PRIVILEGES ON TABLE table1 TO PUBLIC;
@@ -4367,13 +3725,9 @@ postgres=# GRANT ALL PRIVILEGES ON TABLE table1 TO PUBLIC;
 
 可以使用CREATE DATABASE语句或createdb来创建数据库。createrdb是对CREATE DATABASE命令的封装，需要在shell界面执行，而不是在数据库界面。
 
-
-
 ```
 CREATE DATABASE databasename;
 ```
-
-
 
 ```
 createdb databasename
@@ -4387,8 +3741,6 @@ createdb databasename
 
 创建一个数据库database1。
 
-
-
 ```
 postgres=# CREATE DATABASE database1;
 ```
@@ -4396,8 +3748,6 @@ postgres=# CREATE DATABASE database1;
 #### 选择数据库 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-选择数据库)
 
 可以使用\c语句来选择数据库。
-
-
 
 ```
 \c databasename;
@@ -4409,8 +3759,6 @@ postgres=# CREATE DATABASE database1;
 
 选择databaseexample数据库。
 
-
-
 ```
 postgres=# \c databaseexample;
 ```
@@ -4419,8 +3767,6 @@ postgres=# \c databaseexample;
 
 可以使用\l语句来查看数据库。
 
-
-
 ```
 \l;
 ```
@@ -4428,8 +3774,6 @@ postgres=# \c databaseexample;
 ##### 示例 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-示例-7)
 
 查看所有数据库。
-
-
 
 ```
 postgres=# \l;
@@ -4443,13 +3787,9 @@ postgres=# \l;
 
 删除数据库要谨慎操作，一旦删除，数据库中的所有表和数据都会删除。
 
-
-
 ```
 DROP DATABASE databasename;
 ```
-
-
 
 ```
 dropdb databasename
@@ -4465,8 +3805,6 @@ DROP DATABASE只能由超级管理员或数据库拥有者执行。
 
 删除databaseexample数据库。
 
-
-
 ```
 postgres=# DROP DATABASE databaseexample;
 ```
@@ -4474,8 +3812,6 @@ postgres=# DROP DATABASE databaseexample;
 #### 备份数据库 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-备份数据库)
 
 可以使用pg_dump命令备份数据库，将数据库转储到一个脚本文件或其他归档文件中。
-
-
 
 ```
 pg_dump [option]... [databasename] > outfile
@@ -4497,8 +3833,6 @@ pg_dump [option]... [databasename] > outfile
 
 备份主机为192.168.202.144，端口为3306，postgres用户下的database1数据库到db1.sql中。
 
-
-
 ```
 [postgres@localhost ~]#  pg_dump -h 192.168.202.144 -p 3306 -U postgres -W database1 > db1.sql
 ```
@@ -4506,8 +3840,6 @@ pg_dump [option]... [databasename] > outfile
 #### 恢复数据库 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-恢复数据库)
 
 可以使用psql命令恢复数据库。
-
-
 
 ```
 psql [option]... [databasename [username]] < infile
@@ -4531,8 +3863,6 @@ psql命令不会自动创建databasename数据库，所以在执行psql恢复数
 ##### 示例 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/server/administration/administrator/setting_up_the_database_server.html#user-content-示例-10)
 
 将db1.sql脚本文件导入到主机为192.168.202.144，端口为3306，postgres用户下newdb数据库中。
-
-
 
 ```
 [postgres@localhost ~]# createdb newdb
