@@ -605,8 +605,6 @@ cb883f6216c2b08a8c439b3957fb396c847a99079448ca741cc90724de4e4731
 
 container_registry这个容器已经启动了，但是并不知道容器中的服务映射到主机的哪个端口，通过docker port查看端口映射。
 
-
-
 ```
 [root@localhost ~]# docker port container_registry 
 5000/tcp -> 0.0.0.0:49155
@@ -615,8 +613,6 @@ container_registry这个容器已经启动了，但是并不知道容器中的�
 从输出可以看出，容器内的5000端口映射到了主机的49155端口。通过主机IP:49155就可以访问registry服务了，在浏览器中输入[http://localhost:49155](http://localhost:49155/)就可以返回registry的版本信息。
 
 在运行registry镜像的时候还可以直接指定端口映射如：
-
-
 
 ```
 docker run --name=container_registry -d -p 5000:5000 registry
@@ -2754,7 +2750,7 @@ Storage Driver: devicemapper
 
 示例：
 
-```
+```shell
 $ sudo docker version
 Client:
  Version:           18.09.0
