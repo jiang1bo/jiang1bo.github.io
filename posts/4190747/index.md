@@ -1,13 +1,15 @@
 # Openeuler，docker开箱指南
 
 
+
+
+本章节主要介绍和开源容器Docker安装相关的重要配置。
+
 <!--more-->
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
 
 # 安装配置 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/cloud/container_engine/docker_engine/installation_and_configuration_3.html#user-content-安装配置)
-
-本章节主要介绍和开源容器Docker安装相关的重要配置。
 
 ## 注意事项 [](https://docs.openeuler.openatom.cn/zh/docs/24.03_LTS_SP1/cloud/container_engine/docker_engine/installation_and_configuration_3.html#user-content-注意事项)
 

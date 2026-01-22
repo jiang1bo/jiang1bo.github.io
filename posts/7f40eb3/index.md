@@ -1,6 +1,8 @@
 # Openeuler系统管理员指南
 
 
+OpenEuler24sp1,管理员指南
+
 <!--more-->
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->

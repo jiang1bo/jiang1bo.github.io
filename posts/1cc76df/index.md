@@ -1,4 +1,4 @@
-# 博客平台测试食用指南
+# 五个主流的博客平台(typecho,emblog,z-Blog,wordpress,halo)博客平台测试食用指南
 
 
 **详细对比了五个主流的博客平台(typecho,emblog,z-blog,wordpress,halo)，你可以快速了解它们的核心差异和适用场景。**
@@ -21,19 +21,19 @@
 
 #### 前端页面（https://fermis.top/）
 
-![](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121093544523.png)
+![](.\assets\image-20260121093544523.png)
 
 
 
 #### 后端管理
 
-![image-20260121093344462](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121093344462.png)
+![image-20260121093344462](.\assets\image-20260121093344462.png)
 
 #### 主题市场
 
-![image-20260121094416309](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121094416309.png)
+![image-20260121094416309](.\assets\image-20260121094416309.png)
 
-### ![image-20260121093457385](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121093457385.png)
+![image-20260121093457385](.\assets\image-20260121093457385.png)
 
 
 
@@ -41,29 +41,29 @@
 
 #### 前端页面
 
-![image-20260121093651661](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121093651661.png)
+![image-20260121093651661](.\assets\image-20260121093651661.png)
 
 #### 后端管理
 
-![image-20260121093712735](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121093712735.png)
+![image-20260121093712735](.\assets\image-20260121093712735.png)
 
 #### 主题市场
 
-![image-20260121094548517](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121094548517.png)
+![image-20260121094548517](.\assets\image-20260121094548517.png)
 
 ### z-blog（旧王，国内市场高占比，更新稳定）
 
 #### 前端页面
 
-![image-20260121092830557](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121092830557.png)
+![image-20260121092830557](.\assets\image-20260121092830557.png)
 
 #### 后台管理
 
-![image-20260121092858517](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121092858517.png)
+![image-20260121092858517](.\assets\image-20260121092858517.png)
 
 #### 主题市场
 
-![image-20260121094315766](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121094315766.png)
+![image-20260121094315766](.\assets\image-20260121094315766.png)
 
 
 
@@ -71,27 +71,27 @@
 
 #### 前端页面
 
-![image-20260121092429370](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121092429370.png)
+![image-20260121092429370](.\assets\image-20260121092429370.png)
 
 #### 后台管理
 
-![image-20260121092539693](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121092539693.png)
+![image-20260121092539693](.\assets\image-20260121092539693.png)
 
 #### 主题市场
 
-![image-20260121095234456](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121095234456.png)
+![image-20260121095234456](.\assets\image-20260121095234456.png)
 
 
 
-### typecho（不死小强，简约，更新较慢，技术文档较少，相关论坛不活跃）
+### typecho（不死小强，简约快速，技术文档较少，更新较慢）
 
 #### 前端页面
 
-![image-20260121093947034](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121093947034.png)
+![image-20260121093947034](.\assets\image-20260121093947034.png)
 
 #### 后端管理
 
-![image-20260121094031094](D:\IDM\git\github\website\privacy-fixlt\content\posts\allblogtest\assets\image-20260121094031094.png)
+![image-20260121094031094](.\assets\image-20260121094031094.png)
 
 
 
