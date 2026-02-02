@@ -343,10 +343,6 @@ mv wordpress/ $PREFIX/share/nginx/html
 
 
 
-
-
-
-
 **一个开机自启动脚本（检测服务状态是否启动，如果没有启动则重新启动）**
 
 ```shell
