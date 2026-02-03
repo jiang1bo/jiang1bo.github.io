@@ -53,6 +53,8 @@ Termux下载地址(F-Droid)：https://f-droid.org/en/packages/com.termux/
 
 Termux 不支持使用 Debian、Ubuntu 及其他 Linux 发行版仓库的软件包。因此，不要尝试将这些文件放入你的sources.list或手动安装.deb文件。请参见[“与Linux的区别](https://wiki.termux.com/wiki/Differences_from_Linux)”以了解原因。
 
+#### **root权限不完整，docker、宝塔以及一些需要root权限的工具无法正常运行**
+
 额外限制：
 
 - 目前只支持单一架构。你不能同时安装64位和32位包。
@@ -134,15 +136,7 @@ Termux apt 仓库的镜像是可用的。在 [Github](https://github.com/termux/
 
 ## Termux基础配置
 
-### 首先，打开Termux更新pkg
-
-```
-输入 pkg update   输入 Y
-```
-
-后面就一路回车就行
-
-### 换源
+### 打开Termux,换源
 
 我们在使用 pkg update 的时候会发现pkg官方源比较慢，所以我们可以更换国内的其他源
 
@@ -162,6 +156,83 @@ apt update && apt upgrade
 
 ```
 
+### 更新pkg
+
+```
+pkg update
+pkg upgrade -y
+pkg install openssh -y
+```
+
+后面就一路回车就行
+
+### 设置登录密码（重要！）
+
+在Termux中，修改用户名有几种方法，但需要注意**Termux用户名由Android系统UID自动生成**，直接修改可能会影响应用权限和文件所有权。
+
+Termux默认无密码，必须设置：
+
+```
+# 设置密码（输入时不会显示字符）
+passwd
+```
+
+> 按提示输入两次密码（建议设置强度较高的密码）。
+
+### 获取手机在局域网的IP地址
+
+```
+ip addr show | grep inet
+```
+
+在输出中寻找`wlan0`（Wi-Fi）的IP，格式为`192.168.x.x`或`10.x.x.x`。记下这个IP。
+
+或使用更简单命令：
+
+```
+ifconfig wlan0
+# 如果ifconfig不可用，安装net-tools：pkg install net-tools -y
+```
+
+### 启动SSH服务
+
+```
+# 默认端口8022（避免与系统22端口冲突）
+sshd -p 8022
+
+#远程连接
+ssh u0_a123@192.168.1.100 -p 8022
+
+# 检查SSH进程
+ps aux | grep sshd
+
+# 检查端口监听状态
+netstat -tulpn | grep :2222
+
+# 或使用更简洁的命令
+ss -tlnp | grep :2222
+```
+
+### 查看防火墙状态
+
+```
+# 安装防火墙工具
+pkg install iptables -y
+
+# 查看规则
+iptables -L -n -v
+
+# 允许新SSH端口
+iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
+
+# 保存规则（需要Root）
+iptables-save > /data/data/com.termux/files/home/iptables.rules
+```
+
+
+
+
+
 **到这时候，你已经完成了linux运行环境的搭建**
 
 ## 网站环境配置（wordpress,typecho）
@@ -180,6 +251,33 @@ pkg install mariadb
 
 安装应该不会出错。如果发生了错误，你可能需要在 [Github](https://github.com/termux/termux-packages/issues) 上报告问题。
 
+**关键目录配置**
+由于Termux的文件系统布局特殊，需要为MariaDB建立合适的数据目录并设置权限：
+
+
+
+```
+mkdir -p ~/mariadb_data
+mariadb-install-db --datadir=$HOME/mariadb_data --srcdir=$PREFIX --auth-root-authentication-method=normal
+```
+
+
+
+此命令会初始化数据库系统文件到 `~/mariadb_data` 目录。
+
+**3. 启动MariaDB服务**
+在Termux中，你需要通过命令行手动启动mysqld（MySQL/MariaDB服务进程）：
+
+```
+mysqld_safe --datadir=$HOME/mysql_data --socket=$PREFIX/tmp/mysql.sock &
+```
+
+启动后，可以运行 `pgrep mysqld` 来检查服务是否在后台运行。
+
+
+
+
+
 上述命令还会初始化数据库，使用**两个全权限账户**（可能在MariaDB 10.4.x中引入）。第一个是“root”，无法访问，第二个是你的 Termux 用户名（用命令或 Check）。`id -un``whoami`
 
 要启用root账户访问权限，你需要用你的Termux用户名登录
@@ -190,7 +288,19 @@ mysql -u $(whoami)
 
 并手动更改root密码
 
+ **设置root密码并运行安全脚本**
+首先以无需密码的方式登录，然后修改root用户的密码（将 `你的新密码` 替换为强密码）：
+
+
+
 ```
+mysql -u root --socket=$PREFIX/tmp/mysql.sock
+# 进入MySQL命令行后，执行：
+ALTER USER 'root'@'localhost' IDENTIFIED BY '你的新密码';
+FLUSH PRIVILEGES;
+EXIT;
+#之后，可以运行 mysql_secure_installation 来进行其他安全设置（如移除匿名用户等），但请注意，在Termux中运行此脚本可能会因环境差异报错，手动执行上述ALTER USER命令设置密码是更可靠的方法。
+
 use mysql;
 set password for 'root'@'localhost' = password('YOUR_ROOT_PASSWORD_HERE');
 flush privileges;
@@ -198,6 +308,50 @@ quit;
 ```
 
 确认你能用 Root登录。你需要提供前一步设置的密码。` mysql -u root -p`
+
+### 常用SQL命令速查表
+
+| 类别                | 命令示例                                                     | 说明                                                |
+| :------------------ | :----------------------------------------------------------- | :-------------------------------------------------- |
+| **数据库操作**      | `CREATE DATABASE`数据库名`;`                                 | 创建新数据库。                                      |
+|                     | `SHOW DATABASES;`                                            | 列出所有数据库。                                    |
+|                     | `USE`数据库名`;`                                             | 切换到指定数据库（后续操作在该库中进行）。          |
+|                     | `DROP DATABASE`数据库名`;`                                   | **删除**数据库（**不可逆！**）。                    |
+| **用户与权限**      | `CREATE USER '用户名'@'localhost' IDENTIFIED BY '密码';`     | 创建新用户（`localhost`指仅限本地连接）。           |
+|                     | `GRANT ALL PRIVILEGES ON`数据库名`.* TO '用户名'@'localhost';` | 授予用户对某个数据库的所有权限。                    |
+|                     | `FLUSH PRIVILEGES;`                                          | 刷新权限，使授权更改**立即生效**。                  |
+|                     | `SHOW GRANTS FOR '用户名'@'localhost';`                      | 查看用户的权限。                                    |
+| **表操作**          | `SHOW TABLES;`                                               | 显示当前数据库中的所有表。                          |
+|                     | `DESCRIBE`表名`;` 或 `DESC`表名`;`                           | 查看表的结构（有哪些字段）。                        |
+|                     | `CREATE TABLE`表名`(id INT, name VARCHAR(100));`             | 创建新表。                                          |
+|                     | `DROP TABLE`表名`;`                                          | **删除**表（**不可逆！**）。                        |
+| **数据操作 (CRUD)** | `INSERT INTO`表名`(字段1, 字段2) VALUES ('值1', '值2');`     | 插入新数据。                                        |
+|                     | `SELECT * FROM`表名`;`                                       | 查询表中**所有**数据。                              |
+|                     | `SELECT`字段1`,`字段2`FROM`表名`WHERE 条件;`                 | 带条件查询特定字段。                                |
+|                     | `UPDATE`表名`SET 字段1='新值' WHERE 条件;`                   | 更新数据（**务必用WHERE**，否则更新全表）。         |
+|                     | `DELETE FROM`表名`WHERE 条件;`                               | 删除数据（**务必用WHERE**，否则清空全表）。         |
+| **维护与优化**      | `OPTIMIZE TABLE`表名`;`                                      | 优化表，释放空间（尤其适用于WordPress）。           |
+|                     | `SHOW PROCESSLIST;`                                          | 显示当前正在执行的所有连接/查询。                   |
+|                     | `KILL`进程ID`;`                                              | 终止某个耗时的查询（从`SHOW PROCESSLIST;`获取ID）。 |
+|                     | `EXIT;` 或 `\q`                                              | 退出MariaDB命令行客户端。                           |
+
+###  实用技巧与注意事项
+
+```
+-- 1. 创建数据库
+CREATE DATABASE my_blog_db;
+-- 2. 创建用户并设置密码
+CREATE USER 'blog_admin'@'localhost' IDENTIFIED BY 'StrongPassword123!';
+-- 3. 授予用户对新数据库的所有权限
+GRANT ALL PRIVILEGES ON my_blog_db.* TO 'blog_admin'@'localhost';
+-- 4. 刷新权限
+FLUSH PRIVILEGES;
+-- 5. 切换到新数据库
+USE my_blog_db;
+-- 接下来就可以在此数据库内创建表了
+```
+
+
 
 #### 使用 package
 
@@ -208,6 +362,25 @@ mysqld_safe
 ```
 
 然后你应该能够连接到数据库，例如用 。`mysql -u root -p`
+
+
+
+**为WordPress创建专用数据库和用户**
+重新使用密码登录，并为WordPress创建一个专用的数据库和用户（请务必替换 `wordpress_user` 和 `user_password`）：
+
+```
+mysql -u root -p --socket=$PREFIX/tmp/mysql.sock
+
+CREATE DATABASE wordpress_db;
+CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'user_password';
+GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+
+
+
 
 
 
@@ -293,6 +466,9 @@ Termux 里面的 Nginx 默认网站的根目为：`/data/data/com.termux/files/u
 pkg install php
 
 pkg install php-fpm
+# 安装WordPress必需的PHP扩展（如果尚未安装）
+pkg install php-mysqli php-gd php-curl php-xml php-mbstring php-intl php-apache -y
+
 
 #编辑 php-fpm 的配置文件www.conf
 vim $PREFIX/etc/php-fpm.d/www.conf
@@ -306,12 +482,20 @@ listen = 127.0.0.1:9000
 #在这个网站根目录下：
 /data/data/com.termux/files/usr/share/nginx/html
 
-#新建 info.php 内容为：
-<?php phpinfo(); ?>
+#创建一个简单的PHP信息页来测试， 内容为：
+echo "<?php phpinfo(); ?>" > $PREFIX/share/nginx/html/info.php
 
 ```
 
+
+
+
+
 **先启动php-fpm,然后启动nginx,如果你的 Nginx 已经启动了的话，使用 nginx -s reload 重启 Nginx.**
+
+
+
+
 
 ```
 http://[ip地址]:8080/info.php
