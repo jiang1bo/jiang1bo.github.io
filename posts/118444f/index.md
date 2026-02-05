@@ -600,7 +600,7 @@ mv wordpress/ $PREFIX/share/nginx/html
 
 ```
 
-### 安装wordpress,typecho
+### 安装wordpress,typecho(emblog,z-blog安装方式相似不再赘述)
 
 ```shell
 #将解压的文件夹移动到 nginx 网站根目录下
@@ -611,8 +611,6 @@ mv wordpress/ $PREFIX/share/nginx/html
 浏览器访问: http://127/.0.0.1/wordpress/进行 WordPress 的安装
 
 浏览器访问: http://127/.0.0.1/typecho进行 WordPress 的安装
-
-
 
 
 
