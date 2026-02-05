@@ -1,14 +1,14 @@
 <!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><meta name=robots content="noodp"><title>RedmiNote7+Termux服务器改造方案 - Fermi</title><meta name=author content><meta name=description content="RedmiNote7+Termux服务器改造方案并部署博客
-"><meta name=keywords content='blog,termux,halo,typecho,wordpress'><meta itemprop=name content="RedmiNote7+Termux服务器改造方案"><meta itemprop=description content="RedmiNote7+Termux服务器改造方案并部署博客"><meta itemprop=datePublished content="2026-01-01T12:04:09+08:00"><meta itemprop=dateModified content="2026-01-01T12:04:09+08:00"><meta itemprop=wordCount content="1416"><meta itemprop=keywords content="Blog,Termux,Halo,Typecho,Wordpress"><meta property="og:url" content="https://jiang1bo.github.io/posts/118444f/"><meta property="og:site_name" content="Fermi"><meta property="og:title" content="RedmiNote7+Termux服务器改造方案"><meta property="og:description" content="RedmiNote7+Termux服务器改造方案并部署博客"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-01-01T12:04:09+08:00"><meta property="article:modified_time" content="2026-01-01T12:04:09+08:00"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Termux"><meta property="article:tag" content="Halo"><meta property="article:tag" content="Typecho"><meta property="article:tag" content="Wordpress"><meta name=twitter:card content="summary"><meta name=twitter:title content="RedmiNote7+Termux服务器改造方案"><meta name=twitter:description content="RedmiNote7+Termux服务器改造方案并部署博客"><meta name=application-name content="Fermi's Blog"><meta name=apple-mobile-web-app-title content="Fermi's Blog"><meta name=theme-color data-light=#ffffff data-dark=#ffffff content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical type=text/html href=https://jiang1bo.github.io/posts/118444f/ title="RedmiNote7+Termux服务器改造方案 - Fermi"><link rel=prev type=text/html href=https://jiang1bo.github.io/posts/e05f4ac/ title=ssl自动续签：（certbot以及acme.sh两种方式）><link rel=next type=text/html href=https://jiang1bo.github.io/posts/ece4446/ title=termux部署wordpress+halo><link rel=alternate type=text/markdown href=https://jiang1bo.github.io/posts/118444f/index.md title="RedmiNote7+Termux服务器改造方案 - Fermi"><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"RedmiNote7+Termux服务器改造方案","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/jiang1bo.github.io\/posts\/118444f\/"},"genre":"posts","keywords":"blog, termux, halo, typecho, wordpress","wordcount":1416,"url":"https:\/\/jiang1bo.github.io\/posts\/118444f\/","datePublished":"2026-01-01T12:04:09+08:00","dateModified":"2026-01-01T12:04:09+08:00","publisher":{"@type":"Organization","name":""},"description":""}</script><script src=/js/head/color-scheme.min.js></script></head><body data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper data-github-corner=right><div class=header-title><a href=/ title=Fermi><span class=header-title-text>Fermi's Blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class=menu-item><a class=menu-link href=/archives/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> Archives</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> Categories</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容…… id=search-input-desktop>
+"><meta name=keywords content='blog,termux,halo,typecho,wordpress'><meta itemprop=name content="RedmiNote7+Termux服务器改造方案"><meta itemprop=description content="RedmiNote7+Termux服务器改造方案并部署博客"><meta itemprop=datePublished content="2026-01-01T12:04:09+08:00"><meta itemprop=dateModified content="2026-01-01T12:04:09+08:00"><meta itemprop=wordCount content="2071"><meta itemprop=keywords content="Blog,Termux,Halo,Typecho,Wordpress"><meta property="og:url" content="https://jiang1bo.github.io/posts/118444f/"><meta property="og:site_name" content="Fermi"><meta property="og:title" content="RedmiNote7+Termux服务器改造方案"><meta property="og:description" content="RedmiNote7+Termux服务器改造方案并部署博客"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-01-01T12:04:09+08:00"><meta property="article:modified_time" content="2026-01-01T12:04:09+08:00"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Termux"><meta property="article:tag" content="Halo"><meta property="article:tag" content="Typecho"><meta property="article:tag" content="Wordpress"><meta name=twitter:card content="summary"><meta name=twitter:title content="RedmiNote7+Termux服务器改造方案"><meta name=twitter:description content="RedmiNote7+Termux服务器改造方案并部署博客"><meta name=application-name content="Fermi's Blog"><meta name=apple-mobile-web-app-title content="Fermi's Blog"><meta name=theme-color data-light=#ffffff data-dark=#ffffff content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical type=text/html href=https://jiang1bo.github.io/posts/118444f/ title="RedmiNote7+Termux服务器改造方案 - Fermi"><link rel=prev type=text/html href=https://jiang1bo.github.io/posts/e05f4ac/ title=ssl自动续签：（certbot以及acme.sh两种方式）><link rel=next type=text/html href=https://jiang1bo.github.io/posts/ece4446/ title=termux部署wordpress+halo><link rel=alternate type=text/markdown href=https://jiang1bo.github.io/posts/118444f/index.md title="RedmiNote7+Termux服务器改造方案 - Fermi"><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"RedmiNote7+Termux服务器改造方案","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/jiang1bo.github.io\/posts\/118444f\/"},"genre":"posts","keywords":"blog, termux, halo, typecho, wordpress","wordcount":2071,"url":"https:\/\/jiang1bo.github.io\/posts\/118444f\/","datePublished":"2026-01-01T12:04:09+08:00","dateModified":"2026-01-01T12:04:09+08:00","publisher":{"@type":"Organization","name":""},"description":""}</script><script src=/js/head/color-scheme.min.js></script></head><body data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper data-github-corner=right><div class=header-title><a href=/ title=Fermi><span class=header-title-text>Fermi's Blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class=menu-item><a class=menu-link href=/archives/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> Archives</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> Categories</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容…… id=search-input-desktop>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
 </a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
 </a><span class="search-button search-loading" id=search-loading-desktop><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></li><li class="menu-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Fermi><span class=header-title-text>Fermi's Blog</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><nav><ul class=menu id=menu-mobile><li class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容…… id=search-input-mobile>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
 </a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
 </a><span class="search-button search-loading" id=search-loading-mobile><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></li><li class=menu-item><a class=menu-link href=/archives/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> Archives</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden=true></i> Categories</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> Tags</a></li><li class="menu-item menu-system"><span class="menu-system-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></span></li></ul></nav></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=container><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=合集></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span title=转载 class=icon-repost><i class="fa-solid fa-share fa-fw" aria-hidden=true></i></span><span>RedmiNote7+Termux服务器改造方案</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><span class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
-Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categories/linux/ class=post-category title="分类 - Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Linux</a>&ensp;<a href=/categories/web/ class=post-category title="分类 - Web"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Web</a></span></div><div class=post-meta-line><span title="发布于 2026-01-01 12:04:09"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden=true></i><time datetime=2026-01-01>2026-01-01</time></span>&nbsp;<span title="1416 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 1500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 7 分钟</span>&nbsp;<span id=busuanzi_container_page_pv class="busuanzi_visitors comment-visitors" data-flag-title=RedmiNote7+Termux服务器改造方案><i class="fa-regular fa-eye fa-fw me-1" aria-hidden=true></i><span id=busuanzi_value_page_pv>-</span>&nbsp;次阅读
+Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categories/linux/ class=post-category title="分类 - Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Linux</a>&ensp;<a href=/categories/web/ class=post-category title="分类 - Web"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Web</a></span></div><div class=post-meta-line><span title="发布于 2026-01-01 12:04:09"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden=true></i><time datetime=2026-01-01>2026-01-01</time></span>&nbsp;<span title="2071 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 2100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 10 分钟</span>&nbsp;<span id=busuanzi_container_page_pv class="busuanzi_visitors comment-visitors" data-flag-title=RedmiNote7+Termux服务器改造方案><i class="fa-regular fa-eye fa-fw me-1" aria-hidden=true></i><span id=busuanzi_value_page_pv>-</span>&nbsp;次阅读
 </span>&nbsp;</div></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#生命的意义在于折腾>生命的意义在于折腾</a></li><li><a href=#为手机配置-linux环境>为手机配置 Linux环境</a><ul><li><a href=#使用-termux-安装linux环境最通用最灵活>使用 Termux 安装linux环境（最通用、最灵活）</a></li><li><a href=#局限性>局限性</a><ul><li><a href=#root权限不完整docker宝塔以及一些需要root权限的工具无法正常运行><strong>root权限不完整，docker、宝塔以及一些需要root权限的工具无法正常运行</strong></a></li></ul></li><li><a href=#使用包管理器>使用包管理器</a></li><li><a href=#官方资料库>官方资料库</a></li><li><a href=#其他包管理器>其他包管理器</a></li></ul></li><li><a href=#termux基础配置>Termux基础配置</a><ul><li><a href=#打开termux换源>打开Termux,换源</a></li><li><a href=#更新pkg>更新pkg</a></li><li><a href=#设置登录密码重要>设置登录密码（重要！）</a></li><li><a href=#获取手机在局域网的ip地址>获取手机在局域网的IP地址</a></li><li><a href=#启动ssh服务>启动SSH服务</a></li><li><a href=#查看防火墙状态>查看防火墙状态</a></li></ul></li><li><a href=#网站环境配置wordpresstypecho>网站环境配置（wordpress,typecho）</a><ul><li><a href=#安装数据库mariadb>安装数据库（mariadb）</a><ul><li><a href=#安装包>安装包</a></li></ul></li><li><a href=#常用sql命令速查表>常用SQL命令速查表</a></li><li><a href=#实用技巧与注意事项>实用技巧与注意事项</a><ul><li><a href=#使用-package>使用 package</a></li></ul></li><li><a href=#安装配置nginx>安装配置nginx</a></li><li><a href=#配置nginx>配置nginx</a></li><li><a href=#安装php-fpm>安装php-fpm</a></li><li><a href=#正式开始搭建wordpress><strong>正式开始搭建wordpress</strong></a></li><li><a href=#安装wordpress>安装wordpress</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>RedmiNote7+Termux服务器改造方案并部署博客</p><h2 class=heading-element id=生命的意义在于折腾><span>生命的意义在于折腾</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#生命的意义在于折腾>生命的意义在于折腾</a></li><li><a href=#为手机配置-linux环境>为手机配置 Linux环境</a><ul><li><a href=#使用-termux-安装linux环境最通用最灵活>使用 Termux 安装linux环境（最通用、最灵活）</a></li><li><a href=#局限性>局限性</a><ul><li><a href=#root权限不完整docker宝塔以及一些需要root权限的工具无法正常运行><strong>root权限不完整，docker、宝塔以及一些需要root权限的工具无法正常运行</strong></a></li></ul></li><li><a href=#使用包管理器>使用包管理器</a></li><li><a href=#官方资料库>官方资料库</a></li><li><a href=#其他包管理器>其他包管理器</a></li></ul></li><li><a href=#termux基础配置>Termux基础配置</a><ul><li><a href=#打开termux换源>打开Termux,换源</a></li><li><a href=#更新pkg>更新pkg</a></li><li><a href=#设置登录密码重要>设置登录密码（重要！）</a></li><li><a href=#获取手机在局域网的ip地址>获取手机在局域网的IP地址</a></li><li><a href=#启动ssh服务>启动SSH服务</a></li><li><a href=#查看防火墙状态>查看防火墙状态</a></li></ul></li><li><a href=#网站环境配置wordpresstypecho>网站环境配置（wordpress,typecho）</a><ul><li><a href=#安装数据库mariadb>安装数据库（mariadb）</a><ul><li><a href=#安装包>安装包</a></li><li><a href=#常用sql命令速查表>常用SQL命令速查表</a></li><li><a href=#使用-package>使用 package</a></li><li><a href=#为wordpress创建专用数据库和用户><strong>为WordPress创建专用数据库和用户</strong></a></li></ul></li><li><a href=#安装配置nginx>安装配置nginx</a><ul><li><a href=#配置nginx>配置nginx</a></li></ul></li><li><a href=#安装php-fpm>安装php-fpm</a></li><li><a href=#正式开始搭建wordpress><strong>正式开始搭建wordpress</strong></a></li><li><a href=#安装wordpresstypecho>安装wordpress,typecho</a></li><li><a href=#安装halo>安装halo</a></li><li><a href=#第一步环境准备>第一步：环境准备</a></li><li><a href=#第二步数据库配置-mariadb>第二步：数据库配置 (MariaDB)</a></li><li><a href=#第三步创建-halo-配置文件>第三步：创建 Halo 配置文件</a></li><li><a href=#第四步启动-halo>第四步：启动 Halo</a></li><li><a href=#第五步访问并初始化-halo>第五步：访问并初始化 Halo</a></li><li><a href=#-重要提醒与优化>⚠️ 重要提醒与优化</a></li></ul></li><li><a href=#开机自启动脚本>开机自启动脚本</a></li></ul></nav></div></div><div class=content id=content><p>RedmiNote7+Termux服务器改造方案并部署博客</p><h2 class=heading-element id=生命的意义在于折腾><span>生命的意义在于折腾</span>
 <a href=#%e7%94%9f%e5%91%bd%e7%9a%84%e6%84%8f%e4%b9%89%e5%9c%a8%e4%ba%8e%e6%8a%98%e8%85%be class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p><strong>在一个无聊的下午，翻出了早已退休的redminote7pro。秉承着老同志继续发光发热的想法，在对deekseek进行几天友好互动后，于是有了这篇文章。</strong></p><h2 class=heading-element id=为手机配置-linux环境><span>为手机配置 Linux环境</span>
 <a href=#%e4%b8%ba%e6%89%8b%e6%9c%ba%e9%85%8d%e7%bd%ae-linux%e7%8e%af%e5%a2%83 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>在安卓手机上运行完整 Linux 有几种主流方案，核心区别在于<strong>是否需要高版本系统、Root权限以及对性能的追求</strong>。下面这个表格能帮你快速了解并选择：</p><table><thead><tr><th style=text-align:left>方案</th><th style=text-align:left>核心特点</th><th style=text-align:left>是否需要 Root</th><th style=text-align:left>适合谁</th></tr></thead><tbody><tr><td style=text-align:left><strong>🔗 利用 Android 16 原生功能</strong></td><td style=text-align:left>系统级支持，性能好，设置简单</td><td style=text-align:left><strong>否</strong></td><td style=text-align:left>手机已升级到 <strong>Android 16</strong>，追求稳定和较好性能的用户</td></tr><tr><td style=text-align:left><strong>🐧 Termux + 发行版</strong></td><td style=text-align:left>最通用、资源多，可安装完整发行版和图形桌面</td><td style=text-align:left><strong>否</strong></td><td style=text-align:left><strong>绝大多数用户</strong>的首选，想灵活尝试不同Linux发行版</td></tr><tr><td style=text-align:left><strong>🖥️ LocalDesktop 等一键工具</strong></td><td style=text-align:left>安装配置简化，侧重桌面体验</td><td style=text-align:left><strong>否</strong></td><td style=text-align:left>希望快速获得Linux桌面环境，不想手动敲命令的用户</td></tr><tr><td style=text-align:left><strong>⚙️ 高级方案 (如 Linux Deploy)</strong></td><td style=text-align:left>功能最完整，性能潜力高</td><td style=text-align:left><strong>是</strong></td><td style=text-align:left>拥有已Root设备，追求极致性能和完整控制的进阶用户</td></tr></tbody></table><h3 class=heading-element id=使用-termux-安装linux环境最通用最灵活><span>使用 Termux 安装linux环境（最通用、最灵活）</span>
 <a href=#%e4%bd%bf%e7%94%a8-termux-%e5%ae%89%e8%a3%85linux%e7%8e%af%e5%a2%83%e6%9c%80%e9%80%9a%e7%94%a8%e6%9c%80%e7%81%b5%e6%b4%bb class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p><strong>经过几天的折腾发现还是termux方便，虽然不能运行完整的linux环境，但是能满足90%的需要</strong></p><p>这是目前最受欢迎的方式，无需Root，适用于绝大多数安卓手机（系统要求通常为 <strong>Android 7.0 以上</strong>）。</p><p><strong>Termux 使用 apt 和 dpkg 进行包管理，类似于 Ubuntu 或 Debian。</strong>（网页翻译）</p><p><strong>Termux是一个在Android系统中内置了Linux环境的软件</strong></p><p>Termux官网：https://termux.dev/</p><p>Termux下载地址(GitHub)：https://github.com/termux/termux-app/releases</p><p>Termux下载地址(F-Droid)：https://f-droid.org/en/packages/com.termux/</p><h3 class=heading-element id=局限性><span>局限性</span>
@@ -130,9 +130,11 @@ Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/cat
 </span></span><span class=line><span class=cl>use mysql;
 </span></span><span class=line><span class=cl>set password for &#39;root&#39;@&#39;localhost&#39; = password(&#39;YOUR_ROOT_PASSWORD_HERE&#39;);
 </span></span><span class=line><span class=cl>flush privileges;
-</span></span><span class=line><span class=cl>quit;</span></span></code></pre></td></tr></table></div></div><p>确认你能用 Root登录。你需要提供前一步设置的密码。<code> mysql -u root -p</code></p><h3 class=heading-element id=常用sql命令速查表><span>常用SQL命令速查表</span>
-<a href=#%e5%b8%b8%e7%94%a8sql%e5%91%bd%e4%bb%a4%e9%80%9f%e6%9f%a5%e8%a1%a8 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><table><thead><tr><th style=text-align:left>类别</th><th style=text-align:left>命令示例</th><th style=text-align:left>说明</th></tr></thead><tbody><tr><td style=text-align:left><strong>数据库操作</strong></td><td style=text-align:left><code>CREATE DATABASE</code>数据库名<code>;</code></td><td style=text-align:left>创建新数据库。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SHOW DATABASES;</code></td><td style=text-align:left>列出所有数据库。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>USE</code>数据库名<code>;</code></td><td style=text-align:left>切换到指定数据库（后续操作在该库中进行）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>DROP DATABASE</code>数据库名<code>;</code></td><td style=text-align:left><strong>删除</strong>数据库（<strong>不可逆！</strong>）。</td></tr><tr><td style=text-align:left><strong>用户与权限</strong></td><td style=text-align:left><code>CREATE USER '用户名'@'localhost' IDENTIFIED BY '密码';</code></td><td style=text-align:left>创建新用户（<code>localhost</code>指仅限本地连接）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>GRANT ALL PRIVILEGES ON</code>数据库名<code>.* TO '用户名'@'localhost';</code></td><td style=text-align:left>授予用户对某个数据库的所有权限。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>FLUSH PRIVILEGES;</code></td><td style=text-align:left>刷新权限，使授权更改<strong>立即生效</strong>。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SHOW GRANTS FOR '用户名'@'localhost';</code></td><td style=text-align:left>查看用户的权限。</td></tr><tr><td style=text-align:left><strong>表操作</strong></td><td style=text-align:left><code>SHOW TABLES;</code></td><td style=text-align:left>显示当前数据库中的所有表。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>DESCRIBE</code>表名<code>;</code> 或 <code>DESC</code>表名<code>;</code></td><td style=text-align:left>查看表的结构（有哪些字段）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>CREATE TABLE</code>表名<code>(id INT, name VARCHAR(100));</code></td><td style=text-align:left>创建新表。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>DROP TABLE</code>表名<code>;</code></td><td style=text-align:left><strong>删除</strong>表（<strong>不可逆！</strong>）。</td></tr><tr><td style=text-align:left><strong>数据操作 (CRUD)</strong></td><td style=text-align:left><code>INSERT INTO</code>表名<code>(字段1, 字段2) VALUES ('值1', '值2');</code></td><td style=text-align:left>插入新数据。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SELECT * FROM</code>表名<code>;</code></td><td style=text-align:left>查询表中<strong>所有</strong>数据。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SELECT</code>字段1<code>,</code>字段2<code>FROM</code>表名<code>WHERE 条件;</code></td><td style=text-align:left>带条件查询特定字段。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>UPDATE</code>表名<code>SET 字段1='新值' WHERE 条件;</code></td><td style=text-align:left>更新数据（<strong>务必用WHERE</strong>，否则更新全表）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>DELETE FROM</code>表名<code>WHERE 条件;</code></td><td style=text-align:left>删除数据（<strong>务必用WHERE</strong>，否则清空全表）。</td></tr><tr><td style=text-align:left><strong>维护与优化</strong></td><td style=text-align:left><code>OPTIMIZE TABLE</code>表名<code>;</code></td><td style=text-align:left>优化表，释放空间（尤其适用于WordPress）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SHOW PROCESSLIST;</code></td><td style=text-align:left>显示当前正在执行的所有连接/查询。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>KILL</code>进程ID<code>;</code></td><td style=text-align:left>终止某个耗时的查询（从<code>SHOW PROCESSLIST;</code>获取ID）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>EXIT;</code> 或 <code>\q</code></td><td style=text-align:left>退出MariaDB命令行客户端。</td></tr></tbody></table><h3 class=heading-element id=实用技巧与注意事项><span>实用技巧与注意事项</span>
-<a href=#%e5%ae%9e%e7%94%a8%e6%8a%80%e5%b7%a7%e4%b8%8e%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span><span class=line><span class=cl>quit;</span></span></code></pre></td></tr></table></div></div><p>确认你能用 Root登录。你需要提供前一步设置的密码。<code> mysql -u root -p</code></p><h4 class=heading-element id=常用sql命令速查表><span>常用SQL命令速查表</span>
+<a href=#%e5%b8%b8%e7%94%a8sql%e5%91%bd%e4%bb%a4%e9%80%9f%e6%9f%a5%e8%a1%a8 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><table><thead><tr><th style=text-align:left>类别</th><th style=text-align:left>命令示例</th><th style=text-align:left>说明</th></tr></thead><tbody><tr><td style=text-align:left><strong>数据库操作</strong></td><td style=text-align:left><code>CREATE DATABASE</code>数据库名<code>;</code></td><td style=text-align:left>创建新数据库。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SHOW DATABASES;</code></td><td style=text-align:left>列出所有数据库。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>USE</code>数据库名<code>;</code></td><td style=text-align:left>切换到指定数据库（后续操作在该库中进行）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>DROP DATABASE</code>数据库名<code>;</code></td><td style=text-align:left><strong>删除</strong>数据库（<strong>不可逆！</strong>）。</td></tr><tr><td style=text-align:left><strong>用户与权限</strong></td><td style=text-align:left><code>CREATE USER '用户名'@'localhost' IDENTIFIED BY '密码';</code></td><td style=text-align:left>创建新用户（<code>localhost</code>指仅限本地连接）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>GRANT ALL PRIVILEGES ON</code>数据库名<code>.* TO '用户名'@'localhost';</code></td><td style=text-align:left>授予用户对某个数据库的所有权限。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>FLUSH PRIVILEGES;</code></td><td style=text-align:left>刷新权限，使授权更改<strong>立即生效</strong>。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SHOW GRANTS FOR '用户名'@'localhost';</code></td><td style=text-align:left>查看用户的权限。</td></tr><tr><td style=text-align:left><strong>表操作</strong></td><td style=text-align:left><code>SHOW TABLES;</code></td><td style=text-align:left>显示当前数据库中的所有表。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>DESCRIBE</code>表名<code>;</code> 或 <code>DESC</code>表名<code>;</code></td><td style=text-align:left>查看表的结构（有哪些字段）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>CREATE TABLE</code>表名<code>(id INT, name VARCHAR(100));</code></td><td style=text-align:left>创建新表。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>DROP TABLE</code>表名<code>;</code></td><td style=text-align:left><strong>删除</strong>表（<strong>不可逆！</strong>）。</td></tr><tr><td style=text-align:left><strong>数据操作 (CRUD)</strong></td><td style=text-align:left><code>INSERT INTO</code>表名<code>(字段1, 字段2) VALUES ('值1', '值2');</code></td><td style=text-align:left>插入新数据。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SELECT * FROM</code>表名<code>;</code></td><td style=text-align:left>查询表中<strong>所有</strong>数据。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SELECT</code>字段1<code>,</code>字段2<code>FROM</code>表名<code>WHERE 条件;</code></td><td style=text-align:left>带条件查询特定字段。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>UPDATE</code>表名<code>SET 字段1='新值' WHERE 条件;</code></td><td style=text-align:left>更新数据（<strong>务必用WHERE</strong>，否则更新全表）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>DELETE FROM</code>表名<code>WHERE 条件;</code></td><td style=text-align:left>删除数据（<strong>务必用WHERE</strong>，否则清空全表）。</td></tr><tr><td style=text-align:left><strong>维护与优化</strong></td><td style=text-align:left><code>OPTIMIZE TABLE</code>表名<code>;</code></td><td style=text-align:left>优化表，释放空间（尤其适用于WordPress）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>SHOW PROCESSLIST;</code></td><td style=text-align:left>显示当前正在执行的所有连接/查询。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>KILL</code>进程ID<code>;</code></td><td style=text-align:left>终止某个耗时的查询（从<code>SHOW PROCESSLIST;</code>获取ID）。</td></tr><tr><td style=text-align:left></td><td style=text-align:left><code>EXIT;</code> 或 <code>\q</code></td><td style=text-align:left>退出MariaDB命令行客户端。</td></tr></tbody></table><h4 class=heading-element id=使用-package><span>使用 package</span>
+<a href=#%e4%bd%bf%e7%94%a8-package class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>每当你想通过命令行或某个程序（网页应用）手动访问MySQL数据库时，你需要启动MySQL服务器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>mysqld_safe</span></span></code></pre></td></tr></table></div></div><p>然后你应该能够连接到数据库，例如用 。<code>mysql -u root -p</code></p><h4 class=heading-element id=为wordpress创建专用数据库和用户><span><strong>为WordPress创建专用数据库和用户</strong></span>
+<a href=#%e4%b8%bawordpress%e5%88%9b%e5%bb%ba%e4%b8%93%e7%94%a8%e6%95%b0%e6%8d%ae%e5%ba%93%e5%92%8c%e7%94%a8%e6%88%b7 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>重新使用密码登录，并为WordPress创建一个专用的数据库和用户（请务必替换 <code>wordpress_user</code> 和 <code>user_password</code>）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -143,52 +145,23 @@ Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/cat
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>-- 1. 创建数据库
-</span></span><span class=line><span class=cl>CREATE DATABASE my_blog_db;
-</span></span><span class=line><span class=cl>-- 2. 创建用户并设置密码
-</span></span><span class=line><span class=cl>CREATE USER &#39;blog_admin&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;StrongPassword123!&#39;;
-</span></span><span class=line><span class=cl>-- 3. 授予用户对新数据库的所有权限
-</span></span><span class=line><span class=cl>GRANT ALL PRIVILEGES ON my_blog_db.* TO &#39;blog_admin&#39;@&#39;localhost&#39;;
-</span></span><span class=line><span class=cl>-- 4. 刷新权限
-</span></span><span class=line><span class=cl>FLUSH PRIVILEGES;
-</span></span><span class=line><span class=cl>-- 5. 切换到新数据库
-</span></span><span class=line><span class=cl>USE my_blog_db;
-</span></span><span class=line><span class=cl>-- 接下来就可以在此数据库内创建表了</span></span></code></pre></td></tr></table></div></div><h4 class=heading-element id=使用-package><span>使用 package</span>
-<a href=#%e4%bd%bf%e7%94%a8-package class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><p>每当你想通过命令行或某个程序（网页应用）手动访问MySQL数据库时，你需要启动MySQL服务器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>mysqld_safe</span></span></code></pre></td></tr></table></div></div><p>然后你应该能够连接到数据库，例如用 。<code>mysql -u root -p</code></p><p><strong>为WordPress创建专用数据库和用户</strong>
-重新使用密码登录，并为WordPress创建一个专用的数据库和用户（请务必替换 <code>wordpress_user</code> 和 <code>user_password</code>）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>mysql -u root -p --socket=$PREFIX/tmp/mysql.sock
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>CREATE DATABASE wordpress_db;
-</span></span><span class=line><span class=cl>CREATE USER &#39;wordpress_user&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;user_password&#39;;
-</span></span><span class=line><span class=cl>GRANT ALL PRIVILEGES ON wordpress_db.* TO &#39;wordpress_user&#39;@&#39;localhost&#39;;
-</span></span><span class=line><span class=cl>FLUSH PRIVILEGES;
-</span></span><span class=line><span class=cl>EXIT;</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>#装一个unzip</span>
-</span></span><span class=line><span class=cl>pkg install unzip
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>#装一个mariadb</span>
-</span></span><span class=line><span class=cl>pkg install mariadb
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>#启动数据库</span>
-</span></span><span class=line><span class=cl>nohup mysqld <span class=p>&amp;</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=安装配置nginx><span>安装配置nginx</span>
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=n>mariadb</span><span class=w> </span><span class=o>-</span><span class=n>u</span><span class=w> </span><span class=n>root</span><span class=w> </span><span class=o>-</span><span class=n>p</span><span class=w> </span><span class=c1>--socket=$PREFIX/tmp/mysql.sock
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>-- 1. 创建数据库
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>CREATE</span><span class=w> </span><span class=k>DATABASE</span><span class=w> </span><span class=n>my_blog_db</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>-- 2. 创建用户并设置密码
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>CREATE</span><span class=w> </span><span class=k>USER</span><span class=w> </span><span class=s1>&#39;blog_admin&#39;</span><span class=o>@</span><span class=s1>&#39;localhost&#39;</span><span class=w> </span><span class=n>IDENTIFIED</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=s1>&#39;StrongPassword123!&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>-- 3. 授予用户对新数据库的所有权限
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>GRANT</span><span class=w> </span><span class=k>ALL</span><span class=w> </span><span class=k>PRIVILEGES</span><span class=w> </span><span class=k>ON</span><span class=w> </span><span class=n>my_blog_db</span><span class=p>.</span><span class=o>*</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=s1>&#39;blog_admin&#39;</span><span class=o>@</span><span class=s1>&#39;localhost&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>-- 4. 刷新权限
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>FLUSH</span><span class=w> </span><span class=k>PRIVILEGES</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>-- 5. 切换到新数据库
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>USE</span><span class=w> </span><span class=n>my_blog_db</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>-- 接下来就可以在此数据库内创建表了
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>EXIT</span><span class=p>;</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=安装配置nginx><span>安装配置nginx</span>
 <a href=#%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%aenginx class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -256,11 +229,255 @@ Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/cat
 </span></span><span class=line><span class=cl>pgrep nginx
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># 杀掉 查询出的 PID号进程</span>
-</span></span><span class=line><span class=cl><span class=nb>kill</span> -9 PID</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=配置nginx><span>配置nginx</span>
-<a href=#%e9%85%8d%e7%bd%aenginx class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
+</span></span><span class=line><span class=cl><span class=nb>kill</span> -9 PID</span></span></code></pre></td></tr></table></div></div><h4 class=heading-element id=配置nginx><span>配置nginx</span>
+<a href=#%e9%85%8d%e7%bd%aenginx class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1>#配置nginx</span>
-</span></span><span class=line><span class=cl>vim <span class=nv>$PREFIX</span>/etc/nginx/nginx.conf</span></span></code></pre></td></tr></table></div></div><p>1.添加 index.php 到默认首页的规则里面</p><p><img loading=lazy src=.\assets\image-20260122034903645.png alt=image-20260122034903645></p><p>2.取消 location ~ .php$ 这些注释，改成图片上面的样子：</p><p><img loading=lazy src=.\assets\image-20260122035000525.png alt=image-20260122035000525></p><p>Termux 里面的 Nginx 默认网站的根目为：<code>/data/data/com.termux/files/usr/share/nginx/html</code></p><p>如果想要修改默认路径的话 只需要在上图配置文件中 替换2处出现的这个路径即可。</p><h3 class=heading-element id=安装php-fpm><span>安装php-fpm</span>
+</span></span><span class=line><span class=cl>vim <span class=nv>$PREFIX</span>/etc/nginx/nginx.conf
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>~ $ cat <span class=nv>$PREFIX</span>/etc/nginx/nginx.conf
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#user  nobody;</span>
+</span></span><span class=line><span class=cl>worker_processes  1<span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#error_log  logs/error.log;</span>
+</span></span><span class=line><span class=cl><span class=c1>#error_log  logs/error.log  notice;</span>
+</span></span><span class=line><span class=cl><span class=c1>#error_log  logs/error.log  info;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#pid        logs/nginx.pid;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>events <span class=o>{</span>
+</span></span><span class=line><span class=cl>    worker_connections  1024<span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>http <span class=o>{</span>
+</span></span><span class=line><span class=cl>    include       mime.types<span class=p>;</span>
+</span></span><span class=line><span class=cl>    default_type  application/octet-stream<span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#                  &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#                  &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#access_log  logs/access.log  main;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    sendfile        on<span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#tcp_nopush     on;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#keepalive_timeout  0;</span>
+</span></span><span class=line><span class=cl>    keepalive_timeout  65<span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#gzip  on;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    server <span class=o>{</span>
+</span></span><span class=line><span class=cl>        listen       8080<span class=p>;</span>
+</span></span><span class=line><span class=cl>        server_name  localhost<span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>#access_log  logs/host.access.log  main;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        location / <span class=o>{</span>
+</span></span><span class=line><span class=cl>            root   /data/data/com.termux/files/usr/share/nginx/html<span class=p>;</span>
+</span></span><span class=line><span class=cl>            index  index.html index.htm index.php<span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>#error_page  404              /404.html;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># redirect server error pages to the static page /50x.html</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#</span>
+</span></span><span class=line><span class=cl>        error_page   <span class=m>500</span> <span class=m>502</span> <span class=m>503</span> <span class=m>504</span>  /50x.html<span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=nv>location</span> <span class=o>=</span> /50x.html <span class=o>{</span>
+</span></span><span class=line><span class=cl>            root   /data/data/com.termux/files/usr/share/nginx/html<span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#location ~ \.php$ {</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#    proxy_pass   http://127.0.0.1;</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#</span>
+</span></span><span class=line><span class=cl>        location ~ .*<span class=se>\.</span>php<span class=o>(</span><span class=se>\/</span>.*<span class=o>)</span>*$ <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=c1>#root           html;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            fastcgi_pass   127.0.0.1:9000<span class=p>;</span>
+</span></span><span class=line><span class=cl>            fastcgi_index  index.php<span class=p>;</span>
+</span></span><span class=line><span class=cl>            fastcgi_param  SCRIPT_FILENAME  /data/data/com.termux/files/usr/share/nginx/html<span class=nv>$fastcgi_script_name</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            include        fastcgi_params<span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># deny access to .htaccess files, if Apache&#39;s document root</span>
+</span></span><span class=line><span class=cl>        <span class=c1># concurs with nginx&#39;s one</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#location ~ /\.ht {</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#    deny  all;</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#}</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># another virtual host using mix of IP-, name-, and port-based configuration</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#server {</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    listen       8000;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    listen       somename:8080;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    server_name  somename  alias  another.alias;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#    location / {</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#        root   /data/data/com.termux/files/usr/share/nginx/html;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#        index  index.html index.htm;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    }</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># HTTPS server</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#server {</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    listen       443 ssl;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    server_name  localhost;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#    ssl_certificate      cert.pem;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    ssl_certificate_key  cert.key;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#    ssl_session_cache    shared:SSL:1m;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    ssl_session_timeout  5m;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#    ssl_ciphers  HIGH:!aNULL:!MD5;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    ssl_prefer_server_ciphers  on;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>#    location / {</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#        root   /data/data/com.termux/files/usr/share/nginx/html;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#        index  index.html index.htm;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#    }</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>~ $</span></span></code></pre></td></tr></table></div></div><p>1.添加 index.php 到默认首页的规则里面</p><p><img loading=lazy src=.\assets\image-20260122034903645.png alt=image-20260122034903645></p><p>2.取消 location ~ .php$ 这些注释，改成图片上面的样子：</p><p><img loading=lazy src=.\assets\image-20260122035000525.png alt=image-20260122035000525></p><p>Termux 里面的 Nginx 默认网站的根目为：<code>/data/data/com.termux/files/usr/share/nginx/html</code></p><p>如果想要修改默认路径的话 只需要在上图配置文件中 替换2处出现的这个路径即可。</p><h3 class=heading-element id=安装php-fpm><span>安装php-fpm</span>
 <a href=#%e5%ae%89%e8%a3%85php-fpm class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -316,9 +533,21 @@ Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/cat
 </span><span class=lnt>10
 </span><span class=lnt>11
 </span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>#新建数据库
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>mysql -uroot -p[密码] -e&#34;create database wordpress;show databases;&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>#装一个unzip
+</span></span><span class=line><span class=cl>pkg install unzip wget
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>#启动数据库
+</span></span><span class=line><span class=cl>nohup mysqld &amp;
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>#  wget 下载
 </span></span><span class=line><span class=cl>wget https://cn.wordpress.org/wordpress-5.4-zh_CN.zip
@@ -327,8 +556,98 @@ Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/cat
 </span></span><span class=line><span class=cl>unzip wordpress-4.9.4-zh_CN.zip
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl># 将解压的文件夹移动到 nginx 网站根目录下
-</span></span><span class=line><span class=cl>mv wordpress/ $PREFIX/share/nginx/html</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=安装wordpress><span>安装wordpress</span>
-<a href=#%e5%ae%89%e8%a3%85wordpress class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>浏览器访问: http://127/.0.0.1/wordpress/进行 WordPress 的安装</p><p><strong>一个开机自启动脚本（检测服务状态是否启动，如果没有启动则重新启动）</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span></span><span class=line><span class=cl>mv wordpress/ $PREFIX/share/nginx/html</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=安装wordpresstypecho><span>安装wordpress,typecho</span>
+<a href=#%e5%ae%89%e8%a3%85wordpresstypecho class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1>#将解压的文件夹移动到 nginx 网站根目录下</span>
+</span></span><span class=line><span class=cl>mv typecho/ <span class=nv>$PREFIX</span>/share/nginx/html
+</span></span><span class=line><span class=cl>mv wordpress/ <span class=nv>$PREFIX</span>/share/nginx/html</span></span></code></pre></td></tr></table></div></div><p>浏览器访问: http://127/.0.0.1/wordpress/进行 WordPress 的安装</p><p>浏览器访问: http://127/.0.0.1/typecho进行 WordPress 的安装</p><h3 class=heading-element id=安装halo><span>安装halo</span>
+<a href=#%e5%ae%89%e8%a3%85halo class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>在 Termux 上使用 JAR 包和 JDK 21 运行 Halo,并结合您已有的 MariaDB 数据库.</p><p><strong>可以分为以下几个核心步骤：环境准备、数据库配置、Halo 配置、启动与访问。</strong></p><h3 class=heading-element id=第一步环境准备><span>第一步：环境准备</span>
+<a href=#%e7%ac%ac%e4%b8%80%e6%ad%a5%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ol><li><p><strong>验证 Java 环境</strong>：确保 JDK 21 已安装并可用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>java -version</span></span></code></pre></td></tr></table></div></div><p>如果输出包含 <code>openjdk version "21"</code>，则说明正确。</p></li><li><p><strong>创建工作目录</strong>：创建一个独立的目录来存放 Halo 的配置文件和数据，便于管理。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mkdir -p ~/halo <span class=o>&amp;&amp;</span> <span class=nb>cd</span> ~/halo</span></span></code></pre></td></tr></table></div></div></li><li><p><strong>移动 JAR 包</strong>：将您下载的 <code>halo.jar</code> 文件移动到刚创建的 <code>~/halo</code> 目录下。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 假设你的jar包下载在 ~/downloads 目录，请根据实际情况修改路径</span>
+</span></span><span class=line><span class=cl>mv ~/下载/halo.jar ~/halo/</span></span></code></pre></td></tr></table></div></div></li></ol><h3 class=heading-element id=第二步数据库配置-mariadb><span>第二步：数据库配置 (MariaDB)</span>
+<a href=#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e6%95%b0%e6%8d%ae%e5%ba%93%e9%85%8d%e7%bd%ae-mariadb class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>您已创建了数据库和用户，但建议再确认一次其存在性和权限是否正确。</p><ol><li>使用 root 用户登录数据库：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mariadb -u root -p --socket<span class=o>=</span><span class=nv>$PREFIX</span>/tmp/mysql.sock</span></span></code></pre></td></tr></table></div></div></li><li>执行以下 SQL 命令进行确认和修正（请直接复制执行）：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=c1>-- 检查数据库和用户
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>SHOW</span><span class=w> </span><span class=n>DATABASES</span><span class=w> </span><span class=k>LIKE</span><span class=w> </span><span class=s1>&#39;halo&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=k>User</span><span class=p>,</span><span class=w> </span><span class=k>Host</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>mysql</span><span class=p>.</span><span class=k>user</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=k>User</span><span class=o>=</span><span class=s1>&#39;halo&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>-- 如果用户不存在，则创建（请使用您指定的密码）
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>CREATE</span><span class=w> </span><span class=k>USER</span><span class=w> </span><span class=k>IF</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>EXISTS</span><span class=w> </span><span class=s1>&#39;halo&#39;</span><span class=o>@</span><span class=s1>&#39;localhost&#39;</span><span class=w> </span><span class=n>IDENTIFIED</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=s1>&#39;123456z.&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>-- 授予权限（如果之前未执行）
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>GRANT</span><span class=w> </span><span class=k>ALL</span><span class=w> </span><span class=k>PRIVILEGES</span><span class=w> </span><span class=k>ON</span><span class=w> </span><span class=n>halo</span><span class=p>.</span><span class=o>*</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=s1>&#39;halo&#39;</span><span class=o>@</span><span class=s1>&#39;localhost&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>FLUSH</span><span class=w> </span><span class=k>PRIVILEGES</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>EXIT</span><span class=p>;</span></span></span></code></pre></td></tr></table></div></div></li></ol><h3 class=heading-element id=第三步创建-halo-配置文件><span>第三步：创建 Halo 配置文件</span>
+<a href=#%e7%ac%ac%e4%b8%89%e6%ad%a5%e5%88%9b%e5%bb%ba-halo-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>这是最关键的一步。Halo 通过 <code>application.yaml</code> 文件连接数据库。</p><ol><li>在 <code>~/halo</code> 目录下创建配置文件：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano ~/halo/application.yaml</span></span></code></pre></td></tr></table></div></div></li><li>将以下配置内容粘贴到文件中。<strong>请特别注意 <code>socket</code> 参数，这是 Termux 环境下连接 MariaDB 的关键</strong>：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=l>~/.halo2 $ cat application.yaml</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>server</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 运行端口</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>port</span><span class=p>:</span><span class=w> </span><span class=m>8090</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>spring</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 数据库配置，支持 MySQL、MariaDB、PostgreSQL、H2 Database，具体配置方式可以参考下面的数据库配置</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>r2dbc</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=l>r2dbc:mariadb://localhost/halo?localSocket=/data/data/com.termux/files/usr/tmp/mysql.sock&amp;useUnicode=true&amp;characterEncoding=utf8mb4&amp;useServerPrepStmts=false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>username</span><span class=p>:</span><span class=w> </span><span class=l>halo</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>password</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;123456z.&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>sql</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>init</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>mode</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 需要配合 r2dbc 的配置进行改动</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>mariadb</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>halo</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 工作目录位置</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>work-dir</span><span class=p>:</span><span class=w> </span><span class=l>${user.home}/.halo2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 外部访问地址</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>external-url</span><span class=p>:</span><span class=w> </span><span class=l>http://localhost:8090</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># 附件映射配置，通常用于迁移场景</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>attachment</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>resource-mappings</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>pathPattern</span><span class=p>:</span><span class=w> </span><span class=l>/upload/**</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>locations</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span>- <span class=l>migrate-from-1.x~/.halo2 $</span></span></span></code></pre></td></tr></table></div></div></li><li>保存并退出编辑器 (<code>Ctrl+X</code> -> <code>Y</code> -> <code>Enter</code>)。</li></ol><h3 class=heading-element id=第四步启动-halo><span>第四步：启动 Halo</span>
+<a href=#%e7%ac%ac%e5%9b%9b%e6%ad%a5%e5%90%af%e5%8a%a8-halo class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>在 <code>~/halo</code> 目录下，使用以下命令启动 Halo：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> ~/halo <span class=o>&amp;&amp;</span> nohup java -Dfile.encoding<span class=o>=</span>UTF-8 -jar halo.jar --spring.config.additional-location<span class=o>=</span>optional:file:<span class=s2>&#34;</span><span class=nv>$HOME</span><span class=s2>&#34;</span>/.halo2/ &gt; halo.</span></span></code></pre></td></tr></table></div></div><p><strong>启动参数说明</strong>：</p><ul><li><code>-jar halo.jar</code>：指定运行的 JAR 包。</li><li>首次启动会看到初始化日志，并在最后输出 <code>Halo 初始化完成，访问地址：http://IP:8090</code> 之类的信息。</li><li>首次启动时间可能稍长（1-2分钟），因为会初始化数据库表。</li></ul><h3 class=heading-element id=第五步访问并初始化-halo><span>第五步：访问并初始化 Halo</span>
+<a href=#%e7%ac%ac%e4%ba%94%e6%ad%a5%e8%ae%bf%e9%97%ae%e5%b9%b6%e5%88%9d%e5%a7%8b%e5%8c%96-halo class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ol><li>在手机浏览器或同一局域网的电脑浏览器中访问：<ul><li><strong>手机本地</strong>：<code>http://localhost:8090</code></li><li><strong>局域网电脑</strong>：<code>http://你的手机IP:8090</code></li></ul></li><li>首次访问会进入初始化页面，设置你的<strong>站点名称、管理员邮箱和密码</strong>（这是登录 Halo 管理后台的账号，与数据库用户 <code>halo</code> 无关）。</li><li>设置完成后，即可进入 Halo 管理后台 (<code>http://IP:8090/admin</code>) 开始使用。</li></ol><h3 class=heading-element id=-重要提醒与优化><span>⚠️ 重要提醒与优化</span>
+<a href=#-%e9%87%8d%e8%a6%81%e6%8f%90%e9%86%92%e4%b8%8e%e4%bc%98%e5%8c%96 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ol><li><strong>后台运行与自启动</strong>：<ul><li><p><strong>后台运行</strong>：在启动命令前加 <code>nohup</code>，结尾加 <code>&</code>，可将 Halo 放入后台运行，关闭终端也不中断。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> ~/halo <span class=o>&amp;&amp;</span> nohup java -jar halo.jar &gt; halo.log 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=p>&amp;</span></span></span></code></pre></td></tr></table></div></div><p>日志将输出到 <code>~/halo/halo.log</code>。</p></li></ul></li></ol><h2 class=heading-element id=开机自启动脚本><span>开机自启动脚本</span>
+<a href=#%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af%e5%8a%a8%e8%84%9a%e6%9c%ac class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p><strong>一个开机自启动脚本（检测服务状态是否启动，如果没有启动则重新启动）</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
 </span><span class=lnt>  2
 </span><span class=lnt>  3
 </span><span class=lnt>  4

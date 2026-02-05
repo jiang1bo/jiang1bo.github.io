@@ -26,8 +26,6 @@ RedmiNote7+Termux服务器改造方案并部署博客
 
 
 
-
-
 ### 使用 Termux 安装linux环境（最通用、最灵活）
 
 
@@ -254,8 +252,6 @@ pkg install mariadb
 **关键目录配置**
 由于Termux的文件系统布局特殊，需要为MariaDB建立合适的数据目录并设置权限：
 
-
-
 ```
 mkdir -p ~/mariadb_data
 mariadb-install-db --datadir=$HOME/mariadb_data --srcdir=$PREFIX --auth-root-authentication-method=normal
@@ -273,8 +269,6 @@ mysqld_safe --datadir=$HOME/mysql_data --socket=$PREFIX/tmp/mysql.sock &
 ```
 
 启动后，可以运行 `pgrep mysqld` 来检查服务是否在后台运行。
-
-
 
 
 
@@ -309,7 +303,7 @@ quit;
 
 确认你能用 Root登录。你需要提供前一步设置的密码。` mysql -u root -p`
 
-### 常用SQL命令速查表
+#### 常用SQL命令速查表
 
 | 类别                | 命令示例                                                     | 说明                                                |
 | :------------------ | :----------------------------------------------------------- | :-------------------------------------------------- |
@@ -335,9 +329,23 @@ quit;
 |                     | `KILL`进程ID`;`                                              | 终止某个耗时的查询（从`SHOW PROCESSLIST;`获取ID）。 |
 |                     | `EXIT;` 或 `\q`                                              | 退出MariaDB命令行客户端。                           |
 
-###  实用技巧与注意事项
+#### 使用 package
+
+每当你想通过命令行或某个程序（网页应用）手动访问MySQL数据库时，你需要启动MySQL服务器：
 
 ```
+mysqld_safe
+```
+
+然后你应该能够连接到数据库，例如用 。`mysql -u root -p`
+
+#### **为WordPress创建专用数据库和用户**
+
+重新使用密码登录，并为WordPress创建一个专用的数据库和用户（请务必替换 `wordpress_user` 和 `user_password`）：
+
+```sql
+mariadb -u root -p --socket=$PREFIX/tmp/mysql.sock
+
 -- 1. 创建数据库
 CREATE DATABASE my_blog_db;
 -- 2. 创建用户并设置密码
@@ -349,53 +357,7 @@ FLUSH PRIVILEGES;
 -- 5. 切换到新数据库
 USE my_blog_db;
 -- 接下来就可以在此数据库内创建表了
-```
-
-
-
-#### 使用 package
-
-每当你想通过命令行或某个程序（网页应用）手动访问MySQL数据库时，你需要启动MySQL服务器：
-
-```
-mysqld_safe
-```
-
-然后你应该能够连接到数据库，例如用 。`mysql -u root -p`
-
-
-
-**为WordPress创建专用数据库和用户**
-重新使用密码登录，并为WordPress创建一个专用的数据库和用户（请务必替换 `wordpress_user` 和 `user_password`）：
-
-```
-mysql -u root -p --socket=$PREFIX/tmp/mysql.sock
-
-CREATE DATABASE wordpress_db;
-CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'user_password';
-GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress_user'@'localhost';
-FLUSH PRIVILEGES;
 EXIT;
-```
-
-
-
-
-
-
-
-```shell
-
-
-#装一个unzip
-pkg install unzip
-
-#装一个mariadb
-pkg install mariadb
-
-#启动数据库
-nohup mysqld &
-
 ```
 
 ### 安装配置nginx
@@ -438,12 +400,133 @@ kill -9 PID
 
 ```
 
-### 配置nginx
+#### 配置nginx
 
 ```shell
 #配置nginx
 vim $PREFIX/etc/nginx/nginx.conf
 
+~ $ cat $PREFIX/etc/nginx/nginx.conf
+
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       8080;
+        server_name  localhost;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   /data/data/com.termux/files/usr/share/nginx/html;
+            index  index.html index.htm index.php;
+        }
+
+
+
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /data/data/com.termux/files/usr/share/nginx/html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        location ~ .*\.php(\/.*)*$ {
+            #root           html;
+
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  /data/data/com.termux/files/usr/share/nginx/html$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   /data/data/com.termux/files/usr/share/nginx/html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   /data/data/com.termux/files/usr/share/nginx/html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}
+~ $
 
 
 ```
@@ -487,15 +570,7 @@ echo "<?php phpinfo(); ?>" > $PREFIX/share/nginx/html/info.php
 
 ```
 
-
-
-
-
 **先启动php-fpm,然后启动nginx,如果你的 Nginx 已经启动了的话，使用 nginx -s reload 重启 Nginx.**
-
-
-
-
 
 ```
 http://[ip地址]:8080/info.php
@@ -508,6 +583,12 @@ http://[ip地址]:8080/info.php
 
 mysql -uroot -p[密码] -e"create database wordpress;show databases;"
 
+#装一个unzip
+pkg install unzip wget
+
+#启动数据库
+nohup mysqld &
+
 #  wget 下载
 wget https://cn.wordpress.org/wordpress-5.4-zh_CN.zip
 
@@ -519,13 +600,132 @@ mv wordpress/ $PREFIX/share/nginx/html
 
 ```
 
-### 安装wordpress
+### 安装wordpress,typecho
+
+```shell
+#将解压的文件夹移动到 nginx 网站根目录下
+mv typecho/ $PREFIX/share/nginx/html
+mv wordpress/ $PREFIX/share/nginx/html
+```
 
 浏览器访问: http://127/.0.0.1/wordpress/进行 WordPress 的安装
 
+浏览器访问: http://127/.0.0.1/typecho进行 WordPress 的安装
 
 
 
+
+
+### 安装halo
+
+在 Termux 上使用 JAR 包和 JDK 21 运行 Halo,并结合您已有的 MariaDB 数据库.
+
+**可以分为以下几个核心步骤：环境准备、数据库配置、Halo 配置、启动与访问。**
+
+### 第一步：环境准备
+1.  **验证 Java 环境**：确保 JDK 21 已安装并可用。
+    ```bash
+    java -version
+    ```
+    如果输出包含 `openjdk version "21"`，则说明正确。
+
+2.  **创建工作目录**：创建一个独立的目录来存放 Halo 的配置文件和数据，便于管理。
+    ```bash
+    mkdir -p ~/halo && cd ~/halo
+    ```
+
+3.  **移动 JAR 包**：将您下载的 `halo.jar` 文件移动到刚创建的 `~/halo` 目录下。
+    ```bash
+    # 假设你的jar包下载在 ~/downloads 目录，请根据实际情况修改路径
+    mv ~/下载/halo.jar ~/halo/
+    ```
+
+###  第二步：数据库配置 (MariaDB)
+您已创建了数据库和用户，但建议再确认一次其存在性和权限是否正确。
+1.  使用 root 用户登录数据库：
+    ```bash
+    mariadb -u root -p --socket=$PREFIX/tmp/mysql.sock
+    ```
+2.  执行以下 SQL 命令进行确认和修正（请直接复制执行）：
+    ```sql
+    -- 检查数据库和用户
+    SHOW DATABASES LIKE 'halo';
+    SELECT User, Host FROM mysql.user WHERE User='halo';
+    -- 如果用户不存在，则创建（请使用您指定的密码）
+    CREATE USER IF NOT EXISTS 'halo'@'localhost' IDENTIFIED BY '123456z.';
+    -- 授予权限（如果之前未执行）
+    GRANT ALL PRIVILEGES ON halo.* TO 'halo'@'localhost';
+    FLUSH PRIVILEGES;
+    EXIT;
+    ```
+
+### 第三步：创建 Halo 配置文件
+这是最关键的一步。Halo 通过 `application.yaml` 文件连接数据库。
+1.  在 `~/halo` 目录下创建配置文件：
+    ```bash
+    nano ~/halo/application.yaml
+    ```
+2.  将以下配置内容粘贴到文件中。**请特别注意 `socket` 参数，这是 Termux 环境下连接 MariaDB 的关键**：
+    ```yaml
+    ~/.halo2 $ cat application.yaml
+    server:
+      # 运行端口
+      port: 8090
+    spring:
+      # 数据库配置，支持 MySQL、MariaDB、PostgreSQL、H2 Database，具体配置方式可以参考下面的数据库配置
+      r2dbc:
+        url: r2dbc:mariadb://localhost/halo?localSocket=/data/data/com.termux/files/usr/tmp/mysql.sock&useUnicode=true&characterEncoding=utf8mb4&useServerPrepStmts=false
+        username: halo
+        password: "123456z."
+      sql:
+        init:
+          mode: always
+          # 需要配合 r2dbc 的配置进行改动
+          platform: mariadb
+    halo:
+      # 工作目录位置
+      work-dir: ${user.home}/.halo2
+      # 外部访问地址
+      external-url: http://localhost:8090
+      # 附件映射配置，通常用于迁移场景
+      attachment:
+        resource-mappings:
+          - pathPattern: /upload/**
+            locations:
+              - migrate-from-1.x~/.halo2 $
+    ```
+3.  保存并退出编辑器 (`Ctrl+X` -> `Y` -> `Enter`)。
+
+### 第四步：启动 Halo
+在 `~/halo` 目录下，使用以下命令启动 Halo：
+```bash
+cd ~/halo && nohup java -Dfile.encoding=UTF-8 -jar halo.jar --spring.config.additional-location=optional:file:"$HOME"/.halo2/ > halo.
+```
+**启动参数说明**：
+
+*   `-jar halo.jar`：指定运行的 JAR 包。
+*   首次启动会看到初始化日志，并在最后输出 `Halo 初始化完成，访问地址：http://IP:8090` 之类的信息。
+*   首次启动时间可能稍长（1-2分钟），因为会初始化数据库表。
+
+### 第五步：访问并初始化 Halo
+1.  在手机浏览器或同一局域网的电脑浏览器中访问：
+    *   **手机本地**：`http://localhost:8090`
+    *   **局域网电脑**：`http://你的手机IP:8090`
+2.  首次访问会进入初始化页面，设置你的**站点名称、管理员邮箱和密码**（这是登录 Halo 管理后台的账号，与数据库用户 `halo` 无关）。
+3.  设置完成后，即可进入 Halo 管理后台 (`http://IP:8090/admin`) 开始使用。
+
+### ⚠️ 重要提醒与优化
+1.  **后台运行与自启动**：
+    *   **后台运行**：在启动命令前加 `nohup`，结尾加 `&`，可将 Halo 放入后台运行，关闭终端也不中断。
+        
+        ```bash
+        cd ~/halo && nohup java -jar halo.jar > halo.log 2>&1 &
+        ```
+        日志将输出到 `~/halo/halo.log`。
+
+
+
+## 开机自启动脚本
 
 **一个开机自启动脚本（检测服务状态是否启动，如果没有启动则重新启动）**
 
