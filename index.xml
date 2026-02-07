@@ -1,5 +1,885 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fermi</title><link>https://jiang1bo.github.io/</link><description>welcome to femris的博客网站!</description><generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator><language>zh-CN</language><managingEditor>3044483124@qq.com (fermi)</managingEditor><webMaster>3044483124@qq.com (fermi)</webMaster><lastBuildDate>Thu, 15 Jan 2026 15:13:08 +0800</lastBuildDate><atom:link href="https://jiang1bo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux+nano+vim编辑器</title><link>https://jiang1bo.github.io/posts/f6e7eb2/</link><pubDate>Thu, 15 Jan 2026 15:13:08 +0800</pubDate><guid>https://jiang1bo.github.io/posts/f6e7eb2/</guid><category domain="https://jiang1bo.github.io/categories/draft/">Draft</category><description>&lt;p&gt;Linux+nano+vim编辑器&lt;/p&gt;
-&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;</description></item><item><title>cloudfared白嫖指南</title><link>https://jiang1bo.github.io/posts/8a4c8c7/</link><pubDate>Tue, 13 Jan 2026 09:24:56 +0800</pubDate><guid>https://jiang1bo.github.io/posts/8a4c8c7/</guid><category domain="https://jiang1bo.github.io/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/">编程技术</category><description>&lt;p&gt;cloudfared+warp cloudflared+tunel+webssh+warp&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fermi</title><link>https://jiang1bo.github.io/</link><description>welcome to femris的博客网站!</description><generator>Hugo 0.152.2 &amp; FixIt v0.3.20</generator><language>zh-CN</language><managingEditor>3044483124@qq.com (fermi)</managingEditor><webMaster>3044483124@qq.com (fermi)</webMaster><lastBuildDate>Thu, 15 Jan 2026 15:13:08 +0800</lastBuildDate><atom:link href="https://jiang1bo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux+nano+vim编辑器+git常用知识</title><link>https://jiang1bo.github.io/posts/f6e7eb2/</link><pubDate>Thu, 15 Jan 2026 15:13:08 +0800</pubDate><guid>https://jiang1bo.github.io/posts/f6e7eb2/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;p&gt;Linux+nano+vim编辑器+git常用知识&lt;/p&gt;
+&lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
+&lt;p&gt;在 Linux 中编辑文件，&lt;code&gt;nano&lt;/code&gt; 和 &lt;code&gt;vim&lt;/code&gt; 是最常用的两个命令行文本编辑器。它们设计哲学不同，掌握其核心操作能让你高效工作。&lt;/p&gt;
+&lt;p&gt;下图清晰地展示了两者的核心定位与操作逻辑对比，你可以快速了解全貌：&lt;/p&gt;
+&lt;pre class="mermaid"&gt;flowchart TD
+ A[Linux 文本编辑需求] --&gt; B{选择编辑器};
+ 
+ B -- “新手/快速编辑” --&gt; C[nano&lt;br&gt;简单直观，菜单驱动];
+ B -- “专家/高效编程” --&gt; D[vim&lt;br&gt;功能强大，模态编辑];
+ 
+ subgraph C [nano 操作流程]
+ C1[打开文件] --&gt; C2[直接编辑文本&lt;br&gt;底部显示常用快捷键] --&gt; C3[使用组合键操作&lt;br&gt;如 Ctrl+O保存, Ctrl+X退出];
+ end
+ 
+ subgraph D [vim 核心模式]
+ D1[启动进入 普通模式&lt;br&gt;（导航与命令）] --&gt; D2[按 i/a 等键进入 插入模式&lt;br&gt;（输入文本）];
+ D1 --&gt; D3[按 : 进入 命令行模式&lt;br&gt;（执行复杂指令）];
+ D2 --&gt; D4[按 Esc 返回普通模式];
+ D3 --&gt; D4;
+ end&lt;/pre&gt;
+&lt;template&gt;flowchart TD
+ A[Linux 文本编辑需求] --&gt; B{选择编辑器};
+ 
+ B -- “新手/快速编辑” --&gt; C[nano&lt;br&gt;简单直观，菜单驱动];
+ B -- “专家/高效编程” --&gt; D[vim&lt;br&gt;功能强大，模态编辑];
+ 
+ subgraph C [nano 操作流程]
+ C1[打开文件] --&gt; C2[直接编辑文本&lt;br&gt;底部显示常用快捷键] --&gt; C3[使用组合键操作&lt;br&gt;如 Ctrl+O保存, Ctrl+X退出];
+ end
+ 
+ subgraph D [vim 核心模式]
+ D1[启动进入 普通模式&lt;br&gt;（导航与命令）] --&gt; D2[按 i/a 等键进入 插入模式&lt;br&gt;（输入文本）];
+ D1 --&gt; D3[按 : 进入 命令行模式&lt;br&gt;（执行复杂指令）];
+ D2 --&gt; D4[按 Esc 返回普通模式];
+ D3 --&gt; D4;
+ end&lt;/template&gt;&lt;h2 class="heading-element" id="一nano简单直观的编辑器"&gt;&lt;span&gt;一、nano：简单直观的编辑器&lt;/span&gt;
+ &lt;a href="#%e4%b8%80nano%e7%ae%80%e5%8d%95%e7%9b%b4%e8%a7%82%e7%9a%84%e7%bc%96%e8%be%91%e5%99%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;特点&lt;/strong&gt;：界面底部有常用快捷键提示，非常适合初学者。它的所有操作都通过 &lt;strong&gt;组合键&lt;/strong&gt;（通常是 &lt;code&gt;Ctrl&lt;/code&gt; + 字母）完成。&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;操作类别&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;按键&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;功能说明&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;基本操作&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + O&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;保存文件（&lt;strong&gt;O&lt;/strong&gt;utput），然后按 &lt;code&gt;Enter&lt;/code&gt; 确认文件名。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + X&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;退出（e&lt;strong&gt;X&lt;/strong&gt;it）。如果文件未保存，会询问是否保存。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;光标移动&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + F&lt;/code&gt; / &lt;code&gt;Ctrl + B&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;向前（&lt;strong&gt;F&lt;/strong&gt;orward）/ 向后（&lt;strong&gt;B&lt;/strong&gt;ackward）移动光标。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + P&lt;/code&gt; / &lt;code&gt;Ctrl + N&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;移动到上一行（&lt;strong&gt;P&lt;/strong&gt;revious）/ 下一行（&lt;strong&gt;N&lt;/strong&gt;ext）。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;编辑文本&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + K&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;剪切（&lt;strong&gt;K&lt;/strong&gt;ill）当前行。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + U&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;粘贴（&lt;strong&gt;U&lt;/strong&gt;ncut）被剪切的内容。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + \&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;搜索文本，输入内容后按 &lt;code&gt;Enter&lt;/code&gt;。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + W&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;替换文本，先搜索，然后选择是否替换。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;帮助与退出&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + G&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;显示完整的帮助文档。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + C&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;取消当前操作，或显示当前光标位置。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;使用心法&lt;/strong&gt;：记住 &lt;strong&gt;“O保存，X退出”&lt;/strong&gt; 。其他操作可以随时按 &lt;code&gt;Ctrl+G&lt;/code&gt; 调出帮助菜单查看。&lt;/p&gt;
+&lt;h3 class="heading-element" id="二vim功能强大的模态编辑器"&gt;&lt;span&gt;二、vim：功能强大的模态编辑器&lt;/span&gt;
+ &lt;a href="#%e4%ba%8cvim%e5%8a%9f%e8%83%bd%e5%bc%ba%e5%a4%a7%e7%9a%84%e6%a8%a1%e6%80%81%e7%bc%96%e8%be%91%e5%99%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;特点&lt;/strong&gt;：功能极其强大，但学习曲线陡峭。其核心在于 &lt;strong&gt;模式切换&lt;/strong&gt;，不同模式下按键功能完全不同。这是新手最容易困惑的地方。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 三种核心模式&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;普通模式 (Normal Mode)&lt;/strong&gt;：启动后默认进入。用于&lt;strong&gt;移动光标、删除、复制粘贴等操作，不能直接输入文字&lt;/strong&gt;。按 &lt;code&gt;Esc&lt;/code&gt; 键可以从其他模式返回此模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;插入模式 (Insert Mode)&lt;/strong&gt;：用于&lt;strong&gt;输入和编辑文本&lt;/strong&gt;。从普通模式按 &lt;code&gt;i&lt;/code&gt; (insert) 或 &lt;code&gt;a&lt;/code&gt; (append) 等键进入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;命令行模式 (Command-line Mode)&lt;/strong&gt;：用于执行&lt;strong&gt;保存、退出、搜索替换等高级命令&lt;/strong&gt;。从普通模式按 &lt;code&gt;:&lt;/code&gt; 进入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2. 常用操作速查表&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;模式&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;按键/命令&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;功能说明&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;启动与退出&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;vim 文件名&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;打开文件。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;:q&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;退出（&lt;strong&gt;q&lt;/strong&gt;uit）。如果文件已修改会警告。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;:q!&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;强制退出，不保存任何修改&lt;/strong&gt;。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;:w&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;保存（&lt;strong&gt;w&lt;/strong&gt;rite）文件。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;:wq&lt;/code&gt; 或 &lt;code&gt;:x&lt;/code&gt; 或 &lt;code&gt;ZZ&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;保存并退出。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;模式切换&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;i&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;在光标&lt;strong&gt;前&lt;/strong&gt;进入插入模式。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;a&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;在光标&lt;strong&gt;后&lt;/strong&gt;进入插入模式。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;o&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;在&lt;strong&gt;当前行下方&lt;/strong&gt;新建一行并进入插入模式。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Esc&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;返回普通模式&lt;/strong&gt;（无论当前在何种模式）。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;普通模式导航&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;h&lt;/code&gt; &lt;code&gt;j&lt;/code&gt; &lt;code&gt;k&lt;/code&gt; &lt;code&gt;l&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;分别代表 &lt;strong&gt;左、下、上、右&lt;/strong&gt;。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;0&lt;/code&gt; / &lt;code&gt;$&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;跳至&lt;strong&gt;行首&lt;/strong&gt; / &lt;strong&gt;行尾&lt;/strong&gt;。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;gg&lt;/code&gt; / &lt;code&gt;G&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;跳至&lt;strong&gt;文件第一行&lt;/strong&gt; / &lt;strong&gt;最后一行&lt;/strong&gt;。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;Ctrl + f&lt;/code&gt; / &lt;code&gt;Ctrl + b&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;向下 (&lt;strong&gt;f&lt;/strong&gt;orward) / 向上 (&lt;strong&gt;b&lt;/strong&gt;ackward) 翻页。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;普通模式编辑&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;x&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;删除光标所在处的字符。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;dd&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;剪切（删除）&lt;/strong&gt; 当前整行。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;yy&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;复制（yank）&lt;/strong&gt; 当前整行。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;p&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;在光标下一行&lt;strong&gt;粘贴&lt;/strong&gt;。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;u&lt;/code&gt; / &lt;code&gt;Ctrl + r&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;撤销&lt;/strong&gt; / &lt;strong&gt;重做&lt;/strong&gt; 上一次操作。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;命令行模式操作&lt;/strong&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;:/关键词&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;向下搜索&lt;/strong&gt;关键词，按 &lt;code&gt;n&lt;/code&gt; 下一个，&lt;code&gt;N&lt;/code&gt; 上一个。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;:?关键词&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;向上搜索&lt;/strong&gt;关键词。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;:%s/旧/新/g&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;全局替换&lt;/strong&gt;（将文件中所有“旧”替换为“新”）。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;code&gt;:set nu&lt;/code&gt; / &lt;code&gt;:set nonu&lt;/code&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;strong&gt;显示&lt;/strong&gt; / &lt;strong&gt;隐藏&lt;/strong&gt; 行号。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;vim 心法与学习建议&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;第一要务&lt;/strong&gt;：时刻记住你&lt;strong&gt;处于哪种模式&lt;/strong&gt;。&lt;strong&gt;普通模式是“命令状态”，插入模式是“打字状态”&lt;/strong&gt;。任何不确定的时候，先按 &lt;code&gt;Esc&lt;/code&gt; 回到普通模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生存指令&lt;/strong&gt;：记住 &lt;code&gt;i&lt;/code&gt; (进入编辑)，&lt;code&gt;Esc&lt;/code&gt; (退出编辑)，&lt;code&gt;:wq&lt;/code&gt; (保存退出)，&lt;code&gt;:q!&lt;/code&gt; (不保存强制退出)。这四条能让你安全地进入和离开vim。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不要死记&lt;/strong&gt;：初期将常用操作（如 &lt;code&gt;dd&lt;/code&gt;, &lt;code&gt;yy&lt;/code&gt;, &lt;code&gt;p&lt;/code&gt;, &lt;code&gt;u&lt;/code&gt;）写在便签上，边用边记。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;游戏化学习&lt;/strong&gt;：强烈推荐在终端输入 &lt;code&gt;vimtutor&lt;/code&gt; 命令，这是官方内置的交互式教程，花30分钟完成，效果远超死记硬背。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 class="heading-element" id="如何选择"&gt;&lt;span&gt;如何选择？&lt;/span&gt;
+ &lt;a href="#%e5%a6%82%e4%bd%95%e9%80%89%e6%8b%a9" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;使用 nano 如果&lt;/strong&gt;：你是新手，只需要快速编辑配置文件（如 &lt;code&gt;.bashrc&lt;/code&gt;, &lt;code&gt;nginx.conf&lt;/code&gt;），追求简单直接，不想记忆复杂命令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习 vim 如果&lt;/strong&gt;：你经常在命令行下工作、编写代码或处理文本，追求极高的编辑效率和长期生产力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;一个实用的场景&lt;/strong&gt;：在服务器上，你可以先用 &lt;code&gt;nano&lt;/code&gt; 应急。但在日常开发中，花时间掌握 &lt;code&gt;vim&lt;/code&gt; 会带来长远的效率提升。&lt;/p&gt;
+&lt;p&gt;希望这个对比能帮助你上手。如果你在使用某个具体操作时遇到了问题，或者想了解某个编辑器更高级的功能（比如vim的宏、分屏），可以随时告诉我。&lt;/p&gt;
+&lt;h2 class="heading-element" id="一git-核心概念新手必懂"&gt;&lt;span&gt;一、Git 核心概念（新手必懂）&lt;/span&gt;
+ &lt;a href="#%e4%b8%80git-%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5%e6%96%b0%e6%89%8b%e5%bf%85%e6%87%82" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Git 是&lt;strong&gt;分布式版本控制系统&lt;/strong&gt;，核心作用是追踪文件的修改历史、管理不同开发分支、支持多人协作开发。先理解 3 个核心区域，能帮你快速搞懂 Git 的工作逻辑：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工作区（Working Tree）&lt;/strong&gt;：你本地编辑代码 / 文件的目录（比如你截图里的 &lt;code&gt;d/IDM/git/github/website/privacy-fixlt&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;暂存区（Index/Staging Area）&lt;/strong&gt;：临时存放「待提交的修改」，是工作区和版本库之间的 “中转站”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;版本库（Repository）&lt;/strong&gt;：Git 存储所有版本信息的地方（隐藏目录 &lt;code&gt;.git&lt;/code&gt;），包含提交记录、分支、标签等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HEAD&lt;/strong&gt;：一个指针，指向你当前所在分支的最新提交（比如你截图里的 &lt;code&gt;main&lt;/code&gt; 分支）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="heading-element" id="二按场景拆解核心命令对应你提供的命令清单"&gt;&lt;span&gt;二、按场景拆解核心命令（对应你提供的命令清单）&lt;/span&gt;
+ &lt;a href="#%e4%ba%8c%e6%8c%89%e5%9c%ba%e6%99%af%e6%8b%86%e8%a7%a3%e6%a0%b8%e5%bf%83%e5%91%bd%e4%bb%a4%e5%af%b9%e5%ba%94%e4%bd%a0%e6%8f%90%e4%be%9b%e7%9a%84%e5%91%bd%e4%bb%a4%e6%b8%85%e5%8d%95" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;下面结合日常开发最常见的场景，讲解清单里的核心命令，每个命令都给出「用法 + 场景 + 示例」，新手可直接复用。&lt;/p&gt;
+&lt;h4 class="heading-element" id="1-初始化--克隆仓库start-a-working-area"&gt;&lt;span&gt;1. 初始化 / 克隆仓库（start a working area）&lt;/span&gt;
+ &lt;a href="#1-%e5%88%9d%e5%a7%8b%e5%8c%96--%e5%85%8b%e9%9a%86%e4%bb%93%e5%ba%93start-a-working-area" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;这是使用 Git 的第一步，对应「新建项目」或「参与已有项目」场景。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;git init&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：在当前目录创建空的 Git 仓库（生成 &lt;code&gt;.git&lt;/code&gt; 隐藏目录）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：从零开始开发新项目，需要开启版本控制。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 进入项目目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cd /d/IDM/git/my-new-project
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 初始化仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git init&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git clone&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：把远程仓库（如 GitHub/Gitee）的代码克隆到本地。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：参与团队已有项目，先把代码拉到本地。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 克隆远程仓库（HTTPS方式）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/xxx/privacy-fixlt.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 克隆后自动生成项目目录，进入目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cd privacy-fixlt&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 class="heading-element" id="2-处理当前修改work-on-the-current-change"&gt;&lt;span&gt;2. 处理当前修改（work on the current change）&lt;/span&gt;
+ &lt;a href="#2-%e5%a4%84%e7%90%86%e5%bd%93%e5%89%8d%e4%bf%ae%e6%94%b9work-on-the-current-change" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;这是日常开发中最频繁的操作，对应「编辑文件后准备提交」的场景。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;git add&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：把工作区的修改（新增 / 修改 / 删除）添加到暂存区。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：编辑完文件后，准备提交前的核心步骤。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 添加单个文件到暂存区
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 添加当前目录所有修改的文件（推荐，避免漏加）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git mv&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：重命名 / 移动文件，Git 会追踪这个操作（而非 “删除 + 新增”）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：调整文件目录结构（比如把文件移到子目录）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 重命名文件：把 old.txt 改成 new.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git mv old.txt new.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 移动文件：把 index.html 移到 src 目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git mv index.html src/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git restore&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：恢复工作区文件（撤销未暂存的修改）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：改乱了文件，想恢复到 “暂存区 / 版本库” 的状态。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 撤销工作区 index.html 的所有修改（恢复到暂存区状态）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git restore index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 恢复到版本库最新提交的状态（忽略暂存区）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git restore --source=HEAD index.html&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git rm&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：删除文件，同时从暂存区移除（如果只手动删文件，Git 会标记为 “未跟踪”）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：删除项目中无用的文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 删除 test.txt 并同步到暂存区
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git rm test.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 如果文件已添加到暂存区，强制删除
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git rm -f test.txt&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 class="heading-element" id="3-查看历史和状态examine-the-history-and-state"&gt;&lt;span&gt;3. 查看历史和状态（examine the history and state）&lt;/span&gt;
+ &lt;a href="#3-%e6%9f%a5%e7%9c%8b%e5%8e%86%e5%8f%b2%e5%92%8c%e7%8a%b6%e6%80%81examine-the-history-and-state" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;用于「检查修改、回顾历史」，是排查问题、确认修改的核心操作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;git status&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：查看工作区 / 暂存区的状态（哪些文件被修改、未跟踪、已暂存）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：开发中随时确认当前修改状态，避免漏提交。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git status
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 输出示例（你的截图里就是这个命令的环境）：
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# On branch main
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# Changes to be committed:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# modified: index.html&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git log&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：查看提交历史（作者、时间、提交信息、版本号）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：回顾项目修改记录，找某个功能的提交记录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 查看简洁的提交历史（一行一条）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git log --oneline
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 查看所有分支的提交历史
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git log --all --graph # 带图形化分支展示，更直观&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git diff&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：查看修改的具体内容（工作区 vs 暂存区、暂存区 vs 版本库）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：确认自己改了哪些代码，避免误改。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 查看工作区未暂存的修改
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git diff
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 查看暂存区的修改（已add但未commit）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git diff --staged&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git grep&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：在项目中搜索匹配指定内容的行（比系统自带的 grep 更快）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：找某个函数 / 变量 / 关键词在项目中的位置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 搜索所有包含 &amp;#34;privacy&amp;#34; 的行
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git grep &amp;#34;privacy&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 搜索指定文件中包含 &amp;#34;fix&amp;#34; 的行
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git grep &amp;#34;fix&amp;#34; index.html&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 class="heading-element" id="4-分支--提交--合并grow-mark-and-tweak-history"&gt;&lt;span&gt;4. 分支 / 提交 / 合并（grow, mark and tweak history）&lt;/span&gt;
+ &lt;a href="#4-%e5%88%86%e6%94%af--%e6%8f%90%e4%ba%a4--%e5%90%88%e5%b9%b6grow-mark-and-tweak-history" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;对应「功能开发、版本管理」，是多人协作的核心。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;git commit&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：把暂存区的修改提交到版本库（生成一条提交记录）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：完成一个小功能 / 修复一个 bug 后，保存修改到版本库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 提交并写提交信息（必须写，方便后续追溯）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m &amp;#34;fix: 修复隐私政策页面的排版问题&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 如果修改已add，想补充修改并合并到上次提交（避免冗余提交）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit --amend # 会打开编辑器，修改上次的提交信息&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git branch&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：管理分支（列出、创建、删除）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：开发新功能时创建独立分支，避免影响主分支（main/master）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 列出所有本地分支（* 表示当前分支）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git branch
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 创建新分支（feature-privacy）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git branch feature-privacy
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 删除已合并的分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git branch -d feature-privacy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git switch&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：切换分支（替代老的 git checkout 分支用法，更清晰）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：从主分支切到功能分支开发，或切回主分支合并代码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 切换到 feature-privacy 分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git switch feature-privacy
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 创建并切换到新分支（常用）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git switch -c feature-privacy # 等价于 git branch + git switch&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git merge&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：把一个分支的修改合并到当前分支。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：功能开发完成后，把功能分支合并到主分支。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 先切到主分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git switch main
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 合并 feature-privacy 分支到主分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git merge feature-privacy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git tag&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：给指定提交打标签（标记版本，如 v1.0）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：项目发布版本时，标记稳定版本的提交。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 打轻量标签（简单标记）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git tag v1.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 打附注标签（带版本说明，推荐）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git tag -a v1.0 -m &amp;#34;发布v1.0版本，修复隐私政策问题&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 查看所有标签
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git tag&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 class="heading-element" id="5-协作开发collaborate"&gt;&lt;span&gt;5. 协作开发（collaborate）&lt;/span&gt;
+ &lt;a href="#5-%e5%8d%8f%e4%bd%9c%e5%bc%80%e5%8f%91collaborate" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;对应「和团队同步代码」，是多人协作的核心操作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;git fetch&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：拉取远程仓库的最新内容（只下载，不合并到本地分支）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：先查看远程有哪些更新，再决定是否合并（避免直接合并出冲突）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 拉取远程 main 分支的最新内容
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git fetch origin main&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git pull&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：拉取并合并远程分支的最新内容（等价于 git fetch + git merge）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：本地开发前，同步团队最新的代码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 拉取远程 main 分支并合并到本地 main 分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git pull origin main&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git push&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作用：把本地提交推送到远程仓库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景：完成本地开发后，把代码推到远程供团队其他人使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 推送本地 main 分支到远程 origin 仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push origin main
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 推送标签到远程（发布版本时需要）
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push origin v1.0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="heading-element" id="三日常开发高频场景完整流程直接套用"&gt;&lt;span&gt;三、日常开发高频场景完整流程（直接套用）&lt;/span&gt;
+ &lt;a href="#%e4%b8%89%e6%97%a5%e5%b8%b8%e5%bc%80%e5%8f%91%e9%ab%98%e9%a2%91%e5%9c%ba%e6%99%af%e5%ae%8c%e6%95%b4%e6%b5%81%e7%a8%8b%e7%9b%b4%e6%8e%a5%e5%a5%97%e7%94%a8" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;h4 class="heading-element" id="场景-1从零开发并提交代码"&gt;&lt;span&gt;场景 1：从零开发并提交代码&lt;/span&gt;
+ &lt;a href="#%e5%9c%ba%e6%99%af-1%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%8f%91%e5%b9%b6%e6%8f%90%e4%ba%a4%e4%bb%a3%e7%a0%81" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 1. 初始化仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cd /d/IDM/git/my-project
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 2. 创建/编辑文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;touch index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 3. 添加到暂存区
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 4. 提交到版本库
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m &amp;#34;init: 初始化项目，添加首页&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 class="heading-element" id="场景-2克隆远程项目开发新功能"&gt;&lt;span&gt;场景 2：克隆远程项目开发新功能&lt;/span&gt;
+ &lt;a href="#%e5%9c%ba%e6%99%af-2%e5%85%8b%e9%9a%86%e8%bf%9c%e7%a8%8b%e9%a1%b9%e7%9b%ae%e5%bc%80%e5%8f%91%e6%96%b0%e5%8a%9f%e8%83%bd" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 1. 克隆远程仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/xxx/privacy-fixlt.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cd privacy-fixlt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 2. 创建功能分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git switch -c feature-privacy
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 3. 编辑文件，修改代码
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 4. 暂存+提交
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m &amp;#34;feat: 新增隐私政策弹窗&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 5. 推送到远程功能分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push origin feature-privacy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 class="heading-element" id="场景-3同步远程最新代码"&gt;&lt;span&gt;场景 3：同步远程最新代码&lt;/span&gt;
+ &lt;a href="#%e5%9c%ba%e6%99%af-3%e5%90%8c%e6%ad%a5%e8%bf%9c%e7%a8%8b%e6%9c%80%e6%96%b0%e4%bb%a3%e7%a0%81" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 切到主分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git switch main
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 拉取远程最新代码
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git pull origin main&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="heading-element" id="总结"&gt;&lt;span&gt;总结&lt;/span&gt;
+ &lt;a href="#%e6%80%bb%e7%bb%93" class="heading-mark"&gt;
+ &lt;svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"&gt;&lt;path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Git 的核心是「工作区→暂存区→版本库」的修改流转，&lt;code&gt;git add&lt;/code&gt; 是暂存、&lt;code&gt;git commit&lt;/code&gt; 是提交、&lt;code&gt;git push/pull&lt;/code&gt; 是同步远程。&lt;/li&gt;
+&lt;li&gt;分支是 Git 的核心优势：开发新功能优先创建分支，避免直接修改主分支（main/master）。&lt;/li&gt;
+&lt;li&gt;高频命令优先级：&lt;code&gt;git status&lt;/code&gt;（查状态）&amp;gt; &lt;code&gt;git add&lt;/code&gt;/&lt;code&gt;git commit&lt;/code&gt;（提修改）&amp;gt; &lt;code&gt;git switch&lt;/code&gt;/&lt;code&gt;git branch&lt;/code&gt;（管分支）&amp;gt; &lt;code&gt;git pull&lt;/code&gt;/&lt;code&gt;git push&lt;/code&gt;（协同步）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;记住这些核心命令和流程，就能覆盖 80% 的日常 Git 使用场景，后续遇到冲突、回滚等复杂场景，可再针对性学习。&lt;/p&gt;</description></item><item><title>cloudfared白嫖指南</title><link>https://jiang1bo.github.io/posts/8a4c8c7/</link><pubDate>Tue, 13 Jan 2026 09:24:56 +0800</pubDate><guid>https://jiang1bo.github.io/posts/8a4c8c7/</guid><category domain="https://jiang1bo.github.io/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/">编程技术</category><description>&lt;p&gt;cloudfared+warp+tunel+webssh+warp&lt;/p&gt;
 &lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;p&gt;家里的 NAS、自建博客、开发环境想从外网访问，但你没有公网 IP? 运营商不给力，DDNS 又不稳定，端口映射还有安全风险？Cloudflare Tunnel 提供了一个优雅的解决方案: &lt;strong&gt;零公网 IP、零入站端口、默认 HTTPS, 还能和 Zero Trust 深度集成做身份验证&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;简单来说，你在内网跑一个轻量级的 &lt;code&gt;cloudflared&lt;/code&gt; 进程，它主动向 Cloudflare 边缘网络建立加密隧道。当用户访问你的域名时，流量先到 Cloudflare, 经过 WAF、Access 等安全检查后，再通过隧道转发到你的内网服务。整个过程，你的源站 IP 完全不暴露，防火墙也不用开任何入站端口。&lt;/p&gt;

@@ -1,13 +1,11 @@
 # Cloudfared白嫖指南
 
 
-cloudfared+warp  cloudflared+tunel+webssh+warp
+cloudfared+warp+tunel+webssh+warp
 
 <!--more-->
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
-
-
 
 家里的 NAS、自建博客、开发环境想从外网访问，但你没有公网 IP? 运营商不给力，DDNS 又不稳定，端口映射还有安全风险？Cloudflare Tunnel 提供了一个优雅的解决方案: **零公网 IP、零入站端口、默认 HTTPS, 还能和 Zero Trust 深度集成做身份验证**。
 
