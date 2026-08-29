@@ -8,7 +8,8 @@
 &lt;p&gt;​ &lt;strong&gt;2020年，受邀进入《赛博朋克2077》的夜之城。尽管城市网络漏洞百出，我仍凭借出色的“BUG适应能力”，在“黑梦”体验中坚持完成了任务，并被杰克·威尔斯先生誉为“最能保守秘密（指从不看任务简报）的好兄弟”。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;​ &lt;strong&gt;2021年，意外获得了《原神》的“神之眼”，受聘为提瓦特大陆的荣誉骑士，主要工作是每日清理居民委托、帮厨神香菱寻找稀奇古怪的食材，并在层岩巨渊下进行高强度“采矿”实习。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;​ &lt;strong&gt;2022年，奉命潜入《艾尔登法环》的交界地，在“褪色者新兵训练营”中，我深刻领悟了“生命的脆弱”与“翻滚的重要性”。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;​ &lt;strong&gt;2024年，我奔赴《三角洲行动》前线，经过1个月在““全面战场”下的艰苦战斗，虽然GTI总部说我表现得“既不算出色也不算糟糕”，但我最终还是成功获得了统帅军衔。&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Linux+nano+vim编辑器+git常用知识</title><link>https://jiang1bo.github.io/posts/f6e7eb2/</link><pubDate>Thu, 15 Jan 2026 15:13:08 +0800</pubDate><guid>https://jiang1bo.github.io/posts/f6e7eb2/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;p&gt;Linux+nano+vim编辑器+git常用知识&lt;/p&gt;
+&lt;p&gt;​ &lt;strong&gt;2024年，我奔赴《三角洲行动》前线，经过1个月在““全面战场”下的艰苦战斗，虽然GTI总部说我表现得“既不算出色也不算糟糕”，但我最终还是成功获得了统帅军衔。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2026年开启新征程！！1&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Linux+nano+vim编辑器+git常用知识</title><link>https://jiang1bo.github.io/posts/f6e7eb2/</link><pubDate>Thu, 15 Jan 2026 15:13:08 +0800</pubDate><guid>https://jiang1bo.github.io/posts/f6e7eb2/</guid><category domain="https://jiang1bo.github.io/categories/linux/">Linux</category><description>&lt;p&gt;Linux+nano+vim编辑器+git常用知识&lt;/p&gt;
 &lt;!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. --&gt;
 &lt;p&gt;在 Linux 中编辑文件，&lt;code&gt;nano&lt;/code&gt; 和 &lt;code&gt;vim&lt;/code&gt; 是最常用的两个命令行文本编辑器。它们设计哲学不同，掌握其核心操作能让你高效工作。&lt;/p&gt;
 &lt;p&gt;下图清晰地展示了两者的核心定位与操作逻辑对比，你可以快速了解全貌：&lt;/p&gt;
