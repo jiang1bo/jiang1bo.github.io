@@ -5,29 +5,38 @@
 
 <!--more-->
 
-# vm-k3s-project 项目综合文档
+# k3s-ai 项目文档
 
-**在本地低资源环境中，构建一套以 K3s + Ollama + Python Agent + Prometheus/Grafana 为核心的轻量 AI 运维治理平台，并逐步走向模型部署、知识库问答、工具调用、监控压测与发布回滚的完整闭环。**
+**在低资源环境中，构建一套以 K3s + Ollama + Python Agent + Prometheus/Grafana 为核心的轻量 AI 运维治理平台，并逐步走向模型部署、知识库问答、工具调用、监控压测与发布回滚的完整闭环。**
+
+**FastAPI Agent+locust相代码已上传至仓库：**
+
+[jiang1bo/Fastapi-k3s-ollama](https://github.com/jiang1bo/Fastapi-k3s-ollama)
+
+https://github.com/jiang1bo/Fastapi-k3s-ollama
+
+**Python Agent服务 + Prometheus/Grafana，通过Cloudflared 隧道开放至公网（不稳定，可能被墙打不开），后台演示访问地址：**
+
+[Fastapi Agent服务](http://192.168.8.80:30800/)
+
+[Grafana](http://127.0.0.1:3000/)
 
 ## 1. 项目基本信息
 
-| 项目           | 信息                                                         |
-| -------------- | ------------------------------------------------------------ |
-| 项目名称       | `vm-k3s-project`                                             |
-| 项目定位       | 本地低资源环境下的 AI 运维与应用实验平台                     |
-| 项目目录       | `/home/fermi/work/vm-k3s-project`                            |
-| 当前分支记录   | `main`，历史文档记录了 `first commit`                        |
-| 远程默认分支   | 原始记录同时出现 `master`，与当前分支信息存在不一致，需以远程仓库设置确认 |
-| 操作系统       | Debian 13 虚拟机，最小化安装，通过 SSH 管理                  |
-| 虚拟机资源     | 4 vCPU、6 GB 内存、40 GB 磁盘                                |
-| 虚拟化环境     | VMware 16，已启用嵌套虚拟化                                  |
-| 宿主机记录     | Windows 10 Pro；Dell G3 3590，Intel i5-9300H、32 GB 内存、GTX 1650（4 GB 显存） |
-| 虚拟机网络记录 | `192.168.8.80`                                               |
-| 核心技术栈     | K3s、Ollama、Python/FastAPI、Prometheus、Grafana             |
+| 项目         | 信息                                                         |
+| ------------ | ------------------------------------------------------------ |
+| 项目名称     | `vm-k3s-project`                                             |
+| 项目定位     | 本地低资源环境下的 AI 运维与应用实验平台                     |
+| 操作系统     | Debian 13 虚拟机，最小化安装，通过 SSH 管理                  |
+| 虚拟机资源   | 4 vCPU、6 GB 内存、40 GB 磁盘                                |
+| 虚拟化环境   | VMware 16，已启用嵌套虚拟化                                  |
+| 宿主机记录   | Windows 10 Pro；Dell G3 3590，Intel i5-9300H、32 GB 内存、GTX 1650（4 GB 显存） |
+| 虚拟机网络IP | `192.168.8.80`                                               |
+| 核心技术栈   | K3s、Ollama、Python/FastAPI、Prometheus、Grafana             |
 
 ## 2. 项目目标
 
-项目目标是在本地有限的计算与显存资源下，逐步构建轻量的 AI 运维平台，实现从模型服务到监控、性能分析和发布治理的实践闭环。
+项目目标是在有限的计算与显存资源下，逐步构建轻量的 AI 运维平台，实现从模型服务到监控、性能分析和发布治理的实践闭环。
 
 ### 2.1 核心目标
 
@@ -39,7 +48,7 @@
 
 ### 2.2 模型方向
 
-计划或试用的模型包括 Qwen、MiniCPM、Phi 等轻量模型。现有记录明确提及 Ollama 中使用 `qwen2.5:0.5b`；其他模型属于候选或计划，不能视为已部署。
+计划或试用的模型包括 Qwen、MiniCPM、Phi 等轻量模型。现在Ollama 中使用 `qwen2.5:0.5b`；其他模型属于候选或计划。
 
 ## 3. 项目进展
 
@@ -254,9 +263,8 @@ kubectl top pods -n local-ai
 | 监控面板不能从本机浏览器直接访问                             | Grafana 在 Debian K3s 集群内，本机没有直接建立到服务端口的通道 | 用 SSH 隧道把 Grafana Service 转发到本机 `127.0.0.1:3000`，浏览器访问该地址。 |
 | Grafana SSH 转发没有开机/登录后自动启动                      | 手动运行的 SSH 隧道会随终端关闭而中断                        | 先确认 SSH 密钥可无交互登录，再通过 Windows 任务计划程序配置“用户登录时”运行隧道脚本，并设置失败重试。 |
 | 项目 Windows 副本与 Debian 部署副本状态不一致                | 项目是手动复制的，两边 Git 分支、提交和文件不会自动同步      | 分别在两个目录检查 `git status` 和 `git log`，明确修改在哪一份副本；目前记录到 Windows 副本 `main`、HEAD `6bd1720`，Debian 历史记录曾有不同提交状态。 |
-| 选择 AI 工具时难以判断用途                                   | 工具定位和项目目标尚未明确区分                               | 用户提供的项目整理将方向归纳为“本地模型开发与运维 Agent 学习”，并记录了 GitHub Copilot 与 DeepSeek Harness 的选择建议； |
 
-**总体判断：** 许多问题已有明确诊断和操作方案；部分基础组件（K3s、监控栈、Ollama、小模型）在历史记录中曾验证可用。FastAPI 当前部署、Windows Locust 依赖安装、Prometheus 实际抓取以及 Grafana 自动转发均需要以现在的设备状态再次确认。
+**总体判断：** 许多问题已有明确诊断和操作方案；部分基础组件（K3s、监控栈、Ollama、小模型）亦验证可用。FastAPI 当前部署、Windows Locust 依赖安装、Prometheus 实际抓取以及 Grafana 自动转发均需要，再次确认。
 
 ## 5. 当前状态总结
 
@@ -282,11 +290,11 @@ kubectl top pods -n local-ai
 
 ## 6. 后续计划
 
-1. **先建立运行状态基线：检查节点、工作负载、事件、资源使用、PVC 和 Service/Endpoints。
-2. **推进 RAG 原型：选择适合 6 GB 虚拟机的轻量方案，完成文档解析、向量检索和知识问答验证。
-3. **开发 Agent 工具调用：先实现只读的 Kubernetes 查询能力，再逐步增加任务规划和受控操作。
-4. **执行压测与优化：使用 Locust 等工具测量响应时间、吞吐量和资源占用，定位瓶颈。
-5. **探索发布治理：在基础服务稳定后，再评估 Argo Rollouts、灰度发布和自动回滚。
+1. 先建立运行状态基线：检查节点、工作负载、事件、资源使用、PVC 和 Service/Endpoints。
+2. 推进 RAG 原型：选择适合 6 GB 虚拟机的轻量方案，完成文档解析、向量检索和知识问答验证。
+3. 开发 Agent 工具调用：先实现只读的 Kubernetes 查询能力，再逐步增加任务规划和受控操作。
+4. 执行压测与优化：使用 Locust 等工具测量响应时间、吞吐量和资源占用，定位瓶颈。
+5. 探索发布治理：在基础服务稳定后，再评估 Argo Rollouts、灰度发布和自动回滚。
 
 **建议状态核验的命令：**
 
