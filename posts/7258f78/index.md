@@ -1,6 +1,8 @@
 # Linux升级openssl到最新版，yumdnf运行报错，重启系统后网络无法连接
 
 
+ linux升级openssl到最新版，yumdnf运行报错，重启系统后网络无法连接
+
 <!--more-->
 
 # yum/dnf运行报错，重启系统后网络无法连接

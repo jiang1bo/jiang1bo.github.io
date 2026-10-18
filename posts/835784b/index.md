@@ -1,9 +1,11 @@
-# Linux杂谈：一些常用命令
+# Euler-Linux杂谈：一些常用命令总结
 
 
-# linux杂谈：一些常用命令
+Euler-linux杂谈：一些常用命令总结
 
 <!--more-->
+
+# linux杂谈：一些常用命令
 
 ## linux信息收集
 

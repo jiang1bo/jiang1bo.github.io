@@ -1,6 +1,8 @@
 # Epanel食用指南
 
 
+ePanel能做什么：一个建站面板（不好用）
+
 <!--more-->
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->

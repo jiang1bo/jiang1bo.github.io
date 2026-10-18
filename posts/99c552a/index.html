@@ -1,0 +1,761 @@
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><meta name=robots content="noodp"><title>K3s 常见使用问题、排查与解决总结 - Fermi</title><meta name=author content><meta name=description content="k3s 常见使用问题、排查与解决总结
+"><meta name=keywords content='linux,Kubernetes,k3s,grafana,prometheus'><meta itemprop=name content="k3s 常见使用问题、排查与解决总结"><meta itemprop=description content="k3s 常见使用问题、排查与解决总结"><meta itemprop=datePublished content="2026-04-11T08:48:01+08:00"><meta itemprop=dateModified content="2026-04-11T08:48:01+08:00"><meta itemprop=wordCount content="2011"><meta itemprop=keywords content="Linux,Kubernetes,K3s,Grafana,Prometheus"><meta property="og:url" content="https://jiang1bo.github.io/posts/99c552a/"><meta property="og:site_name" content="Fermi"><meta property="og:title" content="k3s 常见使用问题、排查与解决总结"><meta property="og:description" content="k3s 常见使用问题、排查与解决总结"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-11T08:48:01+08:00"><meta property="article:modified_time" content="2026-04-11T08:48:01+08:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Kubernetes"><meta property="article:tag" content="K3s"><meta property="article:tag" content="Grafana"><meta property="article:tag" content="Prometheus"><meta name=twitter:card content="summary"><meta name=twitter:title content="k3s 常见使用问题、排查与解决总结"><meta name=twitter:description content="k3s 常见使用问题、排查与解决总结"><meta name=application-name content="Fermi's Blog"><meta name=apple-mobile-web-app-title content="Fermi's Blog"><meta name=theme-color data-light=#ffffff data-dark=#ffffff content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical type=text/html href=https://jiang1bo.github.io/posts/99c552a/ title="k3s 常见使用问题、排查与解决总结 - Fermi"><link rel=prev type=text/html href=https://jiang1bo.github.io/posts/7777167/ title="Debian/Ubuntu 与 Fedora/RHEL 双发行版开箱指南"><link rel=next type=text/html href=https://jiang1bo.github.io/posts/33c6be5/ title="一套以 K3s + Ollama + Python Agent + Prometheus/Grafana 为核心的轻量 AI 运维治理平台"><link rel=alternate type=text/markdown href=https://jiang1bo.github.io/posts/99c552a/index.md title="k3s 常见使用问题、排查与解决总结 - Fermi"><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.removeAttribute("onload"),this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"k3s 常见使用问题、排查与解决总结","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/jiang1bo.github.io\/posts\/99c552a\/"},"genre":"posts","keywords":"linux, Kubernetes, k3s, grafana, prometheus","wordcount":2011,"url":"https:\/\/jiang1bo.github.io\/posts\/99c552a\/","datePublished":"2026-04-11T08:48:01+08:00","dateModified":"2026-04-11T08:48:01+08:00","publisher":{"@type":"Organization","name":""},"description":""}</script><script src=/js/head/color-scheme.min.js></script></head><body data-header-desktop=sticky data-header-mobile=auto><div class=wrapper data-page-style=normal><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper data-github-corner=right><div class=header-title><a href=/ title=Fermi><span class=header-title-text>Fermi's Blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class=menu-item><a class=menu-link href=/posts/ title=Archives><i class="fa-solid fa-archive fa-fw fa-sm fa-fw fa-sm" aria-hidden=true></i> Archives</a></li><li class=menu-item><a class=menu-link href=/tags/ title=Tags><i class="fa-solid fa-folder-tree fa-fw fa-sm fa-fw fa-sm" aria-hidden=true></i> Tags</a></li><li class=menu-item><a class=menu-link href=/categories/ title=Categories><i class="fa-solid fa-tags fa-fw fa-sm fa-fw fa-sm" aria-hidden=true></i> Categories</a></li><li class="menu-item has-children"><a class=menu-link href=javascript:void(0); title=Other><i class="fa-solid fa-book fa-fw fa-sm" aria-hidden=true></i> Other</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i><ul class=sub-menu><li class=menu-item><a class=menu-link href=/friends/ title=friends><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden=true></i> friends</a></li></ul></li><li class="menu-item delimiter"></li><li class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容…… id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></li><li class="menu-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=Fermi><span class=header-title-text>Fermi's Blog</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><nav><ul class=menu id=menu-mobile><li class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容…… id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></li><li class=menu-item><a class=menu-link href=/posts/ title=Archives><i class="fa-solid fa-archive fa-fw fa-sm fa-fw fa-sm" aria-hidden=true></i> Archives</a></li><li class=menu-item><a class=menu-link href=/tags/ title=Tags><i class="fa-solid fa-folder-tree fa-fw fa-sm fa-fw fa-sm" aria-hidden=true></i> Tags</a></li><li class=menu-item><a class=menu-link href=/categories/ title=Categories><i class="fa-solid fa-tags fa-fw fa-sm fa-fw fa-sm" aria-hidden=true></i> Categories</a></li><li class=menu-item><span class=nested-item><a class=menu-link href=javascript:void(0); title=Other><i class="fa-solid fa-book fa-fw fa-sm" aria-hidden=true></i> Other</a>
+<i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden=true></i></span><ul class=sub-menu><li class=menu-item><a class=menu-link href=/friends/ title=friends><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden=true></i> friends</a></li></ul></li><li class="menu-item menu-system"><span class="menu-system-item theme-switch" title=切换主题><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></span></li></ul></nav></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=container><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=合集></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span title=转载 class=icon-repost><i class="fa-solid fa-share fa-fw" aria-hidden=true></i></span><span>K3s 常见使用问题、排查与解决总结</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><span class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
+Anonymous</span></span><span class=post-included-in>&nbsp;收录于 <a href=/categories/linux/ class=post-category title="分类 - Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Linux</a>&ensp;<a href=/categories/kubernetes/ class=post-category title="分类 - Kubernetes"><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> Kubernetes</a></span></div><div class=post-meta-line><span title="发布于 2026-04-11 08:48:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden=true></i><time datetime=2026-04-11>2026-04-11</time></span>&nbsp;<span title="2011 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 2100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 10 分钟</span>&nbsp;<span id=busuanzi_container_page_pv class="busuanzi_visitors comment-visitors" data-flag-title="K3s 常见使用问题、排查与解决总结"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden=true></i><span id=busuanzi_value_page_pv>-</span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#一镜像拉取失败imagepullbackoff>一、镜像拉取失败：ImagePullBackOff</a><ul><li><a href=#现象>现象</a></li><li><a href=#排查命令>排查命令</a></li><li><a href=#原因>原因</a></li><li><a href=#解决方案>解决方案</a><ul><li><a href=#1-断开-warp修复-dns>1. 断开 WARP，修复 DNS</a></li><li><a href=#2-配置-k3s-镜像加速器>2. 配置 k3s 镜像加速器</a></li><li><a href=#3-手动拉取并导入镜像最可靠>3. 手动拉取并导入镜像（最可靠）</a></li><li><a href=#4-修改-imagepullpolicy>4. 修改 imagePullPolicy</a></li><li><a href=#5-预导入镜像到-k3s防重启丢失>5. 预导入镜像到 k3s（防重启丢失）</a></li></ul></li></ul></li><li><a href=#二容器启动失败runcontainererror--crashloopbackoff>二、容器启动失败：RunContainerError / CrashLoopBackOff</a><ul><li><a href=#现象-1>现象</a></li><li><a href=#排查命令-1>排查命令</a></li><li><a href=#原因-1>原因</a></li><li><a href=#解决方案-1>解决方案</a></li></ul></li><li><a href=#三镜像名称不匹配errimageneverpull>三、镜像名称不匹配：ErrImageNeverPull</a><ul><li><a href=#现象-2>现象</a></li><li><a href=#排查命令-2>排查命令</a></li><li><a href=#原因-2>原因</a></li><li><a href=#解决方案-2>解决方案</a></li></ul></li><li><a href=#四metrics-server-无端点no-endpoints-available>四、metrics-server 无端点：no endpoints available</a><ul><li><a href=#现象-3>现象</a></li><li><a href=#排查命令-3>排查命令</a></li><li><a href=#原因-3>原因</a></li><li><a href=#解决方案-3>解决方案</a></li></ul></li><li><a href=#五编辑-deployment-报-invalidyaml-格式错误>五、编辑 Deployment 报 invalid：YAML 格式错误</a><ul><li><a href=#现象-4>现象</a></li><li><a href=#原因-4>原因</a></li><li><a href=#解决方案-4>解决方案</a></li></ul></li><li><a href=#六端口转发开机自启grafana-内网访问>六、端口转发开机自启（Grafana 内网访问）</a><ul><li><a href=#目标>目标</a></li><li><a href=#方案systemd-服务>方案：systemd 服务</a></li></ul></li><li><a href=#八常用命令速查含注释>八、常用命令速查（含注释）</a></li><li><a href=#九coredns-pod-处于-crashloopbackoff-状态>九、CoreDNS Pod 处于 <code>CrashLoopBackOff</code> 状态</a></li><li><a href=#-第一步查看-coredns-日志定位根因>🛠️ 第一步：查看 CoreDNS 日志（定位根因）</a></li><li><a href=#-第二步根据日志内容选择修复方案>🛠️ 第二步：根据日志内容选择修复方案</a><ul><li><a href=#方案-a上游-dns-不可达最常见>方案 A：上游 DNS 不可达（最常见）</a></li><li><a href=#方案-bcorefile-配置错误>方案 B：Corefile 配置错误</a></li><li><a href=#方案-c资源不足oomkilled>方案 C：资源不足（OOMKilled）</a></li><li><a href=#方案-d就绪探针配置缺失ready-插件问题>方案 D：就绪探针配置缺失（ready 插件问题）</a></li></ul></li><li><a href=#-第三步强制清理重启通用兜底方案>🛠️ 第三步：强制清理重启（通用兜底方案）</a></li><li><a href=#-第四步验证修复>✅ 第四步：验证修复</a></li><li><a href=#-命令速查含注释>📋 命令速查（含注释）</a></li><li></li><li><a href=#九核心经验总结>九、核心经验总结</a></li></ul></nav></div></div><div class=content id=content><p>k3s 常见使用问题、排查与解决总结</p><h2 class=heading-element id=一镜像拉取失败imagepullbackoff><span>一、镜像拉取失败：ImagePullBackOff</span>
+<a href=#%e4%b8%80%e9%95%9c%e5%83%8f%e6%8b%89%e5%8f%96%e5%a4%b1%e8%b4%a5imagepullbackoff class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=现象><span>现象</span>
+<a href=#%e7%8e%b0%e8%b1%a1 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ul><li>Pod 状态：<code>ImagePullBackOff</code> 或 <code>ErrImagePull</code></li><li>日志报错：<ul><li><code>read: network is unreachable</code>（IPv6 不可达）</li><li><code>lookup docker.m.daocloud.io: Try again</code>（DNS 解析失败）</li><li><code>dial tcp ... i/o timeout</code>（连接超时）</li></ul></li></ul><h3 class=heading-element id=排查命令><span>排查命令</span>
+<a href=#%e6%8e%92%e6%9f%a5%e5%91%bd%e4%bb%a4 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl get pods -A
+</span></span><span class=line><span class=cl><span class=c1># kubectl：Kubernetes 命令行工具</span>
+</span></span><span class=line><span class=cl><span class=c1># get pods：获取 Pod 列表</span>
+</span></span><span class=line><span class=cl><span class=c1># -A：--all-namespaces，查看所有命名空间</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl -n local-ai describe pod &lt;pod-name&gt;
+</span></span><span class=line><span class=cl><span class=c1># -n local-ai：指定命名空间 local-ai</span>
+</span></span><span class=line><span class=cl><span class=c1># describe pod：查看 Pod 详细信息</span>
+</span></span><span class=line><span class=cl><span class=c1># &lt;pod-name&gt;：替换为实际 Pod 名称</span>
+</span></span><span class=line><span class=cl><span class=c1># 重点看 Events 部分，会显示 Failed to pull image 的具体原因</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo journalctl -u k3s -n <span class=m>200</span> <span class=p>|</span> grep -i ollama
+</span></span><span class=line><span class=cl><span class=c1># sudo：以 root 权限执行</span>
+</span></span><span class=line><span class=cl><span class=c1># journalctl：查看 systemd 日志</span>
+</span></span><span class=line><span class=cl><span class=c1># -u k3s：指定 k3s 服务</span>
+</span></span><span class=line><span class=cl><span class=c1># -n 200：显示最近 200 行</span>
+</span></span><span class=line><span class=cl><span class=c1># grep -i ollama：忽略大小写过滤包含 ollama 的行</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo k3s ctr images list <span class=p>|</span> grep ollama
+</span></span><span class=line><span class=cl><span class=c1># sudo：以 root 权限执行</span>
+</span></span><span class=line><span class=cl><span class=c1># k3s ctr：k3s 内置的 containerd 命令行工具</span>
+</span></span><span class=line><span class=cl><span class=c1># images list：列出本地镜像</span>
+</span></span><span class=line><span class=cl><span class=c1># grep ollama：过滤 ollama 相关镜像</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=原因><span>原因</span>
+<a href=#%e5%8e%9f%e5%9b%a0 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ol><li>虚拟机 IPv6 不可达，k3s 尝试通过 IPv6 访问 Docker Hub 失败。</li><li>国内镜像加速器 <code>docker.m.daocloud.io</code> 域名解析失败。</li><li>WARP 客户端干扰 DNS 和路由。</li><li><code>imagePullPolicy</code> 为 <code>Always</code>，即使本地有镜像也强制重新拉取。</li></ol><h3 class=heading-element id=解决方案><span>解决方案</span>
+<a href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><h4 class=heading-element id=1-断开-warp修复-dns><span>1. 断开 WARP，修复 DNS</span>
+<a href=#1-%e6%96%ad%e5%bc%80-warp%e4%bf%ae%e5%a4%8d-dns class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>warp-cli disconnect
+</span></span><span class=line><span class=cl><span class=c1># warp-cli：Cloudflare WARP 命令行工具</span>
+</span></span><span class=line><span class=cl><span class=c1># disconnect：断开 WARP 连接</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> -e <span class=s2>&#34;nameserver 223.5.5.5\nnameserver 119.29.29.29&#34;</span> <span class=p>|</span> sudo tee /etc/resolv.conf
+</span></span><span class=line><span class=cl><span class=c1># echo -e：输出字符串，-e 启用转义</span>
+</span></span><span class=line><span class=cl><span class=c1># nameserver 223.5.5.5：指定阿里 DNS</span>
+</span></span><span class=line><span class=cl><span class=c1># nameserver 119.29.29.29：指定腾讯 DNS</span>
+</span></span><span class=line><span class=cl><span class=c1># |：管道，将输出传给 tee</span>
+</span></span><span class=line><span class=cl><span class=c1># sudo tee /etc/resolv.conf：以 root 权限写入 DNS 配置文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ping -c <span class=m>3</span> baidu.com
+</span></span><span class=line><span class=cl><span class=c1># ping：测试网络连通性</span>
+</span></span><span class=line><span class=cl><span class=c1># -c 3：发送 3 个 ICMP 包</span>
+</span></span><span class=line><span class=cl><span class=c1># baidu.com：目标域名</span></span></span></code></pre></td></tr></table></div></div><h4 class=heading-element id=2-配置-k3s-镜像加速器><span>2. 配置 k3s 镜像加速器</span>
+<a href=#2-%e9%85%8d%e7%bd%ae-k3s-%e9%95%9c%e5%83%8f%e5%8a%a0%e9%80%9f%e5%99%a8 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo mkdir -p /etc/rancher/k3s
+</span></span><span class=line><span class=cl><span class=c1># mkdir -p：创建目录，-p 表示递归创建且已存在不报错</span>
+</span></span><span class=line><span class=cl><span class=c1># /etc/rancher/k3s：k3s 配置目录</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo tee /etc/rancher/k3s/registries.yaml <span class=s>&lt;&lt; &#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>mirrors:
+</span></span></span><span class=line><span class=cl><span class=s>  docker.io:
+</span></span></span><span class=line><span class=cl><span class=s>    endpoint:
+</span></span></span><span class=line><span class=cl><span class=s>      - &#34;https://docker.1panel.live&#34;
+</span></span></span><span class=line><span class=cl><span class=s>      - &#34;https://docker.m.daocloud.io&#34;
+</span></span></span><span class=line><span class=cl><span class=s>      - &#34;https://docker.1ms.run&#34;
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl><span class=c1># tee：写入文件</span>
+</span></span><span class=line><span class=cl><span class=c1># &lt;&lt; &#39;EOF&#39;：Here Document，多行输入直到 EOF</span>
+</span></span><span class=line><span class=cl><span class=c1># mirrors：镜像加速配置</span>
+</span></span><span class=line><span class=cl><span class=c1># docker.io：对 Docker Hub 的请求进行加速</span>
+</span></span><span class=line><span class=cl><span class=c1># endpoint：加速器地址列表，按顺序尝试</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo systemctl restart k3s
+</span></span><span class=line><span class=cl><span class=c1># systemctl：系统服务管理工具</span>
+</span></span><span class=line><span class=cl><span class=c1># restart k3s：重启 k3s 服务使配置生效</span></span></span></code></pre></td></tr></table></div></div><h4 class=heading-element id=3-手动拉取并导入镜像最可靠><span>3. 手动拉取并导入镜像（最可靠）</span>
+<a href=#3-%e6%89%8b%e5%8a%a8%e6%8b%89%e5%8f%96%e5%b9%b6%e5%af%bc%e5%85%a5%e9%95%9c%e5%83%8f%e6%9c%80%e5%8f%af%e9%9d%a0 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>podman pull ollama/ollama:latest
+</span></span><span class=line><span class=cl><span class=c1># podman：容器引擎</span>
+</span></span><span class=line><span class=cl><span class=c1># pull：拉取镜像</span>
+</span></span><span class=line><span class=cl><span class=c1># ollama/ollama:latest：镜像名称和标签</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>podman save --format docker-archive -o /tmp/ollama-image.tar ollama/ollama:latest
+</span></span><span class=line><span class=cl><span class=c1># save：导出镜像</span>
+</span></span><span class=line><span class=cl><span class=c1># --format docker-archive：指定导出格式为 docker-archive</span>
+</span></span><span class=line><span class=cl><span class=c1># -o /tmp/ollama-image.tar：输出文件路径</span>
+</span></span><span class=line><span class=cl><span class=c1># ollama/ollama:latest：要导出的镜像</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo k3s ctr images import /tmp/ollama-image.tar
+</span></span><span class=line><span class=cl><span class=c1># k3s ctr：k3s 的 containerd 工具</span>
+</span></span><span class=line><span class=cl><span class=c1># images import：导入镜像 tar 文件</span>
+</span></span><span class=line><span class=cl><span class=c1># /tmp/ollama-image.tar：镜像归档文件路径</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo k3s ctr images list <span class=p>|</span> grep ollama
+</span></span><span class=line><span class=cl><span class=c1># 验证镜像是否导入成功</span></span></span></code></pre></td></tr></table></div></div><h4 class=heading-element id=4-修改-imagepullpolicy><span>4. 修改 imagePullPolicy</span>
+<a href=#4-%e4%bf%ae%e6%94%b9-imagepullpolicy class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># 在 Deployment YAML 中：</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>containers</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>ollama</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>ollama/ollama:latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>imagePullPolicy</span><span class=p>:</span><span class=w> </span><span class=l>IfNotPresent  </span><span class=w> </span><span class=c># 本地有则用本地，无则拉取</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=l>kubectl apply -f ollama-k3s.yaml</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># apply：应用 YAML 配置</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># -f：指定文件名</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=l>kubectl -n local-ai delete pod -l app=ollama</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># delete pod：删除 Pod</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># -l app=ollama：按标签选择器删除</span></span></span></code></pre></td></tr></table></div></div><h4 class=heading-element id=5-预导入镜像到-k3s防重启丢失><span>5. 预导入镜像到 k3s（防重启丢失）</span>
+<a href=#5-%e9%a2%84%e5%af%bc%e5%85%a5%e9%95%9c%e5%83%8f%e5%88%b0-k3s%e9%98%b2%e9%87%8d%e5%90%af%e4%b8%a2%e5%a4%b1 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo mkdir -p /var/lib/rancher/k3s/agent/images/
+</span></span><span class=line><span class=cl><span class=c1># 创建 k3s 自动导入镜像目录</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo cp /tmp/ollama-image.tar /var/lib/rancher/k3s/agent/images/
+</span></span><span class=line><span class=cl><span class=c1># cp：复制文件到该目录</span>
+</span></span><span class=line><span class=cl><span class=c1># k3s 启动时会自动加载该目录下的 tar 镜像</span></span></span></code></pre></td></tr></table></div></div><hr><h2 class=heading-element id=二容器启动失败runcontainererror--crashloopbackoff><span>二、容器启动失败：RunContainerError / CrashLoopBackOff</span>
+<a href=#%e4%ba%8c%e5%ae%b9%e5%99%a8%e5%90%af%e5%8a%a8%e5%a4%b1%e8%b4%a5runcontainererror--crashloopbackoff class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=现象-1><span>现象</span>
+<a href=#%e7%8e%b0%e8%b1%a1-1 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ul><li>Pod 状态：<code>RunContainerError</code> 或 <code>CrashLoopBackOff</code></li><li>报错：<code>exec: "uvicorn": executable file not found in $PATH</code></li></ul><h3 class=heading-element id=排查命令-1><span>排查命令</span>
+<a href=#%e6%8e%92%e6%9f%a5%e5%91%bd%e4%bb%a4-1 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n local-ai describe pod &lt;pod-name&gt;
+</span></span><span class=line><span class=cl><span class=c1># 查看 Pod 详情，重点看 Last State 和 Events</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl -n local-ai logs &lt;pod-name&gt; --previous
+</span></span><span class=line><span class=cl><span class=c1># logs：查看容器日志</span>
+</span></span><span class=line><span class=cl><span class=c1># --previous：查看上一个已终止容器的日志</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=原因-1><span>原因</span>
+<a href=#%e5%8e%9f%e5%9b%a0-1 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p><code>requirements.txt</code> 中缺少 <code>fastapi</code>、<code>uvicorn</code> 等 Python 依赖，镜像内没有安装 <code>uvicorn</code> 可执行文件。</p><h3 class=heading-element id=解决方案-1><span>解决方案</span>
+<a href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88-1 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ol><li>补全 <code>requirements.txt</code>：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>fastapi==0.115.0
+</span></span><span class=line><span class=cl>uvicorn[standard]==0.32.0
+</span></span><span class=line><span class=cl>requests==2.32.3
+</span></span><span class=line><span class=cl>protobuf==4.21.12</span></span></code></pre></td></tr></table></div></div><ol><li>重新构建镜像：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>podman build -t localhost/k3s-ollama-chat:0.1.1 .
+</span></span><span class=line><span class=cl><span class=c1># build：构建镜像</span>
+</span></span><span class=line><span class=cl><span class=c1># -t：指定镜像标签</span>
+</span></span><span class=line><span class=cl><span class=c1># localhost/k3s-ollama-chat:0.1.1：新版本标签</span>
+</span></span><span class=line><span class=cl><span class=c1># .：构建上下文为当前目录</span></span></span></code></pre></td></tr></table></div></div><ol><li>导出并导入 k3s：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>podman save --format docker-archive -o /tmp/k3s-ollama-chat-0.1.1.tar localhost/k3s-ollama-chat:0.1.1
+</span></span><span class=line><span class=cl><span class=c1># 导出新镜像</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo k3s ctr images import /tmp/k3s-ollama-chat-0.1.1.tar
+</span></span><span class=line><span class=cl><span class=c1># 导入到 k3s</span></span></span></code></pre></td></tr></table></div></div><ol><li>修改 YAML 中的镜像标签并重建：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl apply -f deploy/k3s.yaml
+</span></span><span class=line><span class=cl><span class=c1># 应用更新后的 YAML</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl -n local-ai rollout restart deployment/ollama-chat
+</span></span><span class=line><span class=cl><span class=c1># rollout restart：滚动重启 Deployment</span></span></span></code></pre></td></tr></table></div></div><hr><h2 class=heading-element id=三镜像名称不匹配errimageneverpull><span>三、镜像名称不匹配：ErrImageNeverPull</span>
+<a href=#%e4%b8%89%e9%95%9c%e5%83%8f%e5%90%8d%e7%a7%b0%e4%b8%8d%e5%8c%b9%e9%85%8derrimageneverpull class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=现象-2><span>现象</span>
+<a href=#%e7%8e%b0%e8%b1%a1-2 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ul><li>Pod 状态：<code>ErrImageNeverPull</code></li><li><code>imagePullPolicy: Never</code>，但本地找不到完全匹配的镜像名。</li></ul><h3 class=heading-element id=排查命令-2><span>排查命令</span>
+<a href=#%e6%8e%92%e6%9f%a5%e5%91%bd%e4%bb%a4-2 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo k3s ctr images list <span class=p>|</span> grep ollama-chat
+</span></span><span class=line><span class=cl><span class=c1># 查看 k3s 中实际镜像名，通常带 localhost/ 前缀</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=原因-2><span>原因</span>
+<a href=#%e5%8e%9f%e5%9b%a0-2 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p><code>podman save</code> 导入后镜像名变为 <code>localhost/k3s-ollama-chat:0.1.0</code>，而 YAML 中写的是 <code>k3s-ollama-chat:0.1.0</code>，名称不匹配。</p><h3 class=heading-element id=解决方案-2><span>解决方案</span>
+<a href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88-2 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p><strong>方案一：修改 YAML 镜像名</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>localhost/k3s-ollama-chat:0.1.0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>imagePullPolicy</span><span class=p>:</span><span class=w> </span><span class=l>Never  </span><span class=w> </span><span class=c># 或 IfNotPresent</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=l>kubectl apply -f deploy/k3s.yaml</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=l>kubectl -n local-ai delete pod -l app.kubernetes.io/name=ollama-chat</span></span></span></code></pre></td></tr></table></div></div><p><strong>方案二：给 k3s 镜像重新打标签</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo k3s ctr images tag localhost/k3s-ollama-chat:0.1.0 k3s-ollama-chat:0.1.0
+</span></span><span class=line><span class=cl><span class=c1># tag：为镜像创建新标签</span>
+</span></span><span class=line><span class=cl><span class=c1># 原镜像 新标签</span></span></span></code></pre></td></tr></table></div></div><hr><h2 class=heading-element id=四metrics-server-无端点no-endpoints-available><span>四、metrics-server 无端点：no endpoints available</span>
+<a href=#%e5%9b%9bmetrics-server-%e6%97%a0%e7%ab%af%e7%82%b9no-endpoints-available class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=现象-3><span>现象</span>
+<a href=#%e7%8e%b0%e8%b1%a1-3 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><ul><li><p>k3s 日志反复报：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>error resolving kube-system/metrics-server: no endpoints available for service &#34;metrics-server&#34;</span></span></code></pre></td></tr></table></div></div></li><li><p><code>kubectl top nodes</code> 失败或 metrics-server 就绪探针返回 500。</p></li></ul><h3 class=heading-element id=排查命令-3><span>排查命令</span>
+<a href=#%e6%8e%92%e6%9f%a5%e5%91%bd%e4%bb%a4-3 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system get pods
+</span></span><span class=line><span class=cl><span class=c1># 查看 metrics-server Pod 是否 Running/Ready</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl -n kube-system describe pod -l k8s-app<span class=o>=</span>metrics-server
+</span></span><span class=line><span class=cl><span class=c1># 查看就绪探针失败信息</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl -n kube-system logs deployment/metrics-server
+</span></span><span class=line><span class=cl><span class=c1># 查看 metrics-server 日志，常见 Failed to scrape node</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get endpoints metrics-server
+</span></span><span class=line><span class=cl><span class=c1># 查看 Service 端点是否为空</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl get apiservice v1beta1.metrics.k8s.io
+</span></span><span class=line><span class=cl><span class=c1># 查看 metrics API 是否可用</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=原因-3><span>原因</span>
+<a href=#%e5%8e%9f%e5%9b%a0-3 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>k3s 使用自签名 kubelet 证书，metrics-server 无法验证证书，导致抓取指标失败，就绪探针不通过，Service 无端点。</p><h3 class=heading-element id=解决方案-3><span>解决方案</span>
+<a href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88-3 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>使用 <code>kubectl patch</code> 添加 <code>--kubelet-insecure-tls</code> 参数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system patch deployment metrics-server --type<span class=o>=</span>json -p<span class=o>=</span><span class=s1>&#39;[{&#34;op&#34;:&#34;add&#34;,&#34;path&#34;:&#34;/spec/template/spec/containers/0/args/-&#34;,&#34;value&#34;:&#34;--kubelet-insecure-tls&#34;}]&#39;</span>
+</span></span><span class=line><span class=cl><span class=c1># patch：修改资源</span>
+</span></span><span class=line><span class=cl><span class=c1># -n kube-system：指定命名空间</span>
+</span></span><span class=line><span class=cl><span class=c1># deployment metrics-server：目标 Deployment</span>
+</span></span><span class=line><span class=cl><span class=c1># --type=json：使用 JSON Patch</span>
+</span></span><span class=line><span class=cl><span class=c1># -p：patch 数据</span>
+</span></span><span class=line><span class=cl><span class=c1># op:add：添加操作</span>
+</span></span><span class=line><span class=cl><span class=c1># path:/spec/template/spec/containers/0/args/-：在 args 数组末尾追加</span>
+</span></span><span class=line><span class=cl><span class=c1># value:--kubelet-insecure-tls：添加的参数</span></span></span></code></pre></td></tr></table></div></div><p>验证：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system rollout status deployment/metrics-server
+</span></span><span class=line><span class=cl><span class=c1># 等待滚动更新完成</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl top nodes
+</span></span><span class=line><span class=cl><span class=c1># 测试指标是否可用</span></span></span></code></pre></td></tr></table></div></div><hr><h2 class=heading-element id=五编辑-deployment-报-invalidyaml-格式错误><span>五、编辑 Deployment 报 invalid：YAML 格式错误</span>
+<a href=#%e4%ba%94%e7%bc%96%e8%be%91-deployment-%e6%8a%a5-invalidyaml-%e6%a0%bc%e5%bc%8f%e9%94%99%e8%af%af class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=现象-4><span>现象</span>
+<a href=#%e7%8e%b0%e8%b1%a1-4 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system edit deployment metrics-server
+</span></span><span class=line><span class=cl>error: deployments.apps <span class=s2>&#34;metrics-server&#34;</span> is invalid
+</span></span><span class=line><span class=cl>A copy of your changes has been stored to <span class=s2>&#34;/tmp/kubectl-edit-xxx.yaml&#34;</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=原因-4><span>原因</span>
+<a href=#%e5%8e%9f%e5%9b%a0-4 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>手动编辑 YAML 时缩进或列表符号 <code>-</code> 错误。</p><h3 class=heading-element id=解决方案-4><span>解决方案</span>
+<a href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88-4 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p><strong>推荐用 patch 命令代替手动编辑</strong>（见上一节）。
+如果必须编辑，先导出再修改：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system get deployment metrics-server -o yaml &gt; /tmp/ms.yaml
+</span></span><span class=line><span class=cl><span class=c1># 导出为 YAML 文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>nano /tmp/ms.yaml
+</span></span><span class=line><span class=cl><span class=c1># 用 nano 编辑，注意缩进</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>kubectl apply -f /tmp/ms.yaml
+</span></span><span class=line><span class=cl><span class=c1># 应用修改</span></span></span></code></pre></td></tr></table></div></div><hr><h2 class=heading-element id=六端口转发开机自启grafana-内网访问><span>六、端口转发开机自启（Grafana 内网访问）</span>
+<a href=#%e5%85%ad%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%afgrafana-%e5%86%85%e7%bd%91%e8%ae%bf%e9%97%ae class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=目标><span>目标</span>
+<a href=#%e7%9b%ae%e6%a0%87 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>让内网通过 <code>http://192.168.8.80:3000</code> 访问 Grafana，且开机自动启动。</p><h3 class=heading-element id=方案systemd-服务><span>方案：systemd 服务</span>
+<a href=#%e6%96%b9%e6%a1%88systemd-%e6%9c%8d%e5%8a%a1 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo nano /etc/systemd/system/grafana-portforward.service
+</span></span><span class=line><span class=cl><span class=c1># 创建 systemd 服务文件</span></span></span></code></pre></td></tr></table></div></div><p>文件内容：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[Unit]</span>
+</span></span><span class=line><span class=cl><span class=na>Description</span><span class=o>=</span><span class=s>Port-forward for Grafana Service</span>
+</span></span><span class=line><span class=cl><span class=c1># 确保在 K3s 和网络就绪后再启动此服务</span>
+</span></span><span class=line><span class=cl><span class=na>After</span><span class=o>=</span><span class=s>network-online.target k3s.service</span>
+</span></span><span class=line><span class=cl><span class=na>Wants</span><span class=o>=</span><span class=s>network-online.target k3s.service</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[Service]</span>
+</span></span><span class=line><span class=cl><span class=c1># 使用你的普通用户 fermi 来运行，避免权限问题</span>
+</span></span><span class=line><span class=cl><span class=na>User</span><span class=o>=</span><span class=s>fermi</span>
+</span></span><span class=line><span class=cl><span class=c1># 设置用户的家目录和 Kubectl 的配置文件路径</span>
+</span></span><span class=line><span class=cl><span class=na>Environment</span><span class=o>=</span><span class=s>HOME=/home/fermi</span>
+</span></span><span class=line><span class=cl><span class=na>Environment</span><span class=o>=</span><span class=s>KUBECONFIG=/home/fermi/.kube/config</span>
+</span></span><span class=line><span class=cl><span class=na>Environment</span><span class=o>=</span><span class=s>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 核心命令：将本地 3000 端口转发到 Grafana 服务</span>
+</span></span><span class=line><span class=cl><span class=c1># --address 0.0.0.0 表示允许内网其他设备访问</span>
+</span></span><span class=line><span class=cl><span class=na>ExecStart</span><span class=o>=</span><span class=s>/usr/local/bin/kubectl -n monitoring port-forward svc/prometheus-grafana 3000:80 --address 0.0.0.0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 无论何种原因退出，总是在 5 秒后重启，保证服务高可用</span>
+</span></span><span class=line><span class=cl><span class=na>Restart</span><span class=o>=</span><span class=s>always</span>
+</span></span><span class=line><span class=cl><span class=na>RestartSec</span><span class=o>=</span><span class=s>5</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[Install]</span>
+</span></span><span class=line><span class=cl><span class=c1># 定义为多用户模式下启动</span>
+</span></span><span class=line><span class=cl><span class=na>WantedBy</span><span class=o>=</span><span class=s>multi-user.target</span></span></span></code></pre></td></tr></table></div></div><p>启用并启动：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo systemctl daemon-reload
+</span></span><span class=line><span class=cl><span class=c1># 重新加载 systemd 配置</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo systemctl <span class=nb>enable</span> grafana-portforward.service
+</span></span><span class=line><span class=cl><span class=c1># 设置开机自启</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo systemctl start grafana-portforward.service
+</span></span><span class=line><span class=cl><span class=c1># 立即启动</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo systemctl status grafana-portforward.service
+</span></span><span class=line><span class=cl><span class=c1># 查看状态</span></span></span></code></pre></td></tr></table></div></div><hr><h2 class=heading-element id=八常用命令速查含注释><span>八、常用命令速查（含注释）</span>
+<a href=#%e5%85%ab%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4%e9%80%9f%e6%9f%a5%e5%90%ab%e6%b3%a8%e9%87%8a class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查看所有 Pod</span>
+</span></span><span class=line><span class=cl>kubectl get pods -A
+</span></span><span class=line><span class=cl><span class=c1># -A：所有命名空间</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看 Pod 详细信息</span>
+</span></span><span class=line><span class=cl>kubectl -n local-ai describe pod &lt;pod-name&gt;
+</span></span><span class=line><span class=cl><span class=c1># -n：命名空间</span>
+</span></span><span class=line><span class=cl><span class=c1># describe：详细信息</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看容器日志</span>
+</span></span><span class=line><span class=cl>kubectl -n local-ai logs &lt;pod-name&gt; --previous
+</span></span><span class=line><span class=cl><span class=c1># --previous：上一个容器实例日志</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看 Deployment 滚动状态</span>
+</span></span><span class=line><span class=cl>kubectl -n local-ai rollout status deployment/ollama
+</span></span><span class=line><span class=cl><span class=c1># rollout status：等待滚动更新完成</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 重启 Deployment</span>
+</span></span><span class=line><span class=cl>kubectl -n local-ai rollout restart deployment/ollama-chat
+</span></span><span class=line><span class=cl><span class=c1># rollout restart：触发滚动重启</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除 Pod</span>
+</span></span><span class=line><span class=cl>kubectl -n local-ai delete pod -l <span class=nv>app</span><span class=o>=</span>ollama
+</span></span><span class=line><span class=cl><span class=c1># -l：标签选择器</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除 ReplicaSet</span>
+</span></span><span class=line><span class=cl>kubectl -n local-ai delete rs &lt;rs-name&gt;
+</span></span><span class=line><span class=cl><span class=c1># rs：ReplicaSet 缩写</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看 k3s 镜像列表</span>
+</span></span><span class=line><span class=cl>sudo k3s ctr images list
+</span></span><span class=line><span class=cl><span class=c1># ctr：containerd 命令行工具</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 导入镜像</span>
+</span></span><span class=line><span class=cl>sudo k3s ctr images import /tmp/image.tar
+</span></span><span class=line><span class=cl><span class=c1># import：导入 tar 镜像</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 给镜像打标签</span>
+</span></span><span class=line><span class=cl>sudo k3s ctr images tag &lt;old&gt; &lt;new&gt;
+</span></span><span class=line><span class=cl><span class=c1># tag：创建新标签</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看 k3s 服务状态</span>
+</span></span><span class=line><span class=cl>sudo systemctl status k3s
+</span></span><span class=line><span class=cl><span class=c1># systemctl：服务管理</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 重启 k3s</span>
+</span></span><span class=line><span class=cl>sudo systemctl restart k3s
+</span></span><span class=line><span class=cl><span class=c1># restart：重启服务</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看节点指标</span>
+</span></span><span class=line><span class=cl>kubectl top nodes
+</span></span><span class=line><span class=cl><span class=c1># top：查看资源使用</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 应用 YAML</span>
+</span></span><span class=line><span class=cl>kubectl apply -f &lt;file&gt;.yaml
+</span></span><span class=line><span class=cl><span class=c1># apply：应用配置</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看 APIService</span>
+</span></span><span class=line><span class=cl>kubectl get apiservice v1beta1.metrics.k8s.io
+</span></span><span class=line><span class=cl><span class=c1># apiservice：聚合 API 服务</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element id=九coredns-pod-处于-crashloopbackoff-状态><span>九、CoreDNS Pod 处于 <code>CrashLoopBackOff</code> 状态</span>
+<a href=#%e4%b9%9dcoredns-pod-%e5%a4%84%e4%ba%8e-crashloopbackoff-%e7%8a%b6%e6%80%81 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>退出码 <code>1</code> 通常意味着 <strong>CoreDNS 进程在启动时因配置解析错误或上游 DNS 不可达而立即退出</strong>。需要先查看日志确认具体原因。</p><hr><h2 class=heading-element id=-第一步查看-coredns-日志定位根因><span>🛠️ 第一步：查看 CoreDNS 日志（定位根因）</span>
+<a href=#-%e7%ac%ac%e4%b8%80%e6%ad%a5%e6%9f%a5%e7%9c%8b-coredns-%e6%97%a5%e5%bf%97%e5%ae%9a%e4%bd%8d%e6%a0%b9%e5%9b%a0 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查看 CoreDNS 容器日志，--previous 表示查看上一个已崩溃容器的日志</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system logs &lt;coredns-pod-name&gt; --previous
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 如果 --previous 没有输出，查看当前日志</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system logs &lt;coredns-pod-name&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 也可以按标签批量查看</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system logs -l k8s-app<span class=o>=</span>kube-dns --tail<span class=o>=</span><span class=m>100</span></span></span></code></pre></td></tr></table></div></div><p><strong>重点关注以下报错关键词</strong>：</p><table><thead><tr><th>日志关键词</th><th>含义</th><th>修复方向</th></tr></thead><tbody><tr><td><code>plugin/forward: no healthy upstream</code></td><td>上游 DNS 不可达</td><td>检查 <code>/etc/resolv.conf</code> 中的 DNS 地址是否有效</td></tr><tr><td><code>Loop detected</code></td><td>转发循环</td><td>Corefile 中的 forward 指向了自身</td></tr><tr><td><code>Error during parsing: Unknown directive</code></td><td>Corefile 语法错误</td><td>修正 ConfigMap 中的 Corefile</td></tr><tr><td><code>Failed to list *v1.Service</code> / <code>403</code></td><td>RBAC 权限问题</td><td>检查 ServiceAccount 权限</td></tr><tr><td><code>bind: address already in use</code></td><td>端口 53 被占用</td><td>检查宿主机是否有其他 DNS 服务</td></tr></tbody></table><hr><h2 class=heading-element id=-第二步根据日志内容选择修复方案><span>🛠️ 第二步：根据日志内容选择修复方案</span>
+<a href=#-%e7%ac%ac%e4%ba%8c%e6%ad%a5%e6%a0%b9%e6%8d%ae%e6%97%a5%e5%bf%97%e5%86%85%e5%ae%b9%e9%80%89%e6%8b%a9%e4%bf%ae%e5%a4%8d%e6%96%b9%e6%a1%88 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h3 class=heading-element id=方案-a上游-dns-不可达最常见><span>方案 A：上游 DNS 不可达（最常见）</span>
+<a href=#%e6%96%b9%e6%a1%88-a%e4%b8%8a%e6%b8%b8-dns-%e4%b8%8d%e5%8f%af%e8%be%be%e6%9c%80%e5%b8%b8%e8%a7%81 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>如果日志显示 <code>no healthy upstream</code> 或 <code>timeout</code>，说明 CoreDNS 无法访问上游 DNS 服务器。这与你之前遇到的 WARP 干扰 DNS 问题一致。</p><p><strong>重启 CoreDNS：</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 删除 CoreDNS Pod，让 ReplicaSet 自动重建</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system delete pod -l k8s-app<span class=o>=</span>kube-dns
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 观察重建后的状态</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get pods -l k8s-app<span class=o>=</span>kube-dns -w</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=方案-bcorefile-配置错误><span>方案 B：Corefile 配置错误</span>
+<a href=#%e6%96%b9%e6%a1%88-bcorefile-%e9%85%8d%e7%bd%ae%e9%94%99%e8%af%af class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>如果日志显示 <code>Error during parsing</code> 或 <code>Unknown directive</code>，说明 Corefile 有语法错误。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查看当前 CoreDNS 的 ConfigMap</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get configmap coredns -o yaml
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 编辑 ConfigMap（注意 YAML 缩进）</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system edit configmap coredns</span></span></code></pre></td></tr></table></div></div><p><strong>正确的 Corefile 参考</strong>（注意缩进，<code>{</code> 不能与 <code>.:53</code> 粘连）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=o>.</span><span class=p>:</span><span class=mi>53</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>errors</span>
+</span></span><span class=line><span class=cl>    <span class=n>health</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>lameduck</span> <span class=mi>5</span><span class=n>s</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>ready</span>
+</span></span><span class=line><span class=cl>    <span class=n>kubernetes</span> <span class=n>cluster</span><span class=o>.</span><span class=n>local</span> <span class=ow>in</span><span class=o>-</span><span class=n>addr</span><span class=o>.</span><span class=n>arpa</span> <span class=n>ip6</span><span class=o>.</span><span class=n>arpa</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>pods</span> <span class=n>insecure</span>
+</span></span><span class=line><span class=cl>        <span class=n>fallthrough</span> <span class=ow>in</span><span class=o>-</span><span class=n>addr</span><span class=o>.</span><span class=n>arpa</span> <span class=n>ip6</span><span class=o>.</span><span class=n>arpa</span>
+</span></span><span class=line><span class=cl>        <span class=n>ttl</span> <span class=mi>30</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>prometheus</span> <span class=p>:</span><span class=mi>9153</span>
+</span></span><span class=line><span class=cl>    <span class=n>forward</span> <span class=o>.</span> <span class=mf>223.5</span><span class=o>.</span><span class=mf>5.5</span> <span class=mf>119.29</span><span class=o>.</span><span class=mf>29.29</span>
+</span></span><span class=line><span class=cl>    <span class=n>cache</span> <span class=mi>30</span>
+</span></span><span class=line><span class=cl>    <span class=n>loop</span>
+</span></span><span class=line><span class=cl>    <span class=n>reload</span>
+</span></span><span class=line><span class=cl>    <span class=n>loadbalance</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></td></tr></table></div></div><blockquote><p><strong>注意</strong>：<code>forward . 223.5.5.5 119.29.29.29</code> 中的 DNS 地址必须与宿主机 <code>/etc/resolv.conf</code> 中的一致，且不能是 <code>127.0.0.1</code> 或 <code>127.0.0.53</code>（loopback 地址不可达）。</p></blockquote><p>修改后等待 CoreDNS 自动重载，或手动删除 Pod：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system delete pod -l k8s-app<span class=o>=</span>kube-dns</span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=方案-c资源不足oomkilled><span>方案 C：资源不足（OOMKilled）</span>
+<a href=#%e6%96%b9%e6%a1%88-c%e8%b5%84%e6%ba%90%e4%b8%8d%e8%b6%b3oomkilled class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>如果 <code>describe pod</code> 中 <code>Last State</code> 显示 <code>Reason: OOMKilled</code>，说明内存不足。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查看当前内存限制</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get deployment coredns -o yaml <span class=p>|</span> grep -A2 memory
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 用 patch 命令将内存限制提升到 256Mi</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system patch deployment coredns --type<span class=o>=</span>json -p<span class=o>=</span><span class=s1>&#39;[{&#34;op&#34;:&#34;replace&#34;,&#34;path&#34;:&#34;/spec/template/spec/containers/0/resources/limits/memory&#34;,&#34;value&#34;:&#34;256Mi&#34;}]&#39;</span></span></span></code></pre></td></tr></table></div></div><h3 class=heading-element id=方案-d就绪探针配置缺失ready-插件问题><span>方案 D：就绪探针配置缺失（ready 插件问题）</span>
+<a href=#%e6%96%b9%e6%a1%88-d%e5%b0%b1%e7%bb%aa%e6%8e%a2%e9%92%88%e9%85%8d%e7%bd%ae%e7%bc%ba%e5%a4%b1ready-%e6%8f%92%e4%bb%b6%e9%97%ae%e9%a2%98 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h3><p>你的就绪探针访问 <code>8181/ready</code> 连接被拒绝，可能是因为 Corefile 中缺少 <code>ready</code> 插件。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 检查 Corefile 中是否有 ready 插件</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get configmap coredns -o yaml <span class=p>|</span> grep -i ready
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 如果没有，编辑 ConfigMap 添加</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system edit configmap coredns</span></span></code></pre></td></tr></table></div></div><p>在 <code>.:53 {</code> 块内添加一行：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>    ready</span></span></code></pre></td></tr></table></div></div><p>然后删除 Pod 重建：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system delete pod -l k8s-app<span class=o>=</span>kube-dns</span></span></code></pre></td></tr></table></div></div><hr><h2 class=heading-element id=-第三步强制清理重启通用兜底方案><span>🛠️ 第三步：强制清理重启（通用兜底方案）</span>
+<a href=#-%e7%ac%ac%e4%b8%89%e6%ad%a5%e5%bc%ba%e5%88%b6%e6%b8%85%e7%90%86%e9%87%8d%e5%90%af%e9%80%9a%e7%94%a8%e5%85%9c%e5%ba%95%e6%96%b9%e6%a1%88 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><p>如果上述方案都无效，可以强制清理 CoreDNS 的 ReplicaSet 和 Pod：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 将副本数缩放为 0（停止所有 CoreDNS Pod）</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system scale deployment coredns --replicas<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 等待 10 秒</span>
+</span></span><span class=line><span class=cl>sleep <span class=m>10</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 将副本数缩放回 2（重新创建 Pod）</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system scale deployment coredns --replicas<span class=o>=</span><span class=m>2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 观察重建状态</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get pods -l k8s-app<span class=o>=</span>kube-dns -w</span></span></code></pre></td></tr></table></div></div><blockquote><p><strong>注意</strong>：缩放期间集群 DNS 不可用，所有 Pod 的域名解析会短暂中断，但现有连接不受影响。</p></blockquote><hr><h2 class=heading-element id=-第四步验证修复><span>✅ 第四步：验证修复</span>
+<a href=#-%e7%ac%ac%e5%9b%9b%e6%ad%a5%e9%aa%8c%e8%af%81%e4%bf%ae%e5%a4%8d class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 1. 确认 CoreDNS Pod 状态为 Running，READY 为 1/1</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get pods -l k8s-app<span class=o>=</span>kube-dns
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 2. 确认 Service 端点已填充</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get endpoints kube-dns
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 3. 用临时 Pod 测试 DNS 解析</span>
+</span></span><span class=line><span class=cl>kubectl run dns-test --image<span class=o>=</span>busybox:1.28 --rm -it --restart<span class=o>=</span>Never -- nslookup kubernetes.default</span></span></code></pre></td></tr></table></div></div><p>如果第三步能成功解析 <code>kubernetes.default</code>，说明 CoreDNS 已恢复正常。</p><hr><h2 class=heading-element id=-命令速查含注释><span>📋 命令速查（含注释）</span>
+<a href=#-%e5%91%bd%e4%bb%a4%e9%80%9f%e6%9f%a5%e5%90%ab%e6%b3%a8%e9%87%8a class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 查看 CoreDNS Pod 状态</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system get pods -l k8s-app<span class=o>=</span>kube-dns
+</span></span><span class=line><span class=cl><span class=c1># -n kube-system：指定命名空间</span>
+</span></span><span class=line><span class=cl><span class=c1># -l k8s-app=kube-dns：按标签过滤</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看上一个崩溃容器的日志</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system logs &lt;pod-name&gt; --previous
+</span></span><span class=line><span class=cl><span class=c1># --previous：查看上一次运行（已终止）的容器日志</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看 Pod 详细事件</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system describe pod &lt;pod-name&gt;
+</span></span><span class=line><span class=cl><span class=c1># 重点看 Events 和 Last State 的 Reason</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 编辑 CoreDNS ConfigMap</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system edit configmap coredns
+</span></span><span class=line><span class=cl><span class=c1># 保存退出后 CoreDNS 会自动重载（通过 reload 插件）</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除 Pod 触发重建</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system delete pod -l k8s-app<span class=o>=</span>kube-dns
+</span></span><span class=line><span class=cl><span class=c1># 删除后 ReplicaSet 会自动创建新 Pod</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 缩放副本数（强制清理）</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system scale deployment coredns --replicas<span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system scale deployment coredns --replicas<span class=o>=</span><span class=m>2</span>
+</span></span><span class=line><span class=cl><span class=c1># --replicas：指定副本数</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 测试 DNS 解析</span>
+</span></span><span class=line><span class=cl>kubectl run dns-test --image<span class=o>=</span>busybox:1.28 --rm -it --restart<span class=o>=</span>Never -- nslookup kubernetes.default
+</span></span><span class=line><span class=cl><span class=c1># --rm：退出后自动删除 Pod</span>
+</span></span><span class=line><span class=cl><span class=c1># -it：交互式终端</span>
+</span></span><span class=line><span class=cl><span class=c1># --restart=Never：不自动重启</span>
+</span></span><span class=line><span class=cl><span class=c1># -- nslookup ...：容器内执行的命令</span></span></span></code></pre></td></tr></table></div></div><h2 class=heading-element><span></span>
+<a href=# class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><h2 class=heading-element id=九核心经验总结><span>九、核心经验总结</span>
+<a href=#%e4%b9%9d%e6%a0%b8%e5%bf%83%e7%bb%8f%e9%aa%8c%e6%80%bb%e7%bb%93 class=heading-mark><svg class="octicon octicon-link" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5.0 114.95 4.95l-2.5 2.5a3.5 3.5.0 01-4.95.0.751.751.0 01.018-1.042.751.751.0 011.042-.018 1.998 1.998.0 002.83.0l2.5-2.5a2.002 2.002.0 00-2.83-2.83l-1.25 1.25a.751.751.0 01-1.042-.018.751.751.0 01-.018-1.042zm-4.69 9.64a1.998 1.998.0 002.83.0l1.25-1.25a.751.751.0 011.042.018.751.751.0 01.018 1.042l-1.25 1.25a3.5 3.5.0 11-4.95-4.95l2.5-2.5a3.5 3.5.0 014.95.0.751.751.0 01-.018 1.042.751.751.0 01-1.042.018 1.998 1.998.0 00-2.83.0l-2.5 2.5a1.998 1.998.0 000 2.83z"/></svg></a></h2><ol><li><strong>镜像拉取策略</strong>：<code>latest</code> 标签默认 <code>imagePullPolicy: Always</code>，网络不稳时改为 <code>IfNotPresent</code> 或 <code>Never</code>。</li><li><strong>镜像名称前缀</strong>：<code>podman save</code> + <code>k3s ctr images import</code> 后镜像名通常带 <code>localhost/</code>，YAML 必须同步。</li><li><strong>依赖管理</strong>：<code>requirements.txt</code> 只放 PyPI 包，系统包用 <code>apt-get</code> 安装，避免 <code>pip install</code> 失败。</li><li><strong>metrics-server</strong>：k3s 自签名证书需加 <code>--kubelet-insecure-tls</code>，推荐用 <code>kubectl patch</code> 修改。</li><li><strong>网络干扰</strong>：WARP 会干扰 DNS 和路由，构建/拉取镜像前先断开。</li><li><strong>持久化端口转发</strong>：用 systemd 服务守护 <code>kubectl port-forward --address 0.0.0.0</code>，实现开机自启和内网访问。</li><li><strong>排查顺序</strong>：<code>get pods</code> → <code>describe pod</code> → <code>logs</code> → <code>get endpoints</code> → 检查网络/DNS/证书。</li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="更新于 2026-04-11 08:48:01">更新于 2026-04-11&nbsp;</span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/posts/99c552a/index.md title=阅读原始文档 class=link-to-markdown>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 X" data-sharer=twitter data-url=https://jiang1bo.github.io/posts/99c552a/ data-title="K3s 常见使用问题、排查与解决总结" data-hashtags=linux,Kubernetes,k3s,grafana,prometheus><i class="fa-brands fa-x-twitter fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://jiang1bo.github.io/posts/99c552a/ data-hashtag=linux><i class="fa-brands fa-facebook-square fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://jiang1bo.github.io/posts/99c552a/ data-title="K3s 常见使用问题、排查与解决总结"><i class="fa-brands fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fa-solid fa-tags fa-fw me-1" aria-hidden=true></i><a href=/tags/linux/ class=post-tag title="标签 - Linux">Linux</a><a href=/tags/kubernetes/ class=post-tag title="标签 - Kubernetes">Kubernetes</a><a href=/tags/k3s/ class=post-tag title="标签 - K3s">K3s</a><a href=/tags/grafana/ class=post-tag title="标签 - Grafana">Grafana</a><a href=/tags/prometheus/ class=post-tag title="标签 - Prometheus">Prometheus</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/7777167/ class=post-nav-item rel=prev title="Debian/Ubuntu 与 Fedora/RHEL 双发行版开箱指南"><i class="fa-solid fa-angle-left fa-fw" aria-hidden=true></i>Debian/Ubuntu 与 Fedora/RHEL 双发行版开箱指南</a><a href=/posts/33c6be5/ class=post-nav-item rel=next title="一套以 K3s + Ollama + Python Agent + Prometheus/Grafana 为核心的轻量 AI 运维治理平台">一套以 K3s + Ollama + Python Agent + Prometheus/Grafana 为核心的轻量 AI 运维治理平台<i class="fa-solid fa-angle-right fa-fw" aria-hidden=true></i></a></div></div><div class=post-reward><div class=comment>Buy me a coffee</div><input type=checkbox class=reward-input name=reward id=fi-reward hidden>
+<label class=reward-button for=fi-reward><i class="fa-solid fa-qrcode fa-fw" aria-hidden=true></i>赞赏</label><div class=reward-ways data-mode=static><div><img src=/web-app-manifest-512x512.png alt=微信 height=512 width=512><span data-animation>微信</span></div></div></div></article><aside class=toc id=toc-auto aria-label=目录><h2 class=toc-title>目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden=true></i></h2><div class=toc-content id=toc-content-auto></div></aside></main><footer class=footer><div class=footer-container><div class="footer-line powered">由 <a href=https://gohugo.io/ target=_blank rel="external nofollow noopener noreferrer" title="Hugo 0.152.2"><img class=hugo-icon src=/images/hugo.min.svg alt="Hugo logo"> Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/hugo-fixit/FixIt target=_blank rel=external title="FixIt v0.3.20"><img class=fixit-icon src=/images/fixit.min.svg alt="FixIt logo"> FixIt</a></div><div class="footer-line copyright" itemscope itemtype=http://schema.org/CreativeWork><i class="fa-regular fa-copyright fa-fw" aria-hidden=true></i>
+<span itemprop=copyrightYear>2026</span><span class=author itemprop=copyrightHolder>
+<a href=https://www.fermis.top/ target=_blank rel="external nofollow noopener noreferrer">fermi</a></span></div><div class="footer-line statistics"><span class=site-time title=网站运行中……><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden=true></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor"><span id=busuanzi_container_site_uv title=总访客数><i class="fa-regular fa-user fa-fw me-1" aria-hidden=true></i><span id=busuanzi_value_site_uv><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden=true></i></span></span><span id=busuanzi_container_site_pv class=footer-divider title=总访问量><i class="fa-regular fa-eye fa-fw me-1" aria-hidden=true></i><span id=busuanzi_value_site_pv><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden=true></i></span></span></div><div class="footer-line beian"><span class=gov>china</span><span class="icp footer-divider">20251129</span></div></div></footer></div><div class=widgets><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role=button aria-label=回到顶部><i class="fa-solid fa-arrow-up fa-fw" aria-hidden=true></i><span class=variant-numeric>0%</span></div></div><a href=https://github.com/jiang1bo title="View source on GitHub" target=_blank rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true" width="56" height="56"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentColor" class="octo-body"/></svg></a><div id=mask></div><noscript><div class=noscript-warning>该网站在启用 JavaScript 的情况下效果最佳。</div></noscript></div><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script src=/lib/autocomplete/autocomplete.min.js defer></script><script src=/lib/fuse/fuse.min.js defer></script><script src=/lib/sharer/sharer.min.js async defer></script><script src=/lib/cookieconsent/cookieconsent.min.js defer></script><script src=https://vercount.one/js async defer></script><script>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{enable:!1},cookieconsent:{content:{dismiss:"同意",link:"了解更多",message:"本网站使用 Cookies 来改善您的浏览体验。"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/search.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!0,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:30,threshold:.3,type:"fuse",useExtendedSearch:!0},siteTime:"2021-11-11",version:"v0.3.20"}</script><script src=/js/theme.min.js defer></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-RFBW294WZQ")</script><script src="https://www.googletagmanager.com/gtag/js?id=G-RFBW294WZQ" async></script></body></html>

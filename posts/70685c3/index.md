@@ -1,6 +1,8 @@
 # 基于hugo+github的个人建站总结
 
 
+建站总结：一个由hugo+fixlt+github pages+github workflow搭建的博客网站。
+
 <!--more-->
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
@@ -907,8 +909,6 @@ jobs:
 国内域名+国外主机=不用备案
 
 国内域名+国内主机=备案
-
-
 
 
 

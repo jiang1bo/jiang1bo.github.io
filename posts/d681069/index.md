@@ -1,13 +1,15 @@
 # Linux可执行文件添加到PATH环境变量的方法
 
 
+输入命令的时候提示：command not found
+
+<!--more-->
+
 ## 输入命令的时候提示：command not found
 
 **linux命令行下面执行某个命令的时候，首先保证该命令是否存在，若存在，但输入命令的时候若仍提示：command not found**
 
 **这个时候就的查看PATH环境变量的设置了，当前命令是否存在于PATH环境变量中**
-
-<!--more-->
 
 ```bash
 #查看PATH：

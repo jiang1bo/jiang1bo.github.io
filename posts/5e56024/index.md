@@ -3,13 +3,13 @@
 
 
 
-一个 Hugo 网站的 Giscus 评论系统配置。
+Hugo 网站的 Giscus 评论系统配置，通过giscus为博客添加评论系统（Hugo+fixlt+giscus）。
+
+<!--more-->
 
 ## 配置概览
 
 这是一个 **FixIt 主题**（v0.2.14+）的 Giscus 评论系统配置。
-
-<!--more-->
 
 ### 关键参数分析
 
@@ -125,14 +125,6 @@ origin = "https://giscus.yourdomain.com"  # 自托管地址
 2. **Discussions 已启用**：仓库 Settings → Features → Discussions
 3. **Giscus App 已安装**：仓库 Settings → Integrations → Giscus
 4. **分类存在**：确保 "General" 分类在 Discussions 中存在
-
-## 性能影响
-
-**优点**：
-- ✅ 无数据库依赖
-- ✅ 使用 GitHub 账号，无需注册
-- ✅ 支持 Markdown 格式
-- ✅ 响应式设计
 
 ## 推荐设置
 

@@ -1,6 +1,8 @@
 # 在 Ubuntu 中修改静态 IP 地址
 
 
+使用 netplan 方式,修改ubuntu ip
+
 <!--more-->
 
 **从 ubuntu 18.04 开始，修改使用 netplan 方式，新版本也不例外。**

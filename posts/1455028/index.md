@@ -1,6 +1,8 @@
 # Openeuler开箱指南
 
 
+openeuler开箱指南+常见配置设置+基础命令对比
+
 <!--more-->
 
 <!-- Place resource files in the current article directory and reference them using relative paths, like this: `![alt](images/screenshot.jpg)`. -->
