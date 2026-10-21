@@ -498,7 +498,24 @@ Node Exporter: 9100
 | Training/RL           | 轨迹、SFT、奖励、训练数据导出                       |
 | Multimodal Evidence   | Grafana 截图、日志截图、拓扑图等                    |
 
----
+### 通过微信控制
+
+Hermes **原生支持**接入**个人微信**，通过腾讯官方的 **iLink Bot API** 实现，无需搭建复杂的 Webhook 或中转服务，流程相对简单。
+
+**配置与使用方法**
+
+1. **启动配置向导**：在服务器终端执行 `hermes gateway setup`。
+2. **选择通道并扫码**：在列表中选择 `WeChat (ilink / ClawBot)`。终端会显示一个二维码链接，用手机微信扫码并确认授权即可完成绑定。
+3. **开始对话**：配置成功后，启动网关 `hermes gateway`。之后在微信里找到这个机器人（或“文件传输助手”），像和朋友聊天一样发送消息，就会收到 Hermes 的回复。
+
+**进阶控制**
+
+- **权限管理**：可以在 `~/.hermes/config.yaml` 中配置 `allowed_user_ids`，限制只有特定用户才能与 Agent 交互。
+- **企业微信**：如果你的场景是企业环境，Hermes 也提供了专门的 `wecom` 适配器，稳定性和合规性会更高。
+
+Hermes 的 Web 面板适合作为功能全面的管理控制台，而微信接入则提供了随时随地通过聊天进行交互的便捷途径。
+
+<img src="./assets/img_b0af9c4d415a.jpg" alt="img_b0af9c4d415a" style="zoom: 33%;" />
 
 ## 当前状态
 
@@ -582,6 +599,7 @@ Node Exporter: 9100
 5. **Grafana 仪表盘接入**
 6. **k3s 监控数据接入**
 7. **AIOps / SRE 事故响应能力上线**
+8. **接入微信：通过clawbot随时查看设备状态信息，修复环境异常**
 
 最终实现：通过 `192.168.8.80:8000` 访问 RunbookHermes Web 控制台，通过 `192.168.8.80:3000` 访问 Grafana 仪表盘，并实现监控数据与智能运维闭环的初步集成。
 

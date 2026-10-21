@@ -9,17 +9,17 @@
 
 **在低资源环境中，构建一套以 K3s + Ollama + Python Agent + Prometheus/Grafana 为核心的轻量 AI 运维治理平台，并逐步走向模型部署、知识库问答、工具调用、监控压测与发布回滚的完整闭环。**
 
-**FastAPI Agent+locust相代码已上传至仓库：**
-
-[jiang1bo/Fastapi-k3s-ollama](https://github.com/jiang1bo/Fastapi-k3s-ollama)
+**FastAPI Agent+locust相关代码已上传至仓库：**
 
 https://github.com/jiang1bo/Fastapi-k3s-ollama
 
 **Python Agent服务 + Prometheus/Grafana，通过Cloudflared 隧道开放至公网（不稳定，可能被墙打不开），后台演示访问地址：**
 
-[Fastapi Agent服务](http://192.168.8.80:30800/)
+[k3s 本地模型实验室](https://ai.jiangbos.top/)
 
-[Grafana](http://127.0.0.1:3000/)
+[ollama - Dashboards - Grafana](https://ga.jiangbos.top/d/ad7bb2l/ollama?from=now-6h&to=now&timezone=browser)
+
+（user:fermi       pwd:654321）
 
 ## 1. 项目基本信息
 
@@ -251,18 +251,15 @@ kubectl top pods -n local-ai
 | Ollama Pod 已运行但没有模型                                  | Ollama 服务健康不代表模型已下载；日志曾显示 `total blobs: 0` | 在 Pod 中执行 `ollama pull qwen2.5:0.5b` 并用 `ollama list` 确认。后续确认该模型曾安装在 PVC 中并通过 CPU 推理。 |
 | FastAPI Pod `CrashLoopBackOff`                               | 镜像缺少应用导入的 `httpx`；同时还缺少提供 `/metrics` 所需的 `prometheus-client` | 建议将依赖加入 `requirements.txt`，用新镜像标签重新构建并导入，且保持镜像完整名称在 build、import 和 Deployment 中一致。是否已修复并部署成功，需检查当前 Pod 与镜像。 |
 | FastAPI Pod 报 `ErrImageNeverPull`                           | Deployment 中的镜像名称/tag 与导入到 containerd 的镜像引用不一致 | 对齐镜像引用；使用新 tag 构建、导入并更新 Deployment，检查 Pod 事件和 endpoints。历史上曾同时出现镜像名不一致和依赖缺失这两个独立问题。 |
-| ServiceMonitor 已配置但 Prometheus 抓不到 FastAPI 指标       | FastAPI Pod 不 Ready、Service 没有可用 endpoint 时，Prometheus 无法成功抓取 | 先确认 Pod Ready 和 Service endpoints，再核对 ServiceMonitor 标签与 Prometheus selector；历史清单的 `release: prometheus` 标签曾确认匹配，但实际 target 是否 `UP` 未确认。 |
-| Ollama 没有 Prometheus `/metrics` 指标                       | Ollama 默认不一定提供项目需要的 Prometheus 指标              | 监控 FastAPI 暴露的请求与 token 指标；若需要 Ollama 自身指标，再评估 exporter。历史建议部署 exporter，但未确认已部署。 |
+| ServiceMonitor 已配置但 Prometheus 抓不到 FastAPI 指标       | FastAPI Pod 不 Ready、Service 没有可用 endpoint 时，Prometheus 无法成功抓取 | 先确认 Pod Ready 和 Service endpoints，再核对 ServiceMonitor 标签与 Prometheus selector；历史清单的 `release: prometheus` 标签曾确认匹配， target UP 未确认。 |
+| Ollama 没有 Prometheus `/metrics` 指标                       | Ollama 默认不一定提供项目需要的 Prometheus 指标              | 监控 FastAPI 暴露的请求与 token 指标；若需要 Ollama 自身指标，再评估 exporter。 |
 | Debian 上 `python` 命令不存在                                | Debian 默认可能只安装 `python3` 命令                         | 使用 `python3`，或安装 `python-is-python3`。                 |
 | SSH 密钥免密登录失败                                         | `~/.ssh` 或 `authorized_keys` 权限不符合 SSH 要求，或目标端未接受公钥 | 检查目录权限为 `700`、授权文件权限为 `600`，同时确认公钥已正确写入目标机。 |
-| Windows 不能激活从 Debian 复制来的 `.venv`                   | Linux 虚拟环境使用 `.venv\bin`，Windows 环境使用 `.venv\Scripts`，不能跨操作系统复用 | 在 Windows 项目目录单独创建 `.venv-win`，安装 `requirements-loadtest.txt`； |
 | PowerShell 找不到 `locust` 命令                              | `requirements.txt` 是应用依赖，Locust 单独列在 `requirements-loadtest.txt`；当前 Python 环境中没有 Locust | 在 Windows 虚拟环境运行 `python -m pip install -r .\requirements-loadtest.txt`，再用 `python -m locust ...` 启动。 |
 | PowerShell 中 Locust 命令的 `\` 换行写法异常                 | `\` 是 Unix shell 常见续行方式，不是 PowerShell 的续行符     | 在 PowerShell 中将命令写成一行，或使用反引号 ``` 续行。      |
-| 双击 Python 文件弹出“选择应用打开”                           | 双击源代码触发 Windows 文件关联，并不是 pip 安装流程         | 在 PowerShell 项目目录执行安装和测试命令，不要双击 `.py` 文件。 |
 | Locust CSV 输出路径可能无法创建                              | `--csv` 参数是文件名前缀，输出目录必须存在                   | 先创建 `results` 目录，再执行压测。当前 Windows 副本已存在 `results/`，并有一组 CSV 结果。 |
 | 监控面板不能从本机浏览器直接访问                             | Grafana 在 Debian K3s 集群内，本机没有直接建立到服务端口的通道 | 用 SSH 隧道把 Grafana Service 转发到本机 `127.0.0.1:3000`，浏览器访问该地址。 |
 | Grafana SSH 转发没有开机/登录后自动启动                      | 手动运行的 SSH 隧道会随终端关闭而中断                        | 先确认 SSH 密钥可无交互登录，再通过 Windows 任务计划程序配置“用户登录时”运行隧道脚本，并设置失败重试。 |
-| 项目 Windows 副本与 Debian 部署副本状态不一致                | 项目是手动复制的，两边 Git 分支、提交和文件不会自动同步      | 分别在两个目录检查 `git status` 和 `git log`，明确修改在哪一份副本；目前记录到 Windows 副本 `main`、HEAD `6bd1720`，Debian 历史记录曾有不同提交状态。 |
 
 **总体判断：** 许多问题已有明确诊断和操作方案；部分基础组件（K3s、监控栈、Ollama、小模型）亦验证可用。FastAPI 当前部署、Windows Locust 依赖安装、Prometheus 实际抓取以及 Grafana 自动转发均需要，再次确认。
 
